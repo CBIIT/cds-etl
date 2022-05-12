@@ -1,0 +1,7 @@
+# Ignore the data_files directory
+*node_data_files/
+__pycache__/
+.ipynb_checkpoints/
+cds_config.yaml
+*.zip
+*.xlsx
