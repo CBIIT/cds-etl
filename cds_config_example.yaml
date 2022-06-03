@@ -1,3 +1,4 @@
 NODE_FILE: ./node_file/cds-model.yml
-DATA_FILE: ./cds_raw_data_files/data.xlsx
+DATA_FILE1: ./cds_raw_data_files/data1.xlsx
+DATA_FILE2: ./cds_raw_data_files/data2.xlsx
 OUTPUT_FOLDER: ./cds_node_data_files/
