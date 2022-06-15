@@ -37,7 +37,8 @@ def add_properties(file_name, df, cds_df, dataframe_name):
         {'node':'genomic_info', 'new_property':'file.file_id', 'new_value': 'GUID', 'dataframe_name': 'CDS_Manifest_df'},
         {'node':'sample', 'new_property':'sample_id', 'new_value': 'Sample ID', 'dataframe_name': 'CGC_CDS_Explorer_df'},
         {'node':'sample', 'new_property':'participant.participant_id', 'new_value': 'Participant ID', 'dataframe_name': 'CGC_CDS_Explorer_df'},
-        {'node':'participant', 'new_property':'study.phs_accession', 'new_value': 'phs_accession', 'dataframe_name': 'Study_df'}
+        {'node':'participant', 'new_property':'study.phs_accession', 'new_value': 'phs_accession', 'dataframe_name': 'Study_df'},
+        {'node':'study', 'new_property':'data_access_level', 'new_value': 'acl', 'dataframe_name': 'Study_df'}
 
     ]
     new_df = pd.DataFrame()
