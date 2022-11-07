@@ -17,7 +17,7 @@ def extract_data(df, model, df_list, node):
                 if col_name in property or property in col_name:
                     #if len(cds_df) > len(df):
                     new_df[property] = cds_df[col]
-    
+
     for property in new_df.keys():
         if property in df.keys():
             df = df.join(new_df.set_index(property), on=property)
@@ -45,7 +45,7 @@ def add_properties(file_name, df, cds_df, dataframe_name):
     for property in props:
         if property['node'] == file_name and property['dataframe_name'] == dataframe_name:
              new_df[property['new_property']] = cds_df[property['new_value']]
-    
+
     for property in new_df.keys():
         if property in df.keys():
             df = df.join(new_df.set_index(property), on = property)
@@ -127,7 +127,7 @@ for node in model['Nodes']:
     df = pd.DataFrame()
     df_list = [File, Genomic_Info, CDS_Manifest_df, CGC_CDS_Explorer_df, SRA_Run_Selector_df, Study_df, Sample]
     df = extract_data(df, model, df_list, node)
-    
+
     df = remove_node(df, node)
     #participant should only come from Participant sheet
     df = extract_data(df, model, [Participant], node)

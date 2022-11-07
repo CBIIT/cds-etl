@@ -1,3 +1,0 @@
-NODE_FILE: ./node_file/cds-model-wprog.yml
-DATA_FOLDER: ./cds_raw_data_files_v1.3/
-OUTPUT_FOLDER: ./cds_transformed_data_files_v1.3/

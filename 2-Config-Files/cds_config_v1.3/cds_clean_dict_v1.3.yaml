@@ -1,0 +1,22 @@
+library_layout:
+  paired: Paired-end
+  Single: Single-end
+  Paired End: Paired-end
+instrument_model:
+  HiSeq 3000: Illumina HiSeq 3000
+  HiSeq 2500: Illumina HiSeq 2500
+  HiSeq 2000: Illumina HiSeq 2000
+  Illumina Next Seq 500: NextSeq 500
+  Illumina HiSeq X Five: HiSeq X Five
+  Illumina HiSeq X Ten: HiSeq X Ten
+  Illumina NextSeq: Illumina NextSeq
+  HiSeq: Illumina HiSeq
+file_type:
+  FASTQ: fastq
+  BAI: bai
+  BAM: bam
+gender:
+  female: Female
+  male: Male
+  nan: Unknown
+

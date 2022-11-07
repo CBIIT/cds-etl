@@ -1,0 +1,28 @@
+NODE_FILE: ./3-Model-Files/cds-model-wprog.yml
+DATA_FOLDER: ./0-Raw-Data-Files/cds_raw_data_files_v1.3/
+OUTPUT_FOLDER: ./4-Transformed-Data-Files/cds_transformed_data_files_v1.3/
+RATIO_LIMIT: 0.75
+S3_BUCKET: bruce-cds
+MODEL_FILE_PROPS: ./3-Model-Files/cds-model-props.yml
+CLEAN_DICT: ./2-Config-Files/cds_config_v1.3/cds_clean_dict_v1.3.yaml
+RAW_DATA_DICTIONARY: ./2-Config-Files/cds_config_v1.3/cds_raw_dict_v1.3.yaml
+PARENT_MAPPING_COLUMNS:
+  -
+    node: participant
+    parent_node: study
+    property: phs_accession
+  -
+    node: sample
+    parent_node: participant
+    property: participant_id
+  -
+    node: file
+    parent_node: sample
+    property: sample_id
+COMBINE_NODE:
+  -
+    node: study
+    id_column: phs_accession
+REMOVE_NODES:
+  - diagnosis
+  - treatment

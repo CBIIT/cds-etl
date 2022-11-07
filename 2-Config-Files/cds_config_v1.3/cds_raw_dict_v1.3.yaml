@@ -1,0 +1,57 @@
+diagnosis:
+  age_at_diagnosis: age_at_diagnosis
+  days_to_last_followup: days_to_last_followup
+  days_to_last_known_disease_status: days_to_last_known_status
+  last_known_disease_status: last_known_disease_status
+  morphology: morphology
+  primary_diagnosis: primary_diagnosis
+  progression_or_recurrence: progression_or_recurrence
+  tumor_grade: tumor_grade
+  vital_status: vital_status
+file:
+  design_description: file_description
+  file_name: file_name
+  file_size: file_size
+  file_type: file_type
+  file_url_in_cds: file_url_in_cds
+  filename: file_name
+  filetype: file_type
+  md5sum: md5sum
+  title/short description: file_description
+genomic_info:
+  AvgReadLength: avg_read_length
+  Bases: bases
+  alignment_software: sequence_alignment_software
+  coverage: coverage
+  design_description: design_description
+  instrument_model: instrument_model
+  library_ID: library_id
+  library_layout: library_layout
+  library_selection: library_selection
+  library_source: library_source
+  reference_genome_assembly: reference_genome_assembly
+  reference_genome_assembly (or accession): reference_genome_assembly
+  reference_genome_assembly..or.accession.: reference_genome_assembly
+participant:
+  ethnicity: ethnicity
+  gender: gender
+  participant_id: participant_id
+  race: race
+sample:
+  sample_ID: sample_id
+  sample_id: sample_id
+study:
+  file_type: file_types
+  filetype: file_types
+  number_of_participants: number_of_participants
+  number_of_samples: number_of_samples
+  phs_accession: phs_accession
+  primary_investigator_email: primary_investigator_email
+  primary_investigator_name: primary_investigator_name
+  study_data_types: study_data_types
+  study_name: study_name
+  title.short.description: short_description
+  title/short description: short_description
+treatment:
+  treatment_outcome: treatment_outcome
+  treatment_type: treatment_type
