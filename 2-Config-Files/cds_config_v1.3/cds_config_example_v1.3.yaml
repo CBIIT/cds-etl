@@ -24,5 +24,10 @@ COMBINE_NODE:
     node: study
     id_column: phs_accession
 REMOVE_NODES:
-  - diagnosis
+  #- diagnosis
   - treatment
+NODE_ID_FIELD:
+  -
+    node: file
+    id_field: file_id
+    backup_id_field: GUID

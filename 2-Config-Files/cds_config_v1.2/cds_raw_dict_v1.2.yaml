@@ -1,5 +1,8 @@
+diagnosis:
+  age_at_diagnosis: age_at_diagnosis
+  diagnosis_id: diagnosis_id
+  tumor_stage_clinical_m: tumor_stage_clinical_m
 file:
-  file_description: file_description
   file_id: file_id
   file_name: file_name
   file_size: file_size
@@ -7,9 +10,6 @@ file:
   file_url_in_cds: file_url_in_cds
   md5sum: md5sum
 genomic_info:
-  avg_read_length: avg_read_length
-  bases: bases
-  coverage: coverage
   design_description: design_description
   instrument_model: instrument_model
   library_id: library_id
@@ -17,7 +17,6 @@ genomic_info:
   library_selection: library_selection
   library_source: library_source
   library_strategy: library_strategy
-  number_of_reads: number_of_reads
   platform: platform
   reference_genome_assembly: reference_genome_assembly
   sequence_alignment_software: sequence_alignment_software
@@ -29,25 +28,18 @@ participant:
   race: race
 sample:
   biosample_accession: biosample_accession
-  sample_age_at_collection: sample_age_at_collection
   sample_anatomic_site: sample_anatomic_site
   sample_id: sample_id
   sample_tumor_status: sample_tumor_status
   sample_type: sample_type
 study:
-  adult_or_childhood_study: adult_or_childhood_study
   bioproject_accession: bioproject_accession
-  cds_primary_bucket: cds_primary_bucket
-  co_primary_investigator_email: primary_investigator_email
-  co_primary_investigator_name: primary_investigator_name
   experimental_strategy_and_data_subtype: experimental_strategy_and_data_subtypes
   file_types_and_format: file_types_and_format
   funding_agency: funding_agency
-  funding_source_program_name: funding_source_program_name
   grant_id: grant_id
   number_of_participant: number_of_participants
   number_of_samples: number_of_samples
-  organism_species: organism_species
   phs_accession: phs_accession
   primary_investigator_email: primary_investigator_email
   primary_investigator_name: primary_investigator_name

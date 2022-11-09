@@ -113,6 +113,10 @@ if args.extract_raw_data_dictionary == False:
                                 sheet_name = "File-Participant-Sample Mapping",
                                 engine = "openpyxl",
                                 keep_default_na = False)
+        Diagnosis = pd.read_excel(io = data_file,
+                                sheet_name = "Diagnosis (opt)",
+                                engine = "openpyxl",
+                                keep_default_na = False)
 
         # Replace all the empty string with NAN values
         Participant = Participant.replace(r'^\s*$', np.nan, regex=True)
@@ -121,6 +125,7 @@ if args.extract_raw_data_dictionary == False:
         Genomic_Info = Genomic_Info.replace(r'^\s*$', np.nan, regex=True)
         Study = Study.replace(r'^\s*$', np.nan, regex=True)
         File_Participant_Sample = File_Participant_Sample.replace(r'^\s*$', np.nan, regex=True)
+        Diagnosis = Diagnosis.replace(r'^\s*$', np.nan, regex=True)
 
         with open(config['NODE_FILE']) as f:
             model = yaml.load(f, Loader = yaml.FullLoader)
@@ -132,12 +137,16 @@ if args.extract_raw_data_dictionary == False:
         participant_df = extract_data(Participant, 'participant', raw_data_dict)
         study_df = extract_data(Study, 'study', raw_data_dict)
         sample_df = extract_data(Sample, 'sample', raw_data_dict)
+        diagnosis_df = extract_data(Diagnosis, 'diagnosis', raw_data_dict)
         df_dict['file'] = file_df
         df_dict['participant'] = participant_df
         df_dict['study'] = study_df
         df_dict['sample'] = sample_df
         df_dict['genomic_info'] = genomic_info_df
-
+        df_dict['diagnosis'] = diagnosis_df
+        if 'participant_id' in Diagnosis.keys():
+            if not Diagnosis['participant_id'].isnull().all():
+                df_dict['diagnosis']['participant.participant_id'] = Diagnosis['participant_id']
         participant_nulllist = list(df_dict['participant'].isnull().all(axis=1))
         if len(df_dict['study'] == 1) and 'phs_accession' in df_dict['study'].keys() and False in participant_nulllist:
             # If the participant data frame is not null and the study dataframe has only one record and 'phs_accession' is in the study's dataframe
@@ -174,7 +183,7 @@ if args.extract_raw_data_dictionary == False:
                 df_dict['file']['sample.sample_id'] = sample_id_list
 
         for node in df_dict.keys():
-            #df_dict[node] = clean_data(df_dict[node], config)
+            df_dict[node] = clean_data(df_dict[node], config)
             print_data(df_dict[node], config, node, data_file)
         if args.upload_s3 == True:
             upload_files(data_file, config, timestamp)
@@ -210,13 +219,17 @@ else:
                                 sheet_name = "Study",
                                 engine = "openpyxl",
                                 keep_default_na = False)
-
+        Diagnosis = pd.read_excel(io = data_file,
+                                sheet_name = "Diagnosis (opt)",
+                                engine = "openpyxl",
+                                keep_default_na = False)
         # Replace all the empty string with NAN values
         Participant = Participant.replace(r'^\s*$', np.nan, regex=True)
         Sample = Sample.replace(r'^\s*$', np.nan, regex=True)
         File = File.replace(r'^\s*$', np.nan, regex=True)
         Genomic_Info = Genomic_Info.replace(r'^\s*$', np.nan, regex=True)
         Study = Study.replace(r'^\s*$', np.nan, regex=True)
+        Diagnosis = Diagnosis.replace(r'^\s*$', np.nan, regex=True)
         with open(config['NODE_FILE']) as f:
             model = yaml.load(f, Loader = yaml.FullLoader)
         raw_dict = extract_raw_data_dict(File, model, 'file', ratio_limit, raw_dict)
@@ -224,6 +237,7 @@ else:
         raw_dict = extract_raw_data_dict(Participant, model, 'participant', ratio_limit, raw_dict)
         raw_dict = extract_raw_data_dict(Study, model, 'study',  ratio_limit, raw_dict)
         raw_dict = extract_raw_data_dict(Sample, model, 'sample',  ratio_limit, raw_dict)
+        raw_dict = extract_raw_data_dict(Diagnosis, model, 'diagnosis',  ratio_limit, raw_dict)
 
     with open(config['RAW_DATA_DICTIONARY'], 'w') as outfile:
         yaml.dump(raw_dict, outfile, default_flow_style=False)

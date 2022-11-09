@@ -19,4 +19,5 @@ gender:
   female: Female
   male: Male
   nan: Unknown
-
+#sample_anatomic_site:
+  #Blood: Peripheral blood
