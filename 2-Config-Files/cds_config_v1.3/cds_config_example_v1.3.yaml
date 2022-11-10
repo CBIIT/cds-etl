@@ -6,6 +6,7 @@ S3_BUCKET: bruce-cds
 MODEL_FILE_PROPS: ./3-Model-Files/cds-model-props.yml
 CLEAN_DICT: ./2-Config-Files/cds_config_v1.3/cds_clean_dict_v1.3.yaml
 RAW_DATA_DICTIONARY: ./2-Config-Files/cds_config_v1.3/cds_raw_dict_v1.3.yaml
+VALIDATION_SPREAD_SHEET: ./2-Config-Files/cds_config/UI-database mappings.xlsx
 PARENT_MAPPING_COLUMNS:
   -
     node: participant
@@ -19,6 +20,10 @@ PARENT_MAPPING_COLUMNS:
     node: file
     parent_node: sample
     property: sample_id
+  -
+    node: genomic_info
+    parebt_node: file
+    property: file_id
 COMBINE_NODE:
   -
     node: study

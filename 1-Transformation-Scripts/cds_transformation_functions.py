@@ -43,7 +43,7 @@ def clean_data(df, config):
                         print(set(value_list))
 """
 
-def upload_files(data_file, config, timestamp):
+def upload_files(data_file, config, timestamp, cds_log):
     # Function to upload the transformed data to the s3 bucket
     # The subfolder name of the uploaded data will be timestamp
     # "data_file" is the path of the raw data files
@@ -59,10 +59,10 @@ def upload_files(data_file, config, timestamp):
             s3_file_directory = os.path.join('Transformed', output_folder, timestamp, local_sub_folder_name, file_name)
             s3.upload_file(file_directory, config['S3_BUCKET'], s3_file_directory)
     subfolder = 's3://' + config['S3_BUCKET'] + '/' + 'Transformed' + '/' + output_folder + '/' + timestamp + '/' + local_sub_folder_name
-    print(f'Data files for {local_sub_folder_name} uploaded to {subfolder}')
+    cds_log.info(f'Data files for {local_sub_folder_name} uploaded to {subfolder}')
     return timestamp
 
-def print_data(df, config, file_name, data_file):
+def print_data(df, config, file_name, data_file, cds_log):
     # The function to store the transformed data to local file
     # The function will create a set of raw folders based on the name of the raw datafiles
     # "file_name" is the data node's name
@@ -77,7 +77,7 @@ def print_data(df, config, file_name, data_file):
     df_nulllist = list(df.isnull().all(axis=1))
     if False in df_nulllist:
         df.to_csv(file_name, sep = "\t", index = False)
-        print(f'Data node {os.path.basename(file_name)} is created and stored in {sub_folder}')
+        cds_log.info(f'Data node {os.path.basename(file_name)} is created and stored in {sub_folder}')
 
 
 def combine_rows(dict, config):
@@ -111,6 +111,8 @@ def remove_node(dict, config):
     for node in nodes:
         dict.pop(node)
     return dict
+
+#def ui_validation():
 
 
 

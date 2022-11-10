@@ -9,6 +9,9 @@ import dateutil.tz
 import datetime
 from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node
 import random
+from bento.common.utils import get_logger
+
+cds_log = get_logger('CDS V1.3 Transformation Script')
 
 def match_col(cds_df, property, limit):
     # The function to match the properties from the model file and the column name from the raw files
@@ -108,7 +111,7 @@ if args.extract_raw_data_dictionary == False:
     for data_file in glob.glob(path):
         data_file_base = os.path.basename(data_file)
         #data_file_sheet_name = os.path.splitext(data_file_base)[0]
-        print(f'Start transforming {data_file_base}')
+        cds_log.info(f'Start transforming {data_file_base}')
         # 'io' is the path of the excel file
         # 'sheet_name' is the sheet's name of the table we are going to read in
         # 'engine' is the engine used for reading in the data from excel
@@ -135,15 +138,15 @@ if args.extract_raw_data_dictionary == False:
         df_dict = combine_rows(df_dict, config)
         for node in df_dict.keys():
             df_dict[node] = clean_data(df_dict[node], config)
-            print_data(df_dict[node], config, node, data_file)
+            print_data(df_dict[node], config, node, data_file, cds_log)
         if args.upload_s3 == True:
-            upload_files(data_file, config, timestamp)
+            upload_files(data_file, config, timestamp, cds_log)
 else:
     raw_dict = {}
     for data_file in glob.glob(path):
         data_file_base = os.path.basename(data_file)
         #data_file_sheet_name = os.path.splitext(data_file_base)[0]
-        print(f'Start extracting raw data dictionary from {data_file_base}')
+        cds_log.info(f'Start extracting raw data dictionary from {data_file_base}')
         # 'io' is the path of the excel file
         # 'sheet_name' is the sheet's name of the table we are going to read in
         # 'engine' is the engine used for reading in the data from excel
@@ -162,4 +165,4 @@ else:
             raw_dict = extract_raw_data_dict(Participant, model, node, ratio_limit, raw_dict)
     with open(config['RAW_DATA_DICTIONARY'], 'w') as outfile:
         yaml.dump(raw_dict, outfile, default_flow_style=False)
-    print('Raw data dictionary is stored in {}'.format(config['RAW_DATA_DICTIONARY']))
+    cds_log.info('Raw data dictionary is stored in {}'.format(config['RAW_DATA_DICTIONARY']))
