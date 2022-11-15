@@ -39,6 +39,11 @@ participant:
   participant_ID: participant_id
   participant_id: participant_id
   race: race
+program:
+  program_acronym: program_acronym
+  program_description: program_full_description
+  program_external_url: program_external_url
+  program_name: program_name
 sample:
   sample_ID: sample_id
   sample_id: sample_id

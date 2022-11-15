@@ -60,6 +60,8 @@ def extract_data(cds_df, node, raw_data_dict):
         if node == 'file' and 'file_id' not in new_df.keys():
             if 'GUID' in cds_df.keys():
                 new_df['file_id'] = cds_df['GUID']
+            elif 'guid' in cds_df.keys():
+                new_df['file_id'] = cds_df['guid']
             else:
                 file_id = random.sample(range(10**9, 10**10), len(new_df))
                 new_df['file_id'] = file_id
@@ -185,11 +187,10 @@ if args.extract_raw_data_dictionary == False:
                 # Parent mapping column can not have none values
                 df_dict['file']['sample.sample_id'] = sample_id_list
 
-        for node in df_dict.keys():
-            df_dict[node] = clean_data(df_dict[node], config)
-            print_data(df_dict[node], config, node, data_file, cds_log)
+        df_dict = clean_data(df_dict, config)
+        print_data(df_dict, config, data_file, cds_log)
         if args.upload_s3 == True:
-            upload_files(data_file, config, timestamp)
+            upload_files(data_file, config, timestamp, cds_log)
 else:
     raw_dict = {}
     for data_file in glob.glob(path):

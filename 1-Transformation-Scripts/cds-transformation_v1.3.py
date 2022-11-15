@@ -7,9 +7,10 @@ import numpy as np
 import glob
 import dateutil.tz
 import datetime
-from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node
+from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation
 import random
 from bento.common.utils import get_logger
+import uuid
 
 cds_log = get_logger('CDS V1.3 Transformation Script')
 
@@ -57,7 +58,7 @@ def match_col_from_raw_dict(raw_dict, node, property, cds_df):
     return None
 
 
-def extract_data(cds_df, model, node, parent_mapping_column_list, raw_data_dict, node_id_field_list):
+def extract_data(cds_df, model, node, raw_data_dict, node_id_field_list):
     with open(raw_data_dict) as f:
         raw_dict = yaml.load(f, Loader = yaml.FullLoader)
     # The function to extract data from the raw data files
@@ -75,23 +76,50 @@ def extract_data(cds_df, model, node, parent_mapping_column_list, raw_data_dict,
             if node == node_id_field['node']:
                 if node_id_field['id_field'] not in new_df.keys():
                     if 'backup_id_field' in node_id_field.keys():
-                        if node_id_field['backup_id_field'] in cds_df.keys():
-                            new_df[node_id_field['id_field']] = cds_df[node_id_field['backup_id_field']]
-                        else:
-                            id_column = random.sample(range(10**9, 10**10), len(new_df))
+                        find_backup_id_field = False
+                        for backup_id_field in node_id_field['backup_id_field']:
+                            if backup_id_field in cds_df.keys():
+                                new_df[node_id_field['id_field']] = cds_df[backup_id_field]
+                                find_backup_id_field = True
+                        if not find_backup_id_field:
+                            id_column = id_column = list((uuid.uuid4() for x in range(len(new_df))))
                             new_df[node_id_field['id_field']] = id_column
                     else:
-                        id_column = random.sample(range(10**9, 10**10), len(new_df))
+                        id_column = list((uuid.uuid4() for x in range(len(new_df))))
                         new_df[node_id_field['id_field']] = id_column
         new_df['type'] = [node] * len(new_df)
-        for parent_mapping_column in parent_mapping_column_list:
-            if node == parent_mapping_column['node']:
-                parent_mapping_column_name = parent_mapping_column['parent_node'] + '.' + parent_mapping_column['property']
-                parent_raw_column_name = match_col_from_raw_dict(raw_dict, parent_mapping_column['parent_node'], parent_mapping_column['property'], cds_df)
-                if parent_raw_column_name != None:
-                    new_df[parent_mapping_column_name] = cds_df[parent_raw_column_name]
     return new_df
 
+def extract_parent_property(parent_mapping_column_list, df_dict):
+    for node in df_dict.keys():
+        new_df_nulllist = list(df_dict[node].isnull().all(axis=1))
+        if False in new_df_nulllist:
+            for parent_mapping_column in parent_mapping_column_list:
+                    if node == parent_mapping_column['node']:
+                        parent_mapping_column_name = parent_mapping_column['parent_node'] + '.' + parent_mapping_column['property']
+                        if parent_mapping_column['property'] in df_dict[parent_mapping_column['parent_node']].keys():
+                            df_dict[node][parent_mapping_column_name] = df_dict[parent_mapping_column['parent_node']][parent_mapping_column['property']]
+    return df_dict
+
+def add_id_fields_after(df_dict, config, cds_df):
+    node_id_field_list = config['NODE_ID_FIELD_AFTER']
+    for node in df_dict.keys():
+        for node_id_field in node_id_field_list:
+                if node == node_id_field['node']:
+                    if node_id_field['id_field'] not in df_dict[node].keys():
+                        if 'backup_id_field' in node_id_field.keys():
+                            find_backup_id_field = False
+                            for backup_id_field in node_id_field['backup_id_field']:
+                                if backup_id_field in cds_df.keys():
+                                    df_dict[node][node_id_field['id_field']] = cds_df[backup_id_field]
+                                    find_backup_id_field = True
+                            if not find_backup_id_field:
+                                id_column = id_column = list((uuid.uuid4() for x in range(len(df_dict[node]))))
+                                df_dict[node][node_id_field['id_field']] = id_column
+                        else:
+                            id_column = list((uuid.uuid4() for x in range(len(df_dict[node]))))
+                            df_dict[node][node_id_field['id_field']] = id_column
+    return df_dict
 
 
 parser = argparse.ArgumentParser()
@@ -118,27 +146,29 @@ if args.extract_raw_data_dictionary == False:
         # 'openpyxl' needs to install first and it is in the requirement.txt
         # 'keep_default_na' is whether or not to include the default NaN values when parsing the data.
         df_dict = {}
-        Participant = pd.read_excel(io = data_file,
+        Metadata = pd.read_excel(io = data_file,
                                 sheet_name =  "Metadata",
                                 engine = "openpyxl",
                                 keep_default_na = False)
         # Replace all the empty string with NAN values
-        Participant = Participant.replace(r'^\s*$', np.nan, regex=True)
+        Metadata = Metadata.replace(r'^\s*$', np.nan, regex=True)
 
         with open(config['NODE_FILE']) as f:
             model = yaml.load(f, Loader = yaml.FullLoader)
         for node in model['Nodes']:
-            parent_mapping_column_list = config['PARENT_MAPPING_COLUMNS']
             raw_data_dict = config['RAW_DATA_DICTIONARY']
-            node_id_field_list = config['NODE_ID_FIELD']
-            df_dict[node] = extract_data(Participant, model, node, parent_mapping_column_list, raw_data_dict, node_id_field_list)
-            df_dict[node] = df_dict[node].drop_duplicates() #remove duplicate record
+            node_id_field_list = config['NODE_ID_FIELD_BEFORE']
+            df_dict[node] = extract_data(Metadata, model, node, raw_data_dict, node_id_field_list)
+        parent_mapping_column_list = config['PARENT_MAPPING_COLUMNS']
+        df_dict = extract_parent_property(parent_mapping_column_list, df_dict)
         df_dict = remove_node(df_dict, config)
-
-        df_dict = combine_rows(df_dict, config)
         for node in df_dict.keys():
-            df_dict[node] = clean_data(df_dict[node], config)
-            print_data(df_dict[node], config, node, data_file, cds_log)
+            df_dict[node] = df_dict[node].drop_duplicates() #remove duplicate record
+        df_dict = add_id_fields_after(df_dict, config, Metadata)
+        df_dict = combine_rows(df_dict, config)
+        df_dict = clean_data(df_dict, config)
+        ui_validation(df_dict, config, data_file, cds_log)
+        print_data(df_dict, config, data_file, cds_log)
         if args.upload_s3 == True:
             upload_files(data_file, config, timestamp, cds_log)
 else:
@@ -152,17 +182,17 @@ else:
         # 'engine' is the engine used for reading in the data from excel
         # 'openpyxl' needs to install first and it is in the requirement.txt
         # 'keep_default_na' is whether or not to include the default NaN values when parsing the data.
-        Participant = pd.read_excel(io = data_file,
+        Metadata = pd.read_excel(io = data_file,
                                 sheet_name =  "Metadata",
                                 engine = "openpyxl",
                                 keep_default_na = False)
         # Replace all the empty string with NAN values
-        Participant = Participant.replace(r'^\s*$', np.nan, regex=True)
+        Metadata = Metadata.replace(r'^\s*$', np.nan, regex=True)
 
         with open(config['NODE_FILE']) as f:
             model = yaml.load(f, Loader = yaml.FullLoader)
         for node in model['Nodes']:
-            raw_dict = extract_raw_data_dict(Participant, model, node, ratio_limit, raw_dict)
+            raw_dict = extract_raw_data_dict(Metadata, model, node, ratio_limit, raw_dict)
     with open(config['RAW_DATA_DICTIONARY'], 'w') as outfile:
         yaml.dump(raw_dict, outfile, default_flow_style=False)
     cds_log.info('Raw data dictionary is stored in {}'.format(config['RAW_DATA_DICTIONARY']))

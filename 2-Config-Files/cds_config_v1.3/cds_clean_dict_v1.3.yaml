@@ -19,5 +19,10 @@ gender:
   female: Female
   male: Male
   nan: Unknown
+progression_or_recurrence:
+  Yes - Progression or Recurrence: Yes
+  True: Yes
+  Not Reported: Unknown
+
 #sample_anatomic_site:
   #Blood: Peripheral blood

@@ -10,3 +10,4 @@ cds_config.yaml
 *.rtf
 *.tsv
 cds-model*
+tmp/
