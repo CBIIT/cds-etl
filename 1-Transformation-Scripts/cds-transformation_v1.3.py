@@ -132,7 +132,7 @@ config = args.config_file
 with open(config) as f:
     config = yaml.load(f, Loader = yaml.FullLoader)
 ratio_limit = config['RATIO_LIMIT']
-path = os.path.join(config['DATA_FOLDER'], '*.xlsx')
+path = os.path.join(config['DATA_FOLDER'], config['DATA_BATCH_NAME'], '*.xlsx')
 eastern = dateutil.tz.gettz('US/Eastern')
 timestamp = datetime.datetime.now(tz=eastern).strftime("%Y-%m-%dT%H%M%S")
 if args.extract_raw_data_dictionary == False:
@@ -168,9 +168,10 @@ if args.extract_raw_data_dictionary == False:
         df_dict = combine_rows(df_dict, config)
         df_dict = clean_data(df_dict, config)
         ui_validation(df_dict, config, data_file, cds_log)
-        print_data(df_dict, config, data_file, cds_log)
-        if args.upload_s3 == True:
-            upload_files(data_file, config, timestamp, cds_log)
+        prefix = df_dict['study']['phs_accession'][0]
+        print_data(df_dict, config, cds_log, prefix)
+    if args.upload_s3 == True:
+        upload_files(config, timestamp, cds_log)
 else:
     raw_dict = {}
     for data_file in glob.glob(path):

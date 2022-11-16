@@ -23,6 +23,9 @@ progression_or_recurrence:
   Yes - Progression or Recurrence: Yes
   True: Yes
   Not Reported: Unknown
-
+sample_tumor_status:
+  primary CRC tumor FFPE tissue: tumor
+  normal blood: normal
+  nan: unknown
 #sample_anatomic_site:
   #Blood: Peripheral blood

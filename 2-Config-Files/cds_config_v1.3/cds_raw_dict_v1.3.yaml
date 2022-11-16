@@ -16,6 +16,7 @@ file:
   filename: file_name
   filetype: file_type
   title/short description: file_description
+  title_short_description: file_description
 genomic_info:
   AvgReadLength: avg_read_length
   Bases: bases
@@ -27,6 +28,7 @@ genomic_info:
   library_layout: library_layout
   library_selection: library_selection
   library_source: library_source
+  platform: platform
   reference_genome_assembly: reference_genome_assembly
   reference_genome_assembly (or accession): reference_genome_assembly
   reference_genome_assembly..or.accession.: reference_genome_assembly
@@ -47,6 +49,9 @@ program:
 sample:
   sample_ID: sample_id
   sample_id: sample_id
+  sample_tumor_status: sample_tumor_status
+  'sample_tumor_status ': sample_tumor_status
+  "sample_tumor_status\_": sample_tumor_status
 study:
   filetype: file_types
   number_of_participants: number_of_participants
@@ -56,8 +61,9 @@ study:
   primary_investigator_name: primary_investigator_name
   study_data_types: study_data_types
   study_name: study_name
-  title.short.description: short_description
   title/short description: short_description
+  title_short_description: short_description
+  experimental_strategy: experimental_strategy_and_data_subtypes
 treatment:
   treatment_outcome: treatment_outcome
   treatment_type: treatment_type

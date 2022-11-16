@@ -1,5 +1,6 @@
 NODE_FILE: ./3-Model-Files/cds-model-wprog.yml
 DATA_FOLDER: ./0-Raw-Data-Files/cds_raw_data_files_v1.3/
+DATA_BATCH_NAME: cds_data_2022-11-16
 OUTPUT_FOLDER: ./4-Transformed-Data-Files/cds_transformed_data_files_v1.3/
 RATIO_LIMIT: 0.75
 S3_BUCKET: bruce-cds

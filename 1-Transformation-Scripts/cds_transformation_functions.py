@@ -46,34 +46,37 @@ def clean_data(df_dict, config):
                         print(set(value_list))
 """
 
-def upload_files(data_file, config, timestamp, cds_log):
+def upload_files(config, timestamp, cds_log):
     # Function to upload the transformed data to the s3 bucket
     # The subfolder name of the uploaded data will be timestamp
     # "data_file" is the path of the raw data files
     # "config" is the config file
-    output_folder = os.path.basename(os.path.dirname(config['OUTPUT_FOLDER']))
-    local_sub_folder_name_list = os.path.splitext(os.path.basename(data_file))
-    local_sub_folder_name = local_sub_folder_name_list[0]
+    local_sub_folder_name = config['DATA_BATCH_NAME']
     s3 = boto3.client('s3')
     for file_name in os.listdir(os.path.join(config['OUTPUT_FOLDER'], local_sub_folder_name)):
         if file_name.endswith('.tsv'):
             # Find every file that end with '.tsv' and upload them to se bucket
             file_directory = os.path.join(config['OUTPUT_FOLDER'], local_sub_folder_name, file_name)
-            s3_file_directory = os.path.join('Transformed', output_folder, timestamp, local_sub_folder_name, file_name)
+            s3_file_directory = os.path.join('transformed', config['DATA_BATCH_NAME'], timestamp, file_name)
             s3.upload_file(file_directory, config['S3_BUCKET'], s3_file_directory)
-    subfolder = 's3://' + config['S3_BUCKET'] + '/' + 'Transformed' + '/' + output_folder + '/' + timestamp + '/' + local_sub_folder_name
-    cds_log.info(f'Data files for {local_sub_folder_name} uploaded to {subfolder}')
-    return timestamp
+    for file_name in os.listdir(os.path.join(config['DATA_FOLDER'], local_sub_folder_name)):
+        if file_name.endswith('.xlsx'):
+            # Find every file that end with '.tsv' and upload them to se bucket
+            file_directory = os.path.join(config['DATA_FOLDER'], local_sub_folder_name, file_name)
+            s3_file_directory = os.path.join('raw', config['DATA_BATCH_NAME'], timestamp, file_name)
+            s3.upload_file(file_directory, config['S3_BUCKET'], s3_file_directory)
+    transformed_subfolder = 's3://' + config['S3_BUCKET'] + '/' + 'transformed' + '/' + config['DATA_BATCH_NAME'] + '/' + timestamp
+    raw_subfolder = 's3://' + config['S3_BUCKET'] + '/' + 'raw' + '/' + config['DATA_BATCH_NAME'] + '/' + timestamp
+    cds_log.info(f'Transformed data files for {local_sub_folder_name} uploaded to {transformed_subfolder}')
+    cds_log.info(f'Raw data files for {local_sub_folder_name} uploaded to {raw_subfolder}')
 
-def print_data(df_dict, config, data_file, cds_log):
+def print_data(df_dict, config, cds_log, prefix):
     # The function to store the transformed data to local file
     # The function will create a set of raw folders based on the name of the raw datafiles
-    # "data_file" is the path of the raw data files
-    sub_folder_name_list = os.path.splitext(os.path.basename(data_file))
-    sub_folder_name = sub_folder_name_list[0]
-    sub_folder = os.path.join(config['OUTPUT_FOLDER'], sub_folder_name)
+    # "prefix" is the prefix of transfomed files
+    sub_folder = os.path.join(config['OUTPUT_FOLDER'], config['DATA_BATCH_NAME'])
     for file_name, df in df_dict.items():
-        file_name = file_name + '.tsv'
+        file_name = prefix + '-' + file_name + '.tsv'
         file_name = os.path.join(sub_folder, file_name)
         if not os.path.exists(sub_folder):
             os.makedirs(sub_folder)
