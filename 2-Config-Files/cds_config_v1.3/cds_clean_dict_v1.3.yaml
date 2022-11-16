@@ -26,6 +26,9 @@ progression_or_recurrence:
 sample_tumor_status:
   primary CRC tumor FFPE tissue: tumor
   normal blood: normal
+  normal buccal tissue: normal
+  adjacent normal colonic FFPE tissue: normal
+  normal saliva: normal
   nan: unknown
 #sample_anatomic_site:
   #Blood: Peripheral blood
