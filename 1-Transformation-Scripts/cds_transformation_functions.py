@@ -7,6 +7,12 @@ import pandas as pd
 
 
 def clean_data(df_dict, config):
+    # The function to clean the transformed data base on the clean data dictionary
+    # "df_dict" is the transformed data frame dictionary
+    # "config" is the config file
+    # The function will only replace the property's value if the property have "Enum" list value specific in the model props file
+    # and the "Enum" list value does not have only one "TBD" or "NOT_REPORTED" value inside the list
+    # and the property's value is not inside the "Enum" list but is record in the raw data dictionary
     ENUM = 'Enum'
     PROPDEFINITIONS = 'PropDefinitions'
     TBD = 'TBD'
@@ -73,7 +79,10 @@ def upload_files(config, timestamp, cds_log):
 def print_data(df_dict, config, cds_log, prefix):
     # The function to store the transformed data to local file
     # The function will create a set of raw folders based on the name of the raw datafiles
+    # "data_file" is the path of the raw data files
+    # "config" is the config file
     # "prefix" is the prefix of transfomed files
+    # "cds_log" is the log object
     sub_folder = os.path.join(config['OUTPUT_FOLDER'], config['DATA_BATCH_NAME'])
     for file_name, df in df_dict.items():
         file_name = prefix + '-' + file_name + '.tsv'
@@ -87,6 +96,9 @@ def print_data(df_dict, config, cds_log, prefix):
 
 
 def combine_rows(df_dict, config):
+    # The function to combine rows base on the config file
+    # "df_dict" is the transformed data frame dictionary
+    # "config" is the config file
     for combine_node in config['COMBINE_NODE']:
         combine_df = pd.DataFrame()
         df = df_dict[combine_node['node']]
@@ -113,12 +125,18 @@ def combine_rows(df_dict, config):
 
 def remove_node(df_dict, config):
     # The function to remove some extracted data node
+    # "data_file" is the path of the raw data files
+    # "config" is the config file
     nodes = config['REMOVE_NODES']
     for node in nodes:
         df_dict.pop(node)
     return df_dict
 
 def ui_validation(df_dict, config, data_file, cds_log):
+    # The function to do check if the UI related properties are in the transformed data files
+    # "data_file" is the path of the raw data files
+    # "config" is the config file
+    # "cds_log" is the log object
     raw_data_name = os.path.basename(data_file)
     validation_df = pd.read_excel(io = config['VALIDATION_FILE'],
                                 sheet_name =  "Must have properties",

@@ -35,6 +35,11 @@ def match_col(cds_df, property, limit):
 def extract_raw_data_dict(cds_df, model, node, limit, raw_dict):
     # The function to extract raw data dictionary from the raw data files
     #new_df = pd.DataFrame()
+    # "cds_df" is the raw data data frame
+    # "model" is the data model from the model file
+    # "node" is the node name of the current node for extracting
+    # "limit" is the minimum similarity
+    # "raw_dict" is the raw data dictionary
     for property in model['Nodes'][node]['Props']:
         col = match_col(cds_df, property, limit)
         if col != None:
@@ -46,6 +51,10 @@ def extract_raw_data_dict(cds_df, model, node, limit, raw_dict):
     return raw_dict
 
 def match_col_from_raw_dict(raw_dict, node, property, cds_df):
+    # The function to match the column name from the raw files and the properties from the model file using raw data dictionary
+    # "node" is the node name of the current node for transforming
+    # "property" is the property from the model file
+    # "raw_dict" is the raw data dictionary
     col_list = []
     if node in raw_dict.keys():
         for column, prop in raw_dict[node].items():
@@ -90,6 +99,9 @@ def extract_data(cds_df, model, node, raw_data_dict, node_id_field_list):
     return new_df
 
 def extract_parent_property(parent_mapping_column_list, df_dict):
+    # Function to add parent id column to the data node files
+    # "parent_mapping_column_list" is the parent relationship list from the config file
+    # "df_dict" is the transformed data frame dictionary
     for node in df_dict.keys():
         new_df_nulllist = list(df_dict[node].isnull().all(axis=1))
         if False in new_df_nulllist:
@@ -101,6 +113,10 @@ def extract_parent_property(parent_mapping_column_list, df_dict):
     return df_dict
 
 def add_id_fields_after(df_dict, config, cds_df):
+    # Function to add id_field to the node file after droping the duplicate vlaues
+    # "df_dict" is the transformed data frame dictionary
+    # "config" is the config file
+    # "cds_df" is the raw data dataframe
     node_id_field_list = config['NODE_ID_FIELD_AFTER']
     for node in df_dict.keys():
         for node_id_field in node_id_field_list:
@@ -123,7 +139,7 @@ def add_id_fields_after(df_dict, config, cds_df):
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--config_file', type=str, help='The path of the config file.', required=True) #Argument about the config file
-parser.add_argument('--upload_s3', help='Decide whether or not upload the transformed data to s3', action='store_true')
+parser.add_argument('--upload_s3', help='Decide whether or not upload the transformed data to s3', action='store_true') #Argument to decide whether or not to upload the transformed data to the s3 bucket
 parser.add_argument('--extract_raw_data_dictionary', help='Decide whether or not extract raw data dictionary instead of transformed raw data', action='store_true')
 args = parser.parse_args()
 config = args.config_file

@@ -34,6 +34,11 @@ def match_property(model, node, col, limit):
 
 def extract_raw_data_dict(cds_df, model, node, limit, raw_dict):
     # The function to extract raw data dictionary from the raw data files
+    # "cds_df" is the raw data data frame
+    # "model" is the data model from the model file
+    # "node" is the node name of the current node for extracting
+    # "limit" is the minimum similarity
+    # "raw_dict" is the raw data dictionary
     for col in cds_df.columns:
         property = match_property(model, node, col, limit)
         if property != None:
@@ -46,6 +51,8 @@ def extract_raw_data_dict(cds_df, model, node, limit, raw_dict):
 
 def extract_data(cds_df, node, raw_data_dict):
     # The function to extract data from the raw data files
+    # "cds_df" is the raw data data frame
+    # "raw_data_dict" is the raw data dictionary, this function use the raw data dictionary to locate the corresponding
     with open(raw_data_dict) as f:
         raw_dict = yaml.load(f, Loader = yaml.FullLoader)
     new_df = pd.DataFrame()
