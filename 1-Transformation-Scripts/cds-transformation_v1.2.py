@@ -1,4 +1,3 @@
-import string
 import pandas as pd
 import os
 import yaml
@@ -79,7 +78,7 @@ config = args.config_file
 
 with open(config) as f:
     config = yaml.load(f, Loader = yaml.FullLoader)
-path = os.path.join(config['DATA_FOLDER'], '*.xlsx')
+path = os.path.join(config['DATA_FOLDER'], config['DATA_BATCH_NAME'], '*.xlsx')
 ratio_limit = config['RATIO_LIMIT']
 eastern = dateutil.tz.gettz('US/Eastern')
 timestamp = datetime.datetime.now(tz=eastern).strftime("%Y-%m-%dT%H%M%S")
@@ -188,9 +187,10 @@ if args.extract_raw_data_dictionary == False:
                 df_dict['file']['sample.sample_id'] = sample_id_list
 
         df_dict = clean_data(df_dict, config)
-        print_data(df_dict, config, data_file, cds_log)
+        prefix = df_dict['study']['phs_accession'][0]
+        print_data(df_dict, config, cds_log, prefix)
         if args.upload_s3 == True:
-            upload_files(data_file, config, timestamp, cds_log)
+            upload_files(config, timestamp, cds_log)
 else:
     raw_dict = {}
     for data_file in glob.glob(path):

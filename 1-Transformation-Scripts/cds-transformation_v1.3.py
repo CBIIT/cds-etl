@@ -8,7 +8,6 @@ import glob
 import dateutil.tz
 import datetime
 from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation
-import random
 from bento.common.utils import get_logger
 import uuid
 
