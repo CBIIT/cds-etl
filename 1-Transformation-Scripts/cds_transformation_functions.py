@@ -33,8 +33,8 @@ def clean_data(df_dict, config):
                                     if value in clean_dict[key].keys():
                                         value_list.append(clean_dict[key][value])
                                         #print(clean_dict[key][value])
-                                    elif value == np.nan and 'nan' in clean_dict[key].keys():
-                                        value_list.append(clean_dict[key]['nan'])
+                                    elif pd.isnull(value) and 'nan_value' in clean_dict[key].keys():
+                                        value_list.append(clean_dict[key]['nan_value'])
                                     else:
                                         #value_list.append(None)
                                         value_list.append(value)
@@ -132,6 +132,40 @@ def remove_node(df_dict, config):
         df_dict.pop(node)
     return df_dict
 
+def delete_children(parent_mapping_column_list, delete_list, parent_node, df_dict, config):
+    for parent_mapping_column in parent_mapping_column_list:
+        if parent_mapping_column['parent_node'] == parent_node and len(df_dict[parent_mapping_column['node']]) > 0:
+            parent_id_field = parent_mapping_column['parent_node'] + '.' + parent_mapping_column['property']
+            children_node = parent_mapping_column['node']
+            for pc in parent_mapping_column_list:
+                if pc['parent_node'] == children_node and len(df_dict[pc['node']]) > 0:
+                    #pc_children_node = pc['node']
+                    children_delete_list_df = df_dict[children_node][df_dict[children_node][parent_id_field ].isin(delete_list)]
+                    children_delete_list = list(children_delete_list_df[config['NODE_ID_FIELD'][children_node]])
+                    df_dict = delete_children(parent_mapping_column_list, children_delete_list, children_node, df_dict, config)
+            df_dict[children_node] = df_dict[children_node][~df_dict[children_node][parent_id_field].isin(delete_list)]
+    return df_dict
+
+def id_validation(df_dict, config, data_file, cds_log):
+    raw_data_name = os.path.basename(data_file)
+    parent_mapping_column_list = config['PARENT_MAPPING_COLUMNS']
+    for node in df_dict.keys():
+        if len(df_dict[node]) > 0:
+            id_validation_result = [x for x in set(list(df_dict[node][config['NODE_ID_FIELD'][node]])) if list(df_dict[node][config['NODE_ID_FIELD'][node]]).count(x) > 1]
+            if len(id_validation_result) > 0:
+                cds_log.warning('The ID {} is duplicate in the node {} from the study {}'.format(id_validation_result, node, raw_data_name))
+                cds_log.warning('Removed all data related to the duplicated ID {} from the node {} from the study {}'.format(id_validation_result, node, raw_data_name))
+                df_dict[node] = df_dict[node][~df_dict[node][config['NODE_ID_FIELD'][node]].isin(id_validation_result)]
+                df_dict = delete_children(parent_mapping_column_list, id_validation_result, node, df_dict, config)
+                """
+                for parent_mapping_column in parent_mapping_column_list:
+                    if parent_mapping_column['parent_node'] == node and len(df_dict[parent_mapping_column['node']]) > 0:
+                        parent_id_field = parent_mapping_column['parent_node'] + '.' + parent_mapping_column['property']
+                        children_node = parent_mapping_column['node']
+                        df_dict[children_node] = df_dict[children_node][~df_dict[children_node][parent_id_field].isin(id_validation_result)]
+                """
+    return df_dict
+
 def ui_validation(df_dict, config, data_file, cds_log):
     # The function to do check if the UI related properties are in the transformed data files
     # "data_file" is the path of the raw data files
@@ -148,7 +182,9 @@ def ui_validation(df_dict, config, data_file, cds_log):
             for prop in properties:
                 if prop not in df_dict[node].keys():
                     df_dict[node][prop] = ['Not specified in data'] * len(df_dict[node])
-                    cds_log.warning('Data node {} does not have require UI property {} extracted from raw data file {}'.format(node, prop, raw_data_name))
+                    cds_log.warning('The data node {} does not have require UI property {} extracted from raw data file {}'.format(node, prop, raw_data_name))
+                elif df_dict[node][prop].isnull().values.any():
+                    df_dict[node][prop] = df_dict[node][prop].replace(np.nan, 'Not specified in data')
     return df_dict
 
 

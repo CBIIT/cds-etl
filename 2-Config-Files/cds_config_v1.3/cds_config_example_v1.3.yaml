@@ -1,9 +1,9 @@
 NODE_FILE: ./3-Model-Files/cds-model-wprog.yml
 DATA_FOLDER: ./0-Raw-Data-Files/cds_raw_data_files_v1.3/
-DATA_BATCH_NAME: cds_data_2022-11-16
+DATA_BATCH_NAME: cds_data_2022-11-18
 OUTPUT_FOLDER: ./4-Transformed-Data-Files/cds_transformed_data_files_v1.3/
 RATIO_LIMIT: 0.75
-S3_BUCKET: bruce-cds
+S3_BUCKET: cds-nonprod-metadata
 MODEL_FILE_PROPS: ./3-Model-Files/cds-model-props.yml
 CLEAN_DICT: ./2-Config-Files/cds_config_v1.3/cds_clean_dict_v1.3.yaml
 RAW_DATA_DICTIONARY: ./2-Config-Files/cds_config_v1.3/cds_raw_dict_v1.3.yaml
@@ -38,6 +38,7 @@ COMBINE_NODE:
   -
     node: study
     id_column: phs_accession
+
 REMOVE_NODES:
   #- diagnosis
   - treatment
@@ -56,3 +57,11 @@ NODE_ID_FIELD_AFTER:
     node: diagnosis
     id_field: diagnosis_id
 VALIDATION_FILE: ./2-Config-Files/cds_config/UI-database mappings.xlsx
+NODE_ID_FIELD:
+  program: program_acronym
+  diagnosis: diagnosis_id
+  file: file_id
+  genomic_info: library_id
+  sample: sample_id
+  participant: participant_id
+  study: phs_accession

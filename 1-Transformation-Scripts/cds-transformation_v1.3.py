@@ -7,7 +7,7 @@ import numpy as np
 import glob
 import dateutil.tz
 import datetime
-from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation
+from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation, id_validation
 from bento.common.utils import get_logger
 import uuid
 
@@ -183,6 +183,7 @@ if args.extract_raw_data_dictionary == False:
         df_dict = combine_rows(df_dict, config)
         df_dict = clean_data(df_dict, config)
         df_dict = ui_validation(df_dict, config, data_file, cds_log)
+        df_dict = id_validation(df_dict, config, data_file, cds_log)
         prefix = df_dict['study']['phs_accession'][0]
         print_data(df_dict, config, cds_log, prefix)
     if args.upload_s3 == True:

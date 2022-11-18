@@ -15,11 +15,11 @@ file_type:
   FASTQ: fastq
   BAI: bai
   BAM: bam
-  nan: unknown
+  #nan_value: unknown
 gender:
   female: Female
   male: Male
-  nan: Unknown
+  #nan_value: Not Specified in Data
 progression_or_recurrence:
   Yes - Progression or Recurrence: Yes
   True: Yes
@@ -30,6 +30,6 @@ sample_tumor_status:
   normal buccal tissue: normal
   adjacent normal colonic FFPE tissue: normal
   normal saliva: normal
-  nan: unknown
+  #nan_value: unknown
 #sample_anatomic_site:
   #Blood: Peripheral blood
