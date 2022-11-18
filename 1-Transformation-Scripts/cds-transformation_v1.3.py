@@ -182,7 +182,7 @@ if args.extract_raw_data_dictionary == False:
         df_dict = add_id_fields_after(df_dict, config, Metadata)
         df_dict = combine_rows(df_dict, config)
         df_dict = clean_data(df_dict, config)
-        ui_validation(df_dict, config, data_file, cds_log)
+        df_dict = ui_validation(df_dict, config, data_file, cds_log)
         prefix = df_dict['study']['phs_accession'][0]
         print_data(df_dict, config, cds_log, prefix)
     if args.upload_s3 == True:

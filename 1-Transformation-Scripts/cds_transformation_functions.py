@@ -147,7 +147,9 @@ def ui_validation(df_dict, config, data_file, cds_log):
         if len(properties) > 0:
             for prop in properties:
                 if prop not in df_dict[node].keys():
+                    df_dict[node][prop] = ['Not specified in data'] * len(df_dict[node])
                     cds_log.warning('Data node {} does not have require UI property {} extracted from raw data file {}'.format(node, prop, raw_data_name))
+    return df_dict
 
 
 
