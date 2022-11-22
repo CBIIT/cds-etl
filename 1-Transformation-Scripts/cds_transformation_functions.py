@@ -111,10 +111,12 @@ def combine_rows(df_dict, config):
                 if len(value_list) > 1:
                     value_string = ''
                     for i in range(0, len(value_list)):
+                        value_item = str(value_list[i]).strip()
                         if i != 0:
-                            value_string = value_string + ',' + str(value_list[i])
+                            if value_item not in value_string:
+                                value_string = value_string + ', ' + value_item
                         else:
-                            value_string = str(value_list[i])
+                            value_string = value_item
                     id_row[key] = value_string
                 else:
                     id_row[key] = value_list
@@ -146,7 +148,17 @@ def delete_children(parent_mapping_column_list, delete_list, parent_node, df_dic
             df_dict[children_node] = df_dict[children_node][~df_dict[children_node][parent_id_field].isin(delete_list)]
     return df_dict
 
+def print_id_validation_result(id_validation_df, config, cds_log, prefix):
+    sub_folder = os.path.join(config['ID_VALIDATION_RESULT_FOLDER'], config['DATA_BATCH_NAME'])
+    file_name = prefix + '-' + 'ID_validation_result' + '.tsv'
+    file_name = os.path.join(sub_folder, file_name)
+    if not os.path.exists(sub_folder):
+        os.makedirs(sub_folder)
+    id_validation_df.to_csv(file_name, sep = "\t", index = False)
+    cds_log.info(f'ID data validation result file {os.path.basename(file_name)} is created and stored in {sub_folder}')
+
 def id_validation(df_dict, config, data_file, cds_log):
+    id_validation_df = pd.DataFrame(columns = ['node name', 'ID', 'conflict property'])
     raw_data_name = os.path.basename(data_file)
     parent_mapping_column_list = config['PARENT_MAPPING_COLUMNS']
     for node in df_dict.keys():
@@ -155,6 +167,15 @@ def id_validation(df_dict, config, data_file, cds_log):
             if len(id_validation_result) > 0:
                 cds_log.warning('The ID {} is duplicate in the node {} from the study {}'.format(id_validation_result, node, raw_data_name))
                 cds_log.warning('Removed all data related to the duplicated ID {} from the node {} from the study {}'.format(id_validation_result, node, raw_data_name))
+                deleted_record = df_dict[node][df_dict[node][config['NODE_ID_FIELD'][node]].isin(id_validation_result)]
+                conflicted_column_names = []
+                for column_name in deleted_record.keys():
+                    column_length = len(set(list(deleted_record[column_name])))
+                    if column_length > 1 and column_name != config['NODE_ID_FIELD'][node]:
+                        conflicted_column_names.append(column_name)
+                for deleted_record_ID in set(list(deleted_record[config['NODE_ID_FIELD'][node]])):
+                    id_validation_df_row = pd.DataFrame(data = [[node, deleted_record_ID, conflicted_column_names]], columns = ['node name', 'ID', 'conflict property'])
+                    id_validation_df = pd.concat([id_validation_df, id_validation_df_row], ignore_index=True)
                 df_dict[node] = df_dict[node][~df_dict[node][config['NODE_ID_FIELD'][node]].isin(id_validation_result)]
                 df_dict = delete_children(parent_mapping_column_list, id_validation_result, node, df_dict, config)
                 """
@@ -164,6 +185,9 @@ def id_validation(df_dict, config, data_file, cds_log):
                         children_node = parent_mapping_column['node']
                         df_dict[children_node] = df_dict[children_node][~df_dict[children_node][parent_id_field].isin(id_validation_result)]
                 """
+    if len(id_validation_df) > 0:
+        prefix = df_dict['study']['phs_accession'][0]
+        print_id_validation_result(id_validation_df, config, cds_log, prefix)
     return df_dict
 
 def ui_validation(df_dict, config, data_file, cds_log):

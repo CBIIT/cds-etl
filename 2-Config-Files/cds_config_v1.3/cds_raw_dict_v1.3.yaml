@@ -18,6 +18,7 @@ file:
   filetype: file_type
   title/short description: file_description
   title_short_description: file_description
+  experimental_strategy: experimental_strategy_and_data_subtypes
 genomic_info:
   AvgReadLength: avg_read_length
   Bases: bases
@@ -65,7 +66,7 @@ study:
   study_name: study_name
   title/short description: short_description
   title_short_description: short_description
-  experimental_strategy: experimental_strategy_and_data_subtypes
+  #experimental_strategy: experimental_strategy_and_data_subtypes
 treatment:
   treatment_outcome: treatment_outcome
   treatment_type: treatment_type
