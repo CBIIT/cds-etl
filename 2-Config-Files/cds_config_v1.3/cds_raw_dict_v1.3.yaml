@@ -45,7 +45,7 @@ participant:
   race: race
 program:
   program_acronym: program_acronym
-  program_description: program_full_description
+  program_description: program_short_description
   program_external_url: program_external_url
   program_name: program_name
 sample:
@@ -66,6 +66,7 @@ study:
   study_name: study_name
   title/short description: short_description
   title_short_description: short_description
+  program_description: study_description
   #experimental_strategy: experimental_strategy_and_data_subtypes
 treatment:
   treatment_outcome: treatment_outcome

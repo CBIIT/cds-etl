@@ -211,5 +211,17 @@ def ui_validation(df_dict, config, data_file, cds_log):
                     df_dict[node][prop] = df_dict[node][prop].replace(np.nan, 'Not specified in data')
     return df_dict
 
-
-
+def download_from_s3(config, cds_log):
+        # Function to download raw data files from the s3 bucket
+        # The user can decide use this function to get raw data or just read raw data from local
+        # 's3' is a boto3 s3 object
+        s3 = boto3.client('s3')
+        subfolder_directory = config['S3_RAWDATA_SUBFOLDER']
+        cds_log.info('Start downloading file from s3 {}'.format(os.path.join(config['S3_BUCKET'], subfolder_directory)))
+        for key in s3.list_objects(Bucket = config['S3_BUCKET'], Prefix = subfolder_directory)['Contents']:
+            download_folder = os.path.join(config['DATA_FOLDER'], config['DATA_BATCH_NAME'])
+            if not os.path.exists(download_folder):
+                # If the path does not exist, then create the folder
+                os.mkdir(download_folder)
+            file_key = os.path.join(download_folder, os.path.basename(key['Key']))
+            s3.download_file(config['S3_BUCKET'], key['Key'], file_key)

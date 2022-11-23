@@ -7,7 +7,7 @@ import numpy as np
 import glob
 import dateutil.tz
 import datetime
-from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation, id_validation
+from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation, id_validation, download_from_s3
 from bento.common.utils import get_logger
 import uuid
 
@@ -144,12 +144,14 @@ parser.add_argument('--extract_raw_data_dictionary', help='Decide whether or not
 args = parser.parse_args()
 config = args.config_file
 
+
 with open(config) as f:
     config = yaml.load(f, Loader = yaml.FullLoader)
 ratio_limit = config['RATIO_LIMIT']
 path = os.path.join(config['DATA_FOLDER'], config['DATA_BATCH_NAME'], '*.xlsx')
 eastern = dateutil.tz.gettz('US/Eastern')
 timestamp = datetime.datetime.now(tz=eastern).strftime("%Y-%m-%dT%H%M%S")
+download_from_s3(config, cds_log)
 if args.extract_raw_data_dictionary == False:
     for data_file in glob.glob(path):
         data_file_base = os.path.basename(data_file)
@@ -167,7 +169,8 @@ if args.extract_raw_data_dictionary == False:
                                 keep_default_na = False)
         # Replace all the empty string with NAN values
         Metadata = Metadata.replace(r'^\s*$', np.nan, regex=True)
-
+        # Remove all leading and trailing spaces
+        Metadata = Metadata.applymap(lambda x: x.strip() if isinstance(x, str) else x)
         with open(config['NODE_FILE']) as f:
             model = yaml.load(f, Loader = yaml.FullLoader)
         for node in model['Nodes']:
