@@ -9,5 +9,5 @@ cds_config.yaml
 *.xlsx
 *.rtf
 *.tsv
-cds-model*
+#cds-model*
 tmp/
