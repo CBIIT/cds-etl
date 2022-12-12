@@ -3,7 +3,7 @@ PropDefinitions:
   file_id:
     Desc: File identifier
     Type: string
-    Req: false
+    Req: true
   file_url_in_cds:
     Desc: Location of the file on the CDS cloud, using AWS S3 protocol
     Type: string
@@ -185,6 +185,11 @@ PropDefinitions:
     Desc: Name of principal investigator
     Type: string
     Req: Preferred
+  acl:
+    Desc: open or restricted access to data
+    Enum:
+      - open
+      - controlled
   primary_investigator_email:
     Desc: Email of principal investigator
     Type: string
@@ -491,7 +496,7 @@ PropDefinitions:
       - ssRNA-seq
       - Targeted-Capture
       - Tethered Chromatin Conformation Capture
-      - OTHER
+      - OTHER        
   sequence_alignment_software:
     Desc: Name of software program used to align nucleotide sequence data
     Type: string
@@ -500,7 +505,7 @@ PropDefinitions:
     Desc: File name of any custom assembly fasta file used during alignment
     Type: string
     Req: Preferred
-
+    
   # cds requestor
   cds_requestor:
     Desc: Identifies the user requesting storage in CDS
