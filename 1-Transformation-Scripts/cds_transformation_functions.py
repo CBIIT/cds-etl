@@ -163,30 +163,38 @@ def id_validation(df_dict, config, data_file, cds_log):
     parent_mapping_column_list = config['PARENT_MAPPING_COLUMNS']
     for node in df_dict.keys():
         if len(df_dict[node]) > 0:
-            id_validation_result = [x for x in set(list(df_dict[node][config['NODE_ID_FIELD'][node]])) if list(df_dict[node][config['NODE_ID_FIELD'][node]]).count(x) > 1]
-            if len(id_validation_result) > 0:
-                cds_log.warning('The ID {} is duplicate in the node {} from the study {}'.format(id_validation_result, node, raw_data_name))
-                cds_log.warning('Removed all data related to the duplicated ID {} from the node {} from the study {}'.format(id_validation_result, node, raw_data_name))
-                deleted_record = df_dict[node][df_dict[node][config['NODE_ID_FIELD'][node]].isin(id_validation_result)]
-                conflicted_column_names = []
-                for column_name in deleted_record.keys():
-                    column_length = len(set(list(deleted_record[column_name])))
-                    if column_length > 1 and column_name != config['NODE_ID_FIELD'][node]:
-                        conflicted_column_names.append(column_name)
-                for deleted_record_ID in set(list(deleted_record[config['NODE_ID_FIELD'][node]])):
-                    id_validation_df_row = pd.DataFrame(data = [[node, deleted_record_ID, conflicted_column_names]], columns = ['node name', 'ID', 'conflict property'])
-                    id_validation_df = pd.concat([id_validation_df, id_validation_df_row], ignore_index=True)
-                df_dict[node] = df_dict[node][~df_dict[node][config['NODE_ID_FIELD'][node]].isin(id_validation_result)]
-                df_dict = delete_children(parent_mapping_column_list, id_validation_result, node, df_dict, config)
-                """
-                for parent_mapping_column in parent_mapping_column_list:
-                    if parent_mapping_column['parent_node'] == node and len(df_dict[parent_mapping_column['node']]) > 0:
-                        parent_id_field = parent_mapping_column['parent_node'] + '.' + parent_mapping_column['property']
-                        children_node = parent_mapping_column['node']
-                        df_dict[children_node] = df_dict[children_node][~df_dict[children_node][parent_id_field].isin(id_validation_result)]
-                """
+            if node in config['NODE_ID_FIELD'].keys():
+                id_validation_result = [x for x in set(list(df_dict[node][config['NODE_ID_FIELD'][node]])) if list(df_dict[node][config['NODE_ID_FIELD'][node]]).count(x) > 1]
+                if len(id_validation_result) > 0:
+                    cds_log.warning('The ID {} is duplicate in the node {} from the study {}'.format(id_validation_result, node, raw_data_name))
+                    cds_log.warning('Removed all data related to the duplicated ID {} from the node {} from the study {}'.format(id_validation_result, node, raw_data_name))
+                    deleted_record = df_dict[node][df_dict[node][config['NODE_ID_FIELD'][node]].isin(id_validation_result)]
+                    conflicted_column_names = []
+                    for column_name in deleted_record.keys():
+                        deleted_id_list = set(list(deleted_record[config['NODE_ID_FIELD'][node]]))
+                        conflicted_column = False
+                        for id in deleted_id_list:
+                            deleted_id_df = deleted_record.loc[deleted_record[config['NODE_ID_FIELD'][node]] == id]
+                            if len(set(list(deleted_id_df[column_name]))) > 1:
+                                conflicted_column = True
+                        #for id in deleted_id_list
+                        if conflicted_column and column_name != config['NODE_ID_FIELD'][node]:
+                            conflicted_column_names.append(column_name)
+                    for deleted_record_ID in set(list(deleted_record[config['NODE_ID_FIELD'][node]])):
+                        id_validation_df_row = pd.DataFrame(data = [[node, deleted_record_ID, conflicted_column_names]], columns = ['node name', 'ID', 'conflict property'])
+                        id_validation_df = pd.concat([id_validation_df, id_validation_df_row], ignore_index=True)
+                    df_dict[node] = df_dict[node][~df_dict[node][config['NODE_ID_FIELD'][node]].isin(id_validation_result)]
+                    df_dict = delete_children(parent_mapping_column_list, id_validation_result, node, df_dict, config)
+                    """
+                    for parent_mapping_column in parent_mapping_column_list:
+                        if parent_mapping_column['parent_node'] == node and len(df_dict[parent_mapping_column['node']]) > 0:
+                            parent_id_field = parent_mapping_column['parent_node'] + '.' + parent_mapping_column['property']
+                            children_node = parent_mapping_column['node']
+                            df_dict[children_node] = df_dict[children_node][~df_dict[children_node][parent_id_field].isin(id_validation_result)]
+                    """
     if len(id_validation_df) > 0:
-        prefix = df_dict['study']['phs_accession'][0]
+        #prefix = df_dict['study']['phs_accession'][0]
+        prefix = os.path.splitext(os.path.basename(data_file))[0]
         print_id_validation_result(id_validation_df, config, cds_log, prefix)
     return df_dict
 
@@ -225,3 +233,22 @@ def download_from_s3(config, cds_log):
                 os.mkdir(download_folder)
             file_key = os.path.join(download_folder, os.path.basename(key['Key']))
             s3.download_file(config['S3_BUCKET'], key['Key'], file_key)
+
+def combine_columns(df_dict, config, cds_log):
+    for combine_node in config['COMBINE_COLUMN']:
+        if combine_node['node'] in df_dict.keys():
+            try:
+                df_dict[combine_node['node']][combine_node['new_column']] = df_dict[combine_node['node']][combine_node['column1']].astype(str) + "_" + df_dict[combine_node['node']][combine_node['column2']].astype(str)
+            except Exception as e:
+                cds_log.error(e)
+    return df_dict
+
+def add_secondary_id(df_dict, config, cds_log):
+    for secondary_id_node in config['SECONDARY_ID_COLUMN']:
+        if secondary_id_node['node'] in df_dict.keys():
+            df_nulllist = list(df_dict[secondary_id_node['node']].isnull().all(axis=1))
+            if False in df_nulllist:
+                if secondary_id_node['node_id'] not in df_dict[secondary_id_node['node']].keys():
+                    cds_log.warning('The ID {} is missing and will be replaced by {} for the node {}'.format(secondary_id_node['node_id'], secondary_id_node['secondary_id'], secondary_id_node['node']))
+                    df_dict[secondary_id_node['node']][secondary_id_node['node_id']] = df_dict[secondary_id_node['node']][secondary_id_node['secondary_id']]
+    return df_dict

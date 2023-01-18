@@ -19,6 +19,10 @@ file_type:
 gender:
   female: Female
   male: Male
+  F: Female
+  FEMALE: Female
+  M: Male
+  MALE: male
   #nan_value: Not Specified in Data
 progression_or_recurrence:
   Yes - Progression or Recurrence: Yes
@@ -30,6 +34,15 @@ sample_tumor_status:
   normal buccal tissue: normal
   adjacent normal colonic FFPE tissue: normal
   normal saliva: normal
+study_data_types:
+  Genomics: Genomic
+  GENOMIC: Genomic
   #nan_value: unknown
 #sample_anatomic_site:
   #Blood: Peripheral blood
+library_strategy:
+  wxs: WXS
+  RNA-seq: RNA-Seq
+experimental_strategy_and_data_subtypes:
+  wxs: WXS
+  RNA-seq: RNA-Seq

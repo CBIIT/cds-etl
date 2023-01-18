@@ -16,6 +16,7 @@ file:
   file_url_in_cds: file_url_in_cds
   filename: file_name
   filetype: file_type
+  md5sum: md5sum
   title/short description: file_description
   title_short_description: file_description
   experimental_strategy: experimental_strategy_and_data_subtypes
@@ -55,6 +56,7 @@ sample:
   'sample_tumor_status ': sample_tumor_status
   "sample_tumor_status\_": sample_tumor_status
 study:
+  acl: acl
   file_type: file_types
   filetype: file_types
   number_of_participants: number_of_participants
@@ -67,7 +69,6 @@ study:
   title/short description: short_description
   title_short_description: short_description
   program_description: study_description
-  #experimental_strategy: experimental_strategy_and_data_subtypes
 treatment:
   treatment_outcome: treatment_outcome
   treatment_type: treatment_type

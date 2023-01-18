@@ -7,9 +7,8 @@ import numpy as np
 import glob
 import dateutil.tz
 import datetime
-from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation, id_validation, download_from_s3
+from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation, id_validation, download_from_s3, combine_columns, add_secondary_id
 from bento.common.utils import get_logger
-import uuid
 
 cds_log = get_logger('CDS V1.3 Transformation Script')
 
@@ -66,7 +65,7 @@ def match_col_from_raw_dict(raw_dict, node, property, cds_df):
     return None
 
 
-def extract_data(cds_df, model, node, raw_data_dict, node_id_field_list):
+def extract_data(cds_df, model, node, raw_data_dict):
     with open(raw_data_dict) as f:
         raw_dict = yaml.load(f, Loader = yaml.FullLoader)
     # The function to extract data from the raw data files
@@ -77,24 +76,6 @@ def extract_data(cds_df, model, node, raw_data_dict, node_id_field_list):
             new_df[property] = cds_df[col]
     new_df_nulllist = list(new_df.isnull().all(axis=1))
     if False in new_df_nulllist:
-        # If the extracted dataframe not only consist with NAN values
-        # Then add the 'type' property to the dataframe and add the parent mapping column
-        #add file ID column
-        for node_id_field in node_id_field_list:
-            if node == node_id_field['node']:
-                if node_id_field['id_field'] not in new_df.keys():
-                    if 'backup_id_field' in node_id_field.keys():
-                        find_backup_id_field = False
-                        for backup_id_field in node_id_field['backup_id_field']:
-                            if backup_id_field in cds_df.keys():
-                                new_df[node_id_field['id_field']] = cds_df[backup_id_field]
-                                find_backup_id_field = True
-                        if not find_backup_id_field:
-                            id_column = id_column = list((uuid.uuid4() for x in range(len(new_df))))
-                            new_df[node_id_field['id_field']] = id_column
-                    else:
-                        id_column = list((uuid.uuid4() for x in range(len(new_df))))
-                        new_df[node_id_field['id_field']] = id_column
         new_df['type'] = [node] * len(new_df)
     return new_df
 
@@ -110,30 +91,6 @@ def extract_parent_property(parent_mapping_column_list, df_dict):
                         parent_mapping_column_name = parent_mapping_column['parent_node'] + '.' + parent_mapping_column['property']
                         if parent_mapping_column['property'] in df_dict[parent_mapping_column['parent_node']].keys():
                             df_dict[node][parent_mapping_column_name] = df_dict[parent_mapping_column['parent_node']][parent_mapping_column['property']]
-    return df_dict
-
-def add_id_fields_after(df_dict, config, cds_df):
-    # Function to add id_field to the node file after droping the duplicate vlaues
-    # "df_dict" is the transformed data frame dictionary
-    # "config" is the config file
-    # "cds_df" is the raw data dataframe
-    node_id_field_list = config['NODE_ID_FIELD_AFTER']
-    for node in df_dict.keys():
-        for node_id_field in node_id_field_list:
-                if node == node_id_field['node']:
-                    if node_id_field['id_field'] not in df_dict[node].keys():
-                        if 'backup_id_field' in node_id_field.keys():
-                            find_backup_id_field = False
-                            for backup_id_field in node_id_field['backup_id_field']:
-                                if backup_id_field in cds_df.keys():
-                                    df_dict[node][node_id_field['id_field']] = cds_df[backup_id_field]
-                                    find_backup_id_field = True
-                            if not find_backup_id_field:
-                                id_column = id_column = list((uuid.uuid4() for x in range(len(df_dict[node]))))
-                                df_dict[node][node_id_field['id_field']] = id_column
-                        else:
-                            id_column = list((uuid.uuid4() for x in range(len(df_dict[node]))))
-                            df_dict[node][node_id_field['id_field']] = id_column
     return df_dict
 
 
@@ -175,19 +132,27 @@ if args.extract_raw_data_dictionary == False:
             model = yaml.load(f, Loader = yaml.FullLoader)
         for node in model['Nodes']:
             raw_data_dict = config['RAW_DATA_DICTIONARY']
-            node_id_field_list = config['NODE_ID_FIELD_BEFORE']
-            df_dict[node] = extract_data(Metadata, model, node, raw_data_dict, node_id_field_list)
+            df_dict[node] = extract_data(Metadata, model, node, raw_data_dict)
         parent_mapping_column_list = config['PARENT_MAPPING_COLUMNS']
+        df_dict = combine_columns(df_dict, config, cds_log)
         df_dict = extract_parent_property(parent_mapping_column_list, df_dict)
         df_dict = remove_node(df_dict, config)
         for node in df_dict.keys():
             df_dict[node] = df_dict[node].drop_duplicates() #remove duplicate record
-        df_dict = add_id_fields_after(df_dict, config, Metadata)
+            df_nulllist = list(df_dict[node].isnull().all(axis=1))
+            if False in df_nulllist:
+                original_property_list = []
+                for column_name in df_dict[node].keys():
+                    if column_name in model['Nodes'][node]['Props']:
+                        original_property_list.append(column_name)
+                df_dict[node] = df_dict[node].dropna(subset = original_property_list, how='all')
         df_dict = combine_rows(df_dict, config)
         df_dict = clean_data(df_dict, config)
+        df_dict = add_secondary_id(df_dict, config, cds_log)
         df_dict = ui_validation(df_dict, config, data_file, cds_log)
         df_dict = id_validation(df_dict, config, data_file, cds_log)
-        prefix = df_dict['study']['phs_accession'][0]
+        #prefix = df_dict['study']['phs_accession'][0]
+        prefix = os.path.splitext(data_file_base)[0]
         print_data(df_dict, config, cds_log, prefix)
     if args.upload_s3 == True:
         upload_files(config, timestamp, cds_log)
