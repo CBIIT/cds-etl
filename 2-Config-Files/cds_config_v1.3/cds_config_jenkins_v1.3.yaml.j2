@@ -24,9 +24,9 @@ PARENT_MAPPING_COLUMNS:
     parent_node: sample
     property: sample_id
   -
-    node: file
-    parent_node: genomic_info
-    property: library_id
+    node: genomic_info
+    parent_node: file
+    property: file_id
   -
     node: diagnosis
     parent_node: participant
@@ -40,30 +40,37 @@ COMBINE_NODE:
   -
     node: study
     id_column: phs_accession
+  -
+    node: program
+    id_column: program_acronym
+
+COMBINE_COLUMN:
+  -
+    node: sample
+    column1: sample_id
+    column2: sample_type
+    new_column: sample_id
+
+SECONDARY_ID_COLUMN:
+  -
+    node: diagnosis
+    node_id: diagnosis_id
+    secondary_id: participant.participant_id
+  -
+    node: genomic_info
+    node_id: genomic_info_id
+    secondary_id: file.file_id
 
 REMOVE_NODES:
   #- diagnosis
   - treatment
-NODE_ID_FIELD_BEFORE:
-  -
-    node: file
-    id_field: file_id
-    backup_id_field:
-     - GUID
-     - guid
-  -
-    node: genomic_info
-    id_field: library_id
-NODE_ID_FIELD_AFTER:
-  -
-    node: diagnosis
-    id_field: diagnosis_id
+
 VALIDATION_FILE: ./2-Config-Files/cds_config/UI-database mappings.xlsx
 NODE_ID_FIELD:
   program: program_acronym
-  diagnosis: diagnosis_id
   file: file_id
-  genomic_info: library_id
   sample: sample_id
   participant: participant_id
   study: phs_accession
+  diagnosis: diagnosis_id
+  genomic_info: genomic_info_id
