@@ -125,6 +125,7 @@ if args.extract_raw_data_dictionary == False:
                                 engine = "openpyxl",
                                 keep_default_na = False)
         # Replace all the empty string with NAN values
+        print('Hello!!!!!!!!!!!')
         Metadata = Metadata.replace(r'^\s*$', np.nan, regex=True)
         # Remove all leading and trailing spaces
         Metadata = Metadata.applymap(lambda x: x.strip() if isinstance(x, str) else x)
