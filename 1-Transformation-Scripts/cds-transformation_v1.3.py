@@ -125,18 +125,15 @@ if args.extract_raw_data_dictionary == False:
                                 engine = "openpyxl",
                                 keep_default_na = False)
         # Replace all the empty string with NAN values
-        print('Hello!!!!!!!!!!!')
         Metadata = Metadata.replace(r'^\s*$', np.nan, regex=True)
         # Remove all leading and trailing spaces
         Metadata = Metadata.applymap(lambda x: x.strip() if isinstance(x, str) else x)
-        print(Metadata)
         with open(config['NODE_FILE']) as f:
             model = yaml.load(f, Loader = yaml.FullLoader)
         for node in model['Nodes']:
             raw_data_dict = config['RAW_DATA_DICTIONARY']
             df_dict[node] = extract_data(Metadata, model, node, raw_data_dict)
         parent_mapping_column_list = config['PARENT_MAPPING_COLUMNS']
-        print(df_dict)
         df_dict = combine_columns(df_dict, config, cds_log)
         df_dict = extract_parent_property(parent_mapping_column_list, df_dict)
         df_dict = remove_node(df_dict, config)
