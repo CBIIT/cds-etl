@@ -46,3 +46,6 @@ library_strategy:
 experimental_strategy_and_data_subtypes:
   wxs: WXS
   RNA-seq: RNA-Seq
+sample_tumor_status:
+  normal: Normal
+  tumor: Tumor

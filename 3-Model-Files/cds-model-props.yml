@@ -293,8 +293,9 @@ PropDefinitions:
   sample_tumor_status:
     Desc: Tumor or normal status
     Enum:
-      - tumor
-      - normal
+      - Tumor
+      - Normal
+      - Unknown
   sample_type:
     Desc: Tissue type of this sample
     Enum:
