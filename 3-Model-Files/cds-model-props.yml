@@ -578,6 +578,10 @@ PropDefinitions:
     Type:
       value_type: list
       item_type: string
+    Enum:
+      - Genomic
+      - Proteomic
+      - Imaging
     Req: 'Yes'
   experimental_strategy_and_data_subtypes:
     Desc: |
