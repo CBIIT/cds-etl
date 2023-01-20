@@ -1,7 +1,8 @@
 library_layout:
-  paired: Paired-end
-  Single: Single-end
-  Paired End: Paired-end
+  paired: paired-end
+  Single: single-end
+  Paired End: paired-end
+  Paired-end: paired-end
 instrument_model:
   HiSeq 3000: Illumina HiSeq 3000
   HiSeq 2500: Illumina HiSeq 2500
@@ -49,3 +50,7 @@ experimental_strategy_and_data_subtypes:
 sample_tumor_status:
   normal: Normal
   tumor: Tumor
+library_source:
+  GENOMIC: Genomic
+  TRANSCRIPTOMIC: Transcriptomic
+

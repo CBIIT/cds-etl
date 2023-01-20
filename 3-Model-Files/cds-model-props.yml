@@ -431,7 +431,7 @@ PropDefinitions:
       - DNBSEQ-G400
       - DNBSEQ-T7
       - DNBSEQ-G50
-      - MGISEQ-2000RS      
+      - MGISEQ-2000RS
   library_id:
     Desc: Library identifier as submitted by requestor
     Type: string
@@ -440,21 +440,21 @@ PropDefinitions:
     Desc: Library layout as submitted by requestor
     Req: 'Yes'
     Enum:
-      - Paired-end
-      - Single-end
+      - paired-end
+      - single-end
   library_source:
     Desc: Source material used to create library
     Req: 'Yes'
     Enum:
-      - GENOMIC
-      - TRANSCRIPTOMIC
-      - METAGENOMIC
-      - METATRANSCRIPTOMIC
-      - SYNTHETIC
-      - VIRAL RNA
-      - GENOMIC SINGLE CELL
-      - TRANSCRIPTOMIC SINGLE CELL
-      - OTHER        
+      - Genomic
+      - Transcriptomic
+      - Metagenomic
+      - Metatranscriptomic
+      - Synthetic
+      - Viral RNA
+      - Genomic Single Cell
+      - Transcriptomic Single Cell
+      - Other
   library_selection:
     Desc: Library selection method
     Type: string
