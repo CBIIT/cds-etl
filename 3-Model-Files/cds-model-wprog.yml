@@ -1,5 +1,13 @@
 Handle: CDS
 Nodes:
+  program:
+    Props:
+      - program_name
+      - program_acronym
+      - program_short_description
+      - program_full_description
+      - program_external_url
+      - program_sort_order
   study:
     Props:
       - study_name
@@ -32,9 +40,9 @@ Nodes:
       - number_of_participants
       - number_of_samples
       - study_data_types
-      - experimental_strategy_and_data_subtypes
       - file_types_and_format
       - size_of_data_being_uploaded
+      - acl
   participant:
     Props:
       - participant_id
@@ -92,6 +100,7 @@ Nodes:
       - file_size
       - md5sum
       - file_url_in_cds
+      - experimental_strategy_and_data_subtypes
 
   genomic_info:
     Props:
@@ -111,6 +120,12 @@ Nodes:
       - instrument_model
       - sequence_alignment_software
 Relationships:
+  of_program:
+    Props: null
+    Mul: many_to_one
+    Ends:
+      - Src: study
+        Dst: program
   of_study:
     Props: null
     Mul: many_to_one

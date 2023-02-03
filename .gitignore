@@ -1,7 +1,14 @@
 # Ignore the data_files directory
 *node_data_files/
+#*transformed_data_files*/
+*old/
 __pycache__/
 .ipynb_checkpoints/
 cds_config.yaml
 *.zip
 *.xlsx
+!UI-database mappings.xlsx
+*.rtf
+*.tsv
+#cds-model*
+tmp/

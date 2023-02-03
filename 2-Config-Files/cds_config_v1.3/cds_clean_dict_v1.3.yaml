@@ -1,0 +1,70 @@
+library_layout:
+  paired: paired-end
+  Single: single-end
+  Paired End: paired-end
+  Paired-end: paired-end
+instrument_model:
+  HiSeq 3000: Illumina HiSeq 3000
+  HiSeq 2500: Illumina HiSeq 2500
+  HiSeq 2000: Illumina HiSeq 2000
+  Illumina Next Seq 500: NextSeq 500
+  Illumina HiSeq X Five: HiSeq X Five
+  Illumina HiSeq X Ten: HiSeq X Ten
+  Illumina NextSeq: Illumina NextSeq
+  HiSeq: Illumina HiSeq
+file_type:
+  fastq: FASTQ
+  bai: BAI
+  bam: BAM
+  #nan_value: unknown
+gender:
+  female: Female
+  male: Male
+  F: Female
+  FEMALE: Female
+  M: Male
+  MALE: male
+  #nan_value: Not Specified in Data
+progression_or_recurrence:
+  Yes - Progression or Recurrence: Yes
+  True: Yes
+  Not Reported: Unknown
+sample_tumor_status:
+  primary CRC tumor FFPE tissue: tumor
+  normal blood: normal
+  normal buccal tissue: normal
+  adjacent normal colonic FFPE tissue: normal
+  normal saliva: normal
+study_data_types:
+  Genomics: Genomic
+  GENOMIC: Genomic
+  #nan_value: unknown
+#sample_anatomic_site:
+  #Blood: Peripheral blood
+library_strategy:
+  wxs: WXS
+  RNA-seq: RNA-Seq
+experimental_strategy_and_data_subtypes:
+  wxs: WXS
+  RNA-seq: RNA-Seq
+sample_tumor_status:
+  normal: Normal
+  tumor: Tumor
+library_source:
+  GENOMIC: Genomic
+  TRANSCRIPTOMIC: Transcriptomic
+primary_diagnosis:
+  Diffuse glioma: Diffuse Glioma
+  embryonal rhabdomyosarcoma: Dysembryoplastic Neuroepithelial Tumor
+  Astrocytic glioma: Astrocytic Glioma
+  Glial neoplasm: Glial Neoplasm
+  Brain tumor: Brain Tumor
+  Atypical teratoid rhabdoid tumor: Atypical Teratoid/Rhabdoid Tumor
+  Atypical teratoid-rhabdoid tumor: Atypical Teratoid/Rhabdoid Tumor
+  Atypical teratoid/rhabdoid tumor: Atypical Teratoid/Rhabdoid Tumor
+  Diffuse glioma: Diffuse Glioma
+  Diffuse Low-grade Glioma: Diffuse low-grade glioma
+  Dysembryoplastic neuroepithelial tumor: Dysembryoplastic Neuroepithelial Tumor
+  dysembroplastic neuroepithelial tumor: Dysembryoplastic Neuroepithelial Tumor
+  Pilocytic astrocytoma: Pilocytic Astrocytoma
+  atypical teratoid rhaboid tumor: Atypical Teratoid/Rhabdoid Tumor

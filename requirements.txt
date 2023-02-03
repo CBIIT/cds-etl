@@ -1,3 +1,5 @@
 pyyaml
 pandas
-argparse
+numpy
+openpyxl
+boto3

@@ -1,0 +1,48 @@
+diagnosis:
+  age_at_diagnosis: age_at_diagnosis
+  diagnosis_id: diagnosis_id
+  tumor_stage_clinical_m: tumor_stage_clinical_m
+file:
+  file_id: file_id
+  file_name: file_name
+  file_size: file_size
+  file_type: file_type
+  file_url_in_cds: file_url_in_cds
+  md5sum: md5sum
+genomic_info:
+  design_description: design_description
+  instrument_model: instrument_model
+  library_id: library_id
+  library_layout: library_layout
+  library_selection: library_selection
+  library_source: library_source
+  library_strategy: library_strategy
+  platform: platform
+  reference_genome_assembly: reference_genome_assembly
+  sequence_alignment_software: sequence_alignment_software
+participant:
+  dbGaP_subject_id: dbGaP_subject_id
+  ethnicity: ethnicity
+  gender: gender
+  participant_id: participant_id
+  race: race
+sample:
+  biosample_accession: biosample_accession
+  sample_anatomic_site: sample_anatomic_site
+  sample_id: sample_id
+  sample_tumor_status: sample_tumor_status
+  sample_type: sample_type
+study:
+  bioproject_accession: bioproject_accession
+  experimental_strategy_and_data_subtype: experimental_strategy_and_data_subtypes
+  file_types_and_format: file_types_and_format
+  funding_agency: funding_agency
+  grant_id: grant_id
+  number_of_participant: number_of_participants
+  number_of_samples: number_of_samples
+  phs_accession: phs_accession
+  primary_investigator_email: primary_investigator_email
+  primary_investigator_name: primary_investigator_name
+  study_data_types: study_data_types
+  study_description: study_description
+  study_name: study_name

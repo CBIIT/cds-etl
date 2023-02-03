@@ -1,0 +1,9 @@
+NODE_FILE: ./3-Model-Files/cds-model-wprog.yml
+DATA_FOLDER: ./0-Raw-Data-Files/cds_raw_data_files_v1.2/
+OUTPUT_FOLDER:  ./4-Transformed-Data-Files/cds_transformed_data_files_v1.2/
+RATIO_LIMIT: 0.75
+S3_BUCKET: bruce-cds
+MODEL_FILE_PROPS: ./3-Model-Files/cds-model-props.yml
+RAW_DATA_DICTIONARY: ./2-Config-Files/cds_config_v1.2/cds_raw_dict_v1.2.yaml
+CLEAN_DICT: ./2-Config-Files/cds_config_v1.3/cds_clean_dict_v1.3.yaml
+DATA_BATCH_NAME: cds_data_2022-11-17
