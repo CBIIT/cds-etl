@@ -13,9 +13,9 @@ instrument_model:
   Illumina NextSeq: Illumina NextSeq
   HiSeq: Illumina HiSeq
 file_type:
-  FASTQ: fastq
-  BAI: bai
-  BAM: bam
+  fastq: FASTQ
+  bai: BAI
+  bam: BAM
   #nan_value: unknown
 gender:
   female: Female
