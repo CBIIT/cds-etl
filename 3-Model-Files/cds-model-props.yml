@@ -115,10 +115,10 @@ PropDefinitions:
       - Astrocytic Glioma
       - Glial Neoplasm
       - Brain Tumor
-      - Atypical Teratoid/Rhabdoid tumor
+      - Atypical Teratoid/Rhabdoid Tumor
       - Diffuse Glioma
-      - Dysembryoplastic Neuroepithelial tumor
       - Pilocytic Astrocytoma
+      - Diffuse low-grade glioma
   primary_site:
     Desc: Anatomical site of disease in primary diagnosis for this diagnosis
     Enum:

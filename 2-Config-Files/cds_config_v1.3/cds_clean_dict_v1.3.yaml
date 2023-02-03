@@ -59,11 +59,12 @@ primary_diagnosis:
   Astrocytic glioma: Astrocytic Glioma
   Glial neoplasm: Glial Neoplasm
   Brain tumor: Brain Tumor
-  Atypical teratoid rhabdoid tumor: Atypical teratoid rhabdoid tumor
-  Atypical teratoid-rhabdoid tumor: Atypical teratoid rhabdoid tumor
-  Atypical teratoid/rhabdoid tumor: Atypical teratoid rhabdoid tumor
+  Atypical teratoid rhabdoid tumor: Atypical Teratoid/Rhabdoid Tumor
+  Atypical teratoid-rhabdoid tumor: Atypical Teratoid/Rhabdoid Tumor
+  Atypical teratoid/rhabdoid tumor: Atypical Teratoid/Rhabdoid Tumor
   Diffuse glioma: Diffuse Glioma
   Diffuse Low-grade Glioma: Diffuse low-grade glioma
-  Dysembryoplastic neuroepithelial tumor: Dysembryoplastic Neuroepithelial tumor
-  dysembroplastic neuroepithelial tumor: Dysembryoplastic Neuroepithelial tumor
+  Dysembryoplastic neuroepithelial tumor: Dysembryoplastic Neuroepithelial Tumor
+  dysembroplastic neuroepithelial tumor: Dysembryoplastic Neuroepithelial Tumor
   Pilocytic astrocytoma: Pilocytic Astrocytoma
+  atypical teratoid rhaboid tumor: Atypical Teratoid/Rhabdoid Tumor

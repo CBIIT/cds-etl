@@ -44,7 +44,6 @@ participant:
   participant_id: participant_id
   race: race
 program:
-  study_acronym: program_acronym
   program_acronym: program_acronym
   program_description: program_short_description
   program_external_url: program_external_url
@@ -74,6 +73,7 @@ study:
   study_data_types: study_data_types
   study_name: study_name
   title_short_description: short_description
+  study_description: study_description
 treatment:
   treatment_outcome: treatment_outcome
   treatment_type: treatment_type
