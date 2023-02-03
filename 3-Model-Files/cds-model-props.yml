@@ -110,7 +110,15 @@ PropDefinitions:
     Desc: Primary disease diagnosed for this diagnosis and subject
     Enum:
       # reuse ICD-O-3 value_set
-      - TBD
+      - Diffuse Glioma
+      - Dysembryoplastic Neuroepithelial Tumor
+      - Astrocytic Glioma
+      - Glial Neoplasm
+      - Brain Tumor
+      - Atypical Teratoid/Rhabdoid tumor
+      - Diffuse Glioma
+      - Dysembryoplastic Neuroepithelial tumor
+      - Pilocytic Astrocytoma
   primary_site:
     Desc: Anatomical site of disease in primary diagnosis for this diagnosis
     Enum:

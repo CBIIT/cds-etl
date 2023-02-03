@@ -53,4 +53,17 @@ sample_tumor_status:
 library_source:
   GENOMIC: Genomic
   TRANSCRIPTOMIC: Transcriptomic
-
+primary_diagnosis:
+  Diffuse glioma: Diffuse Glioma
+  embryonal rhabdomyosarcoma: Dysembryoplastic Neuroepithelial Tumor
+  Astrocytic glioma: Astrocytic Glioma
+  Glial neoplasm: Glial Neoplasm
+  Brain tumor: Brain Tumor
+  Atypical teratoid rhabdoid tumor: Atypical teratoid rhabdoid tumor
+  Atypical teratoid-rhabdoid tumor: Atypical teratoid rhabdoid tumor
+  Atypical teratoid/rhabdoid tumor: Atypical teratoid rhabdoid tumor
+  Diffuse glioma: Diffuse Glioma
+  Diffuse Low-grade Glioma: Diffuse low-grade glioma
+  Dysembryoplastic neuroepithelial tumor: Dysembryoplastic Neuroepithelial tumor
+  dysembroplastic neuroepithelial tumor: Dysembryoplastic Neuroepithelial tumor
+  Pilocytic astrocytoma: Pilocytic Astrocytoma
