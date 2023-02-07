@@ -68,3 +68,5 @@ primary_diagnosis:
   dysembroplastic neuroepithelial tumor: Dysembryoplastic Neuroepithelial Tumor
   Pilocytic astrocytoma: Pilocytic Astrocytoma
   atypical teratoid rhaboid tumor: Atypical Teratoid/Rhabdoid Tumor
+platform:
+  Illumina: ILLUMINA
