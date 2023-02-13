@@ -12,3 +12,5 @@ cds_config.yaml
 *.tsv
 #cds-model*
 tmp/
+.gitsecret/keys/random_seed
+!*.secret
