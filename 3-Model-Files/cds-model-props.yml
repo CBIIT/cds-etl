@@ -119,6 +119,7 @@ PropDefinitions:
       - Diffuse Glioma
       - Pilocytic Astrocytoma
       - Diffuse low-grade glioma
+      - Alveolar Rhabdomyosarcoma
   primary_site:
     Desc: Anatomical site of disease in primary diagnosis for this diagnosis
     Enum:
