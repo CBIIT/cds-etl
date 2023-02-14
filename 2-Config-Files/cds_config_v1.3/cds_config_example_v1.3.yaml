@@ -36,6 +36,12 @@ PARENT_MAPPING_COLUMNS:
     parent_node: program
     property: program_acronym
 
+SECONDARY_PARENT_MAPPING_COLUMNS:
+  -
+    node: file
+    parent_node: study
+    property: phs_accession
+
 COMBINE_NODE:
   -
     node: study
