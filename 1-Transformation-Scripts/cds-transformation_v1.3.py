@@ -79,7 +79,7 @@ def extract_data(cds_df, model, node, raw_data_dict):
         new_df['type'] = [node] * len(new_df)
     return new_df
 
-def extract_parent_property(parent_mapping_column_list, secondary_parent_mapping_column_list, df_dict):
+def extract_parent_property(parent_mapping_column_list, df_dict):
     # Function to add parent id column to the data node files
     # "parent_mapping_column_list" is the parent relationship list from the config file
     # "df_dict" is the transformed data frame dictionary
@@ -134,9 +134,8 @@ if args.extract_raw_data_dictionary == False:
             raw_data_dict = config['RAW_DATA_DICTIONARY']
             df_dict[node] = extract_data(Metadata, model, node, raw_data_dict)
         parent_mapping_column_list = config['PARENT_MAPPING_COLUMNS']
-        secondary_parent_mapping_column_list = config['SECONDARY_PARENT_MAPPING_COLUMNS']
         df_dict = combine_columns(df_dict, config, cds_log)
-        df_dict = extract_parent_property(parent_mapping_column_list, secondary_parent_mapping_column_list, df_dict)
+        df_dict = extract_parent_property(parent_mapping_column_list, df_dict)
         df_dict = remove_node(df_dict, config)
         for node in df_dict.keys():
             df_dict[node] = df_dict[node].drop_duplicates() #remove duplicate record
