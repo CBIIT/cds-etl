@@ -146,9 +146,10 @@ if args.extract_raw_data_dictionary == False:
                     if column_name in model['Nodes'][node]['Props']:
                         original_property_list.append(column_name)
                 df_dict[node] = df_dict[node].dropna(subset = original_property_list, how='all')
-        df_dict = combine_rows(df_dict, config)
+        #df_dict = combine_rows(df_dict, config)
         df_dict = clean_data(df_dict, config)
         df_dict = add_secondary_id(df_dict, config, cds_log)
+        df_dict = combine_rows(df_dict, config, cds_log)
         df_dict = ui_validation(df_dict, config, data_file, cds_log)
         df_dict = id_validation(df_dict, config, data_file, cds_log)
         #prefix = df_dict['study']['phs_accession'][0]

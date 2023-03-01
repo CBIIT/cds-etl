@@ -95,34 +95,40 @@ def print_data(df_dict, config, cds_log, prefix):
             cds_log.info(f'Data node {os.path.basename(file_name)} is created and stored in {sub_folder}')
 
 
-def combine_rows(df_dict, config):
+def combine_rows(df_dict, config, cds_log):
     # The function to combine rows base on the config file
     # "df_dict" is the transformed data frame dictionary
     # "config" is the config file
     for combine_node in config['COMBINE_NODE']:
-        combine_df = pd.DataFrame()
-        df = df_dict[combine_node['node']]
-        id_column = combine_node['id_column']
-        for id in list(set(list(df[id_column]))):
-            id_row = pd.DataFrame()
-            for key in df.keys():
-                values = df.loc[df[id_column] == id][key].dropna()
-                value_list = list(set(values))
-                if len(value_list) > 1:
-                    value_string = ''
-                    for i in range(0, len(value_list)):
-                        value_item = str(value_list[i]).strip()
-                        if i != 0:
-                            if value_item not in value_string:
-                                value_string = value_string + ', ' + value_item
-                        else:
-                            value_string = value_item
-                    id_row[key] = value_string
-                else:
-                    id_row[key] = value_list
-            #print(id_row)
-            combine_df = pd.concat([combine_df, id_row], ignore_index=True)
-        df_dict[combine_node['node']] = combine_df
+        try:
+            combine_df = pd.DataFrame()
+            df = df_dict[combine_node['node']]
+            id_column = combine_node['id_column']
+            for id in list(set(list(df[id_column]))):
+                id_row = pd.DataFrame()
+                for key in df.keys():
+                    values = df.loc[df[id_column] == id][key].dropna()
+                    value_list = list(set(values))
+                    if len(value_list) > 1:
+                        value_string = ''
+                        for i in range(0, len(value_list)):
+                            value_item = str(value_list[i]).strip()
+                            if i != 0:
+                                if value_item not in value_string:
+                                    value_string = value_string + ', ' + value_item
+                            else:
+                                value_string = value_item
+                        id_row[key] = [value_string]
+                    elif len(value_list) == 1:
+                        id_row[key] = value_list
+                    else:
+                        id_row[key] = [np.nan]
+                #print(id_row)
+                combine_df = pd.concat([combine_df, id_row], ignore_index=True)
+            df_dict[combine_node['node']] = combine_df
+        except Exception as e:
+            cds_log.warning('Data node {} dose not exist'.format(combine_node))
+            cds_log.error(e)
     return df_dict
 
 def remove_node(df_dict, config):
