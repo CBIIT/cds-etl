@@ -116,7 +116,6 @@ PropDefinitions:
     Desc: Primary disease diagnosed for this diagnosis and subject
     Enum:
       # reuse ICD-O-3 value_set
-      - Diffuse Glioma
       - Dysembryoplastic Neuroepithelial Tumor
       - Astrocytic Glioma
       - Glial Neoplasm
