@@ -169,6 +169,7 @@ def id_validation(df_dict, config, data_file, cds_log):
     parent_mapping_column_list = config['PARENT_MAPPING_COLUMNS']
     for node in df_dict.keys():
         if len(df_dict[node]) > 0:
+            df_dict[node] = df_dict[node].dropna(subset = [config['NODE_ID_FIELD'][node]])
             if node in config['NODE_ID_FIELD'].keys():
                 id_validation_result = [x for x in set(list(df_dict[node][config['NODE_ID_FIELD'][node]])) if list(df_dict[node][config['NODE_ID_FIELD'][node]]).count(x) > 1]
                 if len(id_validation_result) > 0:
