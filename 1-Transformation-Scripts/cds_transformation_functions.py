@@ -170,6 +170,11 @@ def id_validation(df_dict, config, data_file, cds_log):
     for node in df_dict.keys():
         if len(df_dict[node]) > 0:
             df_dict[node] = df_dict[node].dropna(subset = [config['NODE_ID_FIELD'][node]])
+            for parent_column in config['PARENT_MAPPING_COLUMNS']:
+                if parent_column['node'] == node:
+                    parent_id_field = parent_column['parent_node'] + '.' + parent_column['property']
+                    if parent_id_field in df_dict[node].keys():
+                        df_dict[node] = df_dict[node].dropna(subset = [parent_id_field])
             if node in config['NODE_ID_FIELD'].keys():
                 id_validation_result = [x for x in set(list(df_dict[node][config['NODE_ID_FIELD'][node]])) if list(df_dict[node][config['NODE_ID_FIELD'][node]]).count(x) > 1]
                 if len(id_validation_result) > 0:
