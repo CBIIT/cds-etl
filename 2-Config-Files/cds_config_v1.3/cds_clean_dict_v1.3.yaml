@@ -3,6 +3,7 @@ library_layout:
   Single: single-end
   Paired End: paired-end
   Paired-end: paired-end
+  Paired end: paired-end
 instrument_model:
   HiSeq 3000: Illumina HiSeq 3000
   HiSeq 2500: Illumina HiSeq 2500
@@ -38,6 +39,7 @@ sample_tumor_status:
 study_data_types:
   Genomics: Genomic
   GENOMIC: Genomic
+  genomic: Genomic
   #nan_value: unknown
 #sample_anatomic_site:
   #Blood: Peripheral blood
