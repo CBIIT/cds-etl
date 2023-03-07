@@ -17,6 +17,10 @@ file_type:
   fastq: FASTQ
   bai: BAI
   bam: BAM
+  bw: BW
+  tbi: VCF
+  tsv: TSV
+  vcf: VCF
   #nan_value: unknown
 gender:
   female: Female

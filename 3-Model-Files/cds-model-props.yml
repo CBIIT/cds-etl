@@ -26,6 +26,16 @@ PropDefinitions:
       - BAM
       - BAI
       - FASTQ
+      - BW
+      - CRAI
+      - CRAM
+      - HTML
+      - IDAT
+      - JSON
+      - PDF
+      - TSV
+      - TXT
+      - VCF
     Req: true
   file_access:
     Desc: File access
