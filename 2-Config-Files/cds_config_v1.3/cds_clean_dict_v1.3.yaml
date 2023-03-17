@@ -59,6 +59,7 @@ sample_tumor_status:
 library_source:
   GENOMIC: Genomic
   TRANSCRIPTOMIC: Transcriptomic
+  Single-nuclei: Single Nucleus
 primary_diagnosis:
   Diffuse glioma: Diffuse Glioma
   embryonal rhabdomyosarcoma: Dysembryoplastic Neuroepithelial Tumor
