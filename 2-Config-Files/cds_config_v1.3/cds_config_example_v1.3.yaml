@@ -1,14 +1,14 @@
 NODE_FILE: ./3-Model-Files/cds-model-wprog.yml
 DATA_FOLDER: ./0-Raw-Data-Files/cds_raw_data_files_v1.3/
-DATA_BATCH_NAME: cds_data_2023-3-17
+DATA_BATCH_NAME: cds_data_2023-4-28-April
 OUTPUT_FOLDER: ./4-Transformed-Data-Files/cds_transformed_data_files_v1.3/
 RATIO_LIMIT: 0.75
 S3_BUCKET: bruce-cds
-S3_RAWDATA_SUBFOLDER: cds_data_2023-3-4/
+S3_RAWDATA_SUBFOLDER: cds_data_2023-4-28-April/
 MODEL_FILE_PROPS: ./3-Model-Files/cds-model-props.yml
 CLEAN_DICT: ./2-Config-Files/cds_config_v1.3/cds_clean_dict_v1.3.yaml
 RAW_DATA_DICTIONARY: ./2-Config-Files/cds_config_v1.3/cds_raw_dict_v1.3.yaml
-VALIDATION_SPREAD_SHEET: ./2-Config-Files/cds_config/UI-database mappings.xlsx
+VALIDATION_FILE: ./2-Config-Files/cds_config/UI-database mappings_v2.xlsx
 ID_VALIDATION_RESULT_FOLDER: ./5-ID-Validation-Result
 PARENT_MAPPING_COLUMNS:
   -
@@ -72,7 +72,6 @@ REMOVE_NODES:
   #- diagnosis
   - treatment
 
-VALIDATION_FILE: ./2-Config-Files/cds_config/UI-database mappings.xlsx
 NODE_ID_FIELD:
   program: program_acronym
   file: file_id

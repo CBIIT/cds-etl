@@ -210,26 +210,47 @@ def id_validation(df_dict, config, data_file, cds_log):
         print_id_validation_result(id_validation_df, config, cds_log, prefix)
     return df_dict
 
-def ui_validation(df_dict, config, data_file, cds_log):
+def ui_validation(df_dict, config, data_file, cds_log, property_validation_df, model, data_file_base):
     # The function to do check if the UI related properties are in the transformed data files
     # "data_file" is the path of the raw data files
     # "config" is the config file
     # "cds_log" is the log object
     raw_data_name = os.path.basename(data_file)
+    print(config['VALIDATION_FILE'])
     validation_df = pd.read_excel(io = config['VALIDATION_FILE'],
-                                sheet_name =  "Must have properties",
+                                sheet_name =  "Mapping",
                                 engine = "openpyxl",
-                                keep_default_na = False)
+                                keep_default_na = True)
     for node in df_dict.keys():
-        properties = list(validation_df.loc[validation_df['Node Name'] == node, 'Property Name'])
-        if len(properties) > 0:
-            for prop in properties:
-                if prop not in df_dict[node].keys():
-                    df_dict[node][prop] = ['Not specified in data'] * len(df_dict[node])
-                    cds_log.warning('The data node {} does not have require UI property {} extracted from raw data file {}'.format(node, prop, raw_data_name))
-                elif df_dict[node][prop].isnull().values.any():
-                    df_dict[node][prop] = df_dict[node][prop].replace(np.nan, 'Not specified in data')
-    return df_dict
+        df_nulllist = list(df_dict[node].isnull().all(axis=1))
+        if False in df_nulllist:
+            ui_properties = list(validation_df.loc[validation_df['Node Name'] == node, 'Property Name'])
+            ui_properties = list(set([x for x in ui_properties if x != '-' and x != np.nan]))
+            print(ui_properties)
+            #properties = model['Nodes'][node]['Props']
+            if len(ui_properties) > 0:
+                #for prop in properties:
+                for prop in ui_properties:
+                    if prop not in df_dict[node].keys() and prop in ui_properties:
+                        df_dict[node][prop] = ['Not specified in data'] * len(df_dict[node])
+                        property_validation_df_new_row = pd.DataFrame()
+                        property_validation_df_new_row['Missing_Properties'] = [node + '.' +prop]
+                        property_validation_df_new_row['UI_Related'] = [True]
+                        property_validation_df_new_row['Raw_Data_File'] = [data_file_base]
+                        property_validation_df = pd.concat([property_validation_df, property_validation_df_new_row], ignore_index=True)
+
+                        cds_log.warning('The data node {} does not have require UI property {} extracted from raw data file {}'.format(node, prop, raw_data_name))
+                    elif prop in df_dict[node].keys() and prop in ui_properties and df_dict[node][prop].isnull().values.any():
+                        df_dict[node][prop] = df_dict[node][prop].replace(np.nan, 'Not specified in data')
+                    '''
+                    elif prop not in df_dict[node].keys() and prop not in ui_properties:
+                        property_validation_df_new_row = pd.DataFrame()
+                        property_validation_df_new_row['Missing_Properties'] = [node + '.' +prop]
+                        property_validation_df_new_row['UI_Related'] = [False]
+                        property_validation_df_new_row['Raw_Data_File'] = [data_file_base]
+                        property_validation_df = pd.concat([property_validation_df, property_validation_df_new_row], ignore_index=True)
+                    '''
+    return df_dict, property_validation_df
 
 def download_from_s3(config, cds_log):
         # Function to download raw data files from the s3 bucket

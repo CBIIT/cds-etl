@@ -52,7 +52,7 @@ Nodes:
       - ethnicity
       #  - vital_status
       - dbGaP_subject_id
-      
+
   diagnosis: # may have multiple dxs for multiple timepoints?
     Props:
       - diagnosis_id

@@ -10,6 +10,7 @@ import datetime
 from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation, id_validation, download_from_s3, combine_columns, add_secondary_id
 from bento.common.utils import get_logger
 
+
 cds_log = get_logger('CDS V1.3 Transformation Script')
 
 def match_col(cds_df, property, limit):
@@ -100,7 +101,8 @@ parser.add_argument('--upload_s3', help='Decide whether or not upload the transf
 parser.add_argument('--extract_raw_data_dictionary', help='Decide whether or not extract raw data dictionary instead of transformed raw data', action='store_true')
 args = parser.parse_args()
 config = args.config_file
-
+property_validation_df_columns = ['Missing_Properties', 'UI_Related', 'Raw_Data_File']
+property_validation_df = pd.DataFrame(columns=property_validation_df_columns)
 
 with open(config) as f:
     config = yaml.load(f, Loader = yaml.FullLoader)
@@ -150,13 +152,23 @@ if args.extract_raw_data_dictionary == False:
         df_dict = clean_data(df_dict, config)
         df_dict = add_secondary_id(df_dict, config, cds_log)
         df_dict = combine_rows(df_dict, config, cds_log)
-        df_dict = ui_validation(df_dict, config, data_file, cds_log)
+        df_dict, property_validation_df = ui_validation(df_dict, config, data_file, cds_log, property_validation_df, model, data_file_base)
         df_dict = id_validation(df_dict, config, data_file, cds_log)
         #prefix = df_dict['study']['phs_accession'][0]
         prefix = os.path.splitext(data_file_base)[0]
         print_data(df_dict, config, cds_log, prefix)
     if args.upload_s3 == True:
         upload_files(config, timestamp, cds_log)
+
+    sub_folder = os.path.join(config['ID_VALIDATION_RESULT_FOLDER'], config['DATA_BATCH_NAME'])
+    file_name = config['DATA_BATCH_NAME'] + '-' + 'Properties_validation_result' + '.tsv'
+    file_name = os.path.join(sub_folder, file_name)
+    if not os.path.exists(sub_folder):
+        os.makedirs(sub_folder)
+    property_validation_df.to_csv(file_name, sep = "\t", index = False)
+    cds_log.info(f'Properties validation result file {os.path.basename(file_name)} is created and stored in {sub_folder}')
+
+
 else:
     raw_dict = {}
     for data_file in glob.glob(path):

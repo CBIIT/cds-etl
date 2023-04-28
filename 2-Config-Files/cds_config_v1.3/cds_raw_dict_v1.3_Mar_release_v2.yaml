@@ -10,13 +10,13 @@ diagnosis:
   primary_site: primary_site
   progression_or_recurrence: progression_or_recurrence
   tumor_grade: tumor_grade
+  tumor_stage_clinical_m: tumor_stage_clinical_m
   vital_status: vital_status
 file:
   GUID: file_id
   guid: file_id
   experimental_strategy_and_data_subtype: experimental_strategy_and_data_subtypes
   file_access: file_access
-  file_id: file_id
   file_name: file_name
   file_size: file_size
   file_type: file_type
@@ -63,6 +63,7 @@ study:
   co_primary_investigator_email: co_investigator_email
   co_primary_investigator_name: co_investigator_name
   file_type: file_types
+  file_types_and_format: file_types_and_format
   funding_agency: funding_agency
   funding_source_program_name: funding_source_program_name
   grant_id: grant_id
@@ -75,7 +76,6 @@ study:
   study_access: study_access
   study_acronym: study_acronym
   study_data_types: study_data_types
-  study_description: short_description
   study_description: study_description
   study_name: study_name
   title_short_description: short_description
