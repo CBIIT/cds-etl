@@ -1,13 +1,14 @@
 import pandas as pd
 import os
 import yaml
+import re
 import argparse
 from difflib import SequenceMatcher
 import numpy as np
 import glob
 import dateutil.tz
 import datetime
-from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation, id_validation, download_from_s3, combine_columns, add_secondary_id
+from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation, id_validation, download_from_s3, combine_columns, add_secondary_id, ssn_validation
 from bento.common.utils import get_logger
 
 
@@ -103,6 +104,8 @@ args = parser.parse_args()
 config = args.config_file
 property_validation_df_columns = ['Missing_Properties', 'UI_Related', 'Raw_Data_File']
 property_validation_df = pd.DataFrame(columns=property_validation_df_columns)
+filename_validation_df_columns = ['Raw_Data_File', 'File_Name', 'Suspicious_SSN']
+filename_validation_df = pd.DataFrame(columns=filename_validation_df_columns)
 
 with open(config) as f:
     config = yaml.load(f, Loader = yaml.FullLoader)
@@ -152,7 +155,18 @@ if args.extract_raw_data_dictionary == False:
         df_dict = clean_data(df_dict, config)
         df_dict = add_secondary_id(df_dict, config, cds_log)
         df_dict = combine_rows(df_dict, config, cds_log)
+        '''
+        for index in range(0, len(df_dict['study'])):
+            if 'experimental_strategy_and_data_subtypes' in df_dict['study'].keys():
+                if df_dict['study']['experimental_strategy_and_data_subtypes'].notnull().any():
+                    try:
+                        es = re.split('\W+\s', str(df_dict['study']['experimental_strategy_and_data_subtypes'][index]))
+                        df_dict['study']['experimental_strategy_and_data_subtypes'][index] = es
+                    except Exception as e:
+                        print(e)
+        '''
         df_dict, property_validation_df = ui_validation(df_dict, config, data_file, cds_log, property_validation_df, model, data_file_base)
+        filename_validation_df = ssn_validation(df_dict, data_file, cds_log, filename_validation_df)
         df_dict = id_validation(df_dict, config, data_file, cds_log)
         #prefix = df_dict['study']['phs_accession'][0]
         prefix = os.path.splitext(data_file_base)[0]
@@ -161,13 +175,18 @@ if args.extract_raw_data_dictionary == False:
         upload_files(config, timestamp, cds_log)
 
     sub_folder = os.path.join(config['ID_VALIDATION_RESULT_FOLDER'], config['DATA_BATCH_NAME'])
-    file_name = config['DATA_BATCH_NAME'] + '-' + 'Properties_validation_result' + '.tsv'
-    file_name = os.path.join(sub_folder, file_name)
+    property_validation_file_name = config['DATA_BATCH_NAME'] + '-' + 'Properties_validation_result' + '.tsv'
+    property_validation_file_name = os.path.join(sub_folder, property_validation_file_name)
+    filename_validation_file_name = config['DATA_BATCH_NAME'] + '-' + 'Filename_validation_result' + '.tsv'
+    filename_validation_file_name = os.path.join(sub_folder,filename_validation_file_name)
     if not os.path.exists(sub_folder):
         os.makedirs(sub_folder)
-    property_validation_df.to_csv(file_name, sep = "\t", index = False)
-    cds_log.info(f'Properties validation result file {os.path.basename(file_name)} is created and stored in {sub_folder}')
-
+    if len(property_validation_df) > 0:
+        property_validation_df.to_csv(property_validation_file_name, sep = "\t", index = False)
+        cds_log.info(f'Properties validation result file {os.path.basename(property_validation_file_name)} is created and stored in {sub_folder}')
+    if len(filename_validation_df) > 0:
+        filename_validation_df.to_csv(filename_validation_file_name, sep = "\t", index = False)
+        cds_log.info(f'File name validation result file {os.path.basename(filename_validation_file_name)} is created and stored in {sub_folder}')
 
 else:
     raw_dict = {}

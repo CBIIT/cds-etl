@@ -14,8 +14,7 @@ diagnosis:
 file:
   GUID: file_id
   guid: file_id
-  experimental_strategy_and_data_subtype: experimental_strategy_and_data_subtypes
-  file_access: file_access
+  #file_access: file_access
   file_id: file_id
   file_name: file_name
   file_size: file_size
@@ -23,6 +22,7 @@ file:
   file_url_in_cds: file_url_in_cds
   md5sum: md5sum
   sample_description: file_description
+  experimental_strategy_and_data_subtype: experimental_strategy_and_data_subtypes
 genomic_info:
   avg_read_length: avg_read_length
   bases: bases

@@ -102,7 +102,7 @@ Nodes:
       - md5sum
       - file_url_in_cds
       - experimental_strategy_and_data_subtypes
-      - file_access
+      #- file_access
 
   genomic_info:
     Props:

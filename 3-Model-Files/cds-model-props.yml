@@ -36,6 +36,7 @@ PropDefinitions:
       - TSV
       - TXT
       - VCF
+      - XLSX
     Req: true
   file_access:
     Desc: File access
@@ -622,6 +623,13 @@ PropDefinitions:
       value_type: list
       item_type: string
     Req: 'Yes'
+    Enum:
+      - WXS
+      - RNA-Seq
+      - GWA
+      - WGS,WXS,RNA-Seq
+      - Methylation_Array
+      - WGS
   file_types_and_format:
     Desc: |
       Specific kinds of files in the dataset that will be uploaded to CDS
@@ -645,7 +653,7 @@ PropDefinitions:
     Key: true
   program_external_url:
     Desc: The external url to which users should be directed in order to learn more about the program.
-    Src: Internally-curated 
+    Src: Internally-curated
     Type: string
     Req: Preferred
   program_full_description:
