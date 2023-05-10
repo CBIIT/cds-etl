@@ -190,7 +190,8 @@ primary_diagnosis:
   High-grade glioma: Glioma
   High-grade glioma with MNI-BEND2 fusion: Glioma
   Glioneuronal neoplasm, CNS WHO grade 1: Glioneuronal neoplasm
-  High grade astrocytoma High Grade astrocytoma: High-grade Astrocytoma
+  High grade astrocytoma: High-grade Astrocytoma
+  High Grade astrocytoma: High-grade Astrocytoma
   High grade neoplasm, favor central nervous system embryonal tumor: High-grade Central Nervous System Neoplasm Favor Embryonal
   High grade central nervous system neoplasm favor embryonal: High-grade Central Nervous System Neoplasm Favor Embryonal
   High grade malignant neoplasm: High-grade Malignant Neoplasm
@@ -279,5 +280,30 @@ primary_diagnosis:
   T-lymphoblastic leukemia/lymphoma: T-lymphoblastic Leukemia
   T-lymphoblastic leukemia: T-lymphoblastic Leukemia
   T-lymphoblastic lymphoma: T-lymphoblastic Lymphoma
+  Adrenal cortical carcinoma: Adrenal Cortical Carcinoma
+  Adrenal cortical tumor: Adrenal Cortical Tumor
+  Atypical teratoid/rhabdoid: Atypical Teratoid/Rhabdoid
+  Atypical teratoid/rhabdoid tumor (AT/RT), WHO grade 4, Aytpical teratoid/rhabdoid tumor (AT/RT), WHO grade 4: Atypical Teratoid/Rhabdoid
+  Central nervous system tumor with high grade histological features: Central nervous system tumor with high grade histological features
+  Central neuroblastoma: Central Neuroblastoma
+  Choroid plexus papillary tumor: Choroid Plexus Papillary Tumor
+  Choroid plexus papilloma: Choroid Plexus Papillary Tumor
+  Choroid Plexus Papilloma, Who grade 2: Choroid Plexus Papillary Tumor
+  Craniopharyngioma adamantinomatous: Craniopharyngioma
+  Diffuse low-grade glioma: Diffuse Glioma
+  Embryonal tumor, Embryonal tumor w multilayered rosettes: Embryonal tumor
+  Embryonal tumor w multilayered rosettes: Embryonal tumor
+  Epitheloid Sarcoma: Epitheloid sarcoma
+  High grade astrocytoma: High-grade astrocytoma
+  High-grade neuroepithelial tumor consistent with embryonal tumor: High-grade neuroepithelial tumor
+  High grade neuroepithelial tumor: High-grade neuroepithelial tumor
+  High-grade neuroepithelial tumor consistent with embryonal tumor: High-grade neuroepithelial tumor
+  Low grade glioma: Low-grade Glioma
+  Low-Grade Glioma: Low-grade Glioma
+  Low-grade neuroepithelial tumor favor ganglioglioma: Low-grade neuroepithelial tumor
+  Low-grade neuroepithelial tumor with FGFR1 pV559M and FGFR1 p.N554K mutations: Low-grade neuroepithelial tumor
+  Malignant rhabdoid tumor: Malignant Rhabdoid Tumor
+  Neuroepithelial neoplasm, Glioma: Neuroepithelial neoplasm
+  Sertolig-leydig cell tumor, Sertoli-leydig cell tumor: Sertolig Leydig Cell Tumor
 platform:
   Illumina: ILLUMINA
