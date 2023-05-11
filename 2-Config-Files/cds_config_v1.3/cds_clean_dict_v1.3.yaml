@@ -78,7 +78,7 @@ primary_diagnosis:
   Atypical teratoid-rhabdoid tumor: Atypical Teratoid/Rhabdoid Tumor
   Atypical teratoid/rhabdoid tumor: Atypical Teratoid/Rhabdoid Tumor
   Diffuse glioma: Diffuse Glioma
-  Diffuse Low-grade Glioma: Diffuse low-grade glioma
+  Diffuse Low-grade Glioma: Diffuse Glioma
   Dysembryoplastic neuroepithelial tumor: Dysembryoplastic Neuroepithelial Tumor
   dysembroplastic neuroepithelial tumor: Dysembryoplastic Neuroepithelial Tumor
   Pilocytic astrocytoma: Pilocytic Astrocytoma
@@ -121,7 +121,8 @@ primary_diagnosis:
   CNS embryonal neoplasm looks like ependymoma: CNS Embryonal Tumor
   Cellular spindle cell neoplasm: Cellular neoplasm
   Central Nervous system tumor with high grade histological features: Central Nervous System Tumor with High Grade Histological Features
-  Central Nervous system tumor with high grade histological features Central neuroblastoma: Central Neuroblastoma
+  Central nervous system tumor with high grade histological features: Central Nervous System Tumor with High Grade Histological Features
+  Central neuroblastoma: Central Neuroblastoma
   Choroid Plexus Papilloma, Who grade 2 Choroid plexus papilloma Choroid plexus papillary tumor: Choroid Plexus Papilloma
   Classic medulloblastoma: Classic Medulloblastoma
   DFSP Tumor: Desmoplastic/Nodular Medulloblastoma
@@ -138,7 +139,6 @@ primary_diagnosis:
   Diffuse hemispheric glioma: Diffuse Glioma
   Diffuse hemispheric high-grade glioma: Diffuse Glioma
   Diffuse high-grade glioma: Diffuse Glioma
-  Diffuse low-grade glioma: Diffuse Glioma
   Diffuse midline glioma: Diffuse Glioma
   Diffuse midline glioma H3K27M: Diffuse Glioma
   Diffuse paediatric-type high-grade glioma: Diffuse Glioma
@@ -284,7 +284,6 @@ primary_diagnosis:
   Adrenal cortical tumor: Adrenal Cortical Tumor
   Atypical teratoid/rhabdoid: Atypical Teratoid/Rhabdoid
   Atypical teratoid/rhabdoid tumor (AT/RT), WHO grade 4, Aytpical teratoid/rhabdoid tumor (AT/RT), WHO grade 4: Atypical Teratoid/Rhabdoid
-  Central nervous system tumor with high grade histological features: Central nervous system tumor with high grade histological features
   Central neuroblastoma: Central Neuroblastoma
   Choroid plexus papillary tumor: Choroid Plexus Papillary Tumor
   Choroid plexus papilloma: Choroid Plexus Papillary Tumor
@@ -295,15 +294,18 @@ primary_diagnosis:
   Embryonal tumor w multilayered rosettes: Embryonal tumor
   Epitheloid Sarcoma: Epitheloid sarcoma
   High grade astrocytoma: High-grade astrocytoma
-  High-grade neuroepithelial tumor consistent with embryonal tumor: High-grade neuroepithelial tumor
-  High grade neuroepithelial tumor: High-grade neuroepithelial tumor
-  High-grade neuroepithelial tumor consistent with embryonal tumor: High-grade neuroepithelial tumor
+  High-grade neuroepithelial tumor consistent with embryonal tumor: Neuroepithelial Tumor
+  High grade neuroepithelial tumor: Neuroepithelial Tumor
   Low grade glioma: Low-grade Glioma
   Low-Grade Glioma: Low-grade Glioma
-  Low-grade neuroepithelial tumor favor ganglioglioma: Low-grade neuroepithelial tumor
-  Low-grade neuroepithelial tumor with FGFR1 pV559M and FGFR1 p.N554K mutations: Low-grade neuroepithelial tumor
+  Low-grade neuroepithelial tumor: Neuroepithelial Tumor
+  Low-grade neuroepithelial tumor favor ganglioglioma: Neuroepithelial Tumor
+  Low-grade neuroepithelial tumor with FGFR1 pV559M and FGFR1 p.N554K mutations: Neuroepithelial Tumor
   Malignant rhabdoid tumor: Malignant Rhabdoid Tumor
   Neuroepithelial neoplasm, Glioma: Neuroepithelial neoplasm
   Sertolig-leydig cell tumor, Sertoli-leydig cell tumor: Sertolig Leydig Cell Tumor
+  High-grade Neuroepithelial tumor: Neuroepithelial Tumor
+  Sertoli-leydig cell tumor, Sertolig-leydig cell tumor: Sertolig Leydig Cell Tumor
+  Neuroepithelial tumor: Neuroepithelial Tumor
 platform:
   Illumina: ILLUMINA
