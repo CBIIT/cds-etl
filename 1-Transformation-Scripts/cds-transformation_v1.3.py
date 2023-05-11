@@ -152,9 +152,9 @@ if args.extract_raw_data_dictionary == False:
                         original_property_list.append(column_name)
                 df_dict[node] = df_dict[node].dropna(subset = original_property_list, how='all')
         #df_dict = combine_rows(df_dict, config)
-        df_dict = clean_data(df_dict, config)
         df_dict = add_secondary_id(df_dict, config, cds_log)
         df_dict = combine_rows(df_dict, config, cds_log)
+        df_dict = clean_data(df_dict, config)
         '''
         for index in range(0, len(df_dict['study'])):
             if 'experimental_strategy_and_data_subtypes' in df_dict['study'].keys():
