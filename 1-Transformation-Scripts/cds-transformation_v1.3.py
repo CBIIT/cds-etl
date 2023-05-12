@@ -168,6 +168,23 @@ if args.extract_raw_data_dictionary == False:
         df_dict, property_validation_df = ui_validation(df_dict, config, data_file, cds_log, property_validation_df, model, data_file_base)
         filename_validation_df = ssn_validation(df_dict, data_file, cds_log, filename_validation_df)
         df_dict = id_validation(df_dict, config, data_file, cds_log)
+
+        '''
+        #check primary_diagnosis
+        with open('b.txt', 'r') as file:
+            b_file_contents = file.readlines()
+            b_values_list = [value.strip() for value in b_file_contents]
+        try:
+            cds_log.info('start validating primary_diagnosis')
+            p_list = ['']
+            for i in df_dict['diagnosis']['primary_diagnosis']:
+                if i not in b_values_list and i != 'Not specified in data':
+                    p_list.append(i)
+            cds_log.info(str(p_list))
+        except:
+            cds_log.info('no primary_diagnosis')
+
+        '''
         #prefix = df_dict['study']['phs_accession'][0]
         prefix = os.path.splitext(data_file_base)[0]
         print_data(df_dict, config, cds_log, prefix)

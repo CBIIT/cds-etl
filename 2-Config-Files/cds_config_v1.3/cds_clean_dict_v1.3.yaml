@@ -136,6 +136,7 @@ primary_diagnosis:
   Desmoplastic/nodular medulloblastoma: Desmoplastic/Nodular Medulloblastoma
   Diffuse Midline Glioma: Diffuse Glioma
   Diffuse Midline Glioma, Diffuse midline glioma: Diffuse Glioma
+  Diffuse midline glioma, Diffuse Midline Glioma: Diffuse Glioma
   Diffuse hemispheric glioma: Diffuse Glioma
   Diffuse hemispheric high-grade glioma: Diffuse Glioma
   Diffuse high-grade glioma: Diffuse Glioma
@@ -148,6 +149,7 @@ primary_diagnosis:
   Dysembroplastic neuroepithelial tumor: Dysembryoplastic Neuroepithelial Tumor
   Dysembryoplastic neuropithelial tumor: Dysembryoplastic Neuroepithelial Tumor
   Embryonal Rhabdomyosarcoma, Embryonal rhabdomyosarcoma: Embryonal Rhabdomyosarcoma
+  Embryonal rhabdomyosarcoma, Embryonal Rhabdomyosarcoma: Embryonal Rhabdomyosarcoma
   Embryonal rhabdomyosarcoma: Embryonal Rhabdomyosarcoma
   Embryonal rhabdomyosarcoma with diffuse anaplasia: Embryonal Rhabdomyosarcoma
   Embryonal rhabdomyosarcoma, NOS: Embryonal Rhabdomyosarcoma
@@ -161,7 +163,10 @@ primary_diagnosis:
   Embryonal tumor with multi-layered rosettes (ETMR): Embryonal tumor
   Embryonal tumor with multilayered rosettes: Embryonal tumor
   Embryonal tumor with multilayered rosettes, Embryonal tumor w multilayered rosettes: Embryonal tumor
+  Embryonal tumor w multilayered rosettes, Embryonal tumor with multilayered rosettes: Embryonal tumor
   Embryonal undifferentiated sarcoma of the liver: Embryonal tumor
+  Primitive Embryonal Tumor, Erythroblastic sarcoma: Embryonal tumor
+  Erythroblastic sarcoma, Primitive Embryonal Tumor: Embryonal tumor
   Endodermal cyst or metastatic tumor is epithelial origin: Ependymoma NOS
   Ependymoma: Ependymoma NOS
   Ependymoma with Anaplasia: Ependymoma NOS

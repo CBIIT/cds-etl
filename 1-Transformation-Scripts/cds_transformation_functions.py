@@ -109,6 +109,7 @@ def combine_rows(df_dict, config, cds_log):
                 for key in df.keys():
                     values = df.loc[df[id_column] == id][key].dropna()
                     value_list = list(set(values))
+                    value_list.sort()
                     if len(value_list) > 1:
                         value_string = ''
                         for i in range(0, len(value_list)):
@@ -236,7 +237,6 @@ def ui_validation(df_dict, config, data_file, cds_log, property_validation_df, m
     # "config" is the config file
     # "cds_log" is the log object
     raw_data_name = os.path.basename(data_file)
-    print(config['VALIDATION_FILE'])
     validation_df = pd.read_excel(io = config['VALIDATION_FILE'],
                                 sheet_name =  "Mapping",
                                 engine = "openpyxl",
@@ -246,7 +246,6 @@ def ui_validation(df_dict, config, data_file, cds_log, property_validation_df, m
         if False in df_nulllist:
             ui_properties = list(validation_df.loc[validation_df['Node Name'] == node, 'Property Name'])
             ui_properties = list(set([x for x in ui_properties if x != '-' and x != np.nan]))
-            print(ui_properties)
             #properties = model['Nodes'][node]['Props']
             if len(ui_properties) > 0:
                 #for prop in properties:
