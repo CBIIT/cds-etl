@@ -312,5 +312,6 @@ primary_diagnosis:
   High-grade Neuroepithelial tumor: Neuroepithelial Tumor
   Sertoli-leydig cell tumor, Sertolig-leydig cell tumor: Sertolig Leydig Cell Tumor
   Neuroepithelial tumor: Neuroepithelial Tumor
+  CIC- rearranged round cell sarcoma: Round cell sarcoma
 platform:
   Illumina: ILLUMINA
