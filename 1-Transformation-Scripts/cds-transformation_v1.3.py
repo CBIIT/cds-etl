@@ -151,7 +151,6 @@ if args.extract_raw_data_dictionary == False:
                     if column_name in model['Nodes'][node]['Props']:
                         original_property_list.append(column_name)
                 df_dict[node] = df_dict[node].dropna(subset = original_property_list, how='all')
-        #df_dict = combine_rows(df_dict, config)
         df_dict = add_secondary_id(df_dict, config, cds_log)
         df_dict = combine_rows(df_dict, config, cds_log)
         df_dict = clean_data(df_dict, config)
@@ -176,10 +175,11 @@ if args.extract_raw_data_dictionary == False:
             b_values_list = [value.strip() for value in b_file_contents]
         try:
             cds_log.info('start validating primary_diagnosis')
-            p_list = ['']
+            p_list = []
             for i in df_dict['diagnosis']['primary_diagnosis']:
                 if i not in b_values_list and i != 'Not specified in data':
                     p_list.append(i)
+            p_list = list(set(p_list))
             cds_log.info(str(p_list))
         except:
             cds_log.info('no primary_diagnosis')

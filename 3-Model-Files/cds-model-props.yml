@@ -365,6 +365,10 @@ PropDefinitions:
     Desc: Accession or name of genome reference or assembly used for alignment
     Type: string
     Req: 'Yes'
+    Enum:
+     - GRCh37
+     - GRCh37-lite
+     - GRCh38
   avg_read_length:
     Desc: Average sequence read length
     Type: number

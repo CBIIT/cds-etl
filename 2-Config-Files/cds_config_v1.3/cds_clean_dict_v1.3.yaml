@@ -13,6 +13,14 @@ instrument_model:
   Illumina HiSeq X Ten: HiSeq X Ten
   Illumina NextSeq: Illumina NextSeq
   HiSeq: Illumina HiSeq
+reference_genome_assembly:
+  hg19 / GRCh37: GRCh37
+  hs37d5: GRCh37
+  GRCh38.p12: GRCh38
+  GRCh38.p13: GRCh38
+  GRCh38_ens93filt: GRCh38
+  _long_polya: GRCh38
+  GRCh38_premrna_v3.0.0: GRCh38
 file_type:
   fastq: FASTQ
   bai: BAI
@@ -313,5 +321,41 @@ primary_diagnosis:
   Sertoli-leydig cell tumor, Sertolig-leydig cell tumor: Sertolig Leydig Cell Tumor
   Neuroepithelial tumor: Neuroepithelial Tumor
   CIC- rearranged round cell sarcoma: Round cell sarcoma
+  Pleuropulmonary blastoma: Pleuropulmonary Blastoma
+  Choroid plexus papilloma with focal atypia: Choroid Plexus Papilloma
+  Germinoma/Seminoma: Germinoma
+  Unclassified round cell sarcoma: Round cell sarcoma
+  Unclassified sarcoma with epithelioid/round cell morphology: Sarcoma
+  Low grade glial/glioneuronal tumor: Low-grade glial-glioneuronal tumor
+  Poorly differentiated malignant epithelioid neoplasm with INI1 loss: Epitheloid neoplasm
+  Chordoma: Chordoma
+  Mucoepidermoid carcinoma, low grade: Mucoepidermoid carcinoma
+  Embryonal Tumor: Embryonal tumor
+  Clear cell sarcoma of soft tissue: Clear cell sarcoma
+  High-grade neuroepithelial tumor favor glial: Neuroepithelial Tumor
+  NTRK3 fusion positive spindle cell neoplasm: Neoplasm
+  High Grade Glioma: Glioma
+  Anaplastic embryonal neoplasm: Embryonal Neoplasm
+  CNS Neuroblastoma, FOXR-2Activated (WHO Grade 4): Neuroblastoma
+  High-grade Glioma (WHO grade 4) morphologically resembling Glioblastoma: Glioma
+  Atypical teratoid/Rhaboid tumor: Atypical Teratoid/Rhabdoid Tumor
+  High grade glioneuronal neoplasm, NOS: Glioneuronal neoplasm
+  High-grade Glial Neoplasm: Glial-neuronal neoplasm
+  Intramucosal adenocarcinoma: Glial-neuronal neoplasm
+  Alveolar soft part sarcoma metastasis: Alveolar soft part sarcoma
+  Anaplastic/ large cell medulloblastoma: Medulloblastoma
+  Adenocarcinoma, NOS: Adenocarcinoma
+  Neoplasm, NOS: Neoplasm
+  Chondrosarcoma, NOS: Chondrosarcoma, NOS
+  Melanoma, NOS: Melanoma
+  Adenocarcinoma, pancreatobiliary type: Adenocarcinoma
+  Clear cell adenocarcinoma, NOS: Clear cell sarcoma
+  Soft tissue sarcoma: Sarcoma
+  Squamous cell carcinoma, NOS: Squamous cell carcinoma NOS
+  Rhabdomyoma, NOS: Rhabdomyoma NOS
+  Transitional cell carcinoma: Carcinoma NOS
+  Merkel cell tumor: Merkel Cell Tumor
+  Carcinoma, NOS: Carcinoma NOS
+  Control: Control
 platform:
   Illumina: ILLUMINA

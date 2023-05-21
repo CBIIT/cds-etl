@@ -170,6 +170,7 @@ def id_validation(df_dict, config, data_file, cds_log):
     parent_mapping_column_list = config['PARENT_MAPPING_COLUMNS']
     for node in df_dict.keys():
         if len(df_dict[node]) > 0:
+            df_dict[node] = df_dict[node].drop_duplicates()
             df_dict[node] = df_dict[node].dropna(subset = [config['NODE_ID_FIELD'][node]])
             for parent_column in config['PARENT_MAPPING_COLUMNS']:
                 if parent_column['node'] == node:
@@ -263,6 +264,7 @@ def ui_validation(df_dict, config, data_file, cds_log, property_validation_df, m
                     elif prop in df_dict[node].keys() and prop in ui_properties and df_dict[node][prop].isnull().values.any():
                         if prop != "experimental_strategy_and_data_subtypes":
                             df_dict[node][prop] = df_dict[node][prop].replace(np.nan, 'Not specified in data')
+                            #df_dict[node][prop] = df_dict[node][prop].replace('', 'Not specified in data')
                     '''
                     elif prop not in df_dict[node].keys() and prop not in ui_properties:
                         property_validation_df_new_row = pd.DataFrame()
