@@ -1,9 +1,12 @@
 library_layout:
-  paired: paired-end
-  Single: single-end
-  Paired End: paired-end
-  Paired-end: paired-end
-  Paired end: paired-end
+  paired: Paired-end
+  Single: Paired-end
+  Paired End: Paired-end
+  Paired-end: Paired-end
+  Paired end: Paired-end
+  paired-end: Paired-end
+  paired_end: Paired-end
+  single-end: Single-end
 instrument_model:
   HiSeq 3000: Illumina HiSeq 3000
   HiSeq 2500: Illumina HiSeq 2500
@@ -19,8 +22,10 @@ reference_genome_assembly:
   GRCh38.p12: GRCh38
   GRCh38.p13: GRCh38
   GRCh38_ens93filt: GRCh38
-  _long_polya: GRCh38
+  GRCh38_long_polya: GRCh38
   GRCh38_premrna_v3.0.0: GRCh38
+  refdata-cellranger-arc-GRCh38-2020-A: GRCh38
+  refdata-cellranger-GRCh38-3.0.0: GRCh38
 file_type:
   fastq: FASTQ
   bai: BAI
@@ -63,12 +68,14 @@ study_data_types:
 library_strategy:
   wxs: WXS
   RNA-seq: RNA-Seq
+  Archer_Fusion: Archer Fusion
 experimental_strategy_and_data_subtypes:
   wxs: WXS
   RNA-seq: RNA-Seq
   WXS, Amplicon, Bisulfite-Seq, RNA-seq, WGA: WXS, Amplicon, Bisulfite-Seq, RNA-Seq, WGA
   WXS, RNA-seq: WXS, RNA-Seq
-  Methylation: Methylation_Array
+  Methylation: Methylation Array
+  Archer_Fusion: Archer Fusion
 sample_tumor_status:
   normal: Normal
   tumor: Tumor

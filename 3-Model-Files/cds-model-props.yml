@@ -474,8 +474,8 @@ PropDefinitions:
     Desc: Library layout as submitted by requestor
     Req: 'Yes'
     Enum:
-      - paired-end
-      - single-end
+      - Paired-end
+      - Single-end
   library_source:
     Desc: Source material used to create library
     Req: 'Yes'
@@ -532,6 +532,7 @@ PropDefinitions:
       - ssRNA-seq
       - Targeted-Capture
       - Tethered Chromatin Conformation Capture
+      - Archer Fusion
       - OTHER        
   sequence_alignment_software:
     Desc: Name of software program used to align nucleotide sequence data
@@ -631,8 +632,9 @@ PropDefinitions:
       - RNA-Seq
       - GWA
       - WGS,WXS,RNA-Seq
-      - Methylation_Array
+      - Methylation Array
       - WGS
+      - Archer Fusion
   file_types_and_format:
     Desc: |
       Specific kinds of files in the dataset that will be uploaded to CDS
