@@ -75,6 +75,7 @@ experimental_strategy_and_data_subtypes:
   WXS, Amplicon, Bisulfite-Seq, RNA-seq, WGA: WXS, Amplicon, Bisulfite-Seq, RNA-Seq, WGA
   WXS, RNA-seq: WXS, RNA-Seq
   Methylation: Methylation Array
+  Methylation_Array: Methylation Array
   Archer_Fusion: Archer Fusion
 sample_tumor_status:
   normal: Normal
