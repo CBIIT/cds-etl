@@ -12,5 +12,7 @@ To run the python script for transforming CDS data with the data format v1.3, th
 ```python3 1-Transformation-Scripts/cds-transformation_v1.3.py --config_file 2-Config-Files/cds_config_v1.3/cds_config_example_v1.3.yaml --extract_raw_data_dictionary```<br/>
 After extracting the raw data dictionary, the user can use the command to transform raw data.<br/>
 ```python3 1-Transformation-Scripts/cds-transformation_v1.3.py --config_file 2-Config-Files/cds_config_v1.3/cds_config_example_v1.3.yaml```<br/>
+If the user want to download data from s3, the user can use the command to transform raw data.<br/>
+```python3 1-Transformation-Scripts/cds-transformation_v1.3.py --config_file 2-Config-Files/cds_config_v1.3/cds_config_example_v1.3.yaml --download_s3```<br/>
 If the user want to upload the transformed data to the s3 folder, the user can use the command below.<br/>
 ```python3 1-Transformation-Scripts/cds-transformation_v1.3.py --config_file 2-Config-Files/cds_config_v1.3/cds_config_example_v1.3.yaml --upload_s3```<br/>

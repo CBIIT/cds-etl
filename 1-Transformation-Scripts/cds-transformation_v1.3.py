@@ -100,6 +100,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--config_file', type=str, help='The path of the config file.', required=True) #Argument about the config file
 parser.add_argument('--upload_s3', help='Decide whether or not upload the transformed data to s3', action='store_true') #Argument to decide whether or not to upload the transformed data to the s3 bucket
 parser.add_argument('--extract_raw_data_dictionary', help='Decide whether or not extract raw data dictionary instead of transformed raw data', action='store_true')
+parser.add_argument('--download_s3', help="Decide whether or not download datafiles from s3 bucket.", action='store_true')
 args = parser.parse_args()
 config = args.config_file
 property_validation_df_columns = ['Missing_Properties', 'UI_Related', 'Raw_Data_File']
@@ -113,7 +114,8 @@ ratio_limit = config['RATIO_LIMIT']
 path = os.path.join(config['DATA_FOLDER'], config['DATA_BATCH_NAME'], '*.xlsx')
 eastern = dateutil.tz.gettz('US/Eastern')
 timestamp = datetime.datetime.now(tz=eastern).strftime("%Y-%m-%dT%H%M%S")
-download_from_s3(config, cds_log)
+if args.download_s3 == True:
+    download_from_s3(config, cds_log)
 if args.extract_raw_data_dictionary == False:
     for data_file in glob.glob(path):
         data_file_base = os.path.basename(data_file)

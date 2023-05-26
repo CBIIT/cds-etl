@@ -1,10 +1,10 @@
 NODE_FILE: ./3-Model-Files/cds-model-wprog.yml
 DATA_FOLDER: ./0-Raw-Data-Files/cds_raw_data_files_v1.3/
-DATA_BATCH_NAME: cds_data_2023-5-22-March
+DATA_BATCH_NAME: cds_data_2023-5-23-May
 OUTPUT_FOLDER: ./4-Transformed-Data-Files/cds_transformed_data_files_v1.3/
 RATIO_LIMIT: 0.75
 S3_BUCKET: bruce-cds
-S3_RAWDATA_SUBFOLDER: cds_data_2023-4-28-March
+S3_RAWDATA_SUBFOLDER: cds_data_2023-5-19-May-without-htan
 MODEL_FILE_PROPS: ./3-Model-Files/cds-model-props.yml
 CLEAN_DICT: ./2-Config-Files/cds_config_v1.3/cds_clean_dict_v1.3.yaml
 RAW_DATA_DICTIONARY: ./2-Config-Files/cds_config_v1.3/cds_raw_dict_v1.3.yaml
