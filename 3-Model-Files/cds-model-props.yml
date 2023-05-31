@@ -26,6 +26,23 @@ PropDefinitions:
       - BAM
       - BAI
       - FASTQ
+      - BW
+      - CRAI
+      - CRAM
+      - HTML
+      - IDAT
+      - JSON
+      - PDF
+      - TSV
+      - TXT
+      - VCF
+      - XLSX
+    Req: true
+  file_access:
+    Desc: File access
+    Enum:
+      - Open
+      - Controlled
     Req: true
   md5sum:
     Desc: MD5 hex digest for this file
@@ -110,7 +127,6 @@ PropDefinitions:
     Desc: Primary disease diagnosed for this diagnosis and subject
     Enum:
       # reuse ICD-O-3 value_set
-      - Diffuse Glioma
       - Dysembryoplastic Neuroepithelial Tumor
       - Astrocytic Glioma
       - Glial Neoplasm
@@ -118,7 +134,7 @@ PropDefinitions:
       - Atypical Teratoid/Rhabdoid Tumor
       - Diffuse Glioma
       - Pilocytic Astrocytoma
-      - Diffuse low-grade glioma
+      - Alveolar Rhabdomyosarcoma
   primary_site:
     Desc: Anatomical site of disease in primary diagnosis for this diagnosis
     Enum:
@@ -175,6 +191,12 @@ PropDefinitions:
   study_description:
     Desc: Human-readable study description
     Type: string
+  study_access:
+    Desc: Study access
+    Enum:
+      - Open
+      - Controlled
+    Req: true
   short_description:
     Desc: |
       Short description that will identify the dataset on public pages
@@ -343,6 +365,10 @@ PropDefinitions:
     Desc: Accession or name of genome reference or assembly used for alignment
     Type: string
     Req: 'Yes'
+    Enum:
+     - GRCh37
+     - GRCh37-lite
+     - GRCh38
   avg_read_length:
     Desc: Average sequence read length
     Type: number
@@ -448,8 +474,8 @@ PropDefinitions:
     Desc: Library layout as submitted by requestor
     Req: 'Yes'
     Enum:
-      - paired-end
-      - single-end
+      - Paired-end
+      - Single-end
   library_source:
     Desc: Source material used to create library
     Req: 'Yes'
@@ -461,6 +487,7 @@ PropDefinitions:
       - Synthetic
       - Viral RNA
       - Genomic Single Cell
+      - Single Nucleus
       - Transcriptomic Single Cell
       - Other
   library_selection:
@@ -505,6 +532,7 @@ PropDefinitions:
       - ssRNA-seq
       - Targeted-Capture
       - Tethered Chromatin Conformation Capture
+      - Archer Fusion
       - OTHER        
   sequence_alignment_software:
     Desc: Name of software program used to align nucleotide sequence data
@@ -599,6 +627,14 @@ PropDefinitions:
       value_type: list
       item_type: string
     Req: 'Yes'
+    Enum:
+      - WXS
+      - RNA-Seq
+      - GWA
+      - WGS,WXS,RNA-Seq
+      - Methylation Array
+      - WGS
+      - Archer Fusion
   file_types_and_format:
     Desc: |
       Specific kinds of files in the dataset that will be uploaded to CDS
@@ -622,7 +658,7 @@ PropDefinitions:
     Key: true
   program_external_url:
     Desc: The external url to which users should be directed in order to learn more about the program.
-    Src: Internally-curated 
+    Src: Internally-curated
     Type: string
     Req: Preferred
   program_full_description:

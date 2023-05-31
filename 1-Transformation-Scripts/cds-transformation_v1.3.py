@@ -1,14 +1,16 @@
 import pandas as pd
 import os
 import yaml
+import re
 import argparse
 from difflib import SequenceMatcher
 import numpy as np
 import glob
 import dateutil.tz
 import datetime
-from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation, id_validation, download_from_s3, combine_columns, add_secondary_id
+from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation, id_validation, download_from_s3, combine_columns, add_secondary_id, ssn_validation
 from bento.common.utils import get_logger
+
 
 cds_log = get_logger('CDS V1.3 Transformation Script')
 
@@ -98,9 +100,13 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--config_file', type=str, help='The path of the config file.', required=True) #Argument about the config file
 parser.add_argument('--upload_s3', help='Decide whether or not upload the transformed data to s3', action='store_true') #Argument to decide whether or not to upload the transformed data to the s3 bucket
 parser.add_argument('--extract_raw_data_dictionary', help='Decide whether or not extract raw data dictionary instead of transformed raw data', action='store_true')
+parser.add_argument('--download_s3', help="Decide whether or not download datafiles from s3 bucket.", action='store_true')
 args = parser.parse_args()
 config = args.config_file
-
+property_validation_df_columns = ['Missing_Properties', 'UI_Related', 'Raw_Data_File']
+property_validation_df = pd.DataFrame(columns=property_validation_df_columns)
+filename_validation_df_columns = ['Raw_Data_File', 'File_Name', 'Suspicious_SSN']
+filename_validation_df = pd.DataFrame(columns=filename_validation_df_columns)
 
 with open(config) as f:
     config = yaml.load(f, Loader = yaml.FullLoader)
@@ -108,7 +114,8 @@ ratio_limit = config['RATIO_LIMIT']
 path = os.path.join(config['DATA_FOLDER'], config['DATA_BATCH_NAME'], '*.xlsx')
 eastern = dateutil.tz.gettz('US/Eastern')
 timestamp = datetime.datetime.now(tz=eastern).strftime("%Y-%m-%dT%H%M%S")
-download_from_s3(config, cds_log)
+if args.download_s3 == True:
+    download_from_s3(config, cds_log)
 if args.extract_raw_data_dictionary == False:
     for data_file in glob.glob(path):
         data_file_base = os.path.basename(data_file)
@@ -146,16 +153,60 @@ if args.extract_raw_data_dictionary == False:
                     if column_name in model['Nodes'][node]['Props']:
                         original_property_list.append(column_name)
                 df_dict[node] = df_dict[node].dropna(subset = original_property_list, how='all')
-        df_dict = combine_rows(df_dict, config)
-        df_dict = clean_data(df_dict, config)
         df_dict = add_secondary_id(df_dict, config, cds_log)
-        df_dict = ui_validation(df_dict, config, data_file, cds_log)
+        df_dict = combine_rows(df_dict, config, cds_log)
+        df_dict = clean_data(df_dict, config)
+        '''
+        for index in range(0, len(df_dict['study'])):
+            if 'experimental_strategy_and_data_subtypes' in df_dict['study'].keys():
+                if df_dict['study']['experimental_strategy_and_data_subtypes'].notnull().any():
+                    try:
+                        es = re.split('\W+\s', str(df_dict['study']['experimental_strategy_and_data_subtypes'][index]))
+                        df_dict['study']['experimental_strategy_and_data_subtypes'][index] = es
+                    except Exception as e:
+                        print(e)
+        '''
+        df_dict, property_validation_df = ui_validation(df_dict, config, data_file, cds_log, property_validation_df, model, data_file_base)
+        filename_validation_df = ssn_validation(df_dict, data_file, cds_log, filename_validation_df)
         df_dict = id_validation(df_dict, config, data_file, cds_log)
+
+        '''
+        #check primary_diagnosis
+        with open('b.txt', 'r') as file:
+            b_file_contents = file.readlines()
+            b_values_list = [value.strip() for value in b_file_contents]
+        try:
+            cds_log.info('start validating primary_diagnosis')
+            p_list = []
+            for i in df_dict['diagnosis']['primary_diagnosis']:
+                if i not in b_values_list and i != 'Not specified in data':
+                    p_list.append(i)
+            p_list = list(set(p_list))
+            cds_log.info(str(p_list))
+        except:
+            cds_log.info('no primary_diagnosis')
+
+        '''
         #prefix = df_dict['study']['phs_accession'][0]
         prefix = os.path.splitext(data_file_base)[0]
         print_data(df_dict, config, cds_log, prefix)
     if args.upload_s3 == True:
         upload_files(config, timestamp, cds_log)
+
+    sub_folder = os.path.join(config['ID_VALIDATION_RESULT_FOLDER'], config['DATA_BATCH_NAME'])
+    property_validation_file_name = config['DATA_BATCH_NAME'] + '-' + 'Properties_validation_result' + '.tsv'
+    property_validation_file_name = os.path.join(sub_folder, property_validation_file_name)
+    filename_validation_file_name = config['DATA_BATCH_NAME'] + '-' + 'Filename_validation_result' + '.tsv'
+    filename_validation_file_name = os.path.join(sub_folder,filename_validation_file_name)
+    if not os.path.exists(sub_folder):
+        os.makedirs(sub_folder)
+    if len(property_validation_df) > 0:
+        property_validation_df.to_csv(property_validation_file_name, sep = "\t", index = False)
+        cds_log.info(f'Properties validation result file {os.path.basename(property_validation_file_name)} is created and stored in {sub_folder}')
+    if len(filename_validation_df) > 0:
+        filename_validation_df.to_csv(filename_validation_file_name, sep = "\t", index = False)
+        cds_log.info(f'File name validation result file {os.path.basename(filename_validation_file_name)} is created and stored in {sub_folder}')
+
 else:
     raw_dict = {}
     for data_file in glob.glob(path):

@@ -3,7 +3,7 @@ import numpy as np
 import boto3
 import os
 import pandas as pd
-
+import re
 
 
 def clean_data(df_dict, config):
@@ -95,34 +95,41 @@ def print_data(df_dict, config, cds_log, prefix):
             cds_log.info(f'Data node {os.path.basename(file_name)} is created and stored in {sub_folder}')
 
 
-def combine_rows(df_dict, config):
+def combine_rows(df_dict, config, cds_log):
     # The function to combine rows base on the config file
     # "df_dict" is the transformed data frame dictionary
     # "config" is the config file
     for combine_node in config['COMBINE_NODE']:
-        combine_df = pd.DataFrame()
-        df = df_dict[combine_node['node']]
-        id_column = combine_node['id_column']
-        for id in list(set(list(df[id_column]))):
-            id_row = pd.DataFrame()
-            for key in df.keys():
-                values = df.loc[df[id_column] == id][key].dropna()
-                value_list = list(set(values))
-                if len(value_list) > 1:
-                    value_string = ''
-                    for i in range(0, len(value_list)):
-                        value_item = str(value_list[i]).strip()
-                        if i != 0:
-                            if value_item not in value_string:
-                                value_string = value_string + ', ' + value_item
-                        else:
-                            value_string = value_item
-                    id_row[key] = value_string
-                else:
-                    id_row[key] = value_list
-            #print(id_row)
-            combine_df = pd.concat([combine_df, id_row], ignore_index=True)
-        df_dict[combine_node['node']] = combine_df
+        try:
+            combine_df = pd.DataFrame()
+            df = df_dict[combine_node['node']]
+            id_column = combine_node['id_column']
+            for id in list(set(list(df[id_column]))):
+                id_row = pd.DataFrame()
+                for key in df.keys():
+                    values = df.loc[df[id_column] == id][key].dropna()
+                    value_list = list(set(values))
+                    value_list.sort()
+                    if len(value_list) > 1:
+                        value_string = ''
+                        for i in range(0, len(value_list)):
+                            value_item = str(value_list[i]).strip()
+                            if i != 0:
+                                if value_item not in value_string:
+                                    value_string = value_string + ', ' + value_item
+                            else:
+                                value_string = value_item
+                        id_row[key] = [value_string]
+                    elif len(value_list) == 1:
+                        id_row[key] = value_list
+                    else:
+                        id_row[key] = [np.nan]
+                #print(id_row)
+                combine_df = pd.concat([combine_df, id_row], ignore_index=True)
+            df_dict[combine_node['node']] = combine_df
+        except Exception as e:
+            cds_log.warning('Data node {} dose not exist'.format(combine_node))
+            cds_log.error(e)
     return df_dict
 
 def remove_node(df_dict, config):
@@ -163,6 +170,13 @@ def id_validation(df_dict, config, data_file, cds_log):
     parent_mapping_column_list = config['PARENT_MAPPING_COLUMNS']
     for node in df_dict.keys():
         if len(df_dict[node]) > 0:
+            df_dict[node] = df_dict[node].drop_duplicates()
+            df_dict[node] = df_dict[node].dropna(subset = [config['NODE_ID_FIELD'][node]])
+            for parent_column in config['PARENT_MAPPING_COLUMNS']:
+                if parent_column['node'] == node:
+                    parent_id_field = parent_column['parent_node'] + '.' + parent_column['property']
+                    if parent_id_field in df_dict[node].keys():
+                        df_dict[node] = df_dict[node].dropna(subset = [parent_id_field])
             if node in config['NODE_ID_FIELD'].keys():
                 id_validation_result = [x for x in set(list(df_dict[node][config['NODE_ID_FIELD'][node]])) if list(df_dict[node][config['NODE_ID_FIELD'][node]]).count(x) > 1]
                 if len(id_validation_result) > 0:
@@ -198,26 +212,68 @@ def id_validation(df_dict, config, data_file, cds_log):
         print_id_validation_result(id_validation_df, config, cds_log, prefix)
     return df_dict
 
-def ui_validation(df_dict, config, data_file, cds_log):
+
+def ssn_validation(df_dict, data_file, cds_log, file_validation_df):
+    raw_data_name = os.path.basename(data_file)
+    pattern_list = [r"\d{3}-\d{2}-\d{4}", r"\d{3}_\d{2}_\d{4}", r"(?<=\D)\d{9}(?=\D)"]
+    df_nulllist = list(df_dict['file'].isnull().all(axis=1))
+    if False in df_nulllist:
+        cds_log.info('Start validating file name for {}'.format(raw_data_name))
+        for file_name in df_dict['file']['file_name']:
+            for pattern in pattern_list:
+                matches = re.findall(pattern, file_name)
+                if len(matches) > 0:
+                    file_validation_df_new_row = pd.DataFrame()
+                    file_validation_df_new_row['Raw_Data_File'] = [raw_data_name ]
+                    file_validation_df_new_row['File_Name'] = [file_name]
+                    file_validation_df_new_row['Suspicious_SSN'] = [str(matches)]
+                    file_validation_df = pd.concat([file_validation_df, file_validation_df_new_row], ignore_index=True)
+    return file_validation_df
+
+
+
+def ui_validation(df_dict, config, data_file, cds_log, property_validation_df, model, data_file_base):
     # The function to do check if the UI related properties are in the transformed data files
     # "data_file" is the path of the raw data files
     # "config" is the config file
     # "cds_log" is the log object
     raw_data_name = os.path.basename(data_file)
     validation_df = pd.read_excel(io = config['VALIDATION_FILE'],
-                                sheet_name =  "Must have properties",
+                                sheet_name =  "Mapping",
                                 engine = "openpyxl",
-                                keep_default_na = False)
+                                keep_default_na = True)
     for node in df_dict.keys():
-        properties = list(validation_df.loc[validation_df['Node Name'] == node, 'Property Name'])
-        if len(properties) > 0:
-            for prop in properties:
-                if prop not in df_dict[node].keys():
-                    df_dict[node][prop] = ['Not specified in data'] * len(df_dict[node])
-                    cds_log.warning('The data node {} does not have require UI property {} extracted from raw data file {}'.format(node, prop, raw_data_name))
-                elif df_dict[node][prop].isnull().values.any():
-                    df_dict[node][prop] = df_dict[node][prop].replace(np.nan, 'Not specified in data')
-    return df_dict
+        df_nulllist = list(df_dict[node].isnull().all(axis=1))
+        if False in df_nulllist:
+            ui_properties = list(validation_df.loc[validation_df['Node Name'] == node, 'Property Name'])
+            ui_properties = list(set([x for x in ui_properties if x != '-' and x != np.nan]))
+            #properties = model['Nodes'][node]['Props']
+            if len(ui_properties) > 0:
+                #for prop in properties:
+                for prop in ui_properties:
+                    if prop not in df_dict[node].keys() and prop in ui_properties:
+                        if prop != "experimental_strategy_and_data_subtypes":
+                            df_dict[node][prop] = ['Not specified in data'] * len(df_dict[node])
+                        property_validation_df_new_row = pd.DataFrame()
+                        property_validation_df_new_row['Missing_Properties'] = [node + '.' +prop]
+                        property_validation_df_new_row['UI_Related'] = [True]
+                        property_validation_df_new_row['Raw_Data_File'] = [data_file_base]
+                        property_validation_df = pd.concat([property_validation_df, property_validation_df_new_row], ignore_index=True)
+
+                        cds_log.warning('The data node {} does not have require UI property {} extracted from raw data file {}'.format(node, prop, raw_data_name))
+                    elif prop in df_dict[node].keys() and prop in ui_properties and df_dict[node][prop].isnull().values.any():
+                        if prop != "experimental_strategy_and_data_subtypes":
+                            df_dict[node][prop] = df_dict[node][prop].replace(np.nan, 'Not specified in data')
+                            #df_dict[node][prop] = df_dict[node][prop].replace('', 'Not specified in data')
+                    '''
+                    elif prop not in df_dict[node].keys() and prop not in ui_properties:
+                        property_validation_df_new_row = pd.DataFrame()
+                        property_validation_df_new_row['Missing_Properties'] = [node + '.' +prop]
+                        property_validation_df_new_row['UI_Related'] = [False]
+                        property_validation_df_new_row['Raw_Data_File'] = [data_file_base]
+                        property_validation_df = pd.concat([property_validation_df, property_validation_df_new_row], ignore_index=True)
+                    '''
+    return df_dict, property_validation_df
 
 def download_from_s3(config, cds_log):
         # Function to download raw data files from the s3 bucket

@@ -10,19 +10,18 @@ diagnosis:
   primary_site: primary_site
   progression_or_recurrence: progression_or_recurrence
   tumor_grade: tumor_grade
+  tumor_stage_clinical_m: tumor_stage_clinical_m
   vital_status: vital_status
 file:
   GUID: file_id
   guid: file_id
-  #file_access: file_access
-  file_id: file_id
+  experimental_strategy_and_data_subtype: experimental_strategy_and_data_subtypes
   file_name: file_name
   file_size: file_size
   file_type: file_type
   file_url_in_cds: file_url_in_cds
   md5sum: md5sum
   sample_description: file_description
-  experimental_strategy_and_data_subtype: experimental_strategy_and_data_subtypes
 genomic_info:
   avg_read_length: avg_read_length
   bases: bases
@@ -51,7 +50,6 @@ program:
   program_name: program_name
 sample:
   biosample_accession: biosample_accession
-  sample_age_at_collection: sample_age_at_collection
   sample_anatomic_site: sample_anatomic_site
   sample_id: sample_id
   sample_tumor_status: sample_tumor_status
@@ -60,9 +58,8 @@ study:
   acl: acl
   adult_or_childhood_study: adult_or_childhood_study
   bioproject_accession: bioproject_accession
-  co_primary_investigator_email: co_investigator_email
-  co_primary_investigator_name: co_investigator_name
   file_type: file_types
+  file_types_and_format: file_types_and_format
   funding_agency: funding_agency
   funding_source_program_name: funding_source_program_name
   grant_id: grant_id
@@ -72,13 +69,11 @@ study:
   phs_accession: phs_accession
   primary_investigator_email: primary_investigator_email
   primary_investigator_name: primary_investigator_name
-  study_access: study_access
   study_acronym: study_acronym
   study_data_types: study_data_types
-  study_description: short_description
-  study_description: study_description
   study_name: study_name
   title_short_description: short_description
+  study_description: study_description
   external_resources: study_external_url
 treatment:
   treatment_outcome: treatment_outcome

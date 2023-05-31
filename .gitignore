@@ -8,6 +8,7 @@ cds_config.yaml
 *.zip
 *.xlsx
 !UI-database mappings.xlsx
+!UI-database mappings_v2.xlsx
 *.rtf
 *.tsv
 #cds-model*
