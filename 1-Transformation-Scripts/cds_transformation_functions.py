@@ -155,9 +155,12 @@ def delete_children(parent_mapping_column_list, delete_list, parent_node, df_dic
             df_dict[children_node] = df_dict[children_node][~df_dict[children_node][parent_id_field].isin(delete_list)]
     return df_dict
 
-def print_id_validation_result(id_validation_df, config, cds_log, prefix):
+def print_id_validation_result(id_validation_df, config, cds_log, prefix, parent):
     sub_folder = os.path.join(config['ID_VALIDATION_RESULT_FOLDER'], config['DATA_BATCH_NAME'])
-    file_name = prefix + '-' + 'ID_validation_result' + '.tsv'
+    if parent:
+        file_name = prefix + '-' + 'parent_ID_validation_result' + '.tsv'
+    else:
+        file_name = prefix + '-' + 'ID_validation_result' + '.tsv'
     file_name = os.path.join(sub_folder, file_name)
     if not os.path.exists(sub_folder):
         os.makedirs(sub_folder)
@@ -166,6 +169,8 @@ def print_id_validation_result(id_validation_df, config, cds_log, prefix):
 
 def id_validation(df_dict, config, data_file, cds_log):
     id_validation_df = pd.DataFrame(columns = ['node name', 'ID', 'conflict property'])
+    parent_id_validation_df = pd.DataFrame(columns = ['node name', 'ID', 'parent ID field'])
+    prefix = os.path.splitext(os.path.basename(data_file))[0]
     raw_data_name = os.path.basename(data_file)
     parent_mapping_column_list = config['PARENT_MAPPING_COLUMNS']
     for node in df_dict.keys():
@@ -176,9 +181,20 @@ def id_validation(df_dict, config, data_file, cds_log):
                 if parent_column['node'] == node:
                     parent_id_field = parent_column['parent_node'] + '.' + parent_column['property']
                     if parent_id_field in df_dict[node].keys():
-                        df_dict[node] = df_dict[node].dropna(subset = [parent_id_field])
+                        #df_dict[node] = df_dict[node].dropna(subset = [parent_id_field])
+                        parent_id_validation_result_df = df_dict[node][df_dict[node][parent_id_field].isna()]
+                        if len(parent_id_validation_result_df) > 0:
+                            df_dict[node] = df_dict[node].drop(parent_id_validation_result_df.index)
+                            parent_id_validation_result = list(set(list(parent_id_validation_result_df[config['NODE_ID_FIELD'][node]])))
+                            cds_log.warning("The ID {}'s parent_id is NULL in the node {} from the study {}".format(parent_id_validation_result, node, raw_data_name))
+                            df_dict = delete_children(parent_mapping_column_list, parent_id_validation_result, node, df_dict, config)
+                            for deleted_parent_id in parent_id_validation_result:
+                                parent_id_validation_df_row = pd.DataFrame(data = [[node, deleted_parent_id, parent_id_field]], columns = ['node name', 'ID', 'parent ID field'])
+                                parent_id_validation_df = pd.concat([parent_id_validation_df, parent_id_validation_df_row], ignore_index=True)
+                            print_id_validation_result(parent_id_validation_df, config, cds_log, prefix, True)
+
             if node in config['NODE_ID_FIELD'].keys():
-                id_validation_result = [x for x in set(list(df_dict[node][config['NODE_ID_FIELD'][node]])) if list(df_dict[node][config['NODE_ID_FIELD'][node]]).count(x) > 1]
+                id_validation_result = [x for x in set(list(df_dict[node][config['NODE_ID_FIELD'][node]])) if list(df_dict[node][config['NODE_ID_FIELD'][node]]).count(x) > 1 or pd.isna(x) or "nan" in x]
                 if len(id_validation_result) > 0:
                     cds_log.warning('The ID {} is duplicate in the node {} from the study {}'.format(id_validation_result, node, raw_data_name))
                     cds_log.warning('Removed all data related to the duplicated ID {} from the node {} from the study {}'.format(id_validation_result, node, raw_data_name))
@@ -208,8 +224,7 @@ def id_validation(df_dict, config, data_file, cds_log):
                     """
     if len(id_validation_df) > 0:
         #prefix = df_dict['study']['phs_accession'][0]
-        prefix = os.path.splitext(os.path.basename(data_file))[0]
-        print_id_validation_result(id_validation_df, config, cds_log, prefix)
+        print_id_validation_result(id_validation_df, config, cds_log, prefix, False)
     return df_dict
 
 
@@ -246,7 +261,7 @@ def ui_validation(df_dict, config, data_file, cds_log, property_validation_df, m
         df_nulllist = list(df_dict[node].isnull().all(axis=1))
         if False in df_nulllist:
             ui_properties = list(validation_df.loc[validation_df['Node Name'] == node, 'Property Name'])
-            ui_properties = list(set([x for x in ui_properties if x != '-' and x != np.nan]))
+            ui_properties = list(set([x for x in ui_properties if x != '-' and not pd.isna(x)]))
             #properties = model['Nodes'][node]['Props']
             if len(ui_properties) > 0:
                 #for prop in properties:
@@ -293,10 +308,16 @@ def download_from_s3(config, cds_log):
 def combine_columns(df_dict, config, cds_log):
     for combine_node in config['COMBINE_COLUMN']:
         if combine_node['node'] in df_dict.keys():
-            try:
-                df_dict[combine_node['node']][combine_node['new_column']] = df_dict[combine_node['node']][combine_node['column1']].astype(str) + "_" + df_dict[combine_node['node']][combine_node['column2']].astype(str)
-            except Exception as e:
-                cds_log.error(e)
+            if combine_node['external_node'] == False:
+                try:
+                    df_dict[combine_node['node']][combine_node['new_column']] = df_dict[combine_node['node']][combine_node['column1']].astype(str) + "_" + df_dict[combine_node['node']][combine_node['column2']].astype(str)
+                except Exception as e:
+                    cds_log.error(e)
+            else:
+                try:
+                    df_dict[combine_node['node']][combine_node['new_column']] = df_dict[combine_node['external_node']][combine_node['column1']].astype(str) + "_" + df_dict[combine_node['node']][combine_node['column2']].astype(str)
+                except Exception as e:
+                    cds_log.error(e)
     return df_dict
 
 def add_secondary_id(df_dict, config, cds_log):
@@ -306,5 +327,7 @@ def add_secondary_id(df_dict, config, cds_log):
             if False in df_nulllist:
                 if secondary_id_node['node_id'] not in df_dict[secondary_id_node['node']].keys():
                     cds_log.warning('The ID {} is missing and will be replaced by {} for the node {}'.format(secondary_id_node['node_id'], secondary_id_node['secondary_id'], secondary_id_node['node']))
-                    df_dict[secondary_id_node['node']][secondary_id_node['node_id']] = df_dict[secondary_id_node['node']][secondary_id_node['secondary_id']]
+                    parent_node = secondary_id_node['secondary_id'].split('.')[0]
+                    parent_node_id = secondary_id_node['secondary_id'].split('.')[1]
+                    df_dict[secondary_id_node['node']][secondary_id_node['node_id']] = df_dict[parent_node][parent_node_id]
     return df_dict

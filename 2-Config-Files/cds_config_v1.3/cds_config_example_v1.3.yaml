@@ -1,10 +1,10 @@
 NODE_FILE: ./3-Model-Files/cds-model-wprog.yml
 DATA_FOLDER: ./0-Raw-Data-Files/cds_raw_data_files_v1.3/
-DATA_BATCH_NAME: cds_data_2023-5-23-May
+DATA_BATCH_NAME: cds_data_2023-6-13-May
 OUTPUT_FOLDER: ./4-Transformed-Data-Files/cds_transformed_data_files_v1.3/
 RATIO_LIMIT: 0.75
 S3_BUCKET: bruce-cds
-S3_RAWDATA_SUBFOLDER: cds_data_2023-5-19-May-without-htan
+S3_RAWDATA_SUBFOLDER: cds_data_2023-5-19-May-without-htan/
 MODEL_FILE_PROPS: ./3-Model-Files/cds-model-props.yml
 CLEAN_DICT: ./2-Config-Files/cds_config_v1.3/cds_clean_dict_v1.3.yaml
 RAW_DATA_DICTIONARY: ./2-Config-Files/cds_config_v1.3/cds_raw_dict_v1.3.yaml
@@ -18,7 +18,7 @@ PARENT_MAPPING_COLUMNS:
   -
     node: sample
     parent_node: participant
-    property: participant_id
+    property: study_participant_id
   -
     node: file
     parent_node: sample
@@ -30,7 +30,7 @@ PARENT_MAPPING_COLUMNS:
   -
     node: diagnosis
     parent_node: participant
-    property: participant_id
+    property: study_participant_id
   -
     node: study
     parent_node: program
@@ -49,7 +49,7 @@ COMBINE_NODE:
     id_column: program_acronym
   -
     node: diagnosis
-    id_column: diagnosis_id
+    id_column: study_diagnosis_id
 
 COMBINE_COLUMN:
   -
@@ -57,6 +57,19 @@ COMBINE_COLUMN:
     column1: sample_id
     column2: sample_type
     new_column: sample_id
+    external_node: False
+  -
+    node: participant
+    column1: phs_accession
+    column2: participant_id
+    new_column: study_participant_id
+    external_node: study
+  -
+    node: diagnosis
+    column1: phs_accession
+    column2: diagnosis_id
+    new_column: study_diagnosis_id
+    external_node: study
 
 SECONDARY_ID_COLUMN:
   -
@@ -76,7 +89,7 @@ NODE_ID_FIELD:
   program: program_acronym
   file: file_id
   sample: sample_id
-  participant: participant_id
+  participant: study_participant_id
   study: phs_accession
-  diagnosis: diagnosis_id
+  diagnosis: study_diagnosis_id
   genomic_info: genomic_info_id

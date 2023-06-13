@@ -141,6 +141,7 @@ if args.extract_raw_data_dictionary == False:
             raw_data_dict = config['RAW_DATA_DICTIONARY']
             df_dict[node] = extract_data(Metadata, model, node, raw_data_dict)
         parent_mapping_column_list = config['PARENT_MAPPING_COLUMNS']
+        df_dict = add_secondary_id(df_dict, config, cds_log)
         df_dict = combine_columns(df_dict, config, cds_log)
         df_dict = extract_parent_property(parent_mapping_column_list, df_dict)
         df_dict = remove_node(df_dict, config)
@@ -153,7 +154,7 @@ if args.extract_raw_data_dictionary == False:
                     if column_name in model['Nodes'][node]['Props']:
                         original_property_list.append(column_name)
                 df_dict[node] = df_dict[node].dropna(subset = original_property_list, how='all')
-        df_dict = add_secondary_id(df_dict, config, cds_log)
+        #df_dict = add_secondary_id(df_dict, config, cds_log)
         df_dict = combine_rows(df_dict, config, cds_log)
         df_dict = clean_data(df_dict, config)
         '''

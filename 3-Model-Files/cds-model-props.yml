@@ -76,6 +76,10 @@ PropDefinitions:
       who has taken part in the investigation or study.
     Type: string
     Req: true
+  study_participant_id:
+    Desc: TBD
+    Type: string
+    Req: true
   vital_status:
     Desc: Vital status as of last known follow up
     Enum:
@@ -89,6 +93,9 @@ PropDefinitions:
   # diagnosis
   diagnosis_id:
     Desc: Internal identifier
+    Type: string
+  study_diagnosis_id:
+    Desc: TBD
     Type: string
   disease_type:
     Desc: Type of disease [?]
