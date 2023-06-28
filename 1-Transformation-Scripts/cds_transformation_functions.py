@@ -176,7 +176,6 @@ def id_validation(df_dict, config, data_file, cds_log):
     for node in df_dict.keys():
         if len(df_dict[node]) > 0:
             df_dict[node] = df_dict[node].drop_duplicates()
-            df_dict[node] = df_dict[node].dropna(subset = [config['NODE_ID_FIELD'][node]])
             for parent_column in config['PARENT_MAPPING_COLUMNS']:
                 if parent_column['node'] == node:
                     parent_id_field = parent_column['parent_node'] + '.' + parent_column['property']

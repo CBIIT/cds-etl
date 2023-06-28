@@ -170,7 +170,6 @@ if args.extract_raw_data_dictionary == False:
         df_dict, property_validation_df = ui_validation(df_dict, config, data_file, cds_log, property_validation_df, model, data_file_base)
         filename_validation_df = ssn_validation(df_dict, data_file, cds_log, filename_validation_df)
         df_dict = id_validation(df_dict, config, data_file, cds_log)
-
         '''
         #check primary_diagnosis
         with open('b.txt', 'r') as file:
