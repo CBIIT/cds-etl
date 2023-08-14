@@ -154,19 +154,13 @@ Relationships:
     Ends:
       - Src: sample
         Dst: specimen
-  from_sample:
+  of_sample:
     Props: null
-    Mul: many_to_many
+    Mul: many_to_one
     Ends:
       - Src: file
         Dst: sample
-  from_genomic_info:
-    Props: null
-    Mul: many_to_many
-    Ends:
-      - Src: file
-        Dst: genomic_info
-  in_genomic_info:
+  of_genomic_info:
     Props: null
     Mul: many_to_many
     Ends:

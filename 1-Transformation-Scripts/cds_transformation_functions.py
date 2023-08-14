@@ -167,18 +167,23 @@ def print_id_validation_result(id_validation_df, config, cds_log, prefix, parent
     id_validation_df.to_csv(file_name, sep = "\t", index = False)
     cds_log.info(f'ID data validation result file {os.path.basename(file_name)} is created and stored in {sub_folder}')
 
-def id_validation(df_dict, config, data_file, cds_log):
+def id_validation(df_dict, config, data_file, cds_log, model):
     id_validation_df = pd.DataFrame(columns = ['node name', 'ID', 'conflict property'])
     parent_id_validation_df = pd.DataFrame(columns = ['node name', 'ID', 'parent ID field'])
     prefix = os.path.splitext(os.path.basename(data_file))[0]
     raw_data_name = os.path.basename(data_file)
+    mul = "many_to_one"
     parent_mapping_column_list = config['PARENT_MAPPING_COLUMNS']
     for node in df_dict.keys():
         if len(df_dict[node]) > 0:
             df_dict[node] = df_dict[node].drop_duplicates()
+            df_dict[node] = df_dict[node].dropna(subset = [config['NODE_ID_FIELD'][node]])
             for parent_column in config['PARENT_MAPPING_COLUMNS']:
                 if parent_column['node'] == node:
                     parent_id_field = parent_column['parent_node'] + '.' + parent_column['property']
+                    relationship = parent_column["relationship"]
+                    if model["Relationships"][relationship]["Mul"] == "many_to_many":
+                        mul = "many_to_many"
                     if parent_id_field in df_dict[node].keys():
                         #df_dict[node] = df_dict[node].dropna(subset = [parent_id_field])
                         parent_id_validation_result_df = df_dict[node][df_dict[node][parent_id_field].isna()]
@@ -194,33 +199,34 @@ def id_validation(df_dict, config, data_file, cds_log):
 
             if node in config['NODE_ID_FIELD'].keys():
                 id_validation_result = [x for x in set(list(df_dict[node][config['NODE_ID_FIELD'][node]])) if list(df_dict[node][config['NODE_ID_FIELD'][node]]).count(x) > 1 or pd.isna(x) or "nan" in x]
+                new_id_validation_result = []
+                many_to_many_id_list = []
                 if len(id_validation_result) > 0:
-                    cds_log.warning('The ID {} is duplicate in the node {} from the study {}'.format(id_validation_result, node, raw_data_name))
-                    cds_log.warning('Removed all data related to the duplicated ID {} from the node {} from the study {}'.format(id_validation_result, node, raw_data_name))
                     deleted_record = df_dict[node][df_dict[node][config['NODE_ID_FIELD'][node]].isin(id_validation_result)]
-                    conflicted_column_names = []
-                    for column_name in deleted_record.keys():
-                        deleted_id_list = set(list(deleted_record[config['NODE_ID_FIELD'][node]]))
-                        conflicted_column = False
-                        for id in deleted_id_list:
+                    for id in id_validation_result:
+                        conflicted_column_names = []
+                        for column_name in deleted_record.keys():
+                            conflicted_column = False
                             deleted_id_df = deleted_record.loc[deleted_record[config['NODE_ID_FIELD'][node]] == id]
                             if len(set(list(deleted_id_df[column_name]))) > 1:
                                 conflicted_column = True
-                        #for id in deleted_id_list
-                        if conflicted_column and column_name != config['NODE_ID_FIELD'][node]:
-                            conflicted_column_names.append(column_name)
-                    for deleted_record_ID in set(list(deleted_record[config['NODE_ID_FIELD'][node]])):
-                        id_validation_df_row = pd.DataFrame(data = [[node, deleted_record_ID, conflicted_column_names]], columns = ['node name', 'ID', 'conflict property'])
-                        id_validation_df = pd.concat([id_validation_df, id_validation_df_row], ignore_index=True)
-                    df_dict[node] = df_dict[node][~df_dict[node][config['NODE_ID_FIELD'][node]].isin(id_validation_result)]
-                    df_dict = delete_children(parent_mapping_column_list, id_validation_result, node, df_dict, config)
-                    """
-                    for parent_mapping_column in parent_mapping_column_list:
-                        if parent_mapping_column['parent_node'] == node and len(df_dict[parent_mapping_column['node']]) > 0:
-                            parent_id_field = parent_mapping_column['parent_node'] + '.' + parent_mapping_column['property']
-                            children_node = parent_mapping_column['node']
-                            df_dict[children_node] = df_dict[children_node][~df_dict[children_node][parent_id_field].isin(id_validation_result)]
-                    """
+                            if conflicted_column and column_name != config['NODE_ID_FIELD'][node]:
+                                conflicted_column_names.append(column_name)
+
+                        if mul == "many_to_many" and len(conflicted_column_names) == 1 and conflicted_column_names[0] not in model["Nodes"][node]["Props"]: #if the relationship is many to many and the only comflicted column is parent column, then we do nothing
+                            many_to_many_id_list.append(id)
+                        else:
+                            id_validation_df_row = pd.DataFrame(data = [[node, id, conflicted_column_names]], columns = ['node name', 'ID', 'conflict property'])
+                            id_validation_df = pd.concat([id_validation_df, id_validation_df_row], ignore_index=True)
+                            new_id_validation_result.append(id)
+                    if len(new_id_validation_result) > 0:
+                        df_dict[node] = df_dict[node][~df_dict[node][config['NODE_ID_FIELD'][node]].isin(new_id_validation_result)]
+                        df_dict = delete_children(parent_mapping_column_list, new_id_validation_result, node, df_dict, config)
+                        cds_log.warning('The ID {} is duplicate in the node {} from the study {}'.format(new_id_validation_result, node, raw_data_name))
+                        cds_log.warning('Removed all data related to the duplicated ID {} from the node {} from the study {}'.format(new_id_validation_result, node, raw_data_name))
+                    if len(many_to_many_id_list) >0:
+                        cds_log.warning('The ID {} is duplicate in the node {} from the study {} but match the many to many relationship'.format(many_to_many_id_list, node, raw_data_name))
+
     if len(id_validation_df) > 0:
         #prefix = df_dict['study']['phs_accession'][0]
         print_id_validation_result(id_validation_df, config, cds_log, prefix, False)

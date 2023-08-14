@@ -86,8 +86,8 @@ PropDefinitions:
       - Alive
       - Deceased
       - Unknown
-  dbGaP_subject_id: 
-    Desc: Identifier for the participant as assigned by dbGaP 
+  dbGaP_subject_id:
+    Desc: Identifier for the participant as assigned by dbGaP
     Type: string
     Req: Preferred
   # diagnosis
@@ -230,7 +230,7 @@ PropDefinitions:
   primary_investigator_email:
     Desc: Email of principal investigator
     Type: string
-    Req: Preferred 
+    Req: Preferred
   co_investigator_name:
     Desc: Name of co-principal investigator
     Type: string
@@ -540,7 +540,7 @@ PropDefinitions:
       - Targeted-Capture
       - Tethered Chromatin Conformation Capture
       - Archer Fusion
-      - OTHER        
+      - OTHER
   sequence_alignment_software:
     Desc: Name of software program used to align nucleotide sequence data
     Type: string
@@ -549,7 +549,7 @@ PropDefinitions:
     Desc: File name of any custom assembly fasta file used during alignment
     Type: string
     Req: Preferred
-    
+
   # cds requestor
   cds_requestor:
     Desc: Identifies the user requesting storage in CDS

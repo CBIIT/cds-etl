@@ -15,30 +15,37 @@ PARENT_MAPPING_COLUMNS:
     node: participant
     parent_node: study
     property: phs_accession
+    relationship: of_study
   -
     node: sample
     parent_node: participant
     property: study_participant_id
+    relationship: of_participant
   -
     node: file
     parent_node: sample
     property: sample_id
+    relationship: of_sample
   -
     node: genomic_info
     parent_node: file
     property: file_id
+    relationship: of_file
   -
     node: diagnosis
     parent_node: participant
     property: study_participant_id
+    relationship: of_file
   -
     node: study
     parent_node: program
     property: program_acronym
+    relationship: of_program
   -
     node: file
     parent_node: study
     property: phs_accession
+    relationship: of_study
 
 COMBINE_NODE:
   -

@@ -146,7 +146,11 @@ if args.extract_raw_data_dictionary == False:
         df_dict = extract_parent_property(parent_mapping_column_list, df_dict)
         df_dict = remove_node(df_dict, config)
         for node in df_dict.keys():
-            df_dict[node] = df_dict[node].drop_duplicates() #remove duplicate record
+            #remove duplicate reocrd
+            str_dataframe = df_dict[node].astype(str)
+            str_dataframe = str_dataframe.drop_duplicates()
+            index = str_dataframe.index.values.tolist()
+            df_dict[node] = df_dict[node].loc[index]
             df_nulllist = list(df_dict[node].isnull().all(axis=1))
             if False in df_nulllist:
                 original_property_list = []
@@ -154,40 +158,11 @@ if args.extract_raw_data_dictionary == False:
                     if column_name in model['Nodes'][node]['Props']:
                         original_property_list.append(column_name)
                 df_dict[node] = df_dict[node].dropna(subset = original_property_list, how='all')
-        #df_dict = add_secondary_id(df_dict, config, cds_log)
         df_dict = combine_rows(df_dict, config, cds_log)
         df_dict = clean_data(df_dict, config)
-        '''
-        for index in range(0, len(df_dict['study'])):
-            if 'experimental_strategy_and_data_subtypes' in df_dict['study'].keys():
-                if df_dict['study']['experimental_strategy_and_data_subtypes'].notnull().any():
-                    try:
-                        es = re.split('\W+\s', str(df_dict['study']['experimental_strategy_and_data_subtypes'][index]))
-                        df_dict['study']['experimental_strategy_and_data_subtypes'][index] = es
-                    except Exception as e:
-                        print(e)
-        '''
         df_dict, property_validation_df = ui_validation(df_dict, config, data_file, cds_log, property_validation_df, model, data_file_base)
         filename_validation_df = ssn_validation(df_dict, data_file, cds_log, filename_validation_df)
-        df_dict = id_validation(df_dict, config, data_file, cds_log)
-        '''
-        #check primary_diagnosis
-        with open('b.txt', 'r') as file:
-            b_file_contents = file.readlines()
-            b_values_list = [value.strip() for value in b_file_contents]
-        try:
-            cds_log.info('start validating primary_diagnosis')
-            p_list = []
-            for i in df_dict['diagnosis']['primary_diagnosis']:
-                if i not in b_values_list and i != 'Not specified in data':
-                    p_list.append(i)
-            p_list = list(set(p_list))
-            cds_log.info(str(p_list))
-        except:
-            cds_log.info('no primary_diagnosis')
-
-        '''
-        #prefix = df_dict['study']['phs_accession'][0]
+        df_dict = id_validation(df_dict, config, data_file, cds_log, model)
         prefix = os.path.splitext(data_file_base)[0]
         print_data(df_dict, config, cds_log, prefix)
     if args.upload_s3 == True:
