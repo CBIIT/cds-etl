@@ -2,7 +2,7 @@ diagnosis:
   age_at_diagnosis: age_at_diagnosis
   days_to_last_followup: days_to_last_followup
   days_to_last_known_disease_status: days_to_last_known_status
-  diagnosis_id: diagnosis_id
+  #diagnosis_id: diagnosis_id
   disease_type: disease_type
   last_known_disease_status: last_known_disease_status
   morphology: morphology
