@@ -77,6 +77,7 @@ experimental_strategy_and_data_subtypes:
   Methylation: Methylation Array
   Methylation_Array: Methylation Array
   Archer_Fusion: Archer Fusion
+  RNA-seq, Targeted-Capture, WXS: RNA-Seq, Targeted-Capture, WXS
 sample_tumor_status:
   normal: Normal
   tumor: Tumor
