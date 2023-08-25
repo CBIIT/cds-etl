@@ -77,7 +77,8 @@ experimental_strategy_and_data_subtypes:
   Methylation: Methylation Array
   Methylation_Array: Methylation Array
   Archer_Fusion: Archer Fusion
-  RNA-seq, Targeted-Capture, WXS: RNA-Seq, Targeted-Capture, WXS
+  RNA-seq, Targeted-Capture, WXS: RNA-Seq, Targeted Sequencing, WXS
+  Targeted-Capture: Targeted Sequencing
 sample_tumor_status:
   normal: Normal
   tumor: Tumor
@@ -85,6 +86,12 @@ library_source:
   GENOMIC: Genomic
   TRANSCRIPTOMIC: Transcriptomic
   Single-nuclei: Single Nucleus
+  Genomic Single Cell: GENOMIC SINGLE CELL
+  Transcritomic Single Cell: TRANSCRIPTOMIC SINGLE CELL
+  Viral RNA: VIRAL RNA
+  Genomic Single Cell: GENOMIC SINGLE CELL
+library_selection:
+  RANDOM: Random
 primary_diagnosis:
   Diffuse glioma: Diffuse Glioma
   embryonal rhabdomyosarcoma: Dysembryoplastic Neuroepithelial Tumor
@@ -366,5 +373,186 @@ primary_diagnosis:
   Merkel cell tumor: Merkel Cell Tumor
   Carcinoma, NOS: Carcinoma NOS
   Control: Control
+  Acute monoblastic and monocytic leukemia: Acute Monoblastic and Monocytic Leukemia
+  Acute myeloid leukemia, NOS: Acute Myeloid Leukemia, NOS
+  Alveolar soft part sarcoma: Alveolar Soft Part Sarcoma
+  Anaplastic large cell lymphoma, ALK positive: Anaplastic Large Cell Lymphoma, ALK Positive
+  Anaplastic medulloblastoma: Anaplastic Medulloblastoma
+  Anaplastic rhabdomyosarcoma: Anaplastic Rhabdomyosarcoma
+  Angiomatoid fibrous histiocytoma: Angiomatoid Fibrous Histiocytoma
+  Astrocytic neoplasm: Astrocytic Neoplasm
+  Atypical cellular proliferation with clear features: Atypical Cellular Proliferation with Clear Features
+  Atypical central neurocytoma: Atypical Central Neurocytoma
+  Atypical choroid plexus papilloma: Atypical Choroid Plexus Papilloma
+  Atypical epithelial neoplasm: Atypical Epithelial Neoplasm
+  Atypical spindle cell proliferation: Atypical Spindle Cell Proliferation
+  B lymphoblastic leukemia/lymphoma, NOS: B Lymphoblastic Leukemia/Lymphoma, NOS
+  Brain mass: Brain Mass
+  Brain, High grade lesion: Brain, High Grade Lesion
+  Cellular ependymoma: Cellular Ependymoma
+  Cellular glial neoplasm: Cellular Glial Neoplasm
+  Cellular neoplasm: Cellular Neoplasm
+  Cerebellar mass: Cerebellar Mass
+  Cerebellar tumor: Cerebellar Tumor
+  Cerebellopontine angle tumor: Cerebellopontine Angle Tumor
+  Cervical; INI1-Deficient hematological malignancy: Cervical; INI1-Deficient Hematological Malignancy
+  Chondroblastic osteosarcoma: Chondroblastic Osteosarcoma
+  Choroid plexus carcinoma: Choroid Plexus Carcinoma
+  Choroid plexus neoplasm: Choroid Plexus Neoplasm
+  Chronic myelogenous leukemia, BCR-ABL positive: Chronic Myelogenous Leukemia, BCR-ABL Positive
+  Chronic myeloid leukemia, BCR-ABL1-positive: Chronic Myeloid Leukemia, BCR-ABL1-Positive
+  Clear cell meningioma: Clear Cell Meningioma
+  Clear cell sarcoma: Clear Cell Sarcoma
+  CNS primative neuroectodermal tumor (PNET): CNS Primitive Neuroectodermal Tumor (PNET)
+  Consistent with Oligodendroglioma, IDH mutant: Consistent With Oligodendroglioma, IDH Mutant
+  Desmoid-type fibromatosis: Desmoid-type Fibromatosis
+  Desmoplastic nodular medulloblastoma: Desmoplastic Nodular Medulloblastoma
+  Diffuse astrocytoma: Diffuse Astrocytoma
+  Ductal carcinoma NOS: Ductal Carcinoma NOS
+  Embryonal tumor: Embryonal Tumor
+  Endometrioid adenocarcinoma, NOS: Endometrioid Adenocarcinoma, NOS
+  Ewing sarcoma: Ewing Sarcoma
+  Familial adenomatous polyposis: Familial Adenomatous Polyposis
+  Follicular hyperplasia/metastatic papillary thyroid cancer: Follicular Hyperplasia/Metastatic Papillary Thyroid Cancer
+  Gastrointestinal Stromal Tumor (GIST): Gastrointestinal stromal tumor (GIST)
+  Glial tumor: Glial Tumor
+  Glioneuronal lesion: Glioneuronal Lesion
+  Glioneuronal neoplasm: Glioneuronal Neoplasm
+  Glioneuronal tumor: Glioneuronal Tumor
+  Hepatocellular carcinoma, fibrolamellar: Hepatocellular Carcinoma, Fibrolamellar
+  High grade neuroepithelial tumor : High Grade Neuroepithelial Tumor
+  High Grade Angiosarcoma: High-grade Angiosarcoma
+  High Grade Astrocytoma: High-grade Astrocytoma
+  High grade Neoplasm: High Grade Neoplasm
+  High-grade Ependymal Tumor: High Grade Ependymal Tumor
+  High-grade Diffuse Glioma: High Grade Diffuse Glioma
+  High grade sarcoma : High Grade Sarcoma 
+  High-grade tumor: High Grade Tumor
+  Histiocytic malignancy: Histiocytic Malignancy
+  Hodgkin lymphoma, NOS: Hodgkin Lymphoma, NOS
+  Infant hemispheric glioma: Infant Hemispheric Glioma
+  Infantile fibrosarcoma: Infantile Fibrosarcoma
+  Infiltrating duct carcinoma, NOS: Infiltrating Duct Carcinoma, NOS
+  Infiltrating glioma: Infiltrating Glioma
+  Infiltrating lobular carcinoma, NOS: Infiltrating Lobular Carcinoma, NOS
+  Inflammatory myofibroblastic tumor: Inflammatory Myofibroblastic Tumor
+  Intraductal carcinoma NOS: Intraductal Carcinoma NOS
+  Intraventricular tumor: Intraventricular Tumor
+  Juvenile granulosa cell tumor: Juvenile Granulosa Cell Tumor
+  Juvenile myelomonocytic leukemia: Juvenile Myelomonocytic Leukemia
+  Large cell medulloblastoma: Large Cell Medulloblastoma
+  Laryngeal papilloma: Laryngeal Papilloma
+  Left biopsy chest lesion: Left Biopsy Chest Lesion
+  Left CP Angle Mass; Schwannoma: Left Cp Angle Mass; Schwannoma
+  Left thoracic tumor: Left Thoracic Tumor
+  Lobular adenocarcinoma: Lobular Adenocarcinoma
+  Lobular and ductal carcinoma: Lobular And Ductal Carcinoma
+  Lobular carcinoma NOS: Lobular Carcinoma NOS
+  Low cellularity glioma: Low Cellularity Glioma
+  Low grade astrocytoma: Low Grade Astrocytoma
+  Low grade fibromyxoid sarcoma: Low Grade Fibromyxoid Sarcoma
+  Low grade glial neoplasm: Low Grade Glial Neoplasm
+  Low grade glial tumor: Low Grade Glial Tumor
+  Low grade glioma: Low Grade Glioma
+  Low grade glioneuronal neoplasm: Low Grade Glioneuronal Neoplasm
+  Low grade glioneuronal tumor: Low Grade Glioneuronal Tumor
+  Low grade neuroepithelial tumor: Low Grade Neuroepithelial Tumor
+  Low-grade glial-glioneuronal tumor: Low Grade Glial-Glioneuronal Tumor
+  Low grade neuroglial tumor: Low Grade Neuroglial Tumor
+  Low grade primary CNS neoplasm: Low Grade Primary CNS Neoplasm
+  Low grade spindle cell neoplasm: Low Grade Spindle Cell Neoplasm
+  Low-grade Glial Neoplasm: Low Grade Glial Neoplasm
+  Low-grade tumor: Low Grade Tumor
+  Malignant melanoma NOS: Malignant Melanoma NOS
+  Malignant neoplasm: Malignant Neoplasm
+  Mast cell leukaemia: Mast Cell Leukemia
+  Medullary carcinoma: Medullary Carcinoma
+  Mesenchymal chondrosarcoma: Mesenchymal Chondrosarcoma
+  Metastatic alveolar rhabdomyosarcoma: Metastatic Alveolar Rhabdomyosarcoma
+  Metastatic carcinoma: Metastatic Carcinoma
+  Metastatic embryonal rhabdomyosarcoma: Metastatic Embryonal Rhabdomyosarcoma
+  Metastatic rhabdomyosarcoma: Metastatic Rhabdomyosarcoma
+  Nasopharyngeal carcinoma metastatic: Nasopharyngeal Carcinoma Metastatic
+  Mixed germ cell tumor: Mixed Germ Cell Tumor
+  Mixed-phenotype acute leukemia, B/myeloid, not otherwise specified: Mixed-Phenotype Acute Leukemia, B/Myeloid, Not Otherwise Specified
+  Mixed-phenotype acute leukemia, T/myeloid, not otherwise specified: Mixed-Phenotype Acute Leukemia, T/Myeloid, Not Otherwise Specified
+  Monophasic synovial sarcoma, intermediate-grade (FNCLCC Grade 2 of 3): Monophasic Synovial Sarcoma, Intermediate-Grade (FNCLCC Grade 2 Of 3)
+  Mucinous carcinoma: Mucinous Carcinoma
+  Myelodysplastic syndrome with multilineage dysplasia: Myelodysplastic Syndrome With Multilineage Dysplasia
+  Myelodysplastic syndrome with single lineage dysplasia: Myelodysplastic Syndrome With Single Lineage Dysplasia
+  Myxoid Glioneuronal tumor: Myxoid Glioneuronal Tumor
+  Myxoid liposarcoma: Myxoid Liposarcoma
+  Myxoid neoplasm: Myxoid Neoplasm
+  Neuroectodermal tumor: Neuroectodermal Tumor
+  Neuroepithelial neoplasm: Neuroepithelial Neoplasm
+  Not specified in data: Not Specified in Data
+  Optic pathway glioma: Optic Pathway Glioma
+  Ovarian sclerosing stromal tumor: Ovarian Sclerosing Stromal Tumor
+  Pancreatobiliary-type carcinoma: Pancreatobiliary-Type Carcinoma
+  Papillary carcinoma: Papillary Carcinoma
+  Papillary neoplasm, favor choroid plexus tumor: Papillary Neoplasm, Favor Choroid Plexus Tumor
+  Papillary tumor of the pineal region: Papillary Tumor of The Pineal Region
+  Piloid glial proliferation: Piloid Glial Proliferation
+  Pilomyxoid astrocytoma: Pilomyxoid Astrocytoma
+  Pineal parenchymal tumor: Pineal Parenchymal Tumor
+  Pituitary tumor: Pituitary Tumor
+  Pleomorphic xanthoastrocytoma: Pleomorphic Xanthoastrocytoma
+  Plexifrom fibrohistiocytic tumor: Plexifrom Fibrohistiocytic Tumor
+  Polymorphous low grade neuroepithelial tumor: Polymorphous Low Grade Neuroepithelial Tumor
+  Poorly differentiated malignant neoplasm with sarcomatoid features: Poorly Differentiated Malignant Neoplasm with Sarcomatoid Features
+  Poorly differentiated pulmonary adenocarcinoma: Poorly Differentiated Pulmonary Adenocarcinoma
+  Poorly differentiated ring cell adenocarcinoma: Poorly Differentiated Ring Cell Adenocarcinoma
+  Poorly differentiated sarcoma: Poorly Differentiated Sarcoma
+  Poorly differentiated Sertoli-Leydig cell tumor: Poorly Differentiated Sertoli-Leydig Cell Tumor
+  Posterior fossa ependymoma: Posterior Fossa Ependymoma
+  Posterior fossa tumor: Posterior Fossa Tumor
+  Precursor B-Cell Acute Lymphoblastic Leukemia with hyperdiploidy: Precursor B-Cell Acute Lymphoblastic Leukemia with Hyperdiploidy
+  Primitive neuroectoderma tumor: Primitive Neuroectoderma Tumor
+  Primitive sarcoma: Primitive Sarcoma
+  Psammomatous meningioma: Psammomatous Meningioma
+  Pure germinoma: Pure Germinoma
+  PXA vs ganglioglioma: PXA Vs Ganglioglioma
+  Renal cell adenocarcinoma: Renal Cell Adenocarcinoma
+  Residual CIC-rearranged sarcoma: Residual CIC-Rearranged Sarcoma
+  Residual Dermatofibrosarcoma protuberans: Residual Dermatofibrosarcoma Protuberans
+  Residual high grade astrocytoma with piloid features: Residual High Grade Astrocytoma With Piloid Features
+  Residual high-grade sarcoma: Residual High-Grade Sarcoma
+  Residual malignant melanoma: Residual Malignant Melanoma
+  Residual papillary tumor of pineal region: Residual Papillary Tumor of Pineal Region
+  Residual pineoblastoma: Residual Pineoblastoma
+  Residual/Recurrent extraventricular neurocytoma: Residual/Recurrent Extraventricular Neurocytoma
+  Rhabdoid tumor, malignant: Rhabdoid Tumor, Malignant
+  Right thigh mass: Right Thigh Mass
+  Round blue cell tumor: Round Blue Cell Tumor
+  Round cell sarcoma: Round Cell Sarcoma
+  Round to spindle cell sarcoma: Round To Spindle Cell Sarcoma
+  Sclerosing stromal tumor: Sclerosing Stromal Tumor
+  Serous adenocarcinoma, NOS: Serous Adenocarcinoma, NOS
+  Serous cystadenocarcinoma NOS: Serous Cystadenocarcinoma NOS
+  Serous surface papillary carcinoma: Serous Surface Papillary Carcinoma
+  Signet ring cell carcinoma: Signet Ring Cell Carcinoma
+  Small Blue Cell tumor: Small Blue Cell Tumor
+  Small round blue cell tumor: Small Round Blue Cell Tumor
+  Spinal ependymoma myxopapillary: Spinal Ependymoma Myxopapillary
+  Spinal tumor: Spinal Tumor
+  Spindle cell neoplasm: Spindle Cell Neoplasm
+  Spindle cell rhabdomyosarcoma: Spindle Cell Rhabdomyosarcoma
+  Squamous cell carcinoma NOS: Squamous Cell Carcinoma NOS
+  Subependymal giant cell astrocytoma: Subependymal Giant Cell Astrocytoma
+  Supertentorial ependymoma: Supertentorial Ependymoma
+  Suprasellar mass: Suprasellar Mass
+  Supratentorial choroid plexus papilloma: Supratentorial Choroid Plexus Papilloma
+  Synovial sarcoma: Synovial Sarcoma
+  T lymphoblastic leukemia/lymphoma: T Lymphoblastic Leukemia/Lymphoma
+  Thalamic brain tumor: Thalamic Brain Tumor
+  Therapy related myeloid neoplasm: Therapy Related Myeloid Neoplasm
+  Undifferential small round blue cell tumor: Undifferential Small Round Blue Cell Tumor
+  Undifferentiated leukemia: Undifferentiated Leukemia
+  Undifferentiated malignant neoplasm with rhabdoid morphology and INI1 loss: Undifferentiated Malignant Neoplasm with Rhabdoid Morphology And INI1 Loss
+  Undifferentiated round cell sarcoma: Undifferentiated Round Cell Sarcoma
+  Well differentiated embryonal rhabdomyosarcoma: Well Differentiated Embryonal Rhabdomyosarcoma
+  Well differentiated neuroendocrine tumor: Well Differentiated Neuroendocrine Tumor
+  Well to moderately differentiated colonic adenocarcinoma: Well To Moderately Differentiated Colonic Adenocarcinoma
+  Yolk sac tumor: Yolk Sac Tumor
 platform:
   Illumina: ILLUMINA
