@@ -501,6 +501,14 @@ PropDefinitions:
     Desc: Library selection method
     Type: string
     Req: Preferred
+    Enum:
+      - Hybrid Selection
+      - Not specified in data
+      - other
+      - PCR
+      - Poly-T Enrichment
+      - PolyA
+      - Random
   library_strategy:
     Desc: Nucleic acid capture or processing strategy for this library
     Req: Preferred
