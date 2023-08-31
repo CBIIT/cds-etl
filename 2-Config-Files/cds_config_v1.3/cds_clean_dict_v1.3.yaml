@@ -555,5 +555,15 @@ primary_diagnosis:
   Well differentiated neuroendocrine tumor: Well Differentiated Neuroendocrine Tumor
   Well to moderately differentiated colonic adenocarcinoma: Well To Moderately Differentiated Colonic Adenocarcinoma
   Yolk sac tumor: Yolk Sac Tumor
+  Pilocytic astrocytoma, WHO grade 1: Pilocytic astrocytoma, WHO Grade 1
+  Low-grade glioneuronal neoplasm: Low-grade Glioneuronal Neoplasm
+  CNS Embryonal tumor: CNS Embryonal Tumor
+  Acute myelomonocytic leukemia: Acute Myelomonocytic Leukemia
+  Low-grade glial neoplasm: Low-grade Glial Neoplasm
+  High-grade astrocytoma: High-grade Astrocytoma
+  Pilocytic astrocytoma (WHO grade 1): Pilocytic astrocytoma (WHO Grade 1)
+  cervical; INI1-Deficient hematological malignancy: Cervical; INI1-Deficient Hematological Malignancy
+  Biphasic synovial sarcoma: Biphasic Synovial Sarcoma
+  Choroid plexus carcinoma, CNS Who grade 3: Choroid plexus carcinoma, CNS WHO grade 3
 platform:
   Illumina: ILLUMINA
