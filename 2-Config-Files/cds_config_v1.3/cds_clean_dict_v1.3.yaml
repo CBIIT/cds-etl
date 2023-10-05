@@ -1,3 +1,6 @@
+adult_or_childhood_study:
+  pediatric: Pediatric
+  adult: Adult
 library_layout:
   paired: Paired-end
   Single: Paired-end

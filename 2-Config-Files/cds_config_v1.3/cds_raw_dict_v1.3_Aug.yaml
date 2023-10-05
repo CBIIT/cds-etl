@@ -2,7 +2,7 @@ diagnosis:
   age_at_diagnosis: age_at_diagnosis
   days_to_last_followup: days_to_last_followup
   days_to_last_known_disease_status: days_to_last_known_status
-  diagnosis_id: diagnosis_id
+  #diagnosis_id: diagnosis_id
   disease_type: disease_type
   last_known_disease_status: last_known_disease_status
   morphology: morphology
@@ -11,11 +11,10 @@ diagnosis:
   progression_or_recurrence: progression_or_recurrence
   tumor_grade: tumor_grade
   vital_status: vital_status
-  tumor_stage_clinical_t: tumor_stage_clinical_t
 file:
   GUID: file_id
   guid: file_id
-  experimental_strategy_and_data_subtype: experimental_strategy_and_data_subtypes
+  #file_access: file_access
   file_id: file_id
   file_name: file_name
   file_size: file_size
@@ -24,7 +23,7 @@ file:
   md5sum: md5sum
   md5: md5sum
   sample_description: file_description
-  submission_version: submission_version
+  experimental_strategy_and_data_subtype: experimental_strategy_and_data_subtypes
 genomic_info:
   avg_read_length: avg_read_length
   bases: bases
@@ -47,7 +46,6 @@ participant:
   participant_id: participant_id
   race: race
 program:
-  institution: institution
   program_acronym: program_acronym
   program_description: program_short_description
   program_external_url: program_external_url
@@ -59,7 +57,6 @@ sample:
   sample_id: sample_id
   sample_tumor_status: sample_tumor_status
   sample_type: sample_type
-  derived_from_specimen: derived_from_specimen
 study:
   acl: acl
   adult_or_childhood_study: adult_or_childhood_study
@@ -67,7 +64,6 @@ study:
   co_primary_investigator_email: co_investigator_email
   co_primary_investigator_name: co_investigator_name
   file_type: file_types
-  file_types_and_format: file_types_and_format
   funding_agency: funding_agency
   funding_source_program_name: funding_source_program_name
   grant_id: grant_id
@@ -80,9 +76,9 @@ study:
   study_access: study_access
   study_acronym: study_acronym
   study_data_types: study_data_types
+  study_description: short_description
   study_description: study_description
   study_name: study_name
-  study_version: study_version
   title_short_description: short_description
   external_resources: study_external_url
 treatment:
