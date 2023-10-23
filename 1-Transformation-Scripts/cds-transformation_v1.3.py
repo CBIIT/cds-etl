@@ -128,7 +128,7 @@ if args.extract_raw_data_dictionary == False:
         # 'keep_default_na' is whether or not to include the default NaN values when parsing the data.
         df_dict = {}
         Metadata = pd.read_excel(io = data_file,
-                                #sheet_name =  "Metadata",
+                                sheet_name =  "Metadata",
                                 engine = "openpyxl",
                                 keep_default_na = False)
         # Replace all the empty string with NAN values

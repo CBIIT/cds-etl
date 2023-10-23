@@ -1,6 +1,7 @@
 adult_or_childhood_study:
   pediatric: Pediatric
   adult: Adult
+  Pediatric, pediatric: Pediatric
 library_layout:
   paired: Paired-end
   Single: Paired-end
@@ -52,9 +53,15 @@ gender:
   MALE: male
   #nan_value: Not Specified in Data
 progression_or_recurrence:
-  Yes - Progression or Recurrence: Yes
-  True: Yes
+  Yes - Progression or Recurrence: "Yes"
+  "True": "Yes"
   Not Reported: Unknown
+  "no": "No"
+  not reported: Unknown
+  unknown: Unknown
+  "TRUE": "Yes"
+primary_site:
+  Bronchus and lung: Bronchus and Lung
 sample_tumor_status:
   primary CRC tumor FFPE tissue: tumor
   normal blood: normal
@@ -72,6 +79,7 @@ library_strategy:
   wxs: WXS
   RNA-seq: RNA-Seq
   Archer_Fusion: Archer Fusion
+  AMPLICON: Amplicon
 experimental_strategy_and_data_subtypes:
   wxs: WXS
   RNA-seq: RNA-Seq
@@ -92,9 +100,306 @@ library_source:
   GENOMIC SINGLE CELL: Genomic Single Cell
   TRANSCRIPTOMIC SINGLE CELL: Transcritomic Single Cell
   VIRAL RNA: Viral RNA
+  Transcritomic Single Cell: Transcriptomic Single Cell
 library_selection:
   RANDOM: Random
 primary_diagnosis:
+  Prostate Cancer: Prostate Cancer
+  Adamantinomatous craniopharyngioma (WHO grade 1): Adamantinomatous Craniopharyngioma
+  Adrenal cortical neoplasm, low risk: Adrenal Cortical Neoplasm
+  Astrocytoma, IDH-mutant, WHO grade 2: Astrocytoma
+  Atypical choroid plexus papilloma (CNS WHO grade 2): Atypical Choroid Plexus Papilloma
+  Atypical meningioma, CNS WHO Grade 2: Atypical Meningioma
+  Atypical teratoid/Rhabdoid tumor (AT/RT), WHO Grade IV: Atypical Teratoid/Rhabdoid Tumor
+  CNS neuroblastoma, CNS WHO grade 4: CNS Neuroblastoma
+  Clear cell adenocarcinoma: Clear Cell Adenocarcinoma
+  Diffuse Astrocytic neoplasm: Diffuse Astrocytic Neoplasm
+  Diffuse midline glioma, H3K27-altered: Diffuse Glioma
+  Diffuse pediatric-type high-grade glioma, H3-wildtype and IDH-wildtype (CNS WHO Grade 4), with evidence of DNA mismatch repair deficiency: Diffuse Glioma
+  Embryonal malignancy with features of embryonal tumor with multilayered rosettes: Embryonal Tumor
+  Embryonal tumor, favor medulloblastoma: Embryonal Tumor
+  Embryonal tumor, possible rhabdoid features: Embryonal Tumor
+  Ependymoma, NOS, CNS WHO grade 3: Ependymoma NOS
+  Ependymoma, residual/recurrent, WHO Grade 2: Ependymoma NOS
+  Extra-renal malignant rhabdoid tumor: Rhabdoid Tumor
+  Follicular Carcinoma: Follicular Carcinoma
+  Follicular thyroid carcinoma with angioinvasion: Follicular Carcinoma
+  Gastric mass/Gastrointestinal tumor; Gastrointestinal stromal tumor: Gastrointestinal Stromal Tumor (GIST)
+  Generally lower grade appearing glioma, morphologically aligning best with piloid/ pilocytic astrocytoma: Glioma
+  Glial neoplasm, morphologically most consistent with pilocytic astrocytoma: Glial Neoplasm
+  Glioma with abundant myxoid changes: Glioma
+  Glioma with piloid features, consistent with pilocytic astrocytoma: Glioma
+  High grade CNS tumor with embryonal features: CNS Embryonal Tumor
+  High-grade malignant glioma: Glioma
+  Low grade glioneuronal tumor (favor Grade 1 ganglioglioma): Glioneuronal Tumor
+  Low grade neoplasm, favor pilocytic astrocytoma: Pilocytic Astrocytoma
+  Low-grade, infiltrating glioma (NOS), IDH-1 (R132H) wild type: Glioma
+  Malignant small round blue cell tumor, consistent with alveolar rhabdomyosarcoma: Small Round Blue Cell Tumor
+  Malignant spindle cell neoplasm with rhabdomyosarcomatous features: Spindle Cell Neoplasm
+  Medulloblastoma, Desmoplastic nodular morphology, Non-WNT by Immunohistochemistry: Medulloblastoma
+  Medulloblastoma, classic histology type, non-WNT/non-SHH molecular group: Medulloblastoma
+  Medulloblastoma, classic morphology, non-WNT by immunohistochemistry: Medulloblastoma
+  Medulloblastoma, classic type, WHO grade 4: Medulloblastoma
+  Medulloblastoma, classic variant, WHO Grade 4: Medulloblastoma
+  Medulloblastoma, favor classical histology (WHO Grade IV): Medulloblastoma
+  Medulloblastoma, large cell/anaplastic histology , non-WNT/non-SHH group: Medulloblastoma
+  Metastatic Melanoma: Malignant Melanoma NOS
+  'Midline posterior fossa brain, biopsy: Features of Medulloblastoma': Medulloblastoma
+  Nasopharyngeal carcinoma, undifferentiated type.: Nasopharyngeal Carcinoma
+  Pilomyxoid astrocytoma, WHO grade II: Pilomyxoid Astrocytoma
+  Pleuropulmonary blastoma (type 1): Pleuropulmonary Blastoma
+  Pontine region tumor: Brain Tumor
+  Positive for brain tumor: Brain Tumor
+  Possible medulloblastoma: Medulloblastoma
+  Posterior fossa ependymoma, CNS Who grade 3: Posterior Fossa Ependymoma
+  "Posterior fossa ependymoma, CNS WHO grade 3": Posterior Fossa Ependymoma
+  Posterior fossa ependymoma, PFA Molecular subgroup, CNS Who grade 3: Posterior Fossa Ependymoma
+  Primary brain neoplasm: Brain Neoplasm
+  Primary low-grade glioma, consistent with pilocytic astrocytoma, WHO grade 1: Glioma
+  Retiform Sertoli-Leydig cell tumor: Sertoli Leydig Cell Tumor
+  Rhabdomyosarcoma, favor embryonal type: Rhabdomyosarcoma
+  Rhabdomyosarcoma, spindle cell type: Rhabdomyosarcoma
+  SMARCA4-Deficient undifferentiated uterine sarcoma: Sarcoma
+  Sacrococcygeal mass; Features are most consistent with Chordoma: Chordoma
+  Schwannoma, CNS Who grade 1: Schwannoma
+  Schwannoma, CNS WHO grade 1: Schwannoma
+  Sertoli-Leydig cell tumor with heterologous elements, moderately differentiated: Sertoli Leydig Cell Tumor
+  Small blue cell tumor, favor medulloblastoma: Medulloblastoma
+  Soft tissue, left supraclavicular mass; Malignant peripheral nerve sheath tumor, high grade: Malignant Tumor
+  Solid pseudopapillary neoplasm: Papillary Neoplasm
+  Spindle cell neoplasm with features of a low-grade fibromyxoid sarcoma: Spindle Cell Neoplasm
+  Spindle cell/ sclerosing rhabdomyosarcoma, with diffuse anaplasia: Spindle Cell Rhabdomyosarcoma
+  Spindle cell/sclerosing rhabdomyosarcoma: Spindle Cell Rhabdomyosarcoma
+  Supraglottis, soft tissue; Small round blue cell tumor, consistent with Rhabdomyosarcoma: Rhabdomyosarcoma
+  features compatible with malignant rhabdoid tumor: Rhabdoid Tumor, Malignant
+  supratentorial tumor; Low-grade neuroepithelial tumor (WHO Grade 1): Neuroepithelial Tumor
+  A diffuse midline glioma, H3 K27-altered CNS WHO grade 4, Diffuse midline glioma, H3 K27-altered CNS WHO grade 4: Diffuse Glioma
+  Adenocarcinoma with clear cell features: Adenocarcinoma
+  Alveolar rhabdomyosarcoma, FOXO1-rearranged: Alveolar Rhabdomyosarcoma
+  Alveolar rhabdomyosarcoma, with FOXO-1 rearrangement by FISH, Alveolar rhabdomyosarcoma, with FOXO1 rearrangement by FISH: Alveolar Rhabdomyosarcoma
+  Atypical meningioma, WHO grade 2: Meningioma
+  Atypical teratoid/ rhabdoid tumor: Atypical Teratoid/Rhabdoid Tumor
+  BCOR-rearranged sarcoma: Sarcoma
+  Brain, Midline supracellar; Diffuse leptomeningeal glioneuronal tumor: Glioneuronal Tumor
+  CNS high grade neuroepithelial neoplasm: Neuroepithelial Neoplasm
+  Central neurocytoma, WHO Grade 2: Neurocytoma
+  Choroid plexus papilloma (WHO grade 1): Choroid Plexus Papilloma
+  Compatible with small blue cell tumor; favor primary CNS origin: Small Round Blue Cell Tumor
+  Craniopharyngioma (WHO Grade I): Craniopharyngioma
+  Craniopharyngioma, WHO Grade 1: Craniopharyngioma
+  Diffuse glioma, with focal areas concerning for high grade, at least Grade 3: Diffuse Glioma
+  Diffuse midline glioma, H3 K27-altered, H3 p.K27M-mutant subgroup, CNS WHO grade 4: Diffuse Glioma
+  Diffuse midline glioma, H3K27 altered, CNS WHO Grade 4: Diffuse Glioma
+  Dural Tumor"""" Pediatric-type high grade glioma: Glioma
+  Dysembryoplastic neuroepithelial tumor (DNT), CNS WHO grade 1: Dysembryoplastic Neuroepithelial Tumor
+  Embryonal neoplasm, favor medulloblastoma: Embryonal Neoplasm
+  Embryonal tumor with multilayered rosettes (WHO Grade 4): Embryonal Tumor
+  Embryonal tumor, with features suggestive of embryonal tumor with multilayered rosettes: Embryonal Tumor
+  Ependymoma, WHO grade 2: Ependymoma NOS
+  Ependymoma, favor myxopapillary subtype, WHO grade 2: Ependymoma NOS
+  Ewing sarcoma with EWSR1 - ETV4 Fusion: Ewing Sarcoma
+  Extrarenal rhabdoid tumor (malignant rhabdoid tumor): Rhabdoid Tumor, Malignant
+  Ganglioglioma, CNS WHO Grade 1: Ganglioglioma
+  "Ganglioglioma, CNS WHO grade 1": Ganglioglioma
+  Gastrointestinal stromal tumor, mixed type, high grade: Gastrointestinal Stromal Tumor (GIST)
+  Glial neoplasm (favor astrocytoma family): Glial Neoplasm
+  Glial neoplasm, favor astrocytoma: Glial Neoplasm
+  Glial neoplasm, favor supratentorial ependymoma: Glial Neoplasm
+  Glial neoplasm; most consistent with Pilocytic astrocytoma: Glial Neoplasm
+  Glial or glioneuronal tumor with BRAF V600E immunoreactivity, favor pleomorphic xanthoastrocytoma, CNS WHO grade 2: Glioneuronal Tumor
+  Glial/glioneruonal neoplasm, histologically low-grade, Glial/glioneuronal neoplasm, histologically low-grade: Glioneuronal Neoplasm
+  Glineuronal neoplasm, favor Ganglioglioma: Glioneuronal Neoplasm
+  Glioma with features suggestive of pilocytic astrocytoma: Glioma
+  Glioma with piloid features.: Glioma
+  Glioneuronal lesion with gliosis, inflammation, fibrosis, hemorrhage, and other reactive changes: Glioneuronal Lesion
+  Glioneuronal neoplasm with low-grade features (NOS): Glioneuronal Neoplasm
+  Glioneuronal tumor high grade: Glioneuronal Tumor
+  Hemangioma: Hemangioma
+  High grade glioma, consistent with glioblastoma: Glioma
+  High-grade gioma, favored to be """"""""diffuse pediatric-type high-grade glioma, H3 wild type and IDH wild type"""""""" with possible hypermutation (pHGG, H3 wild type in IDH wild type).: Glioma
+  High-grade glioma with ependymal differentiation: Glioma
+  Infantile rhabdomyosarcoma, spindle cell type, high grade: Rhabdomyosarcoma
+  Infiltrative low-grade glioneuronal tumor, favor ganglioglioma: Glioneuronal Tumor
+  Infiltrative spindle cell proliferation: Glioma
+  Intermediate grade glioma most consistent with Ependymoma: Glioma
+  Invasive high-grade differentiated thyroid carcinoma: Thyroid Carcinoma
+  Low grade glial tumor, hypervascular: Glial Tumor
+  Low grade glioneuronal neoplasm consistent with ganglioglioma, CNS WHO Grade 1: Glioneuronal Neoplasm
+  Low-grade astrocytic glioma, favor pilocytic astrocytoma: Glioma
+  Low-grade compact glioma: Glioma
+  Low-grade glial neoplasm with BRAF V600E mutation: Low Grade Glial Neoplasm
+  Low-grade sarcoma: Sarcoma
+  Malignant neoplasm with features of embryonal tumor with multilayered rosettes, CNS WHO Grade 4: Malignant Neoplasm
+  Malignant neoplasm with features suggestive of primary intracranial sarcoma, DICER1-mutant: Malignant Neoplasm
+  Malignant neoplasm with myxoid and rhabdoid features and loss of INI-1 by immunohistochemistry, pending further studies: Malignant Neoplasm
+  Malignant peripheral nerve sheath tumor, FNCLCC Grade 2: Malignant Tumor
+  Malignant small blue cell tumor consistent with medulloblastoma: Medulloblastoma
+  Mass, Sinonasal Tumor; Rhabdomyosarcoma: Rhabdomyosarcoma
+  Medulloblastoma, """"""""classic"""""""" histopathological subtype (NOS): Medulloblastoma
+  Medulloblastoma, CNS WHO grade 4: Medulloblastoma
+  Medulloblastoma, Large cell/anaplastic: Medulloblastoma
+  'Medulloblastoma, SHH-activated, p53 wild-type pattern (by IHC). CNS WHO grade: 4': Medulloblastoma
+  Medulloblastoma, classic histologic variant, WHO grade 4: Medulloblastoma
+  Medulloblastoma, classic histology, CNS WHO grade 4: Medulloblastoma
+  Medulloblastoma, classic histology, WNT-driven (WHO Grade 4): Medulloblastoma
+  Medulloblastoma, classic type, histologically defined, WHO grade 4: Medulloblastoma
+  Medulloblastoma, classical type, NOS, histologically defines, WHO grade 4: Medulloblastoma
+  Medulloblastoma, desmoplastic / nodular, CNS WHO 4: Medulloblastoma
+  Medulloblastoma, large cell anaplastic variant, WHO grade 4.: Medulloblastoma
+  Medulloblastoma, non-WNT / non-SHH (CNS WHO grade 4): Medulloblastoma
+  Meningeal Tumor, Meningioma, transitional subtype. CNS WHO Grade 1.: Meningioma
+  Mesenchymal chondrosarcoma, with HEY-NCOA2 gene fusion: Mesenchymal Chondrosarcoma
+  Mesenchymal neoplasm, favor meningioma: Mesenchymal Neoplasm
+  Monophasic Synovial sarcoma: Meningioma
+  Most consistent with astrocytoma, IDH-1 mutant, WHO grade III: Astrocytoma
+  Myofibroblastic proliferation most consistent with Desmoplastic fibromatosis: Myofibroma
+  Myofibroblastic tumor with epithelioid spindle cell morphology: Myofibroma
+  Myxoid spindle cell neoplasm: Myxoid Neoplasm
+  Nasal embryonal rhabdomyosarcoma: Embryonal Rhabdomyosarcoma
+  Papillary carcinoma, Papillary thyroid carcinoma: Papillary Thyroid Carcinoma
+  Paratesticular embryonal rhabdomyosarcoma: Embryonal Rhabdomyosarcoma
+  Pilocytic Astrocytoma (WHO grade 1): Pilocytic Astrocytoma
+  Pilocytic Astrocytoma, WHO GRADE 1: Pilocytic Astrocytoma
+  Pilocytic astrocytoma with pilomyxoid features WHO grade 1: Pilocytic Astrocytoma
+  Pilocytic astrocytoma, BRAF p.V600E-mutant (WHO grade 1): Pilocytic Astrocytoma
+  Pilocytic astrocytoma, WHO Grade 1, in cerebellum: Pilocytic Astrocytoma
+  Pineal parenchymal tumor of intermediate differentiation (PPTID): Pineal Parenchymal Tumor
+  Pineal parenchymal tumor of intermediate, differentiation, CNS WHO Grade 2: Pineal Parenchymal Tumor
+  Poorly differentiated malignant neoplasm consistent with embryonal rhabdomyosarcoma: Embryonal Rhabdomyosarcoma
+  Posterior Fossa Ependymoma WHO 3: Posterior Fossa Ependymoma
+  Primary CNS neoplasm: CNS Neoplasm
+  Primary astrocytic tumor, favor pilocytic astrocytoma: Pilocytic Astrocytoma
+  Residual Synovial sarcoma: Synovial Sarcoma
+  Residual low garde glial/glioneuronal tumor, Residual low grade glial/glioneuronal tumor: Glioneuronal Tumor
+  Rhabdomyosarcoma with spindle cell features, extending to surgical margin resection: Rhabdomyosarcoma
+  Rhabdomyosarcoma, favor alveolar subtype: Rhabdomyosarcoma
+  Rhabdomyosrcoma: Rhabdomyosarcoma
+  Sertoli-Leydig cell tumor, moderately differentiated (intermediate differentiation): Sertoli Leydig Cell Tumor
+  Skull Base, Nasal Cavity, Right Sphenoid Embryonal rhabdomyosarcoma: Embryonal Rhabdomyosarcoma
+  Small blue cell tumor favour medulloblastoma: Medulloblastoma
+  Small round blue cell proliferation compatible with embryonal rhabdomyosarcoma: Embryonal Rhabdomyosarcoma
+  Small round blue cell tumor suspicious for high-grade glioma/possible medulloblastoma: Medulloblastoma
+  Spindle cell neoplasm with features of Low-grade fibromyxoid sarcoma: Spindle Cell Neoplasm
+  Spindled and ovoid cell neoplasm most consistent with solitary fibrous tumor: Spindle Cell Neoplasm
+  Subependymal giant cell astrocytoma (WHO grade 1), Subependymoma giant cell astrocytoma (WHO grade 1): Subependymal Giant Cell Astrocytoma
+  Subependymal giant cell astrocytoma, CNS WHO grade 1: Subependymal Giant Cell Astrocytoma
+  Suspicious for medulloblastoma: Medulloblastoma
+  Thymoma: Thymoma
+  Thyroid carcinoma: Thyroid Carcinoma
+  Well-differentiated neuroendocrine tumor: Neuroendocrine Tumor
+  Well-differentiated neuroendocrine tumor, G1: Neuroendocrine Tumor
+  favor pilocytic astrocytoma, cannnot entirely exclude higher grade tumor: Pilocytic Astrocytoma
+  favor pilomyxoid astrocytoma,: Pilomyxoid Astrocytoma
+  high-grade astrocytoma: Astrocytoma
+  low grade glial tumor: Glial Tumor
+  Embryonal rhabdomyosarcoma, NOS;Alveolar rhabdomyosarcoma: Embryonal Rhabdomyosarcoma
+  Hepatoblastoma, NOS: Hepatoblastoma
+  Malignant peripheral nerve sheath tumor, NOS: Malignant Tumor
+  Neoplasm, uncertain whether benign or malignant;Sarcoma, NOS: Neoplasm
+  Neuroblastoma, NOS;Schwannoma, NOS: Neuroblastoma
+  Osteosarcoma, NOS;Chondroblastic osteosarcoma: Osteosarcoma, NOS
+  Osteosarcoma, NOS;Osteoblastoma, NOS: Osteosarcoma, NOS
+  Osteosarcoma, NOS;Parosteal osteosarcoma: Osteosarcoma, NOS
+  Papillary carcinoma, encapsulated of thyroid: Papillary Carcinoma
+  Renal cell carcinoma, NOS;Medullary carcinoma, NOS: Renal Cell Carcinoma
+  Sarcoma, NOS;Mesenchymal chondrosarcoma: Mesenchymal Chondrosarcoma
+  Sarcoma, NOS;Undifferentiated sarcoma: Sarcoma
+  Undifferentiated sarcoma;Osteosarcoma, NOS: Osteosarcoma, NOS
+  Undifferentiated sarcoma;Rhabdoid tumor, NOS: Rhabdoid Tumor, Malignant
+  Yolk sac tumor, NOS: Yolk Sac Tumor
+  Alveolar soft part sarcoma, Alveolar soft part sarcoma with tumor thrombus: Alveolar Soft Part Sarcoma
+  Angiomatoid fibrous histiocytoma EWSR1-rearranged: Angiomatoid Fibrous Histiocytoma
+  Astrocytoma, IDH mutant, WHO grade 3: Astrocytoma
+  Astrocytoma, IDH-mutant, CNS WHO grade 4 (CDKN2A loss by FISH): Astrocytoma
+  At least low-grade spindle cell neoplasm: Spindle Cell Sarcoma
+  Atypical compound melanocytic neoplasm, excised: Neoplasm
+  Atypical meningioma,WHO grade 2: Meningioma
+  Atypical spindled and epithelioid neoplasm: Neoplasm
+  Atypical teratoid-rhabdoid tumor, CNS WHO 4: Atypical Teratoid/Rhabdoid Tumor
+  Brain tumor consistent with ependymoma: Ependymoma NOS
+  CIC- rearranged round cell sarcoma, CIC-rearranged round cell sarcoma, Round cell sarcoma: Sarcoma
+  Circumscribed melanocytic neoplasm, intermediate grade: Neoplasm
+  Desmoid/fibromatosis, Fibromatosis: Desmoid-type Fibromatosis
+  Diffuse astrocytoma, MYB-altered, CNS WHO grade 1.: Diffuse Astrocytoma
+  Diffuse midline glioma, H3K 27-altered, WHO grade 4: Diffuse Glioma
+  Embryonal Rhabdomyosarcoma, Rhabdomyosarcoma embryonic: Embryonal Rhabdomyosarcoma
+  Embryonal rhabdomyosarcoma, Rhabdomyosarcoma: Embryonal Rhabdomyosarcoma
+  Ependymal neoplasm: Neoplasm
+  Epethelioid inflammatory myofibroblastic sarcoma: Sarcoma
+  Favor Pilocytic astrocytoma: Pilocytic Astrocytoma
+  Features consistent with embryonal sarcoma (of liver): Sarcoma
+  Fibrolamellar variant of hepatocellular carcinoma: Hepatocellular Carcinoma, Fibrolamellar
+  Ganglioglioma, WHO grade I: Glioma
+  Glial neoplasm with high grade features: Glial Neoplasm
+  Glial tumor, representative tissue present. Cannot rule out ependymoma: Glial Neoplasm
+  Glial vs glioneuronal neoplasm with Rosenthal fibers; low-grade: Glial Neoplasm
+  Glial/glioneuronal tumor with piloid features: Glial Neoplasm
+  Glioma with features reminiscent of pilocytic astrocytoma: Glioma
+  High Grade Glioma, High-Grade Glioma: Glioma
+  High grade glial/ glioneuronal neoplasm: Glial Neoplasm
+  High grade papillary thyroid carcinoma, with features of diffuse sclerosing subtype: Papillary Thyroid Carcinoma
+  High-grade Glioma: Glioma
+  High-grade glioma with loss of H3K27me3 immunoreactivitiy, suggesting diffuse midline glioma, H3K27-altered: Glioma
+  High-grade poorly differentiated sarcoma: Sarcoma
+  High-grade sarcoma with skeletal muscle differentiation involving fibrous connective tissue: Sarcoma
+  Immature Teratoma with features suspicious for yolk sac tumor: Yolk Sac Tumor
+  Infiltrating high grade glioma NOS: Glioma
+  Likely metastatic alveolar rhabdomyosarcoma: Alveolar Rhabdomyosarcoma
+  Low grade glial/glioneuronal tumor.: Glial Tumor
+  Low grade glioma with piloid features, histologically consistent with Pilocytic astrocytoma, CNS WHO grade 1: Glioma
+  Low grade myofibroblastic sarcoma: Sarcoma
+  Low grade neuroepithelial neoplasm with QKI::NTRK2 gene fusion: Neuroepithelial Tumor
+  Low grade pediatric tumor consistent with Dysembryoplastic neuroepithelial tumor (DNET): Neuroepithelial Tumor
+  Low-grade glial versus glioneuronal tumor; favor ganglioglioma, CNS WHO grade 1: Glioneuronal Tumor
+  Low-grade glioma, favor pilocytic astrocytoma, CNS WHO grade I: Pilocytic Astrocytoma
+  Low-grade glioma, most consistent with pilocytic astrocytoma: Pilocytic Astrocytoma
+  Malignant diffuse glioma: Diffuse Glioma
+  Malignant epithelioid tumor with features suggestive of myoepithelial carcinoma: Epitheloid Neoplasm
+  Malignant neoplasm consistent with rhabdomyosarcoma, embryonal subtype: Rhabdomyosarcoma
+  Malignant neuroepithelial tumor, with morphology aligning with/ favoring a high grade glioma/ glioblastoma, CNS WHO Grade 4: Neuroepithelial Tumor
+  Medulloblastoma with large cell/anaplastic histology, CNS WHO grade 4: Medulloblastoma
+  Medulloblastoma, Nodular/desmoplastic with anaplastic/large cell features, SHH-activated: Medulloblastoma
+  Medulloblastoma, WHO grade 4: Medulloblastoma
+  'Medulloblastoma, desmoplastic/nodular histologic subtype, with immunoprofile supporting SHH-activated, TP-53 mutant molecular subclass, Medulloblastoma, desmoplastic/nodular histologic subtype, with immunoprofile supporting SHH-activated, TP53-mutant molecular subclass': Medulloblastoma
+  Mesenchymal neoplasm: Mesenchymal Neoplasm
+  Metastatic carcinoma, morphologically consistent with known nasopharyngeal carcincoma, undifferentiated., Nasopharyngeal carcinoma, undifferentiated type.: Metastatic Carcinoma
+  Metastatic poorly differentiated carcinoma most compatible with squamous cell carcinoma (lymphoepithelial type, EBER positive): Metastatic Carcinoma
+  Moderately cellular glioma, IDH-wildtype by immunohistochemistry: Glioma
+  Morphologically consistent with high-grade neuroepithelial tumor: Pilocytic Astrocytoma
+  Multifocal papillary thyroid carcinoma, classic type: Papillary Thyroid Carcinoma
+  Nasopharyngeal carcinoma: Nasopharyngeal Carcinoma
+  Neoplasm most consistent with pilocytic astrocytoma: Pilocytic Astrocytoma
+  Papillary thyroid microcarcinoma, classic variant: Papillary Thyroid Carcinoma
+  Pediatric type diffuse low-grade appearing glioma: Glioma
+  Pediatric-type diffuse-type glioma, cannot entirely exclude diffuse midline glioma: Glioma
+  Pilocytic astrocytoma, CNS WHO grade I: Pilocytic Astrocytoma
+  Pilocytic astrocytoma, with foci of myxoid tumor, coagulative necrosis, and calcification: Pilocytic Astrocytoma
+  Polymorphous low-grade neuroepithelial tumor of the young (PLNTY; right temporal lobe of brain): Pilocytic Astrocytoma
+  Poorly differentiated Sertoli-Leydig cell tumor, Seroli-leydig cell tumor: Sertoli Leydig Cell Tumor
+  Posterior fossa ependymoma, subgroup A: Ependymoma NOS
+  Primary central nervous system neoplasm, Differential diagnosis includes dysembryoplastic neuroepithelial tumor and low-grade glioma: Neoplasm
+  Recurrent/residual low-grade glioma, with morphologic features most consistent with pilocytic astrocytoma, CNS WHO grade 1: Pilocytic Astrocytoma
+  Residual unifocal submucosal muco-epidermoid carcinoma: Ependymoma NOS
+  Rhabdomyosarcoma, Rhabdomyosarcoma embryonal: Rhabdomyosarcoma
+  Rhabdomyosarcoma, embryonal type by morphology: Rhabdomyosarcoma
+  Rhabdomyosarcoma, spindle cell variant: Rhabdomyosarcoma
+  Round cell sarcoma, favored to represent Ewing sarcoma: Ewing Sarcoma
+  Small blue cell tumor (probably embryonic): Small Round Blue Cell Tumor
+  Spindle cell neoplasm with necrosis: Neoplasm
+  Supratentorial ependymoma, NOS CNS WHO grade 2: Ependymoma NOS
+  Thymic carcinoma, lymphoepithelial-like variant: Thymic Carcinoma
+  Tumour lesion for which malignant or benign nature cannot be determined: Tumor
+  Well-differentiated neuroendocrine tumor (carcinoid tumor) of the distal appendix: Neuroendocrine Tumor
+  Acute lymphoblastic leukemia NOS: Acute Lymphoblastic Leukemia
+  Acute lymphoblastic leukemia precursor cell type: Acute Lymphoblastic Leukemia
+  Acute myeloid leukemia MLL: Acute Myeloid Leukemia, NOS
+  Acute megakaryoblastic leukemia: Acute Megakaryoblastic Leukemia
+  Metastatic papillary thyroid carcinoma: Metastatic Papillary Thyroid Carcinoma
+  Epitheloid sarcoma: Epitheloid Sarcoma
+  4th ventricular brain tumor: 4th Ventricular Brain Tumor
+  Low-grade glial/glioneuronal tumor: Low-grade Glial/Glioneuronal tumor
+  Metastatic polyphenotypic malignant neoplasm: Metastatic Polyphenotypic Malignant Neoplasm
+  Acinar cell carcinoma: Acinar Cell Carcinoma
   Diffuse glioma: Diffuse Glioma
   embryonal rhabdomyosarcoma: Dysembryoplastic Neuroepithelial Tumor
   Astrocytic glioma: Astrocytic Glioma
@@ -489,7 +794,6 @@ primary_diagnosis:
   Myxoid neoplasm: Myxoid Neoplasm
   Neuroectodermal tumor: Neuroectodermal Tumor
   Neuroepithelial neoplasm: Neuroepithelial Neoplasm
-  Not specified in data: Not Specified in Data
   Optic pathway glioma: Optic Pathway Glioma
   Ovarian sclerosing stromal tumor: Ovarian Sclerosing Stromal Tumor
   Pancreatobiliary-type carcinoma: Pancreatobiliary-Type Carcinoma
@@ -570,3 +874,19 @@ primary_diagnosis:
   Choroid plexus carcinoma, CNS Who grade 3: Choroid plexus carcinoma, CNS WHO grade 3
 platform:
   Illumina: ILLUMINA
+  unknown: Unknown
+tumor_grade:
+  unknown: Unknown
+vital_status:
+  unknown: Unknown
+ethnicity:
+  not hispanic or latino: Not Hispanic or Latino
+  hispanic or latino: Hispanic or Latino
+  unknown: Unknown
+  Unkown: Unknown
+last_known_disease_status:
+  With tumor: With Tumor
+  unknown tumor status: Unknown Tumor Status
+race:
+  Unkown: Unknown
+  Not Reported;Unknown: Not Reported

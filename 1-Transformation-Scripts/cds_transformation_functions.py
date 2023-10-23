@@ -18,9 +18,9 @@ def clean_data(df_dict, config):
     TBD = 'TBD'
     NOT_REPORTED = 'not reported'
     with open(config['MODEL_FILE_PROPS']) as f:
-        props = yaml.load(f, Loader = yaml.FullLoader)
+        props = yaml.safe_load(f)
     with open(config['CLEAN_DICT']) as f:
-        clean_dict = yaml.load(f, Loader = yaml.FullLoader)
+        clean_dict = yaml.safe_load(f)
     for node, df in df_dict.items():
         for key in list(df.keys()):
             if key in list(props[PROPDEFINITIONS]):
@@ -30,7 +30,9 @@ def clean_data(df_dict, config):
                         for value in df[key]:
                             if value not in props[PROPDEFINITIONS][key][ENUM]:
                                 if key in clean_dict.keys():
-                                    if value in clean_dict[key].keys():
+                                    str_value = str(value)
+                                    #print(len(list(clean_dict['primary_diagnosis'].keys())))
+                                    if str_value in clean_dict[key].keys() or value in clean_dict[key].keys():
                                         value_list.append(clean_dict[key][value])
                                         #print(clean_dict[key][value])
                                     elif pd.isnull(value) and 'nan_value' in clean_dict[key].keys():
@@ -43,6 +45,20 @@ def clean_data(df_dict, config):
                             else:
                                 value_list.append(value)
                         df[key] = value_list
+                elif "Type" in props[PROPDEFINITIONS][key]:
+                    if props[PROPDEFINITIONS][key]["Type"] == 'integer':
+                        value_list = []
+                        for value in df[key]:
+                            if not isinstance(value, int) and value is not None and not pd.isna(value):
+                                try:
+                                    value_list.append(int(value))
+                                except Exception as e:
+                                    print(e)
+                                    value_list.append(value)
+                            else:
+                                value_list.append(value)
+                        
+                        df[key] = pd.Series(value_list, dtype=object)
         df_dict[node] = df
     return df_dict
 """
