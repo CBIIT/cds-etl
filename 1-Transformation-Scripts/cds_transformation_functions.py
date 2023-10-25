@@ -51,10 +51,14 @@ def clean_data(df_dict, config):
                         for value in df[key]:
                             if not isinstance(value, int) and value is not None and not pd.isna(value):
                                 try:
-                                    value_list.append(int(value))
+                                    int_value = int(value)
+                                    if value == int_value: 
+                                        value_list.append(int_value)
+                                    else:
+                                        value_list.append(value)
                                 except Exception as e:
-                                    print(e)
                                     value_list.append(value)
+                                    print(e)                
                             else:
                                 value_list.append(value)
                         
