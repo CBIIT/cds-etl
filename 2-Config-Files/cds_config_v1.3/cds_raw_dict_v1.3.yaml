@@ -59,7 +59,7 @@ sample:
   sample_id: sample_id
   sample_tumor_status: sample_tumor_status
   sample_type: sample_type
-  derived_from_specimen: derived_from_specimen
+  #derived_from_specimen: derived_from_specimen
 study:
   acl: acl
   adult_or_childhood_study: adult_or_childhood_study
