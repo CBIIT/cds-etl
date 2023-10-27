@@ -335,13 +335,19 @@ def combine_columns(df_dict, config, cds_log):
     for combine_node in config['COMBINE_COLUMN']:
         if combine_node['node'] in df_dict.keys():
             if combine_node['external_node'] == False:
+                print(combine_node)
                 try:
                     df_dict[combine_node['node']][combine_node['new_column']] = df_dict[combine_node['node']][combine_node['column1']].astype(str) + "_" + df_dict[combine_node['node']][combine_node['column2']].astype(str)
+                    if combine_node['node'] == "diagnosis":
+                        cds_log.info(df_dict[combine_node['node']][combine_node['column1']].astype(str) + "_" + df_dict[combine_node['node']][combine_node['column2']].astype(str))
                 except Exception as e:
                     cds_log.error(e)
             else:
                 try:
+                    print(combine_node['node'])
                     df_dict[combine_node['node']][combine_node['new_column']] = df_dict[combine_node['external_node']][combine_node['column1']].astype(str) + "_" + df_dict[combine_node['node']][combine_node['column2']].astype(str)
+                    
+                    cds_log.info(df_dict[combine_node['external_node']][combine_node['column1']].astype(str) + "_" + df_dict[combine_node['node']][combine_node['column2']].astype(str))
                 except Exception as e:
                     cds_log.error(e)
     return df_dict
