@@ -346,6 +346,7 @@ def combine_columns(df_dict, config, cds_log):
                 try:
                     print(combine_node['node'])
                     df_dict[combine_node['node']][combine_node['new_column']] = df_dict[combine_node['external_node']][combine_node['column1']].astype(str) + "_" + df_dict[combine_node['node']][combine_node['column2']].astype(str)
+                    cds_log.info(combine_node['column1'])
                     cds_log.info(df_dict[combine_node['external_node']][combine_node['column1']].astype(str))
                     cds_log.info(df_dict[combine_node['node']][combine_node['new_column']])
                 except Exception as e:
