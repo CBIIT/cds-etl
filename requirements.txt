@@ -1,5 +1,5 @@
 pyyaml
-pandas==2.0.3
+pandas
 numpy
 openpyxl
 boto3

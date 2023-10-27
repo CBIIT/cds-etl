@@ -73,10 +73,16 @@ COMBINE_COLUMN:
     external_node: study
   -
     node: diagnosis
-    column1: phs_accession
+    column1: study_participant_id
     column2: diagnosis_id
     new_column: study_diagnosis_id
-    external_node: study
+    external_node: participant
+  -
+    node: genomic_info
+    column1: genomic_info_id
+    column2: library_id
+    new_column: genomic_info_id
+    external_node: False
 
 SECONDARY_ID_COLUMN:
   -
@@ -91,7 +97,6 @@ SECONDARY_ID_COLUMN:
 REMOVE_NODES:
   #- diagnosis
   - treatment
-
 
 NODE_ID_FIELD:
   program: program_acronym
