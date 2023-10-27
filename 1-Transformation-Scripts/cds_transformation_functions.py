@@ -328,7 +328,7 @@ def download_from_s3(config, cds_log):
                 # If the path does not exist, then create the folder
                 os.mkdir(download_folder)
             file_key = os.path.join(download_folder, os.path.basename(key['Key']))
-            if key.endswith(".xlsx"):
+            if key['Key'].endswith(".xlsx"):
                 s3.download_file(config['S3_BUCKET'], key['Key'], file_key)
 
 def combine_columns(df_dict, config, cds_log):
