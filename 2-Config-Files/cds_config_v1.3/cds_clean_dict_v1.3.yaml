@@ -4,13 +4,15 @@ adult_or_childhood_study:
   Pediatric, pediatric: Pediatric
 library_layout:
   paired: Paired-end
-  Single: Paired-end
+  Single: Single-end
   Paired End: Paired-end
   Paired-end: Paired-end
   Paired end: Paired-end
   paired-end: Paired-end
   paired_end: Paired-end
   single-end: Single-end
+  single: Single-end
+  Not specified in data: Not Reported
 instrument_model:
   HiSeq 3000: Illumina HiSeq 3000
   HiSeq 2500: Illumina HiSeq 2500
@@ -30,6 +32,9 @@ reference_genome_assembly:
   GRCh38_premrna_v3.0.0: GRCh38
   refdata-cellranger-arc-GRCh38-2020-A: GRCh38
   refdata-cellranger-GRCh38-3.0.0: GRCh38
+  RefSeq_Build_73: GRCh37 
+  hg19: GRCh37 
+  hg19_with_GenBank_Viral_Genomes: GRCh37
 file_type:
   fastq: FASTQ
   bai: BAI
@@ -43,6 +48,18 @@ file_type:
   xlsx: XLSX
   vcf_index : VCF
   bam_index: BAI
+  cns: CNS
+  crai: CRAI
+  cram: CRAM
+  csv: CSV
+  gvcf: GVCF
+  html: HTML
+  maf: MAF
+  pdf: PDF
+  ped: PED
+  png: PNG
+  seg: SEG
+  tar: TAR
   #nan_value: unknown
 gender:
   female: Female
@@ -94,6 +111,7 @@ sample_tumor_status:
   normal: Normal
   tumor: Tumor
 library_source:
+
   GENOMIC: Genomic
   TRANSCRIPTOMIC: Transcriptomic
   Single-nuclei: Single Nucleus
@@ -104,6 +122,47 @@ library_source:
 library_selection:
   RANDOM: Random
 primary_diagnosis:
+  Atypical Teratoid Rhabdoid Tumor (ATRT): Atypical Teratoid/Rhabdoid Tumor
+  Brainstem glioma- Diffuse intrinsic pontine glioma: Glioma
+  Dysembryoplastic neuroepithelial tumor (DNET): Dysembryoplastic Neuroepithelial Tumor
+  Dysplasia/Gliosis: Dysplasia
+  Embryonal Tumor with Multilayered Rosettes (ETMR): Embryonal Tumor
+  Ewings Sarcoma: Ewing Sarcoma
+  Glial-neuronal tumor NOS: Glial Tumor
+  Gliomatosis cerebri: Glioma
+  High-grade glioma/astrocytoma (WHO grade III/IV): Glioma
+  Langerhans Cell histiocytosis: Langerhans Cell Histiocytosis
+  Low-grade glioma/astrocytoma (WHO grade I/II): Glioma
+  Malignant peripheral nerve sheath tumor (MPNST): Malignant Peripheral Nerve Sheath Tumor (Mpnst)
+  Metastatic secondary tumors: Metastatic Secondary Tumors
+  Neurofibroma/Plexiform: Neurofibroma
+  Non-germinomatous germ cell tumor: Non-Germinomatous Germ Cell Tumor
+  Oligodendroglioma: Oligodendroglioma
+  Ossifying fibroma: Ossifying Fibroma
+  Primary CNS lymphoma: Lymphoma, NOS
+  Subependymal Giant Cell Astrocytoma (SEGA): Astrocytoma
+  Supratentorial or Spinal Cord PNET: Supratentorial Ependymoma
+  arteriovenous malformation: Arteriovenous Malformation
+  atypical lymphoid infiltrate: Atypical Lymphoid Infiltrate
+  choroid plexus cyst: Choroid Plexus Neoplasm
+  dermoid cyst: Dermoid Cyst
+  dermoid inclusion cyst: Dermoid Cyst
+  embryonal tumor, nos, congenital type: Embryonal Tumor
+  epidermoid cyst: Dermoid Cyst
+  epilepsy, chronic rasmussen encephalitis: Rasmussen Encephalitis
+  fibroma: Fibroma
+  fibromyxoid lesion: Fibroma
+  hamartoma: Hamartoma
+  inclusion cyst: Dermoid Cyst
+  juvenile xanthogranuloma of the cns: Xanthogranuloma 
+  malignant melanocytic neoplasm: Malignant Melanocytic Neoplasm
+  meningioangiomatosis: Meningioangiomatosis
+  myofibroblastic tumor: Myofibroblastic Tumor
+  myxoid spindle cell tumor: Myxoid Spindle Cell Tumor
+  osteoblastoma: Osteoblastoma
+  perineuroma: Perineuroma
+  reactive connective tissue: Reactive Connective Tissue
+  rosai-dorfman disease: Glioma
   Prostate Cancer: Prostate Cancer
   Adamantinomatous craniopharyngioma (WHO grade 1): Adamantinomatous Craniopharyngioma
   Adrenal cortical neoplasm, low risk: Adrenal Cortical Neoplasm
@@ -890,3 +949,4 @@ last_known_disease_status:
 race:
   Unkown: Unknown
   Not Reported;Unknown: Not Reported
+  Other: Not Reported

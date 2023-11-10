@@ -134,7 +134,7 @@ if args.extract_raw_data_dictionary == False:
         # Replace all the empty string with NAN values
         Metadata = Metadata.replace(r'^\s*$', np.nan, regex=True)
         # Remove all leading and trailing spaces
-        Metadata = Metadata.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+        Metadata = Metadata.map(lambda x: x.strip() if isinstance(x, str) else x)
         with open(config['NODE_FILE']) as f:
             model = yaml.load(f, Loader = yaml.FullLoader)
         for node in model['Nodes']:

@@ -22,6 +22,7 @@ def clean_data(df_dict, config):
     with open(config['CLEAN_DICT']) as f:
         clean_dict = yaml.safe_load(f)
     for node, df in df_dict.items():
+        df.reset_index(inplace = True, drop=True)
         for key in list(df.keys()):
             if key in list(props[PROPDEFINITIONS]):
                 if ENUM in props[PROPDEFINITIONS][key]:
@@ -58,10 +59,9 @@ def clean_data(df_dict, config):
                                         value_list.append(value)
                                 except Exception as e:
                                     value_list.append(value)
-                                    print(e)                
+                                    print(e)             
                             else:
                                 value_list.append(value)
-                        
                         df[key] = pd.Series(value_list, dtype=object)
         df_dict[node] = df
     return df_dict
