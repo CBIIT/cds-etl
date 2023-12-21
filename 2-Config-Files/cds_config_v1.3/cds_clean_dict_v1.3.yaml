@@ -37,6 +37,7 @@ reference_genome_assembly:
   hg19_with_GenBank_Viral_Genomes: GRCh37
 file_type:
   fastq: FASTQ
+  fastq.gz: FASTQ
   bai: BAI
   bam: BAM
   bw: BW
@@ -111,7 +112,6 @@ sample_tumor_status:
   normal: Normal
   tumor: Tumor
 library_source:
-
   GENOMIC: Genomic
   TRANSCRIPTOMIC: Transcriptomic
   Single-nuclei: Single Nucleus
@@ -122,6 +122,55 @@ library_source:
 library_selection:
   RANDOM: Random
 primary_diagnosis:
+  Acral lentiginous melanoma, malignant: Melanoma
+  Adenocarcinoma with mixed subtypes: Adenocarcinoma
+  Adenocarcinoma, endocervical type: Adenocarcinoma
+  Adenocarcinoma, intestinal type: Adenocarcinoma
+  Adenosquamous carcinoma: Adenosquamous Carcinoma
+  Amelanotic melanoma: Melanoma
+  Astrocytoma, NOS: Astrocytoma
+  Astrocytoma, anaplastic: Astrocytoma
+  Basaloid squamous cell carcinoma: Basaloid Squamous Cell Carcinoma
+  Bronchio-alveolar carcinoma, mucinous: Bronchio-alveolar Carcinoma
+  Bronchiolo-alveolar carcinoma, non-mucinous: Bronchio-alveolar Carcinoma
+  CNS Neoplasm: CNS Neoplasm
+  Carcinoma, diffuse type: Carcinoma NOS
+  Carcinoma, undifferentiated, NOS: Carcinoma NOS
+  Dedifferentiated liposarcoma: Liposarcoma
+  Ductal carcinoma in situ, NOS: Ductal Carcinoma NOS
+  Epithelioid cell melanoma: Melanoma
+  Epithelioid sarcoma: Epithelioid Sarcoma
+  Follicular adenocarcinoma, NOS: Follicular Carcinoma
+  Follicular carcinoma, minimally invasive: Follicular Carcinoma
+  Gastrointestinal Stromal Tumor (GIST): Gastrointestinal Stromal Tumor (GIST)
+  Hemangioma: Hemangioma
+  Infiltrating duct mixed with other types of carcinoma: Carcinoma
+  Leiomyosarcoma, NOS: Leiomyosarcoma, NOS
+  Lobular carcinoma, NOS: Lobular carcinoma NOS
+  Malignant melanoma, NOS: Melanoma
+  Medullary carcinoma, NOS: Medullary Carcinoma
+  Metaplastic carcinoma, NOS: Metaplastic Carcinoma
+  Micropapillary carcinoma, NOS: Micropapillary Carcinoma
+  Mixed epithelioid and spindle cell melanoma: Melanoma
+  Mixed glioma: Glioma
+  Mucinous adenocarcinoma: Mucinous Adenocarcinoma
+  Mucinous adenocarcinoma, endocervical type: Mucinous Adenocarcinoma
+  Nodular melanoma: Melanoma
+  Oligodendroglioma, NOS: Oligodendroglioma
+  Oligodendroglioma, anaplastic: Oligodendroglioma
+  Oxyphilic adenocarcinoma: Oxyphilic Adenocarcinoma
+  Papillary adenocarcinoma, NOS: Papillary Carcinoma
+  Papillary carcinoma, columnar cell: Papillary Carcinoma
+  Papillary carcinoma, follicular variant: Papillary Carcinoma
+  Papillary transitional cell carcinoma: Papillary Carcinoma
+  Serous cystadenocarcinoma, NOS: Serous Cystadenocarcinoma NOS
+  Spindle cell melanoma, NOS: Melanoma
+  Spindle cell melanoma, type B: Melanoma
+  Squamous cell carcinoma, keratinizing, NOS: Squamous Cell Carcinoma Nos
+  Squamous cell carcinoma, large cell, nonkeratinizing, NOS: Squamous Cell Carcinoma Nos
+  Thymoma: Thymoma
+  Thyroid Carcinoma: Thyroid Carcinoma
+  Tubular adenocarcinoma: Tubular Adenocarcinoma
   Atypical Teratoid Rhabdoid Tumor (ATRT): Atypical Teratoid/Rhabdoid Tumor
   Brainstem glioma- Diffuse intrinsic pontine glioma: Glioma
   Dysembryoplastic neuroepithelial tumor (DNET): Dysembryoplastic Neuroepithelial Tumor
@@ -950,3 +999,12 @@ race:
   Unkown: Unknown
   Not Reported;Unknown: Not Reported
   Other: Not Reported
+disease_type:
+  Adenomas and Adenocarcinomas: Adenocarcinoma
+  Cystic, Mucinous and Serous Neoplasms: Neoplasm
+  Ductal and Lobular Neoplasm: Neoplasm
+  Nevi and Melanomas: Melanoma
+  Transitional Cell Papillomas and Carcinomas: Carcinoma NOS
+sample_type:
+  peripheral blood - Blood Derived Cancer: Blood
+  Tissue Biospecimen Type: Tissue
