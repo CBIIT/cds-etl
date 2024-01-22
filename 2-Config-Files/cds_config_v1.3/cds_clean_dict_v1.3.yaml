@@ -61,6 +61,7 @@ file_type:
   png: PNG
   seg: SEG
   tar: TAR
+  bed: BED
   #nan_value: unknown
 gender:
   female: Female

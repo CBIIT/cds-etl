@@ -207,25 +207,24 @@ def id_validation(df_dict, config, data_file, cds_log, model):
                     if model["Relationships"][relationship]["Mul"] == "many_to_many":
                         mul = "many_to_many"
                     if parent_id_field in df_dict[node].keys():
-                        #df_dict[node] = df_dict[node].dropna(subset = [parent_id_field])
                         parent_id_validation_result_df = df_dict[node][df_dict[node][parent_id_field].isna()]
                         if len(parent_id_validation_result_df) > 0:
-                            df_dict[node] = df_dict[node].drop(parent_id_validation_result_df.index)
+                            #df_dict[node] = df_dict[node].drop(parent_id_validation_result_df.index)
                             #parent_id_validation_result = list(set(list(parent_id_validation_result_df[config['NODE_ID_FIELD'][node]])))
                             parent_id_validation_result_list.append(list(set(list(parent_id_validation_result_df[config['NODE_ID_FIELD'][node]]))))
                             missing_parent_id = True
                         else:
                             parent_id_validation_result_list.append([])
             if missing_parent_id:
-                parent_id_validation_result = set(parent_id_validation_result_list[0]).intersection(*parent_id_validation_result_list[1:])
+                parent_id_validation_result = list(set(parent_id_validation_result_list[0]).intersection(*parent_id_validation_result_list[1:]))
                 if len(parent_id_validation_result) > 0:
-                    cds_log.warning("The ID {}'s parent_id is NULL in the node {} from the study {}".format(parent_id_validation_result, node, raw_data_name))
+                    cds_log.warning("The ID {}'s all parent_ids are NULL in the node {} from the study {}".format(parent_id_validation_result, node, raw_data_name))
+                    df_dict[node] = df_dict[node].drop(df_dict[node][df_dict[node][config['NODE_ID_FIELD'][node]].isin(parent_id_validation_result)].index)
                     df_dict = delete_children(parent_mapping_column_list, parent_id_validation_result, node, df_dict, config)
                     for deleted_parent_id in parent_id_validation_result:
                         parent_id_validation_df_row = pd.DataFrame(data = [[node, deleted_parent_id, parent_id_field]], columns = ['node name', 'ID', 'parent ID field'])
                         parent_id_validation_df = pd.concat([parent_id_validation_df, parent_id_validation_df_row], ignore_index=True)
                     print_id_validation_result(parent_id_validation_df, config, cds_log, prefix, True)
-
             if node in config['NODE_ID_FIELD'].keys():
                 #id_validation_result = [x for x in set(list(df_dict[node][config['NODE_ID_FIELD'][node]])) if list(df_dict[node][config['NODE_ID_FIELD'][node]]).count(x) > 1 or pd.isna(x) or "nan" in x]
                 id_validation_result = [x for x in set(list(df_dict[node][config['NODE_ID_FIELD'][node]])) if list(df_dict[node][config['NODE_ID_FIELD'][node]]).count(x) > 1 or pd.isna(x)]
@@ -379,5 +378,7 @@ def add_secondary_id(df_dict, config, cds_log):
                     cds_log.warning('The ID {} is missing and will be replaced by {} for the node {}'.format(secondary_id_node['node_id'], secondary_id_node['secondary_id'], secondary_id_node['node']))
                     parent_node = secondary_id_node['secondary_id'].split('.')[0]
                     parent_node_id = secondary_id_node['secondary_id'].split('.')[1]
-                    df_dict[secondary_id_node['node']][secondary_id_node['node_id']] = df_dict[parent_node][parent_node_id]
+                    for i in range(0, len(df_dict[secondary_id_node['node']])):
+                        df_dict[secondary_id_node['node']].loc[i, secondary_id_node['node_id']] = df_dict[parent_node].loc[i, parent_node_id]
+                    #df_dict[secondary_id_node['node']][secondary_id_node['node_id']] = df_dict[parent_node][parent_node_id]
     return df_dict

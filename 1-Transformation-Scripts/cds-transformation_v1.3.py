@@ -154,7 +154,7 @@ if args.extract_raw_data_dictionary == False:
             if False in df_nulllist:
                 original_property_list = []
                 for column_name in df_dict[node].keys():
-                    if column_name in model['Nodes'][node]['Props']:
+                    if column_name in model['Nodes'][node]['Props'] and column_name != config['NODE_ID_FIELD'][node]:
                         original_property_list.append(column_name)
                 df_dict[node] = df_dict[node].dropna(subset = original_property_list, how='all')
         df_dict = combine_rows(df_dict, config, cds_log)
