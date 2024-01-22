@@ -198,6 +198,8 @@ def id_validation(df_dict, config, data_file, cds_log, model):
         if len(df_dict[node]) > 0:
             df_dict[node] = df_dict[node].drop_duplicates()
             df_dict[node] = df_dict[node].dropna(subset = [config['NODE_ID_FIELD'][node]])
+            parent_id_validation_result_list = []
+            missing_parent_id = False
             for parent_column in config['PARENT_MAPPING_COLUMNS']:
                 if parent_column['node'] == node:
                     parent_id_field = parent_column['parent_node'] + '.' + parent_column['property']
@@ -209,16 +211,24 @@ def id_validation(df_dict, config, data_file, cds_log, model):
                         parent_id_validation_result_df = df_dict[node][df_dict[node][parent_id_field].isna()]
                         if len(parent_id_validation_result_df) > 0:
                             df_dict[node] = df_dict[node].drop(parent_id_validation_result_df.index)
-                            parent_id_validation_result = list(set(list(parent_id_validation_result_df[config['NODE_ID_FIELD'][node]])))
-                            cds_log.warning("The ID {}'s parent_id is NULL in the node {} from the study {}".format(parent_id_validation_result, node, raw_data_name))
-                            df_dict = delete_children(parent_mapping_column_list, parent_id_validation_result, node, df_dict, config)
-                            for deleted_parent_id in parent_id_validation_result:
-                                parent_id_validation_df_row = pd.DataFrame(data = [[node, deleted_parent_id, parent_id_field]], columns = ['node name', 'ID', 'parent ID field'])
-                                parent_id_validation_df = pd.concat([parent_id_validation_df, parent_id_validation_df_row], ignore_index=True)
-                            print_id_validation_result(parent_id_validation_df, config, cds_log, prefix, True)
+                            #parent_id_validation_result = list(set(list(parent_id_validation_result_df[config['NODE_ID_FIELD'][node]])))
+                            parent_id_validation_result_list.append(list(set(list(parent_id_validation_result_df[config['NODE_ID_FIELD'][node]]))))
+                            missing_parent_id = True
+                        else:
+                            parent_id_validation_result_list.append([])
+            if missing_parent_id:
+                parent_id_validation_result = set(parent_id_validation_result_list[0]).intersection(*parent_id_validation_result_list[1:])
+                if len(parent_id_validation_result) > 0:
+                    cds_log.warning("The ID {}'s parent_id is NULL in the node {} from the study {}".format(parent_id_validation_result, node, raw_data_name))
+                    df_dict = delete_children(parent_mapping_column_list, parent_id_validation_result, node, df_dict, config)
+                    for deleted_parent_id in parent_id_validation_result:
+                        parent_id_validation_df_row = pd.DataFrame(data = [[node, deleted_parent_id, parent_id_field]], columns = ['node name', 'ID', 'parent ID field'])
+                        parent_id_validation_df = pd.concat([parent_id_validation_df, parent_id_validation_df_row], ignore_index=True)
+                    print_id_validation_result(parent_id_validation_df, config, cds_log, prefix, True)
 
             if node in config['NODE_ID_FIELD'].keys():
-                id_validation_result = [x for x in set(list(df_dict[node][config['NODE_ID_FIELD'][node]])) if list(df_dict[node][config['NODE_ID_FIELD'][node]]).count(x) > 1 or pd.isna(x) or "nan" in x]
+                #id_validation_result = [x for x in set(list(df_dict[node][config['NODE_ID_FIELD'][node]])) if list(df_dict[node][config['NODE_ID_FIELD'][node]]).count(x) > 1 or pd.isna(x) or "nan" in x]
+                id_validation_result = [x for x in set(list(df_dict[node][config['NODE_ID_FIELD'][node]])) if list(df_dict[node][config['NODE_ID_FIELD'][node]]).count(x) > 1 or pd.isna(x)]
                 new_id_validation_result = []
                 many_to_many_id_list = []
                 if len(id_validation_result) > 0:
@@ -335,15 +345,29 @@ def combine_columns(df_dict, config, cds_log):
     for combine_node in config['COMBINE_COLUMN']:
         if combine_node['node'] in df_dict.keys():
             if combine_node['external_node'] == False:
-                try:
-                    df_dict[combine_node['node']][combine_node['new_column']] = df_dict[combine_node['node']][combine_node['column1']].astype(str) + "_" + df_dict[combine_node['node']][combine_node['column2']].astype(str)
-                except Exception as e:
-                    cds_log.error(e)
+                if combine_node['column1'] in df_dict[combine_node['node']].keys() and combine_node['column2'] in df_dict[combine_node['node']].keys():
+                #df_dict[combine_node['node']][combine_node['new_column']] = df_dict[combine_node['node']][combine_node['column1']].astype(str) + "_" + df_dict[combine_node['node']][combine_node['column2']].astype(str)
+                    if combine_node['new_column'] not in df_dict[combine_node['node']].keys():
+                        df_dict[combine_node['node']][combine_node['new_column']] = [np.nan] * len(df_dict[combine_node['node']])
+                    for i in range(0, len(df_dict[combine_node['node']])):
+                        if not pd.isna(df_dict[combine_node['node']].loc[i, combine_node['column1']]) and not pd.isna(df_dict[combine_node['node']].loc[i, combine_node['column2']]):
+                            df_dict[combine_node['node']].loc[i, combine_node['new_column']] = str(df_dict[combine_node['node']].loc[i, combine_node['column1']]) + "_" + str(df_dict[combine_node['node']].loc[i, combine_node['column2']])
+                elif combine_node['column1'] not in df_dict[combine_node['node']].keys():
+                    cds_log.info(f"{combine_node['column1']} not in {combine_node['node']}")
+                else:
+                    cds_log.info(f"{combine_node['column2']} not in {combine_node['node']}")
             else:
-                try:
-                    df_dict[combine_node['node']][combine_node['new_column']] = df_dict[combine_node['external_node']][combine_node['column1']].astype(str) + "_" + df_dict[combine_node['node']][combine_node['column2']].astype(str)
-                except Exception as e:
-                    cds_log.error(e)
+                #df_dict[combine_node['node']][combine_node['new_column']] = df_dict[combine_node['external_node']][combine_node['column1']].astype(str) + "_" + df_dict[combine_node['node']][combine_node['column2']].astype(str)
+                if combine_node['column1'] in df_dict[combine_node['external_node']].keys() and combine_node['column2'] in df_dict[combine_node['node']].keys():
+                    if combine_node['new_column'] not in df_dict[combine_node['node']].keys():
+                        df_dict[combine_node['node']][combine_node['new_column']] = [np.nan] * len(df_dict[combine_node['node']])
+                    for i in range(0, len(df_dict[combine_node['node']])):
+                        if not pd.isna(df_dict[combine_node['external_node']].loc[i, combine_node['column1']]) and not pd.isna(df_dict[combine_node['node']].loc[i, combine_node['column2']]):
+                            df_dict[combine_node['node']].loc[i, combine_node['new_column']] = str(df_dict[combine_node['external_node']].loc[i, combine_node['column1']]) + "_" + str(df_dict[combine_node['node']].loc[i, combine_node['column2']])
+                elif combine_node['column1'] not in df_dict[combine_node['external_node']].keys():
+                    cds_log.info(f"{combine_node['column1']} not in {combine_node['external_node']}")
+                else:
+                    cds_log.info(f"{combine_node['column2']} not in {combine_node['node']}")
     return df_dict
 
 def add_secondary_id(df_dict, config, cds_log):
