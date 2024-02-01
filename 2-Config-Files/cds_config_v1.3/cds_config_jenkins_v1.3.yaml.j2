@@ -46,6 +46,11 @@ PARENT_MAPPING_COLUMNS:
     parent_node: study
     property: phs_accession
     relationship: of_study
+  -
+    node: image
+    parent_node: file
+    property: file_id
+    relationship: of_file
 
 COMBINE_NODE:
   -
@@ -93,6 +98,10 @@ SECONDARY_ID_COLUMN:
     node: genomic_info
     node_id: genomic_info_id
     secondary_id: file.file_id
+  -
+    node: image
+    node_id: study_link_id
+    secondary_id: file.file_id
 
 REMOVE_NODES:
   #- diagnosis
@@ -106,3 +115,4 @@ NODE_ID_FIELD:
   study: phs_accession
   diagnosis: study_diagnosis_id
   genomic_info: genomic_info_id
+  image: study_link_id
