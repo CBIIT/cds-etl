@@ -161,18 +161,30 @@ def remove_node(df_dict, config):
         df_dict.pop(node)
     return df_dict
 
+def get_parent_list(node, parent_mapping_column_list):
+    parent_list = []
+    for parent_mapping_column in parent_mapping_column_list:
+        if node == parent_mapping_column['node']:
+            parent_list.append(parent_mapping_column['parent_node'] + '.' + parent_mapping_column['property'])
+    return parent_list
+
 def delete_children(parent_mapping_column_list, delete_list, parent_node, df_dict, config):
     for parent_mapping_column in parent_mapping_column_list:
         if parent_mapping_column['parent_node'] == parent_node and len(df_dict[parent_mapping_column['node']]) > 0:
             parent_id_field = parent_mapping_column['parent_node'] + '.' + parent_mapping_column['property']
             children_node = parent_mapping_column['node']
+            parent_list = get_parent_list(children_node, parent_mapping_column_list)
+            df_dict[children_node].loc[df_dict[children_node][parent_id_field].isin(delete_list), parent_id_field] = np.nan #replace the parent id with nan values
             for pc in parent_mapping_column_list:
                 if pc['parent_node'] == children_node and len(df_dict[pc['node']]) > 0:
                     #pc_children_node = pc['node']
-                    children_delete_list_df = df_dict[children_node][df_dict[children_node][parent_id_field ].isin(delete_list)]
+                    #children_delete_list_df = df_dict[children_node][df_dict[children_node][parent_id_field].isna()]
+                    children_delete_list_df = df_dict[children_node][df_dict[children_node][parent_list].isna().all(axis=1)]
                     children_delete_list = list(children_delete_list_df[config['NODE_ID_FIELD'][children_node]])
                     df_dict = delete_children(parent_mapping_column_list, children_delete_list, children_node, df_dict, config)
-            df_dict[children_node] = df_dict[children_node][~df_dict[children_node][parent_id_field].isin(delete_list)]
+
+            df_dict[children_node] = df_dict[children_node].dropna(subset = parent_list, how='all')
+            #df_dict[children_node] = df_dict[children_node][~df_dict[children_node][parent_id_field].isin(delete_list)]
     return df_dict
 
 def print_id_validation_result(id_validation_df, config, cds_log, prefix, parent):

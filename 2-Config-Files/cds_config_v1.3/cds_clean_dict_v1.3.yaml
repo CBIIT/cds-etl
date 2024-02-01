@@ -35,6 +35,7 @@ reference_genome_assembly:
   RefSeq_Build_73: GRCh37 
   hg19: GRCh37 
   hg19_with_GenBank_Viral_Genomes: GRCh37
+  hg19-mm10: GRCh37
 file_type:
   fastq: FASTQ
   fastq.gz: FASTQ
@@ -123,6 +124,115 @@ library_source:
 library_selection:
   RANDOM: Random
 primary_diagnosis:
+  Adenocarcinoma, Not Otherwise Specified: Adenocarcinoma, NOS
+  Aggressive spindle cell neoplasm with myoepithelial features: Aggressive Spindle Cell Neoplasm
+  Astrocytoma with pilomyxoid features: Astrocytoma with Pilomyxoid Features
+  Atypical choroid plexus papilloma CNS WHO grade 2: Atypical Choroid Plexus Papilloma
+  Atypical mixed glioneuronal lesion, favor ganglioglioma: Atypical Mixed Glioneuronal Lesion
+  Atypical teratoid/rhabdoid tumor involving posterior fossa: Atypical Teratoid/Rhabdoid Tumor
+  Atypical teratoid/rhabdoid tumor, CNS WHO grade 4: Atypical Teratoid/Rhabdoid Tumor
+  'Brain tumor: Myxoid round blue cell tumor': Brain Tumor
+  CNS Embryonal tumor - small round blue cell tumor: CNS Embryonal Tumor
+  CPNET: Central Primary Primitive Neuroectodermal Tumor
+  Cervical spine tumor, Meningioma: Meningioma
+  Clear cell sarcoma, NOS: Clear Cell Sarcoma, NOS
+  Compatible with myxopapillary ependymoma: Myxopapillary Ependymoma
+  Consistent with Pineoblastoma, WHO Grade 4: Pineoblastoma
+  Dermatofibrosarcoma protuberans (DFSP): Dermatofibrosarcoma Protuberans
+  Dermatofibrosarcoma protuberans with myxoid changes: Dermatofibrosarcoma Protuberans
+  Differential may include meningioma or glial neoplasm: Meningioma
+  Diffuse glioma high-grade: Diffuse Glioma High-grade
+  Diffuse hemispheric glioma, H3 G34-mutant, WHO grade 4: Diffuse Hemispheric Glioma
+  Diffuse high-grade glioma, involving cerebral cortex and white matter: Diffuse Glioma High-grade
+  Diffuse midline glioma, CNS WHO grade 4: Diffuse Midline Glioma
+  Embryonal rhabdomyosarcoma with anaplasia: Embryonal Rhabdomyosarcoma
+  Embryonal tumor with multilayered rosettes C19MC-altered: Embryonal Tumor
+  Endometrioid carcinoma, NOS: Endometrioid Carcinoma, NOS
+  Ependymoma WHO grade 3 PFA subtype: Ependymoma, NOS
+  Ependymoma, classification pending molecular analysis, with extensive central necrosis and hemorrhage: Ependymoma, NOS
+  Fibroblastic spindle cell lesion, favor fibromatosis: Fibroblastic Spindle Cell Lesion
+  Ganglioglioma WHO grade 1: Ganglioglioma
+  Ganglioglioma with BRAF V600E immunoreactivity, CNS WHO grade 1: Ganglioglioma
+  Ganglioglioma, WHO Grade 1: Ganglioglioma
+  Gastrointestinal stromal tumor (GIST) epithelioid type, low grade: Gastrointestinal Stromal Tumor
+  Glioblastoma Multiforme (GBM): Glioblastoma Multiforme
+  Glioma, favor pilocytic astrocytoma: Glioma
+  Glioma, malignant: Glioma
+  Glioneuronal tumor NOS with low grade histologic features: Glioneuronal Tumor NOS
+  High grade glioma, favor astrocytoma, IDH mutant (WHO grade 4): High-grade Glioma
+  High grade malignant neoplasm, favor high-grade glioma: High-grade Malignant Neoplasm
+  High grade serous carcinoma: High-grade Serous Carcinoma
+  High grade small round blue cell tumor with immunoprofile consistent with Alveolar rhabdomyosarcoma: High-grade Small Round Blue Cell Tumor
+  High-grade carcinoma most suggestive of a high-grade acinic cell carcinoma involving tissue edges: High-grade Carcinoma
+  High-grade fibrosarcoma with myxoid features: High-grade Fibrosarcoma
+  High-grade glial or glioneuronal neoplasm: High-grade Glial or Glioneuronal Neoplasm
+  High-grade malignant neoplasm with desmin expression: High-grade Malignant Neoplasm
+  IDH mutant glioma; favor IDH mutant astrocytoma: IDH Mutant Gliomaa
+  Infiltrating glial neoplasm: Infiltrating Glial Neoplasm
+  Infiltrating glioma with focal high grade features: Infiltrating Glioma
+  Infiltrative fibromatosis: Infiltrative Fibromatosis
+  Inflammatory myofibroblastic tumor, ALK positive by IHC: Inflammatory Myofibroblastic Tumor
+  Inflammatory myofibroblastic tumor, ALK-1 negative: Inflammatory Myofibroblastic Tumor
+  Invasive Carcinoma With Ductal And Lobular Features: Invasive Carcinoma
+  Involvement by desmoplastic small round cell tumor: Desmoplastic Small Round Cell Tumor
+  Lesional tissue obtained consistent with glioma: Glioma
+  Leydig cell tumor and background seminiferous tubules with spermatogenesis: Leydig Cell Tumor
+  Lobular and ossifying round cell neoplasm with brisk mitotic activity and necrosis, with morphologic features of malignant ossifying fibromyxoid tumor: Lobular and Ossifying Round Cell Neoplasm
+  Low cellularity glioma, favor low grade: Low Cellularity Glioma
+  Low grade glial neoplasm most consistent with pilocytic astrocytoma, WHO Grade 1: Low-grade Glial Neoplasm
+  Low grade glial/glioneuronal tumor predominantly showing features of a pilocytic astrocytoma, but with fragment showing features of ganglioglioma: Low-grade Glial/Glioneuronal Tumor
+  Low grade-appearing glioma, morphologically aligns best with pilocytic astrocytoma: Low-grade Glioma
+  Low-grade glial -neuronal tumor, favor ganglioglioma: Low-grade Glial/Neuronal Tumor
+  Low-grade glial neoplasm, consistent with pilocytic astrocytoma: Low-grade Glial Neoplasm
+  Low-grade glial or glioneuronal neoplasm: Low-grade Glial or Glioneuronal neoplasm
+  Low-grade glioma with features consistent with pilocytic astrocytoma (WHO GRADE I): Low-grade Glioma
+  Lung Adenocarcinoma- Not Otherwise Specified (NOS): Lung Adenocarcinoma, NOS
+  Lung Squamous Cell Carcinoma- Not Otherwise Specified (NOS): Lung Squamous Cell Carcinoma, NOS
+  Malignant neoplasm with primitive features: Malignant Meoplasm
+  Medulloblastoma WNT-Activated(IHC) CNS WHO grade 4: Medulloblastoma
+  Medulloblastoma, Desmoplastic/nodular histologic type: Medulloblastoma
+  Medulloblastoma, NOS: Medulloblastoma
+  Medulloblastoma, WNT activated, WHO Grade 4: Medulloblastoma
+  Medulloblastoma, anaplastic/large-cell, non-WNT: Medulloblastoma
+  Medulloblastoma, classic type, CNS WHO grade 4: Medulloblastoma
+  Medulloblastoma, classic variant: Medulloblastoma
+  Medulloblastoma, desmoplastic/nodular, SHH activated, CNS WHO Grade 4: Medulloblastoma
+  Medulloblastoma, nodular/desmoplastic pattern, WHO Grade IV: Medulloblastoma
+  Medulloblastoma, with extensive nodularity: Medulloblastoma
+  Meningioma, WHO Grade 1: Meningioma
+  Metastatic adrenal cortical carcinoma: Metastatic Adrenal Cortical Carcinoma
+  Morphologically compatible with low grade astrocytic tumor: Low-grade Astrocytic tumor
+  Multiple myeloma: Multiple Myeloma
+  Nodular spindle neoplasm with mesenchymal phenotype, focal necrosis, and associated abnormally  vascular and calcified neuronal component of uncertain etiology: Nodular Spindle Neoplasm
+  Not specified in data: Not Specified in Data
+  Oligodendroglioma IDH mutant,1p 19q codeleted CNS WHO grade 2: Oligodendroglioma
+  Oncocytic adrenal cortical carcinoma: Oncocytic Adrenal Cortical Carcinoma
+  Papillary Thyroid carcinoma: Papillary Thyroid Carcinoma
+  Papillary thyroid carcinoma, classic subtype: Papillary Thyroid Carcinoma
+  Pilocytic Astrocytoma CNS WHO Grade 1: Pilocytic Astrocytoma
+  Pilocytic astrocytoma CNS WHO grade 1: Pilocytic Astrocytoma
+  Pilocytic astrocytoma with focal pilomyxoid morphology: Pilocytic Astrocytoma
+  Pilocytic astrocytoma, BRAF-rearranged: Pilocytic Astrocytoma
+  Pilocytic astrocytoma, WHO GRADE 1: Pilocytic Astrocytoma
+  Pleuropulmonary blastoma, type II/III, DICER1-associated: Pleuropulmonary Blastoma
+  Posterior fossa group A (PFA) ependymoma, CNS WHO grade 3: Posterior Fossa Ependymoma
+  Precursor T-cell lymphoblastic leukemia: Precursor T-cell lymphoblastic Leukemia
+  Primary CNS neoplasm, high grade: Primary CNS Neoplasm
+  Probable pilocytic astrocytoma: Probable Pilocytic Astrocytoma
+  Renal cell carcinoma with papillary features: Renal Cell Carcinoma
+  Residual high-grade glioneuronal tumor: High-grade Glioneuronal Tumor
+  Rhabdoid tumor, NOS: Rhabdoid Tumor, NOS
+  Rhabdomyosarcoma with spindle cell features: Rhabdomyosarcoma
+  SMARCB1-Deficient tumor, consistent with extrarenal rhabdoid tumor or atypical teratoid/rhabdoid tumor: Atypical Teratoid/Rhabdoid Tumor
+  SMARCB1-deficient tumor NOS (This is most likely atypical teratoid/rhabdoid tumor (ATRT)): Atypical Teratoid/Rhabdoid Tumor
+  Schwannoma, WHO Grade 1: Schwannoma
+  Small cell carcinoma of ovary, Hypercalcemic type (SMARCA4 Deficient malignant rhabdoid tumor of ovary): Small Cell Carcinoma of Ovary
+  Small cell carcinoma, NOS: Small Cell Carcinoma, NOS
+  Small round blue cell tumor most consistent with embryonal rhabdomyosarcoma: Small Round Blue Cell Tumor
+  Small round cell sarcoma: Small Round Cell Sarcoma
+  posterior fossa ependymoma: Posterior Fossa Ependymoma
+  Thyroid papillary carcinoma: Thyroid Papillary Carcinoma
+  'Undifferentiated round cell malignancy, favor EWSR1: Patz1 Sarcoma': Undifferentiated Round Cell Malignancy
   Acral lentiginous melanoma, malignant: Melanoma
   Adenocarcinoma with mixed subtypes: Adenocarcinoma
   Adenocarcinoma, endocervical type: Adenocarcinoma

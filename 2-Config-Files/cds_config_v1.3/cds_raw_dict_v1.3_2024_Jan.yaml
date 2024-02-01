@@ -12,7 +12,6 @@ diagnosis:
   tumor_grade: tumor_grade
   vital_status: vital_status
   tumor_stage_clinical_t: tumor_stage_clinical_t
-  tumor_stage_clinical_m: tumor_stage_clinical_m
 file:
   GUID: file_id
   guid: file_id
@@ -26,36 +25,6 @@ file:
   md5: md5sum
   sample_description: file_description
   submission_version: submission_version
-image:
-  channel_metadata_filename: channel_metadata_file_url_in_cds
-  citation_or_DOI: citation_or_DOI
-  de.identification_method_type: de_identification_method_type
-  embedding_medium: embedding_medium
-  imaging_assay_type: imaging_assay_type
-  imaging_equipment_manufacturer: imaging_equipment_manufacturer
-  imaging_equipment_model: imaging_equipment_model
-  imaging_modality: image_modality
-  imaging_protocol: imaging_protocol
-  imaging_software: imaging_sofware
-  immersion: immersion
-  lens_numerical_aperture: lens_numerical_aperture
-  license: license
-  nominal_magnification: nominal_magnification
-  objective: objective
-  organ_or_tissue: organ_or_tissue
-  physical_size_x: physical_size_x
-  physical_size_y: physical_size_y
-  physical_size_z: physical_size_z
-  pyramid: pyramid
-  size_c: size_c
-  size_t: size_t
-  size_x: size_x
-  size_y: size_y
-  size_z: size_z
-  staining_method: staining_method
-  tissue_fixative: tissue_fixative
-  tumor_tissue_type: tumor_tissue_type
-  working_distance: working_distance
 genomic_info:
   avg_read_length: avg_read_length
   bases: bases
@@ -93,7 +62,6 @@ sample:
   #derived_from_specimen: derived_from_specimen
 study:
   acl: acl
-  authz: authz
   adult_or_childhood_study: adult_or_childhood_study
   bioproject_accession: bioproject_accession
   co_primary_investigator_email: co_investigator_email

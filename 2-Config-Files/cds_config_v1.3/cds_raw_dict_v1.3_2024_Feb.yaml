@@ -12,7 +12,6 @@ diagnosis:
   tumor_grade: tumor_grade
   vital_status: vital_status
   tumor_stage_clinical_t: tumor_stage_clinical_t
-  tumor_stage_clinical_m: tumor_stage_clinical_m
 file:
   GUID: file_id
   guid: file_id

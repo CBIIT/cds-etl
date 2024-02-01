@@ -1,10 +1,10 @@
 NODE_FILE: ./3-Model-Files/cds-model.yml
 DATA_FOLDER: ./0-Raw-Data-Files/cds_raw_data_files_v1.3/
-DATA_BATCH_NAME: MayRelease_VersionsAdded
+DATA_BATCH_NAME: cds_data_2024-1-26-February
 OUTPUT_FOLDER: ./4-Transformed-Data-Files/cds_transformed_data_files_v1.3/
 RATIO_LIMIT: 0.75
 S3_BUCKET: s3
-S3_RAWDATA_SUBFOLDER: MayRelease_VersionsAdded
+S3_RAWDATA_SUBFOLDER: cds_data_2024-1-26-February
 MODEL_FILE_PROPS: ./3-Model-Files/cds-model-props.yml
 CLEAN_DICT: ./2-Config-Files/cds_config_v1.3/cds_clean_dict_v1.3.yaml
 RAW_DATA_DICTIONARY: ./2-Config-Files/cds_config_v1.3/cds_raw_dict_v1.3.yaml
@@ -46,6 +46,11 @@ PARENT_MAPPING_COLUMNS:
     parent_node: study
     property: phs_accession
     relationship: of_study
+  -
+    node: image
+    parent_node: file
+    property: file_id
+    relationship: of_file
 
 COMBINE_NODE:
   -
@@ -93,6 +98,10 @@ SECONDARY_ID_COLUMN:
     node: genomic_info
     node_id: genomic_info_id
     secondary_id: file.file_id
+  -
+    node: image
+    node_id: study_link_id
+    secondary_id: file.file_id
 
 REMOVE_NODES:
   #- diagnosis
@@ -106,3 +115,4 @@ NODE_ID_FIELD:
   study: phs_accession
   diagnosis: study_diagnosis_id
   genomic_info: genomic_info_id
+  image: study_link_id
