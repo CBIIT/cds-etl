@@ -36,6 +36,8 @@ reference_genome_assembly:
   hg19: GRCh37 
   hg19_with_GenBank_Viral_Genomes: GRCh37
   hg19-mm10: GRCh37
+  "Blood-derived genomic DNA (100ng - 1µg) was sheared using a Covaris S2 instrument.Ê Libraries were prepared using the NEBNext DNA Library Prep Reagent Set for Illumina (NEB # E6000) according to the manufacturerÕs instructions.Ê Library enrichment for a 34 gene custom panel was done with the Roche SeqCap EZ Choice Library (cat# 06266339001) and the SeqCap EZ Reagent Kit Plus v2 (NimbleGen #06-953-247-001) using the manufacturerÕs protocol. Individual libraries were combined into pools of 6-12 prior to hybridization.": Not specified in data
+  "DNA samples (1 ug) were sheared using a Covaris S2 Focused-ultrasonicator and libraries were prepared using the Illumina TruSeq DNA PCR-Free Sample Preparation Kit (cat# FC-121-3001 and FC-121-3002) with an average insert size of 350 bp.Ê Adapter-ligated molecules were analyzed by quantitative PCR using the Kapa Biosystems Kapa Library Quant Kit (cat#KK4824) and the molarity of individual libraries were normalized to 10 nM in preparation for Illumina sequence analysis.": Not specified in data
 file_type:
   fastq: FASTQ
   fastq.gz: FASTQ
@@ -93,8 +95,10 @@ study_data_types:
   GENOMIC: Genomic
   genomic: Genomic
   #nan_value: unknown
-#sample_anatomic_site:
+sample_anatomic_site:
   #Blood: Peripheral bloodß
+  Rare Disease: Not specified in data
+  Soft Tissue Sarcoma: Not specified in data
 library_strategy:
   wxs: WXS
   RNA-seq: RNA-Seq
@@ -1119,3 +1123,5 @@ disease_type:
 sample_type:
   peripheral blood - Blood Derived Cancer: Blood
   Tissue Biospecimen Type: Tissue
+extra_long_values:
+  - "Library construction is performed using the Illumina TruSeqÊ DNA Sample Preparation Kit (cat# FC-121-2001, FC-121-2002) using the following methods.Ê Genomic DNA (approximatelyÊ 10 ng to 2 ug) is sheared in a volume of 52.5 ul using a Covaris S2 Focused-ultrasocinicator with the following settings: Intensity 5.0; Duty cycle 10%25; Cycles per Burst 200; Treatment Time 120 seconds.Ê Sheared DNA is converted to blunt-ended fragments with 5'-phosphates and 3'-hydroxyl groups using a combination of enzymes that perform fill-in reactions and exhibit exonuclease activity.Ê Size selection of the blunt-ended DNA (200-450 bp average) is accomplished using bead-based methodologies.Ê An A-base is added to the blunt ends as a means to prepare the fragments for adapter ligation and block concatamer formation during the ligation step.Ê Adapters containing a T-base overhangÊ are ligated to the A-tailed DNA fragments.Ê Ligated fragments are PCR-amplified (2-10 cycles depending on quantity of input template) and the amplified library is purified by bead based methodologies.Ê The concentration of the lamplified ibrary is measured using the Invitrogen Qubit dsDNA HS Assay (Q32851) and an aliquot of the library is resolved on an Agilent 2200 Tape Station using a D1K (cat# 5067-5361 and 5067-5362) or a High Sensitivity D1K (cat# 5067-5363 and 5067-5364) assay to define the size distribution of the sequencing library.Ê Libraries are adjusted to a concentration of approximately 10 nM and quantitative PCR is performed using the KapaBiosystems Kapa Library Quant Kit (cat# KK4824) to calculate the molarity of adapter ligated library molecules.Ê The concentration is further adjusted following qPCR to prepare the library for Illumina sequence analysis."

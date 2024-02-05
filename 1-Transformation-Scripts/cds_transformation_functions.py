@@ -38,6 +38,9 @@ def clean_data(df_dict, config):
                                         #print(clean_dict[key][value])
                                     elif pd.isnull(value) and 'nan_value' in clean_dict[key].keys():
                                         value_list.append(clean_dict[key]['nan_value'])
+                                    elif value in clean_dict["extra_long_values"]: #if the value is too long to be the key of a yaml file
+                                        #print(value)
+                                        value_list.append("Not specified in data")
                                     else:
                                         #value_list.append(None)
                                         value_list.append(value)
