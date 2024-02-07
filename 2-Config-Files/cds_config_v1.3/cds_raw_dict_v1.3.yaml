@@ -22,6 +22,7 @@ file:
   file_name: file_name
   file_size: file_size
   file_type: file_type
+  file_format: file_type
   file_url_in_cds: file_url_in_cds
   md5sum: md5sum
   md5: md5sum
