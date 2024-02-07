@@ -13,7 +13,6 @@ diagnosis:
   vital_status: vital_status
   tumor_stage_clinical_t: tumor_stage_clinical_t
   tumor_stage_clinical_m: tumor_stage_clinical_m
-  days_to_recurrence: days_to_recurrence
 file:
   GUID: file_id
   guid: file_id
@@ -54,7 +53,6 @@ image:
   size_y: size_y
   size_z: size_z
   staining_method: staining_method
-  study_link_ID: study_link_id
   tissue_fixative: tissue_fixative
   tumor_tissue_type: tumor_tissue_type
   working_distance: working_distance
