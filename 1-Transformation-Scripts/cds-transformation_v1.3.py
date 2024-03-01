@@ -7,7 +7,7 @@ import numpy as np
 import glob
 import dateutil.tz
 import datetime
-from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation, id_validation, download_from_s3, combine_columns, add_secondary_id, ssn_validation
+from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation, id_validation, download_from_s3, combine_columns, add_secondary_id, ssn_validation, add_historical_value, print_historical_value
 from bento.common.utils import get_logger
 
 
@@ -162,6 +162,7 @@ if args.extract_raw_data_dictionary == False:
         df_dict, property_validation_df = ui_validation(df_dict, config, data_file, cds_log, property_validation_df, model, data_file_base)
         filename_validation_df = ssn_validation(df_dict, data_file, cds_log, filename_validation_df)
         df_dict = id_validation(df_dict, config, data_file, cds_log, model)
+        add_historical_value(df_dict, config, cds_log)
         prefix = os.path.splitext(data_file_base)[0]
         print_data(df_dict, config, cds_log, prefix)
     if args.upload_s3 == True:
@@ -180,6 +181,7 @@ if args.extract_raw_data_dictionary == False:
     if len(filename_validation_df) > 0:
         filename_validation_df.to_csv(filename_validation_file_name, sep = "\t", index = False)
         cds_log.info(f'File name validation result file {os.path.basename(filename_validation_file_name)} is created and stored in {sub_folder}')
+    print_historical_value(config, cds_log)
 
 else:
     raw_dict = {}

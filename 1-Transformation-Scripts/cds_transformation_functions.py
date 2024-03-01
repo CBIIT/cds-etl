@@ -4,7 +4,8 @@ import boto3
 import os
 import pandas as pd
 import re
-
+import sys
+import glob
 
 def clean_data(df_dict, config):
     # The function to clean the transformed data base on the clean data dictionary
@@ -34,7 +35,10 @@ def clean_data(df_dict, config):
                                     str_value = str(value)
                                     #print(len(list(clean_dict['primary_diagnosis'].keys())))
                                     if str_value in clean_dict[key].keys() or value in clean_dict[key].keys():
-                                        value_list.append(clean_dict[key][value])
+                                        try:
+                                            value_list.append(clean_dict[key][value])
+                                        except:
+                                            value_list.append(clean_dict[str(key)][str_value])
                                         #print(clean_dict[key][value])
                                     elif pd.isnull(value) and 'nan_value' in clean_dict[key].keys():
                                         value_list.append(clean_dict[key]['nan_value'])
@@ -385,15 +389,67 @@ def combine_columns(df_dict, config, cds_log):
     return df_dict
 
 def add_secondary_id(df_dict, config, cds_log):
-    for secondary_id_node in config['SECONDARY_ID_COLUMN']:
-        if secondary_id_node['node'] in df_dict.keys():
-            df_nulllist = list(df_dict[secondary_id_node['node']].isnull().all(axis=1))
-            if False in df_nulllist:
-                if secondary_id_node['node_id'] not in df_dict[secondary_id_node['node']].keys():
-                    cds_log.warning('The ID {} is missing and will be replaced by {} for the node {}'.format(secondary_id_node['node_id'], secondary_id_node['secondary_id'], secondary_id_node['node']))
-                    parent_node = secondary_id_node['secondary_id'].split('.')[0]
-                    parent_node_id = secondary_id_node['secondary_id'].split('.')[1]
-                    for i in range(0, len(df_dict[secondary_id_node['node']])):
-                        df_dict[secondary_id_node['node']].loc[i, secondary_id_node['node_id']] = df_dict[parent_node].loc[i, parent_node_id]
+    try:
+        for secondary_id_node in config['SECONDARY_ID_COLUMN']:
+            if secondary_id_node['node'] in df_dict.keys():
+                df_nulllist = list(df_dict[secondary_id_node['node']].isnull().all(axis=1))
+                if False in df_nulllist:
+                    if secondary_id_node['node_id'] not in df_dict[secondary_id_node['node']].keys():
+                        cds_log.warning('The ID {} is missing and will be replaced by {} for the node {}'.format(secondary_id_node['node_id'], secondary_id_node['secondary_id'], secondary_id_node['node']))
+                        parent_node = secondary_id_node['secondary_id'].split('.')[0]
+                        parent_node_id = secondary_id_node['secondary_id'].split('.')[1]
+                        for i in range(0, len(df_dict[secondary_id_node['node']])):
+                            df_dict[secondary_id_node['node']].loc[i, secondary_id_node['node_id']] = df_dict[parent_node].loc[i, parent_node_id]
                     #df_dict[secondary_id_node['node']][secondary_id_node['node_id']] = df_dict[parent_node][parent_node_id]
+    except Exception as e:
+        cds_log.info("Unable to create secondary ID")
+        cds_log.error(e)
     return df_dict
+
+def add_historical_value(df_dict, config, cds_log):
+    if 'HISTORICAL_PROPERTIES' in config.keys():
+        for historical_property in config['HISTORICAL_PROPERTIES']:
+            historical_property_value = list(df_dict[historical_property['node']][historical_property['property']])[0]
+            if historical_property_value is None:
+                cds_log.error(f"{historical_property['property']} is None, abort transformation")
+                sys.exit(1)
+            historical_property_key = list(df_dict[historical_property['node']][config['NODE_ID_FIELD'][historical_property['node']]])[0]
+            historical_property_value_list = historical_property_value.split(",")
+            historical_property_value_list = [i.strip() for i in historical_property_value_list]
+            historical_property_file = historical_property['historical_property_file']
+            with open(historical_property_file) as f:
+                history_value = yaml.safe_load(f)
+            if history_value is None:
+                history_value = {}
+                history_value[historical_property_key] = historical_property_value_list
+            else:
+                if historical_property_key not in history_value.keys():
+                    history_value[historical_property_key] = historical_property_value_list
+                else:
+                    new_historical_value_list = list(set(historical_property_value_list) - set(history_value[historical_property_key]))
+                    if len(new_historical_value_list) > 0:
+                        history_value[historical_property_key] += new_historical_value_list
+            history_value[historical_property_key].sort(reverse=True)
+            with open(historical_property_file, 'w') as yaml_file:
+                yaml.dump(history_value, yaml_file, default_flow_style=False, width=10000)
+
+#Update the study version for all study files
+def print_historical_value(config, cds_log):
+    output_folder = os.path.join(config['OUTPUT_FOLDER'], config['DATA_BATCH_NAME'])
+    for data_file in glob.glob('{}/*.tsv'.format(output_folder)):
+        for historical_property in config['HISTORICAL_PROPERTIES']:
+            with open(historical_property['historical_property_file']) as f:
+                history_value = yaml.safe_load(f)
+            suffix = "-" + historical_property['node']
+            if suffix in os.path.splitext(os.path.basename(data_file))[0]:
+                cds_log.info(f"Start updating the historical property {historical_property['property']} for transformed file {os.path.basename(data_file)}")
+                history_df = pd.read_csv(data_file, sep='\t')
+                new_history_value = ""
+                historical_property_key = list(history_df[config['NODE_ID_FIELD'][historical_property['node']]])[0]
+                for i in range(0, len(history_value[historical_property_key])):
+                    if i == 0:
+                        new_history_value = history_value[historical_property_key][i]
+                    else:
+                        new_history_value = new_history_value + "," + history_value[historical_property_key][i]
+                history_df[historical_property["property"]] = [new_history_value] * len(history_df)
+                history_df.to_csv(data_file, sep = "\t", index = False)
