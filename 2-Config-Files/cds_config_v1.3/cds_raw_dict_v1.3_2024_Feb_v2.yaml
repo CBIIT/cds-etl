@@ -2,7 +2,6 @@ diagnosis:
   age_at_diagnosis: age_at_diagnosis
   days_to_last_followup: days_to_last_followup
   days_to_last_known_disease_status: days_to_last_known_status
-  days_to_recurrence: days_to_recurrence
   diagnosis_id: diagnosis_id
   disease_type: disease_type
   last_known_disease_status: last_known_disease_status
@@ -14,7 +13,6 @@ diagnosis:
   vital_status: vital_status
   tumor_stage_clinical_t: tumor_stage_clinical_t
   tumor_stage_clinical_m: tumor_stage_clinical_m
-  days_to_recurrence: days_to_recurrence
 file:
   GUID: file_id
   guid: file_id
@@ -23,11 +21,9 @@ file:
   file_name: file_name
   file_size: file_size
   file_type: file_type
-  file_format: file_type
   file_url_in_cds: file_url_in_cds
   md5sum: md5sum
   md5: md5sum
-  sum: md5sum
   sample_description: file_description
   submission_version: submission_version
 image:
@@ -57,7 +53,6 @@ image:
   size_y: size_y
   size_z: size_z
   staining_method: staining_method
-  study_link_ID: study_link_id
   tissue_fixative: tissue_fixative
   tumor_tissue_type: tumor_tissue_type
   working_distance: working_distance
@@ -89,7 +84,6 @@ program:
   program_external_url: program_external_url
   program_name: program_name
 sample:
-  age_at_collection: sample_age_at_collection
   biosample_accession: biosample_accession
   sample_age_at_collection: sample_age_at_collection
   sample_anatomic_site: sample_anatomic_site
@@ -117,7 +111,6 @@ study:
   primary_investigator_name: primary_investigator_name
   study_access: study_access
   study_acronym: study_acronym
-  study_data_type: study_data_types
   study_data_types: study_data_types
   study_description: study_description
   study_name: study_name

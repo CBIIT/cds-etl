@@ -1,14 +1,13 @@
 import pandas as pd
 import os
 import yaml
-import re
 import argparse
 from difflib import SequenceMatcher
 import numpy as np
 import glob
 import dateutil.tz
 import datetime
-from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation, id_validation, download_from_s3, combine_columns, add_secondary_id, ssn_validation
+from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation, id_validation, download_from_s3, combine_columns, add_secondary_id, ssn_validation, add_historical_value, print_historical_value
 from bento.common.utils import get_logger
 
 
@@ -146,49 +145,24 @@ if args.extract_raw_data_dictionary == False:
         df_dict = extract_parent_property(parent_mapping_column_list, df_dict)
         df_dict = remove_node(df_dict, config)
         for node in df_dict.keys():
-            df_dict[node] = df_dict[node].drop_duplicates() #remove duplicate record
+            #remove duplicate reocrd
+            str_dataframe = df_dict[node].astype(str)
+            str_dataframe = str_dataframe.drop_duplicates()
+            index = str_dataframe.index.values.tolist()
+            df_dict[node] = df_dict[node].loc[index]
             df_nulllist = list(df_dict[node].isnull().all(axis=1))
             if False in df_nulllist:
                 original_property_list = []
                 for column_name in df_dict[node].keys():
-                    if column_name in model['Nodes'][node]['Props']:
+                    if column_name in model['Nodes'][node]['Props'] and column_name != config['NODE_ID_FIELD'][node]:
                         original_property_list.append(column_name)
                 df_dict[node] = df_dict[node].dropna(subset = original_property_list, how='all')
-        #df_dict = add_secondary_id(df_dict, config, cds_log)
         df_dict = combine_rows(df_dict, config, cds_log)
         df_dict = clean_data(df_dict, config)
-        '''
-        for index in range(0, len(df_dict['study'])):
-            if 'experimental_strategy_and_data_subtypes' in df_dict['study'].keys():
-                if df_dict['study']['experimental_strategy_and_data_subtypes'].notnull().any():
-                    try:
-                        es = re.split('\W+\s', str(df_dict['study']['experimental_strategy_and_data_subtypes'][index]))
-                        df_dict['study']['experimental_strategy_and_data_subtypes'][index] = es
-                    except Exception as e:
-                        print(e)
-        '''
         df_dict, property_validation_df = ui_validation(df_dict, config, data_file, cds_log, property_validation_df, model, data_file_base)
         filename_validation_df = ssn_validation(df_dict, data_file, cds_log, filename_validation_df)
-        df_dict = id_validation(df_dict, config, data_file, cds_log)
-
-        '''
-        #check primary_diagnosis
-        with open('b.txt', 'r') as file:
-            b_file_contents = file.readlines()
-            b_values_list = [value.strip() for value in b_file_contents]
-        try:
-            cds_log.info('start validating primary_diagnosis')
-            p_list = []
-            for i in df_dict['diagnosis']['primary_diagnosis']:
-                if i not in b_values_list and i != 'Not specified in data':
-                    p_list.append(i)
-            p_list = list(set(p_list))
-            cds_log.info(str(p_list))
-        except:
-            cds_log.info('no primary_diagnosis')
-
-        '''
-        #prefix = df_dict['study']['phs_accession'][0]
+        df_dict = id_validation(df_dict, config, data_file, cds_log, model)
+        add_historical_value(df_dict, config, cds_log)
         prefix = os.path.splitext(data_file_base)[0]
         print_data(df_dict, config, cds_log, prefix)
     if args.upload_s3 == True:
@@ -207,6 +181,7 @@ if args.extract_raw_data_dictionary == False:
     if len(filename_validation_df) > 0:
         filename_validation_df.to_csv(filename_validation_file_name, sep = "\t", index = False)
         cds_log.info(f'File name validation result file {os.path.basename(filename_validation_file_name)} is created and stored in {sub_folder}')
+    print_historical_value(config, cds_log)
 
 else:
     raw_dict = {}
@@ -220,7 +195,7 @@ else:
         # 'openpyxl' needs to install first and it is in the requirement.txt
         # 'keep_default_na' is whether or not to include the default NaN values when parsing the data.
         Metadata = pd.read_excel(io = data_file,
-                                sheet_name =  "Metadata",
+                                #sheet_name =  "Metadata",
                                 engine = "openpyxl",
                                 keep_default_na = False)
         # Replace all the empty string with NAN values

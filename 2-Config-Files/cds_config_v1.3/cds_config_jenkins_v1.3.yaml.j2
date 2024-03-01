@@ -1,4 +1,4 @@
-NODE_FILE: ./3-Model-Files/cds-model-wprog.yml
+NODE_FILE: ./3-Model-Files/cds-model.yml
 DATA_FOLDER: ./0-Raw-Data-Files/cds_raw_data_files_v1.3/
 DATA_BATCH_NAME: {{data_batch_name}}
 OUTPUT_FOLDER: ./4-Transformed-Data-Files/cds_transformed_data_files_v1.3/
@@ -15,30 +15,42 @@ PARENT_MAPPING_COLUMNS:
     node: participant
     parent_node: study
     property: phs_accession
+    relationship: of_study
   -
     node: sample
     parent_node: participant
     property: study_participant_id
+    relationship: of_participant
   -
     node: file
     parent_node: sample
     property: sample_id
+    relationship: from_sample
   -
     node: genomic_info
     parent_node: file
     property: file_id
+    relationship: of_file
   -
     node: diagnosis
     parent_node: participant
     property: study_participant_id
+    relationship: of_file
   -
     node: study
     parent_node: program
     property: program_acronym
+    relationship: of_program
   -
     node: file
     parent_node: study
     property: phs_accession
+    relationship: of_study
+  -
+    node: image
+    parent_node: file
+    property: file_id
+    relationship: of_file
 
 COMBINE_NODE:
   -
@@ -66,10 +78,16 @@ COMBINE_COLUMN:
     external_node: study
   -
     node: diagnosis
-    column1: phs_accession
+    column1: study_participant_id
     column2: diagnosis_id
     new_column: study_diagnosis_id
-    external_node: study
+    external_node: participant
+  -
+    node: genomic_info
+    column1: genomic_info_id
+    column2: library_id
+    new_column: genomic_info_id
+    external_node: False
 
 SECONDARY_ID_COLUMN:
   -
@@ -80,11 +98,14 @@ SECONDARY_ID_COLUMN:
     node: genomic_info
     node_id: genomic_info_id
     secondary_id: file.file_id
+  -
+    node: image
+    node_id: study_link_id
+    secondary_id: file.file_id
 
 REMOVE_NODES:
   #- diagnosis
   - treatment
-
 
 NODE_ID_FIELD:
   program: program_acronym
@@ -94,3 +115,4 @@ NODE_ID_FIELD:
   study: phs_accession
   diagnosis: study_diagnosis_id
   genomic_info: genomic_info_id
+  image: study_link_id
