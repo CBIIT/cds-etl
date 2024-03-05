@@ -369,7 +369,9 @@ def combine_columns(df_dict, config, cds_log):
                         df_dict[combine_node['node']][combine_node['new_column']] = [np.nan] * len(df_dict[combine_node['node']])
                     for i in range(0, len(df_dict[combine_node['node']])):
                         if not pd.isna(df_dict[combine_node['node']].loc[i, combine_node['column1']]) and not pd.isna(df_dict[combine_node['node']].loc[i, combine_node['column2']]):
-                            df_dict[combine_node['node']].loc[i, combine_node['new_column']] = str(df_dict[combine_node['node']].loc[i, combine_node['column1']]) + "_" + str(df_dict[combine_node['node']].loc[i, combine_node['column2']])
+                            string_value_1 = str(df_dict[combine_node['node']].loc[i, combine_node['column1']]).strip(".0")
+                            string_value_2 = str(df_dict[combine_node['node']].loc[i, combine_node['column2']]).strip(".0")
+                            df_dict[combine_node['node']].loc[i, combine_node['new_column']] = string_value_1 + "_" + string_value_2
                 elif combine_node['column1'] not in df_dict[combine_node['node']].keys():
                     cds_log.info(f"{combine_node['column1']} not in {combine_node['node']}")
                 else:
@@ -381,7 +383,9 @@ def combine_columns(df_dict, config, cds_log):
                         df_dict[combine_node['node']][combine_node['new_column']] = [np.nan] * len(df_dict[combine_node['node']])
                     for i in range(0, len(df_dict[combine_node['node']])):
                         if not pd.isna(df_dict[combine_node['external_node']].loc[i, combine_node['column1']]) and not pd.isna(df_dict[combine_node['node']].loc[i, combine_node['column2']]):
-                            df_dict[combine_node['node']].loc[i, combine_node['new_column']] = str(df_dict[combine_node['external_node']].loc[i, combine_node['column1']]) + "_" + str(df_dict[combine_node['node']].loc[i, combine_node['column2']])
+                            string_value_1 = str(df_dict[combine_node['external_node']].loc[i, combine_node['column1']]).strip(".0")
+                            string_value_2 = str(df_dict[combine_node['node']].loc[i, combine_node['column2']]).strip(".0")
+                            df_dict[combine_node['node']].loc[i, combine_node['new_column']] = string_value_1 + "_" + string_value_2
                 elif combine_node['column1'] not in df_dict[combine_node['external_node']].keys():
                     cds_log.info(f"{combine_node['column1']} not in {combine_node['external_node']}")
                 else:
