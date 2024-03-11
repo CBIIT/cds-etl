@@ -165,8 +165,7 @@ if args.extract_raw_data_dictionary == False:
         add_historical_value(df_dict, config, cds_log)
         prefix = os.path.splitext(data_file_base)[0]
         print_data(df_dict, config, cds_log, prefix)
-    if args.upload_s3 == True:
-        upload_files(config, timestamp, cds_log)
+    
 
     sub_folder = os.path.join(config['ID_VALIDATION_RESULT_FOLDER'], config['DATA_BATCH_NAME'])
     property_validation_file_name = config['DATA_BATCH_NAME'] + '-' + 'Properties_validation_result' + '.tsv'
@@ -182,6 +181,8 @@ if args.extract_raw_data_dictionary == False:
         filename_validation_df.to_csv(filename_validation_file_name, sep = "\t", index = False)
         cds_log.info(f'File name validation result file {os.path.basename(filename_validation_file_name)} is created and stored in {sub_folder}')
     print_historical_value(config, cds_log)
+    if args.upload_s3 == True:
+        upload_files(config, timestamp, cds_log)
 
 else:
     raw_dict = {}
