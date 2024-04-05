@@ -225,6 +225,10 @@ def id_validation(df_dict, config, data_file, cds_log, model):
                     relationship = parent_column["relationship"]
                     if model["Relationships"][relationship]["Mul"] == "many_to_many":
                         mul = "many_to_many"
+                    for end in model["Relationships"][relationship]["Ends"]:
+                        if end['Src'] == node and 'Mul' in end.keys():
+                            if end['Mul'] == "many_to_many":
+                                mul = "many_to_many"
                     if parent_id_field in df_dict[node].keys():
                         parent_id_validation_result_df = df_dict[node][df_dict[node][parent_id_field].isna()]
                         if len(parent_id_validation_result_df) > 0:
@@ -260,8 +264,9 @@ def id_validation(df_dict, config, data_file, cds_log, model):
                                 conflicted_column = True
                             if conflicted_column and column_name != config['NODE_ID_FIELD'][node]:
                                 conflicted_column_names.append(column_name)
-
-                        if mul == "many_to_many" and len(conflicted_column_names) == 1 and conflicted_column_names[0] not in model["Nodes"][node]["Props"]: #if the relationship is many to many and the only comflicted column is parent column, then we do nothing
+                        id_conflicted_column_names = [conflicted_column for conflicted_column in conflicted_column_names if conflicted_column not in model["Nodes"][node]["Props"]]
+                        #if mul == "many_to_many" and len(conflicted_column_names) == 1 and conflicted_column_names[0] not in model["Nodes"][node]["Props"]: #if the relationship is many to many and the only comflicted column is parent column, then we do nothing
+                        if mul == "many_to_many" and len(conflicted_column_names) == len(id_conflicted_column_names):
                             many_to_many_id_list.append(id)
                         else:
                             id_validation_df_row = pd.DataFrame(data = [[node, id, conflicted_column_names]], columns = ['node name', 'ID', 'conflict property'])

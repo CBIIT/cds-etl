@@ -28,6 +28,7 @@ file:
   md5sum: md5sum
   md5: md5sum
   sum: md5sum
+  sample_description: file_description
   submission_version: submission_version
 image:
   channel_metadata_filename: channel_metadata_file_url_in_cds
