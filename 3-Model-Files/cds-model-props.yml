@@ -1,893 +1,73 @@
 PropDefinitions:
-  CTAquisitionProtocolElement_ctdiPhantomTypeCode:
-    Desc: The type of phantom to use for CTDI measurement according to IEC 60601-2-44
-    Req: true
-    Term:
-    - Code: '14612683'
-      Origin: caDSR
-      Value: Imaging Technique CTDI Phantom Type Sequence of Items Text
-      Version: '1.00'
-    Type: string
-  CTAquisitionProtocolElement_ctdiVol:
-    Desc: The average dose over the total volume scanned for the selected CT conditions of operation (calculated according to IEC 60601-2-44, Ed.2.1 (Clause 29.1.103.4)). The units are energy dose, e.g. mGy.
-    Req: true
-    Term:
-    - Code: '3882991'
-      Origin: caDSR
-      Value: Computed Tomography Dose Index Volume Quantity 8 Byte Number
-      Version: '1.00'
-    Type: string
-  CTAquisitionProtocolElement_exposureModulationType_Code:
-    Desc: The manner in which tube current is varied in order to limit the dose.
-    Enum:
-    - NONE
-    - ANGULAR
-    - LONGITUDINAL
-    - ECG-BASED
-    - ORGAN-BASED
-  CTAquisitionProtocolElement_gantryDetectorTilt:
-    Desc: Nominal angle of tilt in degrees of the scanning gantry. The units are of plane angle , e.g. degrees.  Zero degrees means the gantry is not tilted, negative degrees are when the top of the gantry is tilted away from where the table enters the gantry.
-    Req: true
-    Term:
-    - Code: '2656117'
-      Origin: caDSR
-      Original Source: caDSR
-      Value: Image Gantry Detector Tilt 16 Character Number
-      Version: '1.00'
-    Type: string
-  CTAquisitionProtocolElement_kVp:
-    Desc: Peak kilovoltage output of the x-ray generator. The units are of electrical potential.
-    Req: true
-    Term:
-    - Code: '2904496'
-      Origin: caDSR
-      Value: Image Kilovolt Peak Float 16 Number
-      Version: '1.00'
-    Type: string
-  CTAquisitionProtocolElement_singleCollimationWidth:
-    Desc: The width of a single row of acquired data. The units are of linear distince, e.g. mm.
-    Term:
-    - Code: '2903347'
-      Origin: caDSR
-      Value: Image Single Collimation Width 8 Byte Millimeter Number
-      Version: '1.00'
-    Type: string
-  CTAquisitionProtocolElement_spiralPitchFactor:
-    Desc: Ratio of the distance that the table moves during a complete revolution of the source around the gantry orbit, to the width of the total collimation over the area of active x-ray detection. The units are of unity.
-    Req: true
-    Term:
-    - Code: '2414556'
-      Origin: caDSR
-      Value: Computed Tomography Pitch Factor Number
-      Version: '1.00'
-    Type: string
-  CTAquisitionProtocolElement_tableSpeed:
-    Desc: The distance that the table moves per unit of time during the gathering of data. The units are of linear distance divided by time.
-    Req: true
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  CTAquisitionProtocolElement_totalCollimationWidth:
-    Desc: The width of the total collimation over the area of active x-ray detection. The units are of linear distince, e.g. mm.
-    Req: true
-    Term:
-    - Code: '2903328'
-      Origin: caDSR
-      Value: Image Total Collimation Width 8 Byte Millimeter Number
-      Version: '1.00'
-    Type: string
-  CTImageReconstructionProtocolElement_convolutionKernel:
-    Desc: A label describing the mathematical operations used to reconstruct images from the acquired data. The values for this attribute are vendor specific and not coded.
-    Term:
-    - Code: '2656119'
-      Origin: caDSR
-      Value: Image Convolution Kernel 16 Character Text
-      Version: '1.00'
-    Type: string
-  CTImageReconstructionProtocolElement_convolutionKernelGroupCode:
-    Desc: A coded value specifying the family of mathematical operations to use to reconstruct images from the acquired data
-    Term:
-    - Code: '14617525'
-      Origin: caDSR
-      Value: Imaging Technique Convolution Kernel Group Name
-      Version: '1.00'
-    Type: string
-  MRImageAcquisitionProtocolElement_acquisitionContrastCode:
-    Desc: A coded value specifying the inherent (as opposed to exogenous) contrast in the acquisition.
-    Enum:
-    - DIFFUSION
-    - FLOW_ENCODED_Flow Encoded contrast
-    - FLUID_ATTENUATED_Fluid Attenuated T2 weighted contrast
-    - PERFUSION_Perfusion weighted contrast
-    - PROTON_DENSITY_Proton Density weighted contrast
-    - STIR_Short Tau Inversion Recovery
-    - TAGGING_Superposition of thin saturation bands onto image
-    - T1_T1 weighted contrast
-    - T2_T2 weighted contrast
-    - T2_STAR_T2* weighted contrast
-    - TOF_Time Of Flight weighted contrast
-    Term:
-    - Code: '14616428'
-      Origin: caDSR
-      Value: Image Acquisition Contrast Type
-      Version: '1.00'
-  MRImageAcquisitionProtocolElement_arterialSpinLabelingContrastCode:
-    Desc: A coded value specifying how arterial water is used as a diffusable tracer.
-    Term:
-    - Code: '14616429'
-      Origin: caDSR
-      Value: Imaging Technique Arterial Spin Labeling Contrast Name
-      Version: '1.00'
-    Type: string
-  MRImageAcquisitionProtocolElement_diffusionBValue:
-    Desc: The factor by which the acquisition is sensitized to the Brownian motion of water molecules. The units are of time/area, e.g. s/mm2
-    Term:
-    - Code: '14607706'
-      Origin: caDSR
-      Value: Imaging Technique MR Diffusion B Value Number
-      Version: '1.00'
-    Type: string
-  MRImageAcquisitionProtocolElement_diffusionDirectionalityCode:
-    Desc: A coded value specifying whether diffusion conditions for the frame are directional, or isotropic with respect to direction
-    Enum:
-    - DIRECTIONAL
-    - BMATRIX
-    - ISOTROPIC
-    - NONE
-    Term:
-    - Code: '14616426'
-      Origin: caDSR
-      Value: Imaging Technique Diffusion Directionality Type
-      Version: '1.00'
-  MRImageAcquisitionProtocolElement_echoPlanarPulseSequenceIndicator:
-    Desc: Specifies whether multiple echos of different phase steps are acquired using rephasing gradients instead of repeated 180-degree pulses.
-    Term:
-    - Code: '14612651'
-      Origin: caDSR
-      Value: Image Acquisition Echo Planar Pulse Sequence Indicator
-      Version: '1.00'
-    Type: string
-  MRImageAcquisitionProtocolElement_echoPulseSequenceCategoryCode:
-    Desc: A coded value specifying an echo category of pulse sequences.
-    Enum:
-    - SPIN
-    - GRADIENT
-    - BOTH
-    Term:
-    - Code: '14645641'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Image Acquisition Spin-Echo Pulse Sequence Code Category
-      Version: '1.00'
-  MRImageAcquisitionProtocolElement_inversionRecoveryIndicator:
-    Desc: Specifies whether an inversion recovery preparatory sequence is used in the acquisition.
-    Term:
-    - Code: '14607722'
-      Origin: caDSR
-      Value: Image Acquisition Inversion Recovery Indicator
-      Version: '1.00'
-    Type: string
-  MRImageAcquisitionProtocolElement_magneticFieldStrength:
-    Desc: "A vector quantity indicating the ability of a magnetic field to exert a force on moving electric charges. [The American Heritage\xAE Science Dictionary]. The units are of magnetic flux density, e.g. tesla."
-    Term:
-    - Code: '14607707'
-      Origin: caDSR
-      Value: Imaging Technique Magnetic Field Strength Number
-      Version: '1.00'
-    Type: string
-  MRImageAcquisitionProtocolElement_multipleSpinEchoIndicator:
-    Desc: Specifies whether different lines in k-space are collected for a single frame.
-    Term:
-    - Code: '14608595'
-      Origin: caDSR
-      Value: Imaging Technique Multiple Spin Echo Indicator
-      Version: '1.00'
-    Type: string
-  MRImageAcquisitionProtocolElement_phaseContrastIndicator:
-    Desc: Specifies whether this is a pulse sequence in which the flowing spins are velocity encoded in phase.
-    Term:
-    - Code: '14608601'
-      Origin: caDSR
-      Value: Image Phase Contrast Indicator
-      Version: '1.00'
-    Type: string
-  MRImageAcquisitionProtocolElement_pulseSequenceName:
-    Desc: Name of the pulse sequence that is used for the acquisition. This is usually a vendor-specific name.
-    Term:
-    - Code: '14608594'
-      Origin: caDSR
-      Value: Image Acquisition Pulse Sequence Name Text
-      Version: '1.00'
-    Type: string
-  MRImageAcquisitionProtocolElement_resonantNucleusCode:
-    Desc: A coded value specifying the atomic nucleus that is the target of the acquisition
-    Enum:
-    - 1H
-    - 3HE
-    - 7LI
-    - 13C
-    - 19F
-    - 23NA
-    - 31P
-    - 129XE
-    Term:
-    - Code: '14616427'
-      Origin: caDSR
-      Value: Image Acquisition Resonant Nucleus Type
-      Version: '1.00'
-  MRImageAcquisitionProtocolElement_saturationRecoveryIndicator:
-    Desc: Specifies whether a saturation recovery pulse sequence is used
-    Term:
-    - Code: '14612652'
-      Origin: caDSR
-      Value: Imaging Technique Saturation Recovery Indicator
-      Version: '1.00'
-    Type: string
-  MRImageAcquisitionProtocolElement_spectrallySelectedSuppressionCode:
-    Desc: A coded value specifying the type of substance-specific signal suppression is used.
-    Enum:
-    - FAT
-    - WATER
-    - FAT AND WATER
-    - SILICON GEL
-    - NONE
-    Term:
-    - Code: '14616431'
-      Origin: caDSR
-      Value: Imaging Technique Spectrally Selected Suppression Type
-      Version: '1.00'
-  MRImageAcquisitionProtocolElement_steadyStatePulseSequenceCode:
-    Desc: A coded value specifying how residual transverse magnetization is maintained during the acquisition.
-    Enum:
-    - FREE PRECESSION
-    - TRANSVERSE
-    - TIME REVERSED
-    - LONGITUDINAL
-    - NONE
-    Term:
-    - Code: '14616430'
-      Origin: caDSR
-      Value: Image Acquisition Steady State Pulse Sequence Type
-      Version: '1.00'
-  MRImageAcquisitionProtocolElement_timeOfFlightContrastIndicator:
-    Desc: Specifies whether contrast is created by the inflow of blood in the saturated plane.
-    Term:
-    - Code: '14608649'
-      Origin: caDSR
-      Value: Imaging Technique Time of Flight Contrast Indicator
-      Version: '1.00'
-    Type: string
-  MRImageReconstructionProtocolElement_complexImageComponentCode:
-    Desc: A coded value specifying the channel of the quadrature detected data, or the combination derived from those channels, used to reconstruct the image
-    Enum:
-    - REAL
-    - IMAGINARY
-    - PHASE
-    - MAGNITUDE
-    Term:
-    - Code: '14616432'
-      Origin: caDSR
-      Value: Imaging Technique Complex Image Component Type
-      Version: '1.00'
-  PETImagingAcquisitionProtocolElement_gantryDetectorTilt:
-    Desc: Nominal angle of tilt in degrees of the scanning gantry. The units are of plane angle , e.g. degrees.  Zero degrees means the gantry is not tilted, negative degrees are when the top of the gantry is tilted away from where the table enters the gantry.
-    Term:
-    - Code: '2656117'
-      Origin: caDSR
-      Value: Image Gantry Detector Tilt 16 Character Number
-      Version: '1.00'
-    Type: string
-  Radiopharmaceutical_radionuclideCode:
-    Desc: A coded value that specifies the radioactive isotope in the radiophamaceutical.
-    Term:
-    - Code: '14612653'
-      Origin: caDSR
-      Value: Imaging Technique Radionuclide Code Text
-      Version: '1.00'
-    Type: string
-  acl:
-    Desc: open or restricted access to data
-    Term:
-    - Code: '11555664'
-      Origin: caDSR
-      Original Source: DSS
-      Value: Electronic Data File Access Level Text
-      Version: '1.00'
-    Type: string
-  acquisition_method_type:
-    Desc: Records the method of acquisition or source for the specimen under consideration
-    Term:
-    - Code: '6626651'
-      Origin: caDSR
-      Original Source: MCL/HTAN
-      Value: Biospecimen Acquisition Method Type
-      Version: '2.00'
-    Type: string
-  adult_or_childhood_study:
-    Desc: Study participants are adult, pediatric, or other
-    Enum:
-    - Adult
-    - Pediatric
-    Req: Preferred
-    Term:
-    - Code: '11524549'
-      Origin: caDSR
-      Value: Study Subject Legal Adult Or Pediatric Participant Type
-      Version: '1.00'
-  age_at_diagnosis:
-    Desc: Participant age at relevant diagnosis
-    Term:
-    - Code: '10609539'
-      Origin: caDSR
-      Original Source: DSS
-      Value: Subject Age at Diagnosis Integer
-      Version: '1.00'
-    Type: integer
-  antibody_name:
-    Desc: short descriptive name for this antibody
-    Term:
-    - Code: '4588605'
-      Origin: caDSR
-      Value: Tissue Slide IHC Antibody Used Type
-      Version: '1.00'
-    Type: string
-  authz:
-    Desc: multifactor authorization
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Original Source: CDS
-      Version: '1.00'
-    Type: string
-  avg_read_length:
-    Desc: Average sequence read length
-    Req: Preferred
-    Term:
-    - Code: '12426615'
-      Origin: caDSR
-      Value: Nucleotide Sequence Average Read Length Count
-      Version: '1.00'
-    Type: number
-  bases:
-    Desc: Total number of unique bases read
-    Req: Preferred
-    Term:
-    - Code: '12373573'
-      Origin: caDSR
-      Value: Sequencing Library Unique Basecalling Count
-      Version: '1.00'
-    Type: integer
-  bioproject_accession:
-    Desc: NCBI BioProject accession ID
-    Req: Preferred
-    Type:
-      pattern: ^PRJNA[0-9]+$
-  biosample_accession:
-    Desc: NCBI BioSample accession ID (SAMN) for this sample
-    Req: Preferred
-    Term:
-    - Code: '2230047'
-      Origin: caDSR
-      Value: Specimen Accession Number
-      Version: '6.00'
-    Type:
-      pattern: ^SAMN[0-9]+$
-  catalog_number:
-    Desc: catalog number from vendor
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  cds_primary_bucket:
-    Desc: The primary bucket for depositing data
-    Req: Preferred
-    Type: string
-  cds_requestor:
-    Desc: Identifies the user requesting storage in CDS
-    Type: string
-  cds_secondary_bucket:
-    Desc: Secondary bucket for depositing data (non-sequence files)
-    Type: string
-  cds_tertiary_bucket:
-    Desc: Secondary bucket for depositing data (non-sequence files)
-    Type: string
-  channel_id:
-    Desc: The unique channel identifier for each channel in this image must match the corresponding field in the OME-TIFF header
-    Req: true
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  channel_metadata_file_url_in_cds:
-    Desc: ''
-    Req: true
-    Term:
-    - Code: '11556141'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Electronic File Pathname Text
-      Version: '1.00'
-    Type: string
-  channel_metadata_filename:
-    Desc: File name of uploaded companion CSV file containing channel-level metadata details
-    Req: true
-    Term:
-    - Code: '7787678'
-      Origin: caDSR
-      Original Source: HTAN
-      Value: Channel Analysis Metadata Electronic File Name Text
-      Version: '1.00'
-    Type: string
-  channel_name:
-    Desc: Channel label for each channel in this image must match the corresponding field in the OME-TIFF header
-    Req: true
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  citation_or_DOI:
-    Desc: Publication and/or digital object identifier of the publication for open access studies
-    Req: true
-    Term:
-    - Code: '7787673'
-      Origin: caDSR
-      Original Source: CDS
-      Version: '1.00'
-    Type: string
-  clinical_trial_arm:
-    Desc: Arm of clinical trial, if appropriate
-    Term:
-    - Code: '11524548'
-      Origin: caDSR
-      Value: Clinical Trial Treatment Arm Text
-      Version: '1.00'
-    Type: string
-  clinical_trial_identifier:
-    Desc: 'Study identifier in the given clinical trial system
-
-      '
-    Term:
-    - Code: '14673514'
-      Origin: caDSR
-      Value: Clinical Trial Study Protocol Unique Identifier
-      Version: '1.00'
-    Type: string
-  clinical_trial_system:
-    Desc: 'Organization that provides clinical trial identifier (if study
-
-      is a clinical trial)
-
-      '
-    Type: string
-  clone:
-    Desc: Unique clone identifier
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  co_investigator_email:
-    Desc: Email of co-principal investigator
-    Type: string
-  co_investigator_name:
-    Desc: Name of co-principal investigator
-    Type: string
-  concentration:
-    Desc: Final concentration used in experiment
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  coverage:
-    Desc: Average depth of coverage on reference used
-    Req: Preferred
-    Term:
-    - Code: '11556322'
-      Origin: caDSR
-      Value: Genome Assembly Sequence Depth of Coverage Number
-      Version: '1.00'
-    Type: number
+  #crdc_id
   crdc_id:
     Desc: The crdc_id is a unique identifier that is generated by Data Hub
     Type: string
-  custom_assembly_fasta_file_for_alignment:
-    Desc: File name of any custom assembly fasta file used during alignment
-    Req: Preferred
-    Term:
-    - Code: '11636299'
-      Origin: caDSR
-      Value: Genome Assembly Custom FASTA File Name
-      Version: '1.00'
+  #image
+  study_link_id:
+    Desc: The study_link_id is a unique numerical identifier for each study listed on the collection information sheet. The sole purpose of the study_link_id is to indicate which participant described on worksheet 2 - Participant information belongs to what study/collection described on worksheet 1 - Collection information.
+    Req: true
     Type: string
-  cycle_number:
-    Desc: 'the cycle # in which the co-listed reagent(s) was(were) used'
+    Key: true
     Term:
-    - Code: Pending
-      Origin: caDSR
+    - Origin: caDSR
+      Code: New CDE
       Version: '1.00'
-    Type: string
-  data_access_level:
-    Desc: Is data open, controlled, or mixed?
-    Enum:
-    - open
-    - controlled
-    - mixed
-    Req: Preferred
-  data_types:
-    Desc: Data types for storage
-    Type:
-      item_type: string
-      value_type: list
-  days_to_last_followup:
-    Desc: Days to last participant followup, relative to study index date
-    Term:
-    - Code: '12426616'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Subject Initial Cancer Diagnosis To Last Followup Day Count
-      Version: '1.00'
-    Type: integer
-  days_to_last_known_status:
-    Desc: Days to last known status of participant, relative to study index date
-    Type: integer
-  days_to_recurrence:
-    Desc: Days to disease recurrence, relative to study index date
-    Term:
-    - Code: '12432576'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Subject First Treatment Date To Recurrence Day Count
-      Version: '1.00'
-    Type: integer
-  days_to_treatment:
-    Desc: Days to start of treatment, relative to index date
-    Term:
-    - Code: '12447194'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Subject Initial Cancer Diagnosis To Treatment Day Count
-      Version: '1.00'
-    Type: integer
-  dbGaP_subject_id:
-    Desc: Identifier for the participant as assigned by dbGaP
-    Req: Preferred
-    Term:
-    - Code: '11524544'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Research Activity dbGaP Accession Number Identifier
-      Version: '1.00'
-    Type: string
-  de_identification_method_description:
-    Desc: Description of the process of removing potentially identifying data or data elements to render data into a form that does not identify individuals and where identification is not likely to take place.
-    Type: string
   de_identification_method_type:
     Desc: General description of the de-identification method
+    Req: true
     Enum:
     - Manual
     - Semiautomatic
     - Automatic
     - Not applicable
-    Req: true
     Term:
-    - Code: 14607284
-      Origin: caDSR
+    - Origin: caDSR
       Original Source: CDS
+      Code: 14607284
       Value: Deidentification Method Type
       Version: '1.00'
+  de_identification_method_description:
+    Desc: Description of the process of removing potentially identifying data or data elements to render data into a form that does not identify individuals and where identification is not likely to take place.
+    Type: string
   de_identification_software:
     Desc: Software that was used to de-identify the images (if used)
     Type: string
-  derived_from_specimen:
-    Desc: Identier of the parent specimen of this sample
-    Term:
-    - Code: '5581201'
-      Origin: caDSR
-      Original Source: HTAN
-      Value: Parent Specimen Label Identifier
-      Version: '1.00'
-    Type: string
-  design_description:
-    Desc: Human-readable description of methods used to create sequencing library
-    Req: Preferred
-    Term:
-    - Code: '11529028'
-      Origin: caDSR
-      Value: Sequencing Library Platform Model Name
-      Version: '1.00'
-    Type: string
-  diagnosis_id:
-    Desc: Internal identifier
-    Type: string
-  diluation:
-    Desc: Final dilution ratio used in experiment
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  disease_type:
-    Desc: Type of disease [?]
+  license:
+    Desc: Official or legal permission to do or own a specified thing.
+    Req: true
     Enum:
-    - Acinar Cell Neoplasm
-    - Basal Cell Neoplasm
-    - Blood Vessel Neoplasm
-    - Bone Neoplasm
-    - Complex Epithelial Neoplasm
-    - Epithelial Neoplasm
-    - Fibroepithelial Neoplasm
-    - Germ Cell Tumor
-    - Giant Cell Tumor
-    - Glioma
-    - Hodgkin Lymphoma
-    - Leukemia
-    - Lipomatous Neoplasm
-    - Lymphatic Vessel Neoplasm
-    - Lymphoblastic Lymphoma
-    - Lymphoid Leukemia
-    - Lymphoma
-    - Mast Cell Neoplasm
-    - Mature B-Cell Non-Hodgkin Lymphoma
-    - Mature T-Cell and NK-Cell Non-Hodgkin Lymphoma
-    - Meningioma
-    - Mesothelial Neoplasm
-    - Myelodysplastic Syndrome
-    - Myeloid Leukemia
-    - Myeloproliferative Neoplasm
-    - Myomatous Neoplasm
-    - Neoplasm
-    - Nerve Sheath Neoplasm
-    - Neuroepithelial Neoplasm
-    - Not Applicable
-    - Not Reported
-    - Odontogenic Neoplasm
-    - Plasma Cell Neoplasm
-    - Skin Appendage Neoplasm
-    - Squamous Cell Neoplasm
-    - Thymoma
-    - Trophoblastic Tumor
-    - Unknown
-    - Wolffian Tumor
-    Term:
-    - Code: '13471160'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Diagnosis Disease or Disorder Morphology Disease
-      Version: '1.00'
-  embedding_medium:
-    Desc: A material that infiltrates and supports a specimen and preserves its shape and structure for sectioning and microscopy.
-    Enum:
-    - Paraffin wax
-    - Carbowax
-    - Methacrylate
-    - Epoxy Resin (Araldite)
-    - Agar embedding
-    - Celloidin media
-    - Gelatin
+    - CC BY 3.0    http://creativecommons.org/licenses/by/3.0/
+    - CC BY 4.0    https://creativecommons.org/licenses/by/4.0/
+    - CC BY-NC 4.0 https://creativecommons.org/licenses/by-nc/4.0/
+    - CC BY-NC 3.0 https://creativecommons.org/licenses/by-nc/3.0/
     - Other
-    - None
-    - Unknown
-    Req: true
     Term:
-    - Code: '8037927'
-      Origin: caDSR
-      Original Source: HTAN
-      Value: Biospecimen Collection Medium Type
+    - Origin: caDSR
+      Code: Pending
       Version: '1.00'
-  emission_bandwidth:
-    Desc: nominal width of emission spectrum (nm)
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  emission_wavelength:
-    Desc: center/peak of the emission spectrum (nm)
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  ethnicity:
-    Desc: OMB Ethinicity designator
-    Enum:
-    - Hispanic or Latino
-    - Not Hispanic or Latino
-    - Unknown
-    - Not Reported
-    - Not Allowed to Collect
-    Req: Preferred
-    Term:
-    - Code: '2192217'
-      Origin: caDSR
-      Original Source: NCI Std
-      Value: Ethnic Group Category Text
-      Version: '2.00'
-  excitation_bandwidth:
-    Desc: nominal width of excitation spectrum (nm)
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  excitation_wavelength:
-    Desc: center/peak of the excitation spectrum (nm)
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  experimental_strategy_and_data_subtypes:
-    Desc: 'What is the experimental strategy used for the study (or what
-
-      type of data subtypes exist in the study)?
-
-      '
-    Enum:
-    - Amplicon
-    - Archer Fusion
-    - Bisulfite-Seq
-    - Methylation Array
-    - OTHER
-    - RNA-Seq
-    - Targeted Sequencing
-    - Targeted-Capture
-    - WGA
-    - WGS
-    - WXS
-    Req: 'Yes'
-    Type:
-      item_type: string
-      value_type: list
-  file_access:
-    Desc: File access
-    Enum:
-    - Open
-    - Controlled
-  file_description:
-    Desc: Human-readable description of file
-    Term:
-    - Code: '11280338'
-      Origin: caDSR
-      Original Source: DSS
-      Value: Electronic Data File Description Text
-      Version: '1.00'
-    Type: string
-  file_id:
-    Desc: File identifier
-    Key: true
+  citation_or_DOI:
+    Desc: Publication and/or digital object identifier of the publication for open access studies
     Req: true
     Type: string
-  file_name:
-    Desc: Name of file
-    Req: true
     Term:
-    - Code: '11284037'
-      Origin: caDSR
-      Original Source: DSS
-      Value: Electronic Data File Name
-      Version: '1.00'
-    Type: string
-  file_size:
-    Desc: File size in bytes
-    Req: false
-    Term:
-    - Code: '11479876'
-      Origin: caDSR
-      Original Source: DSS
-      Value: Electronic Data File Size Integer
-      Version: '1.00'
-    Type: integer
-  file_type:
-    Desc: File type from enumerated list
-    Enum:
-    - BAI
-    - BAM
-    - BW
-    - CRAI
-    - CRAM
-    - FASTQ
-    - HTML
-    - IDAT
-    - JSON
-    - MAF
-    - PDF
-    - TSV
-    - TXT
-    - VCF
-    - XLSX
-    Req: true
-    Term:
-    - Code: '11416926'
-      Origin: caDSR
-      Original Source: DSS
-      Value: Electronic Data File Format Type
-      Version: '1.00'
-  file_types:
-    Desc: File types for storage
-    Type:
-      item_type: string
-      value_type: list
-  file_types_and_format:
-    Desc: 'Specific kinds of files in the dataset that will be uploaded to CDS
-
-      '
-    Req: 'Yes'
-    Type:
-      item_type: string
-      value_type: list
-  file_url_in_cds:
-    Desc: Location of the file on the CDS cloud, using AWS S3 protocol
-    Req: Preferred
-    Term:
-    - Code: '11556141'
-      Origin: caDSR
+    - Origin: caDSR
       Original Source: CDS
-      Value: Electronic File Pathname Text
+      Code: '7787673'
       Version: '1.00'
-    Type: string
-  fluorophore:
-    Desc: Fluorescent dye label
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  funding_agency:
-    Desc: Funding agency of the requestor study
-    Req: Preferred
-    Term:
-    - Code: '11524545'
-      Origin: caDSR
-      Value: Funding Agency Organization Name Text
-      Version: '1.00'
-    Type: string
-  funding_source_program_name:
-    Desc: The funding source organization/sponsor
-    Req: Preferred
-    Term:
-    - Code: '11524546'
-      Origin: caDSR
-      Value: Funding Agency Program Name Text
-      Version: '1.00'
-    Type: string
-  gender:
-    Desc: Biological gender at birth
-    Enum:
-    - Female
-    - Male
-    - Unknown
-    - Unspecified
-    - Not Reported
-    Req: true
-    Term:
-    - Code: '2200604'
-      Origin: caDSR
-      Original Source: NCI Std
-      Value: Person Gender Text Type
-      Version: '3.00'
-  genomic_info_id:
-    Desc: Genomic info identifier, the ID property for the ndoe genomic_info.
-    Key: true
+  species:
+    Desc: Use the NCBI Taxonomy ID to identify species. A label provided by NCBI Taxonomy Database (https://www.ncbi.nlm.nih.gov/taxonomy/),  which uniquely identifies group or category, at any level, in a system for classifying plants or animals (including humans) providing ranked categories for the classification of organisms according to their suspected evolutionary relationships.
     Req: true
     Type: string
-  grant_id:
-    Desc: Grant or contract identifier
-    Req: Preferred
     Term:
-    - Code: '3434057'
-      Origin: caDSR
-      Value: Grant Funding Identifier Number
+    - Origin: caDSR
+      Original Source: DSS
+      Code: '10543100'
+      Value: NCBI Taxonomy ID
       Version: '2.00'
-    Type: string
   image_modality:
     Desc: The method in which the images are generated.
+    Req: true
     Enum:
     - AR
     - BI
@@ -940,69 +120,1234 @@ PropDefinitions:
     - BDUS
     - VA
     - XA
-    Req: true
     Term:
-    - Code: '12137353'
-      Origin: caDSR
+    - Origin: caDSR
       Original Source: DSS
+      Code: '12137353'
       Value: Imaging Technology DICOM Modality Type
+      Version: '1.00'
+  imaging_equipment_manufacturer:
+    Desc: Producer of the imaging equipment that was used to generate the digital image
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: NCI Standard
+      Code: '2866141'
+      Value: Equipment Manufacturer Name Text
+      Version: '1.00'
+  imaging_equipment_model:
+    Desc: The words used to describe the specific model of the instrument used to carry out an imaging experiment.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: NCI Standard
+      Code: '2413274'
+      Value: Equipment Manufacturer Model Name Text
+      Version: '2.10'
+  imaging_sofware:
+    Desc: The name of the software package that was used to capture, generate, and process the image.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: NCI Standard
+      Code: '2413278'
+      Value: Equipment Software Version Text
+      Version: '1.20'
+  imaging_protocol:
+    Desc: A rule which guides how an activity should be performed. Protocols.io ID or DOI link to a free/open protocol resource describing in detail the assay protocol (e.g. surface markers used in Smart-seq, dissociation duration, lot/batch numbers for key reagents such as primers, sequencing reagent kits, etc.) or the protocol by which the image was obtained or generated.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: HTAN
+      Code: '7787673'
+      Value: Raw Data Protocol Or Digital Object Identifier Text
+      Version: '1.00'
+  organ_or_tissue:
+    Desc: Site where images are associated
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: 6161035
+      Value: ICD-O Origin of Disease Anatomic Site
+      Version: '1.00'
+  performed_imaging_study_description:
+    Desc: The textual representation of the certain or salient aspects, characteristics, or features of the imaging study. [Adapted from www.businessdictionary.com]
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: DICOM
+      Code: '2182389'
+      Value: Image Study Description 64 Character Text
+      Version: '2.10'
+  performed_imaging_study_admittingDiagnosisCode:
+    Desc: The identified disease(s) or illness(es) at the time of the admission during which imaging was performed.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: DICOM
+      Code: '2902328'
+      Value: Image Study Admitting Diagnosis Description 64 Character Text
+      Version: '3.00'
+  performed_imaging_study_nonAcquisitionModalitiesInStudyCode:
+    Desc: A coded value specifying the type of equipment that created the images in this imaging study other than that used to acquire the original data.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: DSS
+      Code: '12137353'
+      Value: Imaging Technology DICOM Modality Type
+      Version: '1.00'
+  performed_imaging_study_lossyImageCompressionIndicator:
+    Desc: Specifies whether any images in the study are irreversibly altered during encoding at any time during its life.
+    Req: true
+    Type: string
+  performed_imaging_study_summary:
+    Desc: A brief statement about the characteristics of this element, which is intended for use by the radiologist, technologist and/or physicist during management of the imaging protocol to understand the characteristics of the element in the protocol.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '14670299'
+      Value: Imaging Study Process Protocol Element Summary Text
+      Version: '1.00'
+  performed_imaging_study_primaryAnatomicSiteCode:
+    Desc: A coded value specifying the anatomic location that is the focus of this imaging process protocol element.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '14612662'
+      Value: Image Study Primary Anatomic Site Sequence of Items Text
+      Version: '1.00'
+  performed_imaging_study_acquisitionTypeCode:
+    Desc: A coded value specifying spatial aspects of the mechanism of data collection.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '14670301'
+      Value: Image Study Spatial Acquisition Type Code
+      Version: '1.00'
+  performed_imaging_study_imageTypeCode:
+    Desc: A coded value that specifies the most important aspect of the images or their derivation.
+    Enum:
+    - DYNAMIC
+    - STRESS
+    - RCBV
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: Pending
+      Version: '1.00'
+  performed_imaging_study_cardiacSynchronizationTechniqueCode:
+    Desc: The means used to coordinate the collection or reconstruction of data with the cardiac cycle.
+    Enum:
+    - REALTIME
+    - PROSPECTIVE
+    - RETROSPECTIVE
+    - PACED
+    - NONE
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '14617521'
+      Value: Image Study Cardiac Synchronization Technique Code Name
+      Version: '1.00'
+  performed_imaging_study_dataCollectionDiameter:
+    Desc: The diameter of the region over which information is acquired.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '14612665'
+      Value: Image Acquisition Data Collection Location Diameter Number
+      Version: '1.00'
+  performed_imaging_study_respiratoryMotionTechniqueCode:
+    Desc: The means to be used to coordinate the collection or reconstruction of data with breathing.
+    Req: true
+    Enum:
+    - BREATH-HOLD
+    - REALTIME
+    - GATING
+    - TRACKING
+    - RETROSPECTIVE
+    - CORRECTION
+    - NONE
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '14617522'
+      Value: Image Study Respiratory Motion Technique Code Name
+      Version: '1.00'
+  performed_imaging_study_bodyPositionCode:
+    Desc: A coded value specifying the 3-dimensional spatial orientation of a subject during this imaging acquisition protocol element.
+    Enum:
+    - Supine
+    - Trendelenburg
+    - Standing
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '14617523'
+      Value: Image Study Body Position Name
+      Version: '1.00'
+  performed_imaging_study_typeCode:
+    Desc: A coded value specifying the kind of algorithm used when reconstructing the image from the data acquired during the acquisition process.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  performed_imaging_study_algorithmCode:
+    Desc: A coded value specifying the algorithm to use when reconstructing the image from the data acquired during the acquisition process
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14617557'
+      Value: Imaging Reconstruction Protocol Algorithm Code Text
+      Version: '1.00'
+  performed_imaging_study_reconstructionFieldOfViewHeight:
+    Desc: The vertical dimension of the rectangular region from which data is used in creating the reconstruction of the image.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14612672'
+      Value: Imaging Reconstruction Protocol Field of View Height Number
+      Version: '1.00'
+  performed_imaging_study_reconstructionFieldOfViewWidth:
+    Desc: The horizontal dimension of the rectangular region from which data is used in creating the reconstruction of the image.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14612674'
+      Value: Imaging Reconstruction Protocol Field of View Width Number
+      Version: '1.00'
+  performed_imaging_study_reconstructionDiameter:
+    Desc: The diameter of the region from which data is used in creating the reconstruction of the image.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '2182085'
+      Value: Reconstruction Diameter in Millimeter(s)
+      Version: '1.00'
+  performed_imaging_study_sliceThickness:
+    Desc: The cross plane dimension of the reconstructed image.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '3113185'
+      Value: Image Plane Slice Thickness Float or Fixed-point Millimeter Number
+      Version: '2.00'
+  performed_imaging_study_reconstructionInterval:
+    Desc: The cross plane distance between the centers of adjacent, parallel reconstructed images.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14612682'
+      Value: Imaging Reconstruction Protocol Reconstruction Interval Millimeter Number
+      Version: '1.00'
+  longitudinal_temporal_event_type:
+    Desc: The type of event to which Longitudinal Temporal Offset from Event is relative.
+    Type: number
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '14670294'
+      Value: Longitudinal Study Temporal Event Type
+      Version: '1.00'
+  longitudinal_temporal_event_offset:
+    Desc: An offset in days from a particular event of significance. May be fractional. In the context of a clinical trial, this is often the days since enrollment, or the baseline imaging Study.
+    Type: number
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '14612661'
+      Value: Longitudinal Study Temporal Offset Number
+      Version: '1.00'
+  CTAquisitionProtocolElement_singleCollimationWidth:
+    Desc: The width of a single row of acquired data. The units are of linear distince, e.g. mm.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '2903347'
+      Value: Image Single Collimation Width 8 Byte Millimeter Number
+      Version: '1.00'
+  CTAquisitionProtocolElement_totalCollimationWidth:
+    Desc: The width of the total collimation over the area of active x-ray detection. The units are of linear distince, e.g. mm.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '2903328'
+      Value: Image Total Collimation Width 8 Byte Millimeter Number
+      Version: '1.00'
+  CTAquisitionProtocolElement_gantryDetectorTilt:
+    Desc: Nominal angle of tilt in degrees of the scanning gantry. The units are of plane angle , e.g. degrees.  Zero degrees means the gantry is not tilted, negative degrees are when the top of the gantry is tilted away from where the table enters the gantry.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: caDSR
+      Code: '2656117'
+      Value: Image Gantry Detector Tilt 16 Character Number
+      Version: '1.00'
+  CTAquisitionProtocolElement_tableSpeed:
+    Desc: The distance that the table moves per unit of time during the gathering of data. The units are of linear distance divided by time.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  CTAquisitionProtocolElement_spiralPitchFactor:
+    Desc: Ratio of the distance that the table moves during a complete revolution of the source around the gantry orbit, to the width of the total collimation over the area of active x-ray detection. The units are of unity.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '2414556'
+      Value: Computed Tomography Pitch Factor Number
+      Version: '1.00'
+  CTAquisitionProtocolElement_ctdiVol:
+    Desc: The average dose over the total volume scanned for the selected CT conditions of operation (calculated according to IEC 60601-2-44, Ed.2.1 (Clause 29.1.103.4)). The units are energy dose, e.g. mGy.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '3882991'
+      Value: Computed Tomography Dose Index Volume Quantity 8 Byte Number
+      Version: '1.00'
+  CTAquisitionProtocolElement_ctdiPhantomTypeCode:
+    Desc: The type of phantom to use for CTDI measurement according to IEC 60601-2-44
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14612683'
+      Value: Imaging Technique CTDI Phantom Type Sequence of Items Text
+      Version: '1.00'
+  CTAquisitionProtocolElement_kVp:
+    Desc: Peak kilovoltage output of the x-ray generator. The units are of electrical potential.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '2904496'
+      Value: Image Kilovolt Peak Float 16 Number
+      Version: '1.00'
+  CTAquisitionProtocolElement_exposureModulationType_Code:
+    Desc: The manner in which tube current is varied in order to limit the dose.
+    Enum:
+    - NONE
+    - ANGULAR
+    - LONGITUDINAL
+    - ECG-BASED
+    - ORGAN-BASED
+  CTImageReconstructionProtocolElement_convolutionKernel:
+    Desc: A label describing the mathematical operations used to reconstruct images from the acquired data. The values for this attribute are vendor specific and not coded.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '2656119'
+      Value: Image Convolution Kernel 16 Character Text
+      Version: '1.00'
+  CTImageReconstructionProtocolElement_convolutionKernelGroupCode:
+    Desc: A coded value specifying the family of mathematical operations to use to reconstruct images from the acquired data
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14617525'
+      Value: Imaging Technique Convolution Kernel Group Name
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_echoPulseSequenceCategoryCode:
+    Desc: A coded value specifying an echo category of pulse sequences.
+    Enum:
+    - SPIN
+    - GRADIENT
+    - BOTH
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '14645641'
+      Value: Image Acquisition Spin-Echo Pulse Sequence Code Category
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_diffusionBValue:
+    Desc: The factor by which the acquisition is sensitized to the Brownian motion of water molecules. The units are of time/area, e.g. s/mm2
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14607706'
+      Value: Imaging Technique MR Diffusion B Value Number
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_diffusionDirectionalityCode:
+    Desc: A coded value specifying whether diffusion conditions for the frame are directional, or isotropic with respect to direction
+    Enum:
+    - DIRECTIONAL
+    - BMATRIX
+    - ISOTROPIC
+    - NONE
+    Term:
+    - Origin: caDSR
+      Code: '14616426'
+      Value: Imaging Technique Diffusion Directionality Type
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_magneticFieldStrength:
+    Desc: "A vector quantity indicating the ability of a magnetic field to exert a force on moving electric charges. [The American Heritage\xAE Science Dictionary]. The units are of magnetic flux density, e.g. tesla."
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14607707'
+      Value: Imaging Technique Magnetic Field Strength Number
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_resonantNucleusCode:
+    Desc: A coded value specifying the atomic nucleus that is the target of the acquisition
+    Enum:
+    - 1H
+    - 3HE
+    - 7LI
+    - 13C
+    - 19F
+    - 23NA
+    - 31P
+    - 129XE
+    Term:
+    - Origin: caDSR
+      Code: '14616427'
+      Value: Image Acquisition Resonant Nucleus Type
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_acquisitionContrastCode:
+    Desc: A coded value specifying the inherent (as opposed to exogenous) contrast in the acquisition.
+    Enum:
+    - DIFFUSION
+    - FLOW_ENCODED_Flow Encoded contrast
+    - FLUID_ATTENUATED_Fluid Attenuated T2 weighted contrast
+    - PERFUSION_Perfusion weighted contrast
+    - PROTON_DENSITY_Proton Density weighted contrast
+    - STIR_Short Tau Inversion Recovery
+    - TAGGING_Superposition of thin saturation bands onto image
+    - T1_T1 weighted contrast
+    - T2_T2 weighted contrast
+    - T2_STAR_T2* weighted contrast
+    - TOF_Time Of Flight weighted contrast
+    Term:
+    - Origin: caDSR
+      Code: '14616428'
+      Value: Image Acquisition Contrast Type
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_inversionRecoveryIndicator:
+    Desc: Specifies whether an inversion recovery preparatory sequence is used in the acquisition.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14607722'
+      Value: Image Acquisition Inversion Recovery Indicator
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_pulseSequenceName:
+    Desc: Name of the pulse sequence that is used for the acquisition. This is usually a vendor-specific name.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14608594'
+      Value: Image Acquisition Pulse Sequence Name Text
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_multipleSpinEchoIndicator:
+    Desc: Specifies whether different lines in k-space are collected for a single frame.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14608595'
+      Value: Imaging Technique Multiple Spin Echo Indicator
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_phaseContrastIndicator:
+    Desc: Specifies whether this is a pulse sequence in which the flowing spins are velocity encoded in phase.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14608601'
+      Value: Image Phase Contrast Indicator
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_timeOfFlightContrastIndicator:
+    Desc: Specifies whether contrast is created by the inflow of blood in the saturated plane.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14608649'
+      Value: Imaging Technique Time of Flight Contrast Indicator
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_arterialSpinLabelingContrastCode:
+    Desc: A coded value specifying how arterial water is used as a diffusable tracer.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14616429'
+      Value: Imaging Technique Arterial Spin Labeling Contrast Name
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_steadyStatePulseSequenceCode:
+    Desc: A coded value specifying how residual transverse magnetization is maintained during the acquisition.
+    Enum:
+    - FREE PRECESSION
+    - TRANSVERSE
+    - TIME REVERSED
+    - LONGITUDINAL
+    - NONE
+    Term:
+    - Origin: caDSR
+      Code: '14616430'
+      Value: Image Acquisition Steady State Pulse Sequence Type
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_echoPlanarPulseSequenceIndicator:
+    Desc: Specifies whether multiple echos of different phase steps are acquired using rephasing gradients instead of repeated 180-degree pulses.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14612651'
+      Value: Image Acquisition Echo Planar Pulse Sequence Indicator
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_saturationRecoveryIndicator:
+    Desc: Specifies whether a saturation recovery pulse sequence is used
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14612652'
+      Value: Imaging Technique Saturation Recovery Indicator
+      Version: '1.00'
+  MRImageAcquisitionProtocolElement_spectrallySelectedSuppressionCode:
+    Desc: A coded value specifying the type of substance-specific signal suppression is used.
+    Enum:
+    - FAT
+    - WATER
+    - FAT AND WATER
+    - SILICON GEL
+    - NONE
+    Term:
+    - Origin: caDSR
+      Code: '14616431'
+      Value: Imaging Technique Spectrally Selected Suppression Type
+      Version: '1.00'
+  MRImageReconstructionProtocolElement_complexImageComponentCode:
+    Desc: A coded value specifying the channel of the quadrature detected data, or the combination derived from those channels, used to reconstruct the image
+    Enum:
+    - REAL
+    - IMAGINARY
+    - PHASE
+    - MAGNITUDE
+    Term:
+    - Origin: caDSR
+      Code: '14616432'
+      Value: Imaging Technique Complex Image Component Type
+      Version: '1.00'
+  PETImagingAcquisitionProtocolElement_gantryDetectorTilt:
+    Desc: Nominal angle of tilt in degrees of the scanning gantry. The units are of plane angle , e.g. degrees.  Zero degrees means the gantry is not tilted, negative degrees are when the top of the gantry is tilted away from where the table enters the gantry.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '2656117'
+      Value: Image Gantry Detector Tilt 16 Character Number
+      Version: '1.00'
+  Radiopharmaceutical_radionuclideCode:
+    Desc: A coded value that specifies the radioactive isotope in the radiophamaceutical.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14612653'
+      Value: Imaging Technique Radionuclide Code Text
+      Version: '1.00'
+  acquisition_method_type:
+    Desc: Records the method of acquisition or source for the specimen under consideration
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: MCL/HTAN
+      Code: '6626651'
+      Value: Biospecimen Acquisition Method Type
+      Version: '2.00'
+  tumor_tissue_type:
+    Desc: Text that describes the kind of disease present in the tumor specimen as related to a specific timepoint (add rows to select multiple values along with timepoints)
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: HTAN
+      Code: '3288124'
+      Value: Tumor Tissue Disease Description Type
+      Version: '1.00'
+  tissue_fixative:
+    Desc: A compound that preserves tissues and cells for microscopic study.
+    Req: true
+    Enum:
+    - Acetone
+    - Alcohol
+    - Formalin
+    - Glutaraldehyde
+    - OCT media
+    - RNAlater
+    - Saline
+    - 95% Ethanol
+    - Dimidoester
+    - Carbodiimide
+    - Dimethylacetamide
+    - Para-benzoquinone
+    - PAXgene tissue
+    - TCL lysis buffer
+    - NP40 lysis buffer
+    - Methacarn
+    - Cryo-store
+    - Carnoy's Fixative
+    - Polaxamer
+    - Other
+    - None
+    - unknown
+    Term:
+    - Origin: caDSR
+      Original Source: NCI Standard
+      Code: '65078'
+      Value: Specimen Fixative Type
+      Version: '4.00'
+  embedding_medium:
+    Desc: A material that infiltrates and supports a specimen and preserves its shape and structure for sectioning and microscopy.
+    Req: true
+    Enum:
+    - Paraffin wax
+    - Carbowax
+    - Methacrylate
+    - Epoxy Resin (Araldite)
+    - Agar embedding
+    - Celloidin media
+    - Gelatin
+    - Other
+    - None
+    - Unknown
+    Term:
+    - Origin: caDSR
+      Original Source: HTAN
+      Code: '8037927'
+      Value: Biospecimen Collection Medium Type
+      Version: '1.00'
+  staining_method:
+    Desc: Any of the various methods that use a dye, reagent, or other material for producing coloration in tissues or microorganisms for microscopic examination.
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: HTAN
+      Code: '7789196'
+      Value: Imaging Assay Technology Type
+      Version: '1.00'
+  objective:
+    Desc: "An\_objective\_is an optical element that gathers light from an object being observed and\_focuses\_the\_light rays\_from it to produce a\_real image\_of the object."
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '7788935'
+      Value: Microscope Device Objective Lens Text
+      Version: '1.00'
+  nominal_magnification:
+    Desc: The magnification of the lens as specified by the manufacturer - i.e. '60' is a 60X lens. floating point value > 1(no units)
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: HTAN
+      Code: '7788940'
+      Value: Microscope Device Nominal Magnification Float Value
+      Version: '1.00'
+  immersion:
+    Desc: Immersion medium
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: HTAN
+      Code: '8058286'
+      Value: Microscope Device Immersion Medium Type
+      Version: '1.00'
+  lens_numerical_aperture:
+    Desc: The numerical aperture of the lens. Floating point value > 0.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: HTAN
+      Code: '7788942'
+      Value: Microscope Device Lens Numerical Aperture Float Value
+      Version: '1.00'
+  working_distance:
+    Desc: The working distance of the lens, expressed as a floating point number. Floating point > 0. Size needs to be specified in microns (um)
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: HTAN
+      Code: '7788943'
+      Value: Microscope Device Working Distance Float Value
       Version: '1.00'
   imaging_assay_type:
     Desc: Type of imaging assay
     Req: true
+    Type: string
     Term:
-    - Code: '7789196'
-      Origin: caDSR
+    - Origin: caDSR
       Original Source: HTAN
+      Code: '7789196'
       Value: Imaging Assay Technology Type
       Version: '1.00'
+  pyramid:
+    Desc: The data file contains an image pyramid
     Type: string
-  imaging_equipment_manufacturer:
-    Desc: Producer of the imaging equipment that was used to generate the digital image
+    Term:
+    - Origin: caDSR
+      Original Source: HTAN
+      Code: '7788945'
+      Value: Image Processing Pyramid Representation True False Indicator
+      Version: '1.00'
+  physical_size_x:
+    Desc: Physical size (X-dimension) of a pixel. Floating point value > 0. Size needs to be specified in microns (um)
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: HTAN
+      Code: '7786584'
+      Value: Image Processing Pyramid Representation True False Indicator
+      Version: '1.00'
+  physical_size_y:
+    Desc: Physical size (Y-dimension) of a pixel. Floating point value > 0. Size needs to be specified in microns (um)
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: HTAN
+      Code: '7786585'
+      Value: Pixel Y-Dimension Float Value
+      Version: '1.00'
+  physical_size_z:
+    Desc: Physical size (Z-dimension) of a pixel. Floating point value > 0. Size needs to be specified in microns (um)
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: HTAN
+      Code: '7786586'
+      Value: Pixel Z-Dimension Float Value
+      Version: '1.00'
+  size_c:
+    Desc: Number of channels. Integer >= 1
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '7794859'
+      Value: OME TIFF Channel Count
+      Version: '1.00'
+  size_t:
+    Desc: Number of time points. Integer >= 1
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '7794860'
+      Value: OME TIFF Timepoint Count
+      Version: '1.00'
+  size_x:
+    Desc: 'Size of image: X dimension (in pixels). Integer >= 1'
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '7788567'
+      Value: OME TIFF X-Dimension Pixel Measurement
+      Version: '1.00'
+  size_y:
+    Desc: 'Size of image: Y dimension (in pixels). Integer >= 1'
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '7788568'
+      Value: OME TIFF Y-Dimension Pixel Measurement
+      Version: '1.00'
+  size_z:
+    Desc: 'Size of image: Z dimension (in pixels). Integer >= 1'
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '7788569'
+      Value: OME TIFF Z-Dimension Pixel Measurement
+      Version: '1.00'
+  channel_metadata_filename:
+    Desc: File name of uploaded companion CSV file containing channel-level metadata details
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: HTAN
+      Code: '7787678'
+      Value: Channel Analysis Metadata Electronic File Name Text
+      Version: '1.00'
+  channel_metadata_file_url_in_cds:
+    Desc: ''
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '11556141'
+      Value: Electronic File Pathname Text
+      Version: '1.00'
+  channel_id:
+    Desc: The unique channel identifier for each channel in this image must match the corresponding field in the OME-TIFF header
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  channel_name:
+    Desc: Channel label for each channel in this image must match the corresponding field in the OME-TIFF header
+    Req: true
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  cycle_number:
+    Desc: 'the cycle # in which the co-listed reagent(s) was(were) used'
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  sub_cycle_number:
+    Desc: 'sub-cycle #'
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  target_name:
+    Desc: short descriptive name (abbreviation) for this target (antigen)
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  antibody_name:
+    Desc: short descriptive name for this antibody
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '4588605'
+      Value: Tissue Slide IHC Antibody Used Type
+      Version: '1.00'
+  rrid_identifier:
+    Desc: Research Resource Identifier
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  fluorophore:
+    Desc: Fluorescent dye label
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  clone:
+    Desc: Unique clone identifier
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  lot:
+    Desc: lot number from vendor
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  vendor:
+    Desc: Vendor name
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  catalog_number:
+    Desc: catalog number from vendor
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  excitation_wavelength:
+    Desc: center/peak of the excitation spectrum (nm)
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  emission_wavelength:
+    Desc: center/peak of the emission spectrum (nm)
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  excitation_bandwidth:
+    Desc: nominal width of excitation spectrum (nm)
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  emission_bandwidth:
+    Desc: nominal width of emission spectrum (nm)
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  metal_isotope_element:
+    Desc: Element mass number
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  oligo_barcode_upper_strand:
+    Desc: DNA barcode used for labeling
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  oligo_barcode_lower_strand:
+    Desc: DNA barcode used for labeling
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  diluation:
+    Desc: Final dilution ratio used in experiment
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  concentration:
+    Desc: Final concentration used in experiment
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  passes_qc:
+    Desc: Identify stains that did not pass QC but are included in the dataset.
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: Pending
+      Version: '1.00'
+  # file
+  submission_version:
+    Desc: Raw data file submission
+    Type: string
+    Req: true
+  file_id:
+    Desc: File identifier
+    Type: string
+    Req: true
+    Key: true
+  file_url_in_cds:
+    Desc: Location of the file on the CDS cloud, using AWS S3 protocol
+    Type: string
+    Req: Preferred
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '11556141'
+      Value: Electronic File Pathname Text
+      Version: '1.00'
+  file_description:
+    Desc: Human-readable description of file
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: DSS
+      Code: '11280338'
+      Value: Electronic Data File Description Text
+      Version: '1.00'
+  file_name:
+    Desc: Name of file
+    Type: string
     Req: true
     Term:
-    - Code: '2866141'
-      Origin: caDSR
-      Original Source: NCI Standard
-      Value: Equipment Manufacturer Name Text
+    - Origin: caDSR
+      Original Source: DSS
+      Code: '11284037'
+      Value: Electronic Data File Name
       Version: '1.00'
-    Type: string
-  imaging_equipment_model:
-    Desc: The words used to describe the specific model of the instrument used to carry out an imaging experiment.
+  file_size:
+    Desc: File size in bytes
+    Type: integer
+    Req: false
     Term:
-    - Code: '2413274'
-      Origin: caDSR
-      Original Source: NCI Standard
-      Value: Equipment Manufacturer Model Name Text
-      Version: '2.10'
-    Type: string
-  imaging_protocol:
-    Desc: A rule which guides how an activity should be performed. Protocols.io ID or DOI link to a free/open protocol resource describing in detail the assay protocol (e.g. surface markers used in Smart-seq, dissociation duration, lot/batch numbers for key reagents such as primers, sequencing reagent kits, etc.) or the protocol by which the image was obtained or generated.
-    Term:
-    - Code: '7787673'
-      Origin: caDSR
-      Original Source: HTAN
-      Value: Raw Data Protocol Or Digital Object Identifier Text
+    - Origin: caDSR
+      Original Source: DSS
+      Code: '11479876'
+      Value: Electronic Data File Size Integer
       Version: '1.00'
-    Type: string
-  imaging_sofware:
-    Desc: The name of the software package that was used to capture, generate, and process the image.
+  file_type:
+    Desc: File type from enumerated list
+    Enum:
+    - BAI
+    - BAM
+    - BW
+    - CRAI
+    - CRAM
+    - FASTQ
+    - HTML
+    - IDAT
+    - JSON
+    - MAF
+    - PDF
+    - TSV
+    - TXT
+    - VCF
+    - XLSX
+    Req: true
     Term:
-    - Code: '2413278'
-      Origin: caDSR
-      Original Source: NCI Standard
-      Value: Equipment Software Version Text
-      Version: '1.20'
-    Type: string
-  immersion:
-    Desc: Immersion medium
-    Term:
-    - Code: '8058286'
-      Origin: caDSR
-      Original Source: HTAN
-      Value: Microscope Device Immersion Medium Type
+    - Origin: caDSR
+      Original Source: DSS
+      Code: '11416926'
+      Value: Electronic Data File Format Type
       Version: '1.00'
+  file_access:
+    Desc: File access
+    Enum:
+    - Open
+    - Controlled
+  md5sum:
+    Desc: MD5 hex digest for this file
+    Type:
+      pattern: ^[0-9a-fA-F]{32}$
+    Req: true
+  experimental_strategy_and_data_subtypes:
+    Desc: 'What is the experimental strategy used for the study (or what
+
+      type of data subtypes exist in the study)?
+
+      '
+    Req: 'Yes'
+    Enum:
+    - Amplicon
+    - Archer Fusion
+    - Bisulfite-Seq
+    - Methylation Array
+    - OTHER
+    - RNA-Seq
+    - Targeted Sequencing
+    - Targeted-Capture
+    - WGA
+    - WGS
+    - WXS
+    Type:
+      value_type: list
+      item_type: string
+  # participant
+  ethnicity:
+    Desc: OMB Ethinicity designator
+    Enum:
+    - Hispanic or Latino
+    - Not Hispanic or Latino
+    - Unknown
+    - Not Reported
+    - Not Allowed to Collect
+    Req: Preferred
+    Term:
+    - Origin: caDSR
+      Original Source: NCI Std
+      Code: '2192217'
+      Value: Ethnic Group Category Text
+      Version: '2.00'
+  gender:
+    Desc: Biological gender at birth
+    Enum:
+    - Female
+    - Male
+    - Unknown
+    - Unspecified
+    - Not Reported
+    Req: true
+    Term:
+    - Origin: caDSR
+      Original Source: NCI Std
+      Code: '2200604'
+      Value: Person Gender Text Type
+      Version: '3.00'
+  race:
+    Desc: OMB Race designator
+    Enum:
+    - White
+    - American Indian or Alaska Native
+    - Black or African American
+    - Asian
+    - Native Hawaiian or Other Pacific Islander
+    - Unknown
+    - Not Reported
+    - Not Allowed to Collect
+    Req: Preferred
+    Term:
+    - Origin: caDSR
+      Original Source: NCI Std
+      Code: '2192199'
+      Value: Race Category Text
+      Version: '1.00'
+  participant_id:
+    Desc: 'A number or a string that may contain metadata information, for a participant
+
+      who has taken part in the investigation or study.
+
+      '
     Type: string
+    Req: true
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '12220014'
+      Value: Subject Data Origin Identifier
+      Version: '1.00'
+  study_participant_id:
+    Desc: 'The property study_participant_id is a compound property, combining the property participant_id and the parent property study.phs_accession.
+
+      It is the ID property for the node participant. The reason why we are doing that is because is some cases, there are same participant id in different studies repersent different participants.
+
+      '
+    Type: string
+    Req: true
+    Key: true
+  vital_status:
+    Desc: Vital status as of last known follow up
+    Enum:
+    - Alive
+    - Dead
+    - Unknown
+    - Not Reported
+    Term:
+    - Origin: caDSR
+      Original Source: NCI Std
+      Code: '2847330'
+      Value: Participant Vital Status Type
+      Version: '1.00'
+  dbGaP_subject_id:
+    Desc: Identifier for the participant as assigned by dbGaP
+    Type: string
+    Req: Preferred
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '11524544'
+      Value: Research Activity dbGaP Accession Number Identifier
+      Version: '1.00'
+  # diagnosis
+  diagnosis_id:
+    Desc: Internal identifier
+    Type: string
+  study_diagnosis_id:
+    Desc: 'The property study_diagnosis_id is a compound property, combining the property diagnosis_id and the parent property participant.study_participant_id.
+
+      It is the ID property for the node diagnosis.
+
+      '
+    Type: string
+    Req: true
+    Key: true
+  disease_type:
+    Desc: Type of disease [?]
+    Enum:
+    - Acinar Cell Neoplasm
+    - Basal Cell Neoplasm
+    - Blood Vessel Neoplasm
+    - Bone Neoplasm
+    - Complex Epithelial Neoplasm
+    - Epithelial Neoplasm
+    - Fibroepithelial Neoplasm
+    - Germ Cell Tumor
+    - Giant Cell Tumor
+    - Glioma
+    - Hodgkin Lymphoma
+    - Leukemia
+    - Lipomatous Neoplasm
+    - Lymphatic Vessel Neoplasm
+    - Lymphoblastic Lymphoma
+    - Lymphoid Leukemia
+    - Lymphoma
+    - Mast Cell Neoplasm
+    - Mature B-Cell Non-Hodgkin Lymphoma
+    - Mature T-Cell and NK-Cell Non-Hodgkin Lymphoma
+    - Meningioma
+    - Mesothelial Neoplasm
+    - Myelodysplastic Syndrome
+    - Myeloid Leukemia
+    - Myeloproliferative Neoplasm
+    - Myomatous Neoplasm
+    - Neoplasm
+    - Nerve Sheath Neoplasm
+    - Neuroepithelial Neoplasm
+    - Not Applicable
+    - Not Reported
+    - Odontogenic Neoplasm
+    - Plasma Cell Neoplasm
+    - Skin Appendage Neoplasm
+    - Squamous Cell Neoplasm
+    - Thymoma
+    - Trophoblastic Tumor
+    - Unknown
+    - Wolffian Tumor
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '13471160'
+      Value: Diagnosis Disease or Disorder Morphology Disease
+      Version: '1.00'
+  age_at_diagnosis:
+    Desc: Participant age at relevant diagnosis
+    Type: integer
+    Term:
+    - Origin: caDSR
+      Original Source: DSS
+      Code: '10609539'
+      Value: Subject Age at Diagnosis Integer
+      Version: '1.00'
+  days_to_last_known_status:
+    Desc: Days to last known status of participant, relative to study index date
+    Type: integer
+  days_to_last_followup:
+    Desc: Days to last participant followup, relative to study index date
+    Type: integer
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '12426616'
+      Value: Subject Initial Cancer Diagnosis To Last Followup Day Count
+      Version: '1.00'
+  days_to_recurrence:
+    Desc: Days to disease recurrence, relative to study index date
+    Type: integer
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '12432576'
+      Value: Subject First Treatment Date To Recurrence Day Count
+      Version: '1.00'
   incidence_type:
     Desc: For this diagnosis, disease incidence relative to prior status of subject
     Enum:
@@ -1012,88 +1357,6 @@ PropDefinitions:
     - metastasis
     - remission
     - no_disease
-  index_date:
-    Desc: Index date (Day 0) to which all dates are relative, for this study
-    Enum:
-    - date_of_diagnosis
-    - date_of_enrollment
-    - date_of_collection
-    - date_of_birth
-  institution:
-    Desc: TBD
-    Req: Preferred
-    Type: String
-  instrument_model:
-    Desc: Instrument model
-    Enum:
-    - 454 GS
-    - 454 GS 20
-    - 454 GS FLX
-    - 454 GS FLX+
-    - 454 GS FLX Titanium
-    - 454 GS Junior
-    - HiSeq X Five
-    - HiSeq X Ten
-    - Illumina Genome Analyzer
-    - Illumina Genome Analyzer II
-    - Illumina Genome Analyzer IIx
-    - Illumina HiScanSQ
-    - Illumina HiSeq
-    - Illumina HiSeq 1000
-    - Illumina HiSeq 1500
-    - Illumina HiSeq 2000
-    - Illumina HiSeq 2500
-    - Illumina HiSeq 3000
-    - Illumina HiSeq 4000
-    - Illumina iSeq 100
-    - Illumina NovaSeq 6000
-    - llumina NovaSeq
-    - Illumina MiniSeq
-    - Illumina MiSeq
-    - Illumina NextSeq
-    - NextSeq 500
-    - NextSeq 550
-    - Helicos HeliScope
-    - AB 5500 Genetic Analyzer
-    - AB 5500xl Genetic Analyzer
-    - AB 5500x-Wl Genetic Analyzer
-    - AB SOLiD 3 Plus System
-    - AB SOLiD 4 System
-    - AB SOLiD 4hq System
-    - AB SOLiD PI System
-    - AB SOLiD System
-    - AB SOLiD System 2.0
-    - AB SOLiD System 3.0
-    - Complete Genomics
-    - PacBio RS
-    - PacBio RS II
-    - PacBio Sequel
-    - PacBio Sequel II
-    - Ion Torrent PGM
-    - Ion Torrent Proton
-    - Ion Torrent S5 XL
-    - Ion Torrent S5
-    - AB 310 Genetic Analyzer
-    - AB 3130 Genetic Analyzer
-    - AB 3130xL Genetic Analyzer
-    - AB 3500 Genetic Analyzer
-    - AB 3500xL Genetic Analyzer
-    - AB 3730 Genetic Analyzer
-    - AB 3730xL Genetic Analyzer
-    - GridION
-    - MinION
-    - PromethION
-    - BGISEQ-500
-    - DNBSEQ-G400
-    - DNBSEQ-T7
-    - DNBSEQ-G50
-    - MGISEQ-2000RS
-    Req: Preferred
-    Term:
-    - Code: '6352164'
-      Origin: caDSR
-      Value: Sequencing Library Platform Model Name
-      Version: '1.00'
   last_known_disease_status:
     Desc: Last known disease incidence for this subject and diagnosis
     Enum:
@@ -1108,198 +1371,597 @@ PropDefinitions:
     - Biochemical evidence of disease without structural correlate
     - Tumor free
     Term:
-    - Code: '12447172'
-      Origin: caDSR
+    - Origin: caDSR
       Original Source: DSS
+      Code: '12447172'
       Value: Subject Last Known Disease Status
       Version: '1.00'
-  lens_numerical_aperture:
-    Desc: The numerical aperture of the lens. Floating point value > 0.
-    Term:
-    - Code: '7788942'
-      Origin: caDSR
-      Original Source: HTAN
-      Value: Microscope Device Lens Numerical Aperture Float Value
-      Version: '1.00'
-    Type: string
-  library_id:
-    Desc: Library identifier as submitted by requestor
-    Term:
-    - Code: '11555660'
-      Origin: caDSR
-      Value: Sequencing Library Unique Identifier Text
-      Version: '1.00'
-    Type: string
-  library_layout:
-    Desc: Library layout as submitted by requestor
+  primary_diagnosis:
+    Desc: Primary disease diagnosed for this diagnosis and subject
     Enum:
-    - Paired-end
-    - Single-end
-    - Single-indexed
-    Req: Preferred
-    Term:
-    - Code: '11527735'
-      Origin: caDSR
-      Value: Sequencing Library Read Layout Type
-      Version: '1.00'
-  library_selection:
-    Desc: Library selection method
-    Enum:
-    - Hybrid Selection
-    - other
-    - PCR
-    - Poly-T Enrichment
-    - PolyA
-    - Random
-    - 5-methylcytidine antibody
-    - CAGE
-    - cDNA
-    - cDNA_oligo_dT
-    - cDNA_randomPriming
-    - CF-H
-    - CF-M
-    - CF-S
-    - CF-T
-    - ChIP
-    - DNAse
-    - HMPR
-    - Inverse rRNA
-    - MBD2 protein methyl-CpG binding domain
-    - MDA
-    - MF
-    - MNase
-    - MSLL
-    - Oligo-dT
-    - Padlock probes capture method
-    - Race
-    - Random PCR
-    - Reduced Representation
-    - repeat fractionation
-    - Restriction Digest
-    - RT-PCR
-    - size fractionation
-    - unspecified
-    Req: Preferred
-    Term:
-    - Code: '6347743'
-      Origin: caDSR
-      Value: Sequencing Library Creation Method Type
-      Version: '1.00'
-  library_source:
-    Desc: Source material used to create library
-    Enum:
-    - Genomic
-    - Transcriptomic
-    - Metagenomic
-    - Metatranscriptomic
-    - Synthetic
-    - Viral RNA
-    - Genomic Single Cell
-    - Single Nucleus
-    - Transcriptomic Single Cell
-    - Other
-    - Bulk Whole Cell
-    - Single Cell
-    Req: Preferred
-    Term:
-    - Code: '6285979'
-      Origin: caDSR
-      Value: Sequencing Library Specimen Source
-      Version: '1.00'
-  library_strategy:
-    Desc: Nucleic acid capture or processing strategy for this library
-    Enum:
-    - AMPLICON
-    - ATAC-seq
-    - Bisulfite-Seq
-    - ChIA-PET
-    - ChIP-Seq
-    - CLONE
-    - CLONEEND
-    - CTS
-    - DNase-Hypersensitivity
-    - EST
-    - FAIRE-seq
-    - FINISHING
-    - FL-cDNA
-    - Hi-C
-    - MBD-Seq
-    - MeDIP-Seq
-    - miRNA-Seq
-    - MNase-Seq
-    - MRE-Seq
-    - ncRNA-Seq
-    - OTHER
-    - POOLCLONE
-    - RAD-Seq
-    - RIP-Seq
-    - RNA-Seq
-    - SELEX
-    - ssRNA-seq
-    - Synthetic-Long-Read
-    - Targeted-Capture
-    - Tethered Chromatin Conformation Capture
-    - Tn-Seq
-    - WCS
-    - WGA
-    - WGS
-    - WXS
-    Req: Preferred
-    Term:
-    - Code: '6273393'
-      Origin: caDSR
-      Value: Sequencing Library Technique Type
-      Version: '1.00'
-  license:
-    Desc: Official or legal permission to do or own a specified thing.
-    Enum:
-    - CC BY 3.0    http://creativecommons.org/licenses/by/3.0/
-    - CC BY 4.0    https://creativecommons.org/licenses/by/4.0/
-    - CC BY-NC 4.0 https://creativecommons.org/licenses/by-nc/4.0/
-    - CC BY-NC 3.0 https://creativecommons.org/licenses/by-nc/3.0/
-    - Other
+    - 4th Ventricular Brain Tumor
+    - Acinar Cell Carcinoma
+    - Acute megakaryoblastic leukaemia
+    - Acute Megakaryoblastic Leukemia
+    - Acute Monoblastic and Monocytic Leukemia
+    - Acute monoblastic leukemia
+    - Acute myeloid leukemia with mutated CEBPA
+    - Acute myeloid leukemia with t(9;11)(p22;q23); MLLT3-MLL
+    - Acute myeloid leukemia without maturation
+    - Acute myeloid leukemia, inv(16)(p13;q22)
+    - Acute myeloid leukemia, minimal differentiation
+    - Acute Myeloid Leukemia, NOS
+    - Acute myeloid leukemia, t(16;16)(p 13;q 11)
+    - Acute Myelomonocytic Leukemia
+    - Acute promyelocytic leukaemia, t(15;17)(q22;q11-12)
+    - Acute Promyelocytic Leukemia
+    - Adamantinomatous Craniopharyngioma
+    - Adamantinomatous craniopharyngioma with evidence of prior rupture
+    - Adamantinomatous craniopharyngioma, WHO grade 1
+    - Adenocarcinoma
+    - Adrenal Cortical Carcinoma
+    - Adrenal cortical neoplasm
+    - Adrenal Cortical Tumor
+    - Alveolar Rhabdomyosarcoma
+    - Alveolar Soft Part Sarcoma
+    - Anaplastic Ependymoma
+    - Anaplastic Ganglioglioma
+    - Anaplastic Large Cell Lymphoma, ALK Positive
+    - Anaplastic Medulloblastoma
+    - Anaplastic Rhabdomyosarcoma
+    - Angiocentric Glioma
+    - Angiomatoid Fibrous Histiocytoma
+    - Astrocytic Glioma
+    - Astrocytic Neoplasm
+    - Astrocytic neoplasm with pilocytic/pilomyxoid features
+    - Astrocytoma
+    - Astrocytoma IDH-mutant, Atrocytoma IDH-mutant
+    - Astroglial neoplasm
+    - Atypical Cellular Proliferation with Clear Features
+    - Atypical Central Neurocytoma
+    - Atypical Choroid Plexus Papilloma
+    - Atypical Epithelial Neoplasm
+    - Atypical Spindle Cell Proliferation
+    - Atypical Teratoid/Rhabdoid Tumor
+    - Atypical Teratoid/Rhabdoid Tumor (AT/RT)
+    - Atypical teratoid/rhabdoid tumor, CNS WHO GRADE 4
+    - Atypical teratoid/rhabdoid tumor; CNS WHO grade 4
+    - Aytpical teratoid/rhabdoid tumor (AT/RT), WHO grade 4
+    - B lymphoblastic leukemia/lymphoma with hyperdiploidy
+    - B lymphoblastic leukemia/lymphoma with hypodiploidy (Hypodiploid ALL)
+    - B lymphoblastic leukemia/lymphoma with t(12;21)(p13;q22); TEL-AML1 (ETV6-RUNX1)
+    - B lymphoblastic leukemia/lymphoma with t(1;19)(q23;p13.3); E2A-PBX1 (TCF3-PBX1)
+    - B lymphoblastic leukemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1
+    - B lymphoblastic leukemia/lymphoma with t(v;11q23); MLL rearranged
+    - B Lymphoblastic Leukemia/Lymphoma, NOS
+    - B-lymphoblastic leukemia/lymphoma, NOS
+    - Biphasic Synovial Sarcoma
+    - Brain Mass
+    - Brain parenchyma with mild hypercellularity, gliosis and possible cortical dysplasia
+    - Brain Tumor
+    - Brain tumor with features most suggestive of ependymoma
+    - Brain, High Grade Lesion
+    - Carcinoma NOS
+    - Carcinosarcoma NOS
+    - Cellular Ependymoma
+    - Cellular Glial Neoplasm
+    - Cellular Neoplasm
+    - Cellular neoplasm; favor high grade
+    - Central Nervous System Tumor with High Grade Histological Features
+    - Central Neuroblastoma
+    - Central Neurocytoma
+    - Cerebellar Mass
+    - Cerebellar Tumor
+    - 'Cerebellar tumor: High-grade, small blue round cell tumor'
+    - Cerebellopontine Angle Tumor
+    - Cervical; INI1-Deficient Hematological Malignancy
+    - Chondroblastic Osteosarcoma
+    - Chondrosarcoma, NOS
+    - Chordoma
+    - Choroid Plexus Carcinoma
+    - Choroid plexus carcinoma, CNS WHO grade 3
+    - Choroid Plexus Neoplasm
+    - Choroid Plexus Papillary Tumor
+    - Choroid Plexus Papilloma
+    - Choroid plexus papilloma, WHO grade 1
+    - Chronic Myelogenous Leukemia, BCR-ABL Positive
+    - Chronic Myeloid Leukemia, BCR-ABL1-Positive
+    - Classic Ependymoma, Posterior fossa group A by Immunohistochemistry
+    - Classic Medulloblastoma
+    - Clear Cell Meningioma
+    - Clear Cell Sarcoma
+    - CNS Embryonal Tumor
+    - CNS primative neuroectodermal tumor (PNET)
+    - CNS Primitive Neuroectodermal Tumor (PNET)
+    - Compound melanocytic neoplasm
+    - Consistent With Oligodendroglioma, IDH Mutant
+    - Control
+    - Craniopharyngioma
+    - Desmoid fibromatosis with CTNNB1 gene mutation
+    - Desmoid-type Fibromatosis
+    - Desmoid/fibromatosis
+    - Desmoplastic Nodular Medulloblastoma
+    - Desmoplastic/Nodular Medulloblastoma
+    - Desmoplastic/nodular medulloblastoma, CNS WHO grade 4
+    - Diffuse astrocytic glioma with mitotic activity and necrosis
+    - Diffuse Astrocytoma
+    - Diffuse Glioma
+    - Diffuse midline glioma, H3 K27-altered
+    - Diffuse midline glioma, H3 K27-mutant
+    - Diffuse midline glioma, H3K27-altered (WHO grade 4)
+    - Diffuse midline glioma, H3K27M altered, CNS WHO grade 4
+    - Diffusely infiltrating high grade glioma
+    - Ductal Carcinoma NOS
+    - Dysembryoplastic Neuroepithelial Tumor
+    - Embryonal Neoplasm
+    - Embryonal neoplasm most consistent with Medulloblastoma
+    - Embryonal Rhabdomyosarcoma
+    - Embryonal rhabdomyosarcoma, botryoid type
+    - Embryonal rhabdomyosarcoma, minimal focal anaplasia
+    - Embryonal Tumor
+    - Endometrioid Adenocarcinoma, NOS
+    - Endometrioid carcinoma
+    - Epdendymoma, Ependymoma
+    - Ependymoma NOS
+    - Ependymoma, WHO GRADE III
+    - Ependymoma-like lesion
+    - Epitheliod sarcoma
+    - Epitheloid neoplasm
+    - Epitheloid Sarcoma
+    - Ewing Sarcoma
+    - Extrarenal Malignant Rhabdoid Tumor
+    - Familial Adenomatous Polyposis
+    - Fatty neoplasm with myxoid features, no definitive high grade features, favor lipoblastoma
+    - Favor Infiltrating High-Grade Glioma
+    - Fibromatosis
+    - Fibromatosis Colli
+    - Follicular Hyperplasia/Metastatic Papillary Thyroid Cancer
+    - Fragments of Schwannoma, CNS WHO GRADE 1, with some mild degenerative changes
+    - Frontal tumor, favor infant-type hemispheric glioma
+    - Fundic gastrointestinal stromal tumor
+    - Fusion negative embryonal rhabdomyosarcoma
+    - Ganglioglioma
+    - Ganglioneuroblastoma
+    - Ganglioneuroma
+    - Gastrointestinal stromal tumor (GIST)
+    - Gastrointestinal stromal tumor (GIST) epithelioid type, high grade
+    - Germinoma
+    - Giant Cell Glioblastoma
+    - Glial Neoplasm
+    - Glial neoplasm favor optic glioma
+    - Glial Tumor
+    - Glial-neuronal neoplasm
+    - Glioblastoma
+    - Glioma
+    - Glioma, histologically consistent with pilocytic astrocytoma, CNS WHO grade 1
+    - Glioma, most consistent with astrocytoma with worrisome features in clinical context
+    - Glioneuronal Lesion
+    - Glioneuronal Neoplasm
+    - Glioneuronal Tumor
+    - Granulosa cell tumor
+    - Hemangioblastoma
+    - Hemangioblastoma, WHO Grade 1
+    - Hepatoblastoma
+    - Hepatocellular Carcinoma, Fibrolamellar
+    - High grade cellular, malignant neoplasm with necrosis and cellular pleomorphism R/O Medulloblastoma
+    - High Grade Diffuse Glioma
+    - High Grade Ependymal Tumor
+    - High Grade Glioma  with H3 K27M and BRAF V600E mutations
+    - High grade glioma, NOS, WHO CNS histologic grade 4
+    - High Grade Neoplasm
+    - High Grade Neuroepithelial Tumor
+    - High grade neuroepithelial tumor with glial and neuronal differentiation and focal embryonal morphology.
+    - High grade neuroepithelial tumor, favor medulloblastoma
+    - High Grade Sarcoma
+    - High grade spindle cell sarcoma
+    - High Grade Tumor
+    - High grade tumor consistent with embryonal tumor
+    - High-grade Angiosarcoma
+    - High-grade astrocytic neoplasm
+    - High-grade Astrocytoma
+    - High-grade blue cell tumor
+    - High-grade Central Nervous System Neoplasm Favor Embryonal
+    - High-grade CNS embryonal tissue
+    - High-grade CNS Neoplasm
+    - High-grade Ependymal Neoplasm
+    - High-grade Ependymal Tumor
+    - High-grade glioma with DICER1 and other mutations
+    - High-grade glioma, favor ependymoma, WHO GRADE III
+    - High-grade infiltrating glioma
+    - High-grade Malignant Neoplasm
+    - High-grade malignant neoplasm with mesenchymal phenotype
+    - High-grade malignant neoplasm, small round blue cell category.
+    - High-grade neoplasm, favor embryonal tumor
+    - High-grade neoplasm, favor high-grade glioma
+    - High-grade neuroepithelial neoplasm
+    - High-grade neuroepithelial tumor
+    - High-grade neuroepithelial tumor, consistent with supratentorial ependymoma
+    - High-grade pleomorphic sarcoma
+    - High-grade primary CNS neoplasia
+    - High-grade primitive appearing neoplasm
+    - High-grade rhabdomyosarcoma with pleomorphic features
+    - High-grade sarcoma with myogenic differentiation
+    - High-grade serous carcinoma
+    - High-grade spindle cell sarcoma compatible with high grade malignant peripheral nerve sheath tumor
+    - High-grade Synovial Sarcoma
+    - High-grade tumor
+    - High-grade undifferentiated sarcoma
+    - High-grade, primitive neuroepithelial neoplasm
+    - Histiocytic Malignancy
+    - Histologically low-grade glioneuronal tumor
+    - Histologically low-grade neuroepithelial tumor
+    - Hodgkin Lymphoma, NOS
+    - Infant Hemispheric Glioma
+    - Infant-type hemispheric glioma
+    - Infantile Fibrosarcoma
+    - Infiltrating duct and lobular carcinoma
+    - Infiltrating duct and mucinous carcinoma
+    - Infiltrating duct carcinoma NOS
+    - Infiltrating Duct Carcinoma, NOS
+    - Infiltrating Glioma
+    - Infiltrating high grade neoplasm, favor infiltrating high grade glioma
+    - Infiltrating Lobular Carcinoma, NOS
+    - Infiltrating Neoplasm
+    - Infiltrating neuroepithelial neoplasm
+    - Inflammatory Myofibroblastic Tumor
+    - INI-Deficient High-grade Malignant Neoplasm
+    - Intracerebral schwannoma
+    - Intraductal Carcinoma NOS
+    - Intraductal papillary carcinoma
+    - Intradural tumor with marked atypia c/w malignant lesion, Marked atypia c/w malignant lesion, Marked atypia consistent with malignant lesion
+    - Intraventricular Tumor
+    - Invasive lobular carcinoma
+    - Juvenile Granulosa Cell Tumor
+    - Juvenile Myelomonocytic Leukemia
+    - Large Cell Medulloblastoma
+    - Large cell/anaplastic Medulloblastoma
+    - Laryngeal Papilloma
+    - Left Biopsy Chest Lesion
+    - Left Cp Angle Mass; Schwannoma
+    - Left Temporal Tumor
+    - Left Thoracic Tumor
+    - Lobular Adenocarcinoma
+    - Lobular And Ductal Carcinoma
+    - Lobular Carcinoma NOS
+    - Low Cellularity Glioma
+    - Low Grade Astrocytoma
+    - Low Grade Fibromyxoid Sarcoma
+    - Low Grade Glial Neoplasm
+    - Low Grade Glial Tumor
+    - Low Grade Glial-Glioneuronal Tumor
+    - Low Grade Glioma
+    - Low grade glioma which morphologically aligns best with pilocytic astrocytoma, CNS WHO Grade 1
+    - Low grade glioma, cannot rule out additional neuronal component
+    - Low grade glioma, morphologically aligning best with pilocytic astrocytoma
+    - Low Grade Glioneuronal Neoplasm
+    - Low Grade Glioneuronal Tumor
+    - Low grade mixed glial-neuronal tumor, morphology is consistent with/ aligns with/ favors ganglioglioma
+    - Low Grade Neuroepithelial Tumor
+    - Low grade neuroepithelial tumor (preliminary path report)
+    - Low grade neuroepithelial tumor consistent with polymorphous low grade neuro-epithelial tumor of the young
+    - Low Grade Neuroglial Tumor
+    - Low Grade Primary CNS Neoplasm
+    - Low Grade Spindle Cell Neoplasm
+    - Low Grade Tumor
+    - Low-cellularity glioma
+    - Low-grade astrocytoma
+    - Low-grade circumscribed glial/glioneuronal tumor
+    - Low-grade fibromyxoid sarcoma
+    - Low-grade Glial Neoplasm
+    - Low-grade glial neoplasm, favor pilomyxoid/pilocytic actrocytoma
+    - Low-grade glial neoplasm, with features most consistent with a pilocytic astrocytoma.
+    - Low-grade glial-glioneuronal tumor
+    - Low-grade glial/glioneuronal neoplasm
+    - Low-grade Glial/Glioneuronal tumor
+    - Low-grade glial/glioneuronal tumor with adjacent cortical dysplastic changes.
+    - Low-grade Glioma
+    - Low-grade glioma, favored to represent a pilocytic astrocytoma
+    - Low-grade Glioneuronal Neoplasm
+    - Low-grade glioneuronal tumor
+    - Low-grade glioneuronal tumor, favor Dysembryoplastic neuroepithelial tumor
+    - Low-grade spindle cell neoplasm
+    - Low-grade tumor
+    - Lymphoma, NOS
+    - Malignant embryonal tumor, favor medulloblastoma
+    - Malignant epithelioid neoplasm, Malignant epithelioid neoplasm with EWSR1::KLF5 fusion
+    - Malignant glioma
+    - Malignant Melanoma NOS
+    - Malignant melanoma, spitzoid type
+    - Malignant myoepithelial of pediatric type
+    - Malignant Neoplasm
+    - Malignant neoplasm most consistent with embryonal tumor
+    - Malignant neoplasm of prostate
+    - Malignant neuroepithelial tumor
+    - Malignant Pecoma
+    - Malignant peripheral nerve sheath tumor
+    - Malignant primary brain tumor
+    - Malignant Rhabdoid Tumor
+    - Malignant small blue cell neoplasm, consistent with rhabdomyosarcoma
+    - Malignant small round blue cell neoplasm, favor rhabdomyosarcoma
+    - Malignant small round blue cell tumor, most consistent with desmoplastic small round cell tumor
+    - Malignant Tumor
+    - Mast Cell Leukemia
+    - Medullary Carcinoma
+    - Medulloblastoma
+    - Medulloblastoma (CNS WHO grade 4)
+    - Medulloblastoma, anaplastic histology, WHO grade 4
+    - Medulloblastoma, anaplastic/large cell histology, Non-WNT NON-SHH (By IHC), WHO grade 4
+    - Medulloblastoma, classic
+    - Medulloblastoma, classic histologic type, non-WNT/non-SHH molecular group, CNS WHO grade 4
+    - Medulloblastoma, classical histology
+    - Medulloblastoma, CNS WHO Grade 4
+    - Medulloblastoma, desmoplastic/nodular histology, SHH-activated (WHO grade 4)
+    - Medulloblastoma, favored
+    - Medulloblastoma, non-WNT, non-SHH
+    - Medulloblastoma, SHH-activated and TP53-wild type
+    - Medulloblastoma, SHH-activated and TP53-wildtype, Medulloblastoma with extensive nodularity (MBEN)
+    - Medulloblastoma, WHO Grade 4
+    - Medulloblastoma, WHO Grade IV
+    - Melanoma
+    - Meningioma
+    - Merkel Cell Tumor
+    - Mesenchymal Chondrosarcoma
+    - Mesenchymal Neoplasm
+    - Metastatic Alveolar Rhabdomyosarcoma
+    - Metastatic Carcinoma
+    - Metastatic Embryonal Rhabdomyosarcoma
+    - Metastatic embryonal rhabdomyosarcoma in three nodules
+    - Metastatic nasopharyngeal carcinoma, nonkeratinizing squamous cell carcinoma subtype
+    - Metastatic Papillary Thyroid Carcinoma
+    - Metastatic Polyphenotypic Malignant Neoplasm
+    - Metastatic Rhabdomyosarcoma
+    - Mixed Germ Cell Tumor
+    - Mixed germ cell w/ matrue teratoma
+    - Mixed malignant germ cell tumor with components of embryonal carcinoma, choriocarcinoma, and mature teratoma
+    - Mixed malignant germ cell tumor with yolk sac tumor
+    - Mixed-Phenotype Acute Leukemia, B/Myeloid, Not Otherwise Specified
+    - Mixed-Phenotype Acute Leukemia, T/Myeloid, Not Otherwise Specified
+    - Monophasic Synovial Sarcoma, Intermediate-Grade (FNCLCC Grade 2 Of 3)
+    - Most consistent with atypical teratoid/rhabdoid tumor, most consistent with atypical teratoid/rhabdoid tumor
+    - Mucinous Carcinoma
+    - Mucoepidermoid carcinoma
+    - Myelodysplastic Syndrome With Multilineage Dysplasia
+    - Myelodysplastic Syndrome With Single Lineage Dysplasia
+    - Myeloid leukemia associated with Down Syndrome
+    - Myofibroblastic proliferation  suggestive of inflammatory myofibroblastic tumor
+    - Myofibroma
+    - Myxoid Glioneuronal Tumor
+    - Myxoid Liposarcoma
+    - Myxoid Neoplasm
+    - Myxopapillary Ependymoma
+    - Myxopapillary ependymoma, CNS WHO grade 2
+    - Nasopharyngeal Carcinoma Metastatic
+    - Nasopharyngeal carcinoma, non-keratinizing squamous cell carcinoma type
+    - Neoplasm
+    - Nephroblastoma (Wilms Tumor)
+    - Neuroblastoma
+    - Neurocytoma
+    - Neuroectodermal Tumor
+    - Neuroectodermal tumor, NTRK1 altered, with low-grade morphologic features
+    - Neuroendocrine Tumor
+    - Neuroepithelial Neoplasm
+    - Neuroepithelial neoplasm, Glioma
+    - Neuroepithelial Tumor
+    - Neurofibromatosis; Moderately cellular neoplasm
+    - Non-WNT/non-SHH medulloblastoma
+    - Not Reported
+    - Optic Pathway Glioma
+    - Osteosarcoma, NOS
+    - Ovarian Sclerosing Stromal Tumor
+    - Pancreatobiliary-Type Carcinoma
+    - Papillary Carcinoma
+    - Papillary carcinoma of thyroid
+    - Papillary Neoplasm, Favor Choroid Plexus Tumor
+    - Papillary Thyroid Carcinoma
+    - Papillary thyroid carcinoma, classic
+    - Papillary Tumor of The Pineal Region
+    - Paraganglioma
+    - Paratesticular Rhabdomyosarcoma
+    - Paratesticular rhabdomyosarcoma, favor embryonal
+    - Paratesticular Spindle Cell/Sclerosing Rhabdomyosarcoma
+    - Pediatric neuroepithelial tumor with ROS1 fusion
+    - Pediatric type diffuse low grad astrocytoma, consistent with methylation array finding suggestive of MYB/MYBL1-altered (CNS WHO grade 1)
+    - PFA Ependymoma
+    - Pheochromocytoma
+    - Pilocytic Astrocytoma
+    - Pilocytic astrocytoma (WHO Grade 1)
+    - Pilocytic astrocytoma, CNS WHO grade 1
+    - Pilocytic astrocytoma, CNS WHO GRADE 1, Pilocytic astrocytoma, CNS WHO grade 1
+    - Pilocytic Astrocytoma, CNS WHO Grade I
+    - Pilocytic astrocytoma, KIAA1549::BRAF fusion-positive (WHO grade 1)
+    - Pilocytic astrocytoma, WHO Grade 1
+    - Pilocytic astrocytoma, WHO grade I
+    - Piloid Glial Proliferation
+    - Pilomyxoid Astrocytoma
+    - Pineal Parenchymal Tumor
+    - Pineoblastoma
+    - Pineoblastoma, WHO grade 4
+    - Pituitary Adenoma
+    - Pituitary Tumor
+    - Pleomorphic Sarcoma
+    - Pleomorphic Xanthoastrocytoma
+    - Pleuropulmonary Blastoma
+    - Plexifrom Fibrohistiocytic Tumor
+    - Polymorphous Low Grade Neuroepithelial Tumor
+    - Poorly Differentiated Malignant Neoplasm with Sarcomatoid Features
+    - Poorly Differentiated Pulmonary Adenocarcinoma
+    - Poorly Differentiated Ring Cell Adenocarcinoma
+    - Poorly Differentiated Sarcoma
+    - Poorly Differentiated Sertoli-Leydig Cell Tumor
+    - Positive for lesional tissue, favor low-grade glioma, additional studies pending.
+    - Possible Synovial Sarcoma
+    - Posterior Fossa Ependymoma
+    - Posterior fossa ependymoma, group A
+    - Posterior fossa ependymoma, group A (CNS group grade III)
+    - Posterior fossa ependymoma, group B
+    - Posterior fossa ependymoma, WHO grade 2, with retained H3 K27 tri-methylation
+    - Posterior fossa group A (PFA) Ependymoma (WHO GRADE 3)
+    - Posterior fossa group A ependymoma
+    - Posterior Fossa Tumor
+    - Posterior Fossa, Forth Ventricular Tumor, Posterior Fossa, Fourth Ventricular Tumor
+    - Precursor B-Cell Acute Lymphoblastic Leukemia with Hyperdiploidy
+    - Primary central nervous system neoplasm consistent with high grade glioma
+    - Primary mediastinal (thymic) large B-cell lymphoma
+    - Primitive malignant neoplasm with mesenchymal features
+    - Primitive Neuroectoderma Tumor
+    - Primitive Sarcoma
+    - Primitive/embryonal tumor with high-grade features; compatible with medulloblastoma
+    - Psammomatous Meningioma
+    - Pure Germinoma
+    - PXA Vs Ganglioglioma
+    - Renal Cell Adenocarcinoma
+    - Renal cell carcinoma, NOS
+    - Renal medullary carcinoma
+    - Residual CIC-Rearranged Sarcoma
+    - Residual Dermatofibrosarcoma Protuberans
+    - Residual High Grade Astrocytoma With Piloid Features
+    - Residual High-Grade Sarcoma
+    - Residual Malignant Melanoma
+    - Residual Papillary Tumor of Pineal Region
+    - Residual Pineoblastoma
+    - Residual/Recurrent Extraventricular Neurocytoma
+    - Retinoblastoma
+    - Retinoblastoma, moderately differentiated
+    - Rhabdoid Tumor, Malignant
+    - Rhabdomyoma NOS
+    - Rhabdomyosarcoma
+    - Rhabdomyosarcoma strongly suspected
+    - Rhabdomyosarcoma, favor embryonal subtype pending molecular studies
+    - Right Thigh Mass
+    - Round Blue Cell Tumor
+    - Round Cell Sarcoma
+    - Round To Spindle Cell Sarcoma
+    - Sarcoma
+    - Schwannoma
+    - Sclerosing Stromal Tumor
+    - Seroli-leydig cell tumor
+    - Serous Adenocarcinoma, NOS
+    - Serous Cystadenocarcinoma NOS
+    - Serous Surface Papillary Carcinoma
+    - Sertoli Leydig Cell Tumor
+    - Sertoli-Leydig cell tumor, moderately differentiated
+    - Sertoli-Leydig cell tumor, poorly differentiated
+    - Sertolig Leydig Cell Tumor
+    - Signet Ring Cell Carcinoma
+    - Small Blue Cell Tumor
+    - Small Cell Neuroendocrine Carcinoma
+    - Small Round Blue Cell Sarcoma
+    - Small Round Blue Cell Tumor
+    - Small round blue cell tumor consistent with rhabdomyosarcoma
+    - 'Small round blue cell tumor: rhabdomyosarcoma'
+    - SMARCB1-deficient undifferentiated round cell sarcoma
+    - Spinal Ependymoma Myxopapillary
+    - Spinal Tumor
+    - Spindle Cell Lesion
+    - Spindle Cell Neoplasm
+    - Spindle Cell Rhabdomyosarcoma
+    - Spindle Cell Sarcoma
+    - Squamous Cell Carcinoma NOS
+    - Subependymal Giant Cell Astrocytoma
+    - Supertentorial Ependymoma
+    - Suprasellar Mass
+    - Supratentorial Choroid Plexus Papilloma
+    - Supratentorial Ependymoma
+    - Supratentorial ependymoma, WHO Grade 2
+    - Synovial Sarcoma
+    - T Lymphoblastic Leukemia/Lymphoma
+    - T-lymphoblastic Leukemia
+    - T-lymphoblastic Lymphoma
+    - Testicular mass
+    - Thalamic Brain Tumor
+    - Therapy Related Myeloid Neoplasm
+    - Therapy-related myeloid neoplasms
+    - Unclassified pleomorphic sarcoma
+    - Undifferential Small Round Blue Cell Tumor
+    - Undifferentiated leukaemia
+    - Undifferentiated Leukemia
+    - Undifferentiated Malignant Neoplasm with Rhabdoid Morphology And INI1 Loss
+    - Undifferentiated Round Cell Sarcoma
+    - Undifferentiated sarcoma
+    - Undifferentiated small round cell sarcoma
+    - Undifferentiated, high-grade neoplasm/sarcoma
+    - Unknown
+    - Well Differentiated Embryonal Rhabdomyosarcoma
+    - Well Differentiated Neuroendocrine Tumor
+    - Well To Moderately Differentiated Colonic Adenocarcinoma
+    - Yolk Sac Tumor
     Req: true
     Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-  longitudinal_temporal_event_offset:
-    Desc: An offset in days from a particular event of significance. May be fractional. In the context of a clinical trial, this is often the days since enrollment, or the baseline imaging Study.
-    Term:
-    - Code: '14612661'
-      Origin: caDSR
+    - Origin: caDSR
       Original Source: CDS
-      Value: Longitudinal Study Temporal Offset Number
+      Code: 13606067
+      Value: ICD Label/Name
       Version: '1.00'
-    Type: number
-  longitudinal_temporal_event_type:
-    Desc: The type of event to which Longitudinal Temporal Offset from Event is relative.
+  primary_site:
+    Desc: Anatomical site of disease in primary diagnosis for this diagnosis
+    Enum:
+    - Adrenal Gland
+    - Base of the Tongue
+    - Bladder
+    - Brain
+    - Breast
+    - Cervix Uteri
+    - Colon
+    - Corpus Uteri
+    - Esophagus
+    - Floor of Mouth
+    - Gallbladder
+    - Gingiva
+    - Hypopharynx
+    - Kidney
+    - Larynx
+    - Limb Skeletal System
+    - Lip
+    - Lung/Bronchus
+    - Lymph Node
+    - Meninges
+    - Nasopharynx
+    - Not Reported
+    - Oropharynx
+    - Other and Ill Defined Digestive Organs ICD-O-3
+    - Other and Ill-Defined Sites ICD-O-3
+    - Other and Ill-Defined Sites in Lip, Oral Cavity and Pharynx ICD-O-3
+    - Other and Ill-Defined Sites within Respiratory System and Intrathoracic Organs ICD-O-3
+    - Other and Unspecified Female Genital Organs ICD-O-3
+    - Other and Unspecified Major Salivary Glands ICD-O-3
+    - Other and Unspecified Male Genital Organs ICD-O-3
+    - Other and Unspecified Parts of Biliary Tract ICD-O-3
+    - Other and Unspecified Parts of Mouth ICD-O-3
+    - Other and Unspecified Parts of Tongue ICD-O-3
+    - Other and Unspecified Urinary Organs ICD-O-3
+    - Other Endocrine Glands and Related Structures ICD-O-3
+    - Ovary
+    - Palate
+    - Pancreas
+    - Paranasal Sinus
+    - Parotid Gland
+    - Penis
+    - Peritoneum and Retroperitoneum
+    - Placenta
+    - Prostate Gland
+    - Pyriform Sinus
+    - Rectosigmoid Region
+    - Rectum
+    - Renal Pelvis
+    - Skin
+    - Small Intestine
+    - Stomach
+    - Testis
+    - Thymus Gland
+    - Thyroid Gland
+    - Tonsil
+    - Trachea
+    - Unknown
+    - Ureter
+    - Uterus
+    - Vagina
+    - Vulva
     Term:
-    - Code: '14670294'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Longitudinal Study Temporal Event Type
+    - Origin: caDSR
+      Original Source: PCDC
+      Code: '13279286'
+      Value: Diagnosis Primary Anatomic Site ICD-O-3 Name
       Version: '1.00'
-    Type: number
-  lot:
-    Desc: lot number from vendor
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  md5sum:
-    Desc: MD5 hex digest for this file
-    Req: true
-    Type:
-      pattern: ^[0-9a-fA-F]{32}$
-  metal_isotope_element:
-    Desc: Element mass number
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
   morphology:
     Desc: ICD-O-3 Morphology term associated with this diagnosis
     Enum:
@@ -2456,991 +3118,129 @@ PropDefinitions:
     - Unknown
     - Not Reported
     Term:
-    - Code: '13594090'
-      Origin: caDSR
+    - Origin: caDSR
       Original Source: CCDI (DDE)
+      Code: '13594090'
       Value: Disease Morphology ICD-O-3 Code Label Text
       Version: '1.00'
-  nominal_magnification:
-    Desc: The magnification of the lens as specified by the manufacturer - i.e. '60' is a 60X lens. floating point value > 1(no units)
-    Term:
-    - Code: '7788940'
-      Origin: caDSR
-      Original Source: HTAN
-      Value: Microscope Device Nominal Magnification Float Value
-      Version: '1.00'
-    Type: string
-  number_of_participants:
-    Desc: How many participants in the study
-    Req: 'Yes'
-    Term:
-    - Code: '11555662'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Research Activity Unique Subjects Count
-      Version: '1.00'
-    Type: number
-  number_of_reads:
-    Desc: Total number of reads performed
-    Req: Preferred
-    Term:
-    - Code: '11529035'
-      Origin: caDSR
-      Value: Sequencing Library Sequence Read Count
-      Version: '1.00'
-    Type: integer
-  number_of_samples:
-    Desc: How many total samples in the study
-    Req: 'Yes'
-    Term:
-    - Code: '11555663'
-      Origin: caDSR
-      Value: Research Activity Sample Size Count
-      Version: '1.00'
-    Type: number
-  objective:
-    Desc: "An\_objective\_is an optical element that gathers light from an object being observed and\_focuses\_the\_light rays\_from it to produce a\_real image\_of the object."
-    Term:
-    - Code: '7788935'
-      Origin: caDSR
-      Value: Microscope Device Objective Lens Text
-      Version: '1.00'
-    Type: string
-  oligo_barcode_lower_strand:
-    Desc: DNA barcode used for labeling
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  oligo_barcode_upper_strand:
-    Desc: DNA barcode used for labeling
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  organ_or_tissue:
-    Desc: Site where images are associated
-    Req: true
-    Term:
-    - Code: 6161035
-      Origin: caDSR
-      Original Source: CDS
-      Value: ICD-O Origin of Disease Anatomic Site
-      Version: '1.00'
-    Type: string
-  organism_species:
-    Desc: Species binomial of study participants
-    Req: Preferred
-    Type: string
-  participant_id:
-    Desc: 'A number or a string that may contain metadata information, for a participant
-
-      who has taken part in the investigation or study.
-
-      '
-    Req: true
-    Term:
-    - Code: '12220014'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Subject Data Origin Identifier
-      Version: '1.00'
-    Type: string
-  passes_qc:
-    Desc: Identify stains that did not pass QC but are included in the dataset.
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  performed_imaging_study_acquisitionTypeCode:
-    Desc: A coded value specifying spatial aspects of the mechanism of data collection.
-    Req: true
-    Term:
-    - Code: '14670301'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Image Study Spatial Acquisition Type Code
-      Version: '1.00'
-    Type: string
-  performed_imaging_study_admittingDiagnosisCode:
-    Desc: The identified disease(s) or illness(es) at the time of the admission during which imaging was performed.
-    Req: true
-    Term:
-    - Code: '2902328'
-      Origin: caDSR
-      Original Source: DICOM
-      Value: Image Study Admitting Diagnosis Description 64 Character Text
-      Version: '3.00'
-    Type: string
-  performed_imaging_study_algorithmCode:
-    Desc: A coded value specifying the algorithm to use when reconstructing the image from the data acquired during the acquisition process
-    Req: true
-    Term:
-    - Code: '14617557'
-      Origin: caDSR
-      Value: Imaging Reconstruction Protocol Algorithm Code Text
-      Version: '1.00'
-    Type: string
-  performed_imaging_study_bodyPositionCode:
-    Desc: A coded value specifying the 3-dimensional spatial orientation of a subject during this imaging acquisition protocol element.
+  tumor_grade:
+    Desc: Numeric value to express the degree of abnormality of cancer cells, a measure of differentiation and aggressiveness.
     Enum:
-    - Supine
-    - Trendelenburg
-    - Standing
-    Term:
-    - Code: '14617523'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Image Study Body Position Name
-      Version: '1.00'
-  performed_imaging_study_cardiacSynchronizationTechniqueCode:
-    Desc: The means used to coordinate the collection or reconstruction of data with the cardiac cycle.
-    Enum:
-    - REALTIME
-    - PROSPECTIVE
-    - RETROSPECTIVE
-    - PACED
-    - NONE
-    Term:
-    - Code: '14617521'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Image Study Cardiac Synchronization Technique Code Name
-      Version: '1.00'
-  performed_imaging_study_dataCollectionDiameter:
-    Desc: The diameter of the region over which information is acquired.
-    Req: true
-    Term:
-    - Code: '14612665'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Image Acquisition Data Collection Location Diameter Number
-      Version: '1.00'
-    Type: string
-  performed_imaging_study_description:
-    Desc: The textual representation of the certain or salient aspects, characteristics, or features of the imaging study. [Adapted from www.businessdictionary.com]
-    Req: true
-    Term:
-    - Code: '2182389'
-      Origin: caDSR
-      Original Source: DICOM
-      Value: Image Study Description 64 Character Text
-      Version: '2.10'
-    Type: string
-  performed_imaging_study_imageTypeCode:
-    Desc: A coded value that specifies the most important aspect of the images or their derivation.
-    Enum:
-    - DYNAMIC
-    - STRESS
-    - RCBV
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Original Source: CDS
-      Version: '1.00'
-  performed_imaging_study_lossyImageCompressionIndicator:
-    Desc: Specifies whether any images in the study are irreversibly altered during encoding at any time during its life.
-    Req: true
-    Type: string
-  performed_imaging_study_nonAcquisitionModalitiesInStudyCode:
-    Desc: A coded value specifying the type of equipment that created the images in this imaging study other than that used to acquire the original data.
-    Req: true
-    Term:
-    - Code: '12137353'
-      Origin: caDSR
-      Original Source: DSS
-      Value: Imaging Technology DICOM Modality Type
-      Version: '1.00'
-    Type: string
-  performed_imaging_study_primaryAnatomicSiteCode:
-    Desc: A coded value specifying the anatomic location that is the focus of this imaging process protocol element.
-    Req: true
-    Term:
-    - Code: '14612662'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Image Study Primary Anatomic Site Sequence of Items Text
-      Version: '1.00'
-    Type: string
-  performed_imaging_study_reconstructionDiameter:
-    Desc: The diameter of the region from which data is used in creating the reconstruction of the image.
-    Req: true
-    Term:
-    - Code: '2182085'
-      Origin: caDSR
-      Value: Reconstruction Diameter in Millimeter(s)
-      Version: '1.00'
-    Type: string
-  performed_imaging_study_reconstructionFieldOfViewHeight:
-    Desc: The vertical dimension of the rectangular region from which data is used in creating the reconstruction of the image.
-    Req: true
-    Term:
-    - Code: '14612672'
-      Origin: caDSR
-      Value: Imaging Reconstruction Protocol Field of View Height Number
-      Version: '1.00'
-    Type: string
-  performed_imaging_study_reconstructionFieldOfViewWidth:
-    Desc: The horizontal dimension of the rectangular region from which data is used in creating the reconstruction of the image.
-    Req: true
-    Term:
-    - Code: '14612674'
-      Origin: caDSR
-      Value: Imaging Reconstruction Protocol Field of View Width Number
-      Version: '1.00'
-    Type: string
-  performed_imaging_study_reconstructionInterval:
-    Desc: The cross plane distance between the centers of adjacent, parallel reconstructed images.
-    Req: true
-    Term:
-    - Code: '14612682'
-      Origin: caDSR
-      Value: Imaging Reconstruction Protocol Reconstruction Interval Millimeter Number
-      Version: '1.00'
-    Type: string
-  performed_imaging_study_respiratoryMotionTechniqueCode:
-    Desc: The means to be used to coordinate the collection or reconstruction of data with breathing.
-    Enum:
-    - BREATH-HOLD
-    - REALTIME
-    - GATING
-    - TRACKING
-    - RETROSPECTIVE
-    - CORRECTION
-    - NONE
-    Req: true
-    Term:
-    - Code: '14617522'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Image Study Respiratory Motion Technique Code Name
-      Version: '1.00'
-  performed_imaging_study_sliceThickness:
-    Desc: The cross plane dimension of the reconstructed image.
-    Req: true
-    Term:
-    - Code: '3113185'
-      Origin: caDSR
-      Value: Image Plane Slice Thickness Float or Fixed-point Millimeter Number
-      Version: '2.00'
-    Type: string
-  performed_imaging_study_summary:
-    Desc: A brief statement about the characteristics of this element, which is intended for use by the radiologist, technologist and/or physicist during management of the imaging protocol to understand the characteristics of the element in the protocol.
-    Req: true
-    Term:
-    - Code: '14670299'
-      Origin: caDSR
-      Original Source: CDS
-      Value: Imaging Study Process Protocol Element Summary Text
-      Version: '1.00'
-    Type: string
-  performed_imaging_study_typeCode:
-    Desc: A coded value specifying the kind of algorithm used when reconstructing the image from the data acquired during the acquisition process.
-    Req: true
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  phs_accession:
-    Desc: PHS accession number (a.k.a dbGaP accession)
-    Key: true
-    Req: true
-    Term:
-    - Code: '11524544'
-      Origin: caDSR
-      Original Source: DSS CDE
-      Value: Research Activity dbGaP Accession Number Identifier
-      Version: '1.00'
-    Type:
-      pattern: ^phs[0-9]+([.]v[0-9]+)*$
-  physical_size_x:
-    Desc: Physical size (X-dimension) of a pixel. Floating point value > 0. Size needs to be specified in microns (um)
-    Term:
-    - Code: '7786584'
-      Origin: caDSR
-      Original Source: HTAN
-      Value: Image Processing Pyramid Representation True False Indicator
-      Version: '1.00'
-    Type: string
-  physical_size_y:
-    Desc: Physical size (Y-dimension) of a pixel. Floating point value > 0. Size needs to be specified in microns (um)
-    Term:
-    - Code: '7786585'
-      Origin: caDSR
-      Original Source: HTAN
-      Value: Pixel Y-Dimension Float Value
-      Version: '1.00'
-    Type: string
-  physical_size_z:
-    Desc: Physical size (Z-dimension) of a pixel. Floating point value > 0. Size needs to be specified in microns (um)
-    Term:
-    - Code: '7786586'
-      Origin: caDSR
-      Original Source: HTAN
-      Value: Pixel Z-Dimension Float Value
-      Version: '1.00'
-    Type: string
-  platform:
-    Desc: Instrument platform or manufacturer
-    Enum:
-    - LS454
-    - ILLUMINA
-    - HELICOS
-    - ABI_SOLID
-    - COMPLETE_GENOMICS
-    - PACBIO_SMRT
-    - ION_TORRENT
-    - CAPILLARY
-    - OXFORD_NANOPORE
-    - BGISEQ
-    - Illumina HiSeq 2500
-    - Illumina HiSeq X Ten
-    - Illumina Next Seq 500
-    - Illumina Next Seq 550
-    - Illumina NextSeq
-    - Illumina NovaSeq 6000
-    - NovaSeqS4
-    Req: Preferred
-    Term:
-    - Code: '6347771'
-      Origin: caDSR
-      Value: Sequencing Library Platform Name
-      Version: '1.00'
-  primary_diagnosis:
-    Desc: Primary disease diagnosed for this diagnosis and subject
-    Enum:
-    - 4th Ventricular Brain Tumor
-    - Acinar Cell Carcinoma
-    - Acute megakaryoblastic leukaemia
-    - Acute Megakaryoblastic Leukemia
-    - Acute Monoblastic and Monocytic Leukemia
-    - Acute monoblastic leukemia
-    - Acute myeloid leukemia with mutated CEBPA
-    - Acute myeloid leukemia with t(9;11)(p22;q23); MLLT3-MLL
-    - Acute myeloid leukemia without maturation
-    - Acute myeloid leukemia, inv(16)(p13;q22)
-    - Acute myeloid leukemia, minimal differentiation
-    - Acute Myeloid Leukemia, NOS
-    - Acute myeloid leukemia, t(16;16)(p 13;q 11)
-    - Acute Myelomonocytic Leukemia
-    - Acute promyelocytic leukaemia, t(15;17)(q22;q11-12)
-    - Acute Promyelocytic Leukemia
-    - Adamantinomatous Craniopharyngioma
-    - Adamantinomatous craniopharyngioma with evidence of prior rupture
-    - Adamantinomatous craniopharyngioma, WHO grade 1
-    - Adenocarcinoma
-    - Adrenal Cortical Carcinoma
-    - Adrenal cortical neoplasm
-    - Adrenal Cortical Tumor
-    - Alveolar Rhabdomyosarcoma
-    - Alveolar Soft Part Sarcoma
-    - Anaplastic Ependymoma
-    - Anaplastic Ganglioglioma
-    - Anaplastic Large Cell Lymphoma, ALK Positive
-    - Anaplastic Medulloblastoma
-    - Anaplastic Rhabdomyosarcoma
-    - Angiocentric Glioma
-    - Angiomatoid Fibrous Histiocytoma
-    - Astrocytic Glioma
-    - Astrocytic Neoplasm
-    - Astrocytic neoplasm with pilocytic/pilomyxoid features
-    - Astrocytoma
-    - Astrocytoma IDH-mutant, Atrocytoma IDH-mutant
-    - Astroglial neoplasm
-    - Atypical Cellular Proliferation with Clear Features
-    - Atypical Central Neurocytoma
-    - Atypical Choroid Plexus Papilloma
-    - Atypical Epithelial Neoplasm
-    - Atypical Spindle Cell Proliferation
-    - Atypical Teratoid/Rhabdoid Tumor
-    - Atypical Teratoid/Rhabdoid Tumor (AT/RT)
-    - Atypical teratoid/rhabdoid tumor, CNS WHO GRADE 4
-    - Atypical teratoid/rhabdoid tumor; CNS WHO grade 4
-    - Aytpical teratoid/rhabdoid tumor (AT/RT), WHO grade 4
-    - B lymphoblastic leukemia/lymphoma with hyperdiploidy
-    - B lymphoblastic leukemia/lymphoma with hypodiploidy (Hypodiploid ALL)
-    - B lymphoblastic leukemia/lymphoma with t(12;21)(p13;q22); TEL-AML1 (ETV6-RUNX1)
-    - B lymphoblastic leukemia/lymphoma with t(1;19)(q23;p13.3); E2A-PBX1 (TCF3-PBX1)
-    - B lymphoblastic leukemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1
-    - B lymphoblastic leukemia/lymphoma with t(v;11q23); MLL rearranged
-    - B Lymphoblastic Leukemia/Lymphoma, NOS
-    - B-lymphoblastic leukemia/lymphoma, NOS
-    - Biphasic Synovial Sarcoma
-    - Brain Mass
-    - Brain parenchyma with mild hypercellularity, gliosis and possible cortical dysplasia
-    - Brain Tumor
-    - Brain tumor with features most suggestive of ependymoma
-    - Brain, High Grade Lesion
-    - Carcinoma NOS
-    - Carcinosarcoma NOS
-    - Cellular Ependymoma
-    - Cellular Glial Neoplasm
-    - Cellular Neoplasm
-    - Cellular neoplasm; favor high grade
-    - Central Nervous System Tumor with High Grade Histological Features
-    - Central Neuroblastoma
-    - Central Neurocytoma
-    - Cerebellar Mass
-    - Cerebellar Tumor
-    - 'Cerebellar tumor: High-grade, small blue round cell tumor'
-    - Cerebellopontine Angle Tumor
-    - Cervical; INI1-Deficient Hematological Malignancy
-    - Chondroblastic Osteosarcoma
-    - Chondrosarcoma, NOS
-    - Chordoma
-    - Choroid Plexus Carcinoma
-    - Choroid plexus carcinoma, CNS WHO grade 3
-    - Choroid Plexus Neoplasm
-    - Choroid Plexus Papillary Tumor
-    - Choroid Plexus Papilloma
-    - Choroid plexus papilloma, WHO grade 1
-    - Chronic Myelogenous Leukemia, BCR-ABL Positive
-    - Chronic Myeloid Leukemia, BCR-ABL1-Positive
-    - Classic Ependymoma, Posterior fossa group A by Immunohistochemistry
-    - Classic Medulloblastoma
-    - Clear Cell Meningioma
-    - Clear Cell Sarcoma
-    - CNS Embryonal Tumor
-    - CNS primative neuroectodermal tumor (PNET)
-    - CNS Primitive Neuroectodermal Tumor (PNET)
-    - Compound melanocytic neoplasm
-    - Consistent With Oligodendroglioma, IDH Mutant
-    - Control
-    - Craniopharyngioma
-    - Desmoid fibromatosis with CTNNB1 gene mutation
-    - Desmoid-type Fibromatosis
-    - Desmoid/fibromatosis
-    - Desmoplastic Nodular Medulloblastoma
-    - Desmoplastic/Nodular Medulloblastoma
-    - Desmoplastic/nodular medulloblastoma, CNS WHO grade 4
-    - Diffuse astrocytic glioma with mitotic activity and necrosis
-    - Diffuse Astrocytoma
-    - Diffuse Glioma
-    - Diffuse midline glioma, H3 K27-altered
-    - Diffuse midline glioma, H3 K27-mutant
-    - Diffuse midline glioma, H3K27-altered (WHO grade 4)
-    - Diffuse midline glioma, H3K27M altered, CNS WHO grade 4
-    - Diffusely infiltrating high grade glioma
-    - Ductal Carcinoma NOS
-    - Dysembryoplastic Neuroepithelial Tumor
-    - Embryonal Neoplasm
-    - Embryonal neoplasm most consistent with Medulloblastoma
-    - Embryonal Rhabdomyosarcoma
-    - Embryonal rhabdomyosarcoma, botryoid type
-    - Embryonal rhabdomyosarcoma, minimal focal anaplasia
-    - Embryonal Tumor
-    - Endometrioid Adenocarcinoma, NOS
-    - Endometrioid carcinoma
-    - Epdendymoma, Ependymoma
-    - Ependymoma NOS
-    - Ependymoma, WHO GRADE III
-    - Ependymoma-like lesion
-    - Epitheliod sarcoma
-    - Epitheloid neoplasm
-    - Epitheloid Sarcoma
-    - Ewing Sarcoma
-    - Extrarenal Malignant Rhabdoid Tumor
-    - Familial Adenomatous Polyposis
-    - Fatty neoplasm with myxoid features, no definitive high grade features, favor lipoblastoma
-    - Favor Infiltrating High-Grade Glioma
-    - Fibromatosis
-    - Fibromatosis Colli
-    - Follicular Hyperplasia/Metastatic Papillary Thyroid Cancer
-    - Fragments of Schwannoma, CNS WHO GRADE 1, with some mild degenerative changes
-    - Frontal tumor, favor infant-type hemispheric glioma
-    - Fundic gastrointestinal stromal tumor
-    - Fusion negative embryonal rhabdomyosarcoma
-    - Ganglioglioma
-    - Ganglioneuroblastoma
-    - Ganglioneuroma
-    - Gastrointestinal stromal tumor (GIST)
-    - Gastrointestinal stromal tumor (GIST) epithelioid type, high grade
-    - Germinoma
-    - Giant Cell Glioblastoma
-    - Glial Neoplasm
-    - Glial neoplasm favor optic glioma
-    - Glial Tumor
-    - Glial-neuronal neoplasm
-    - Glioblastoma
-    - Glioma
-    - Glioma, histologically consistent with pilocytic astrocytoma, CNS WHO grade 1
-    - Glioma, most consistent with astrocytoma with worrisome features in clinical context
-    - Glioneuronal Lesion
-    - Glioneuronal Neoplasm
-    - Glioneuronal Tumor
-    - Granulosa cell tumor
-    - Hemangioblastoma
-    - Hemangioblastoma, WHO Grade 1
-    - Hepatoblastoma
-    - Hepatocellular Carcinoma, Fibrolamellar
-    - High grade cellular, malignant neoplasm with necrosis and cellular pleomorphism R/O Medulloblastoma
-    - High Grade Diffuse Glioma
-    - High Grade Ependymal Tumor
-    - High Grade Glioma  with H3 K27M and BRAF V600E mutations
-    - High grade glioma, NOS, WHO CNS histologic grade 4
-    - High Grade Neoplasm
-    - High Grade Neuroepithelial Tumor
-    - High grade neuroepithelial tumor with glial and neuronal differentiation and focal embryonal morphology.
-    - High grade neuroepithelial tumor, favor medulloblastoma
-    - High Grade Sarcoma
-    - High grade spindle cell sarcoma
-    - High Grade Tumor
-    - High grade tumor consistent with embryonal tumor
-    - High-grade Angiosarcoma
-    - High-grade astrocytic neoplasm
-    - High-grade Astrocytoma
-    - High-grade blue cell tumor
-    - High-grade Central Nervous System Neoplasm Favor Embryonal
-    - High-grade CNS embryonal tissue
-    - High-grade CNS Neoplasm
-    - High-grade Ependymal Neoplasm
-    - High-grade Ependymal Tumor
-    - High-grade glioma with DICER1 and other mutations
-    - High-grade glioma, favor ependymoma, WHO GRADE III
-    - High-grade infiltrating glioma
-    - High-grade Malignant Neoplasm
-    - High-grade malignant neoplasm with mesenchymal phenotype
-    - High-grade malignant neoplasm, small round blue cell category.
-    - High-grade neoplasm, favor embryonal tumor
-    - High-grade neoplasm, favor high-grade glioma
-    - High-grade neuroepithelial neoplasm
-    - High-grade neuroepithelial tumor
-    - High-grade neuroepithelial tumor, consistent with supratentorial ependymoma
-    - High-grade pleomorphic sarcoma
-    - High-grade primary CNS neoplasia
-    - High-grade primitive appearing neoplasm
-    - High-grade rhabdomyosarcoma with pleomorphic features
-    - High-grade sarcoma with myogenic differentiation
-    - High-grade serous carcinoma
-    - High-grade spindle cell sarcoma compatible with high grade malignant peripheral nerve sheath tumor
-    - High-grade Synovial Sarcoma
-    - High-grade tumor
-    - High-grade undifferentiated sarcoma
-    - High-grade, primitive neuroepithelial neoplasm
-    - Histiocytic Malignancy
-    - Histologically low-grade glioneuronal tumor
-    - Histologically low-grade neuroepithelial tumor
-    - Hodgkin Lymphoma, NOS
-    - Infant Hemispheric Glioma
-    - Infant-type hemispheric glioma
-    - Infantile Fibrosarcoma
-    - Infiltrating duct and lobular carcinoma
-    - Infiltrating duct and mucinous carcinoma
-    - Infiltrating duct carcinoma NOS
-    - Infiltrating Duct Carcinoma, NOS
-    - Infiltrating Glioma
-    - Infiltrating high grade neoplasm, favor infiltrating high grade glioma
-    - Infiltrating Lobular Carcinoma, NOS
-    - Infiltrating Neoplasm
-    - Infiltrating neuroepithelial neoplasm
-    - Inflammatory Myofibroblastic Tumor
-    - INI-Deficient High-grade Malignant Neoplasm
-    - Intracerebral schwannoma
-    - Intraductal Carcinoma NOS
-    - Intraductal papillary carcinoma
-    - Intradural tumor with marked atypia c/w malignant lesion, Marked atypia c/w malignant lesion, Marked atypia consistent with malignant lesion
-    - Intraventricular Tumor
-    - Invasive lobular carcinoma
-    - Juvenile Granulosa Cell Tumor
-    - Juvenile Myelomonocytic Leukemia
-    - Large Cell Medulloblastoma
-    - Large cell/anaplastic Medulloblastoma
-    - Laryngeal Papilloma
-    - Left Biopsy Chest Lesion
-    - Left Cp Angle Mass; Schwannoma
-    - Left Temporal Tumor
-    - Left Thoracic Tumor
-    - Lobular Adenocarcinoma
-    - Lobular And Ductal Carcinoma
-    - Lobular Carcinoma NOS
-    - Low Cellularity Glioma
-    - Low Grade Astrocytoma
-    - Low Grade Fibromyxoid Sarcoma
-    - Low Grade Glial Neoplasm
-    - Low Grade Glial Tumor
-    - Low Grade Glial-Glioneuronal Tumor
-    - Low Grade Glioma
-    - Low grade glioma which morphologically aligns best with pilocytic astrocytoma, CNS WHO Grade 1
-    - Low grade glioma, cannot rule out additional neuronal component
-    - Low grade glioma, morphologically aligning best with pilocytic astrocytoma
-    - Low Grade Glioneuronal Neoplasm
-    - Low Grade Glioneuronal Tumor
-    - Low grade mixed glial-neuronal tumor, morphology is consistent with/ aligns with/ favors ganglioglioma
-    - Low Grade Neuroepithelial Tumor
-    - Low grade neuroepithelial tumor (preliminary path report)
-    - Low grade neuroepithelial tumor consistent with polymorphous low grade neuro-epithelial tumor of the young
-    - Low Grade Neuroglial Tumor
-    - Low Grade Primary CNS Neoplasm
-    - Low Grade Spindle Cell Neoplasm
-    - Low Grade Tumor
-    - Low-cellularity glioma
-    - Low-grade astrocytoma
-    - Low-grade circumscribed glial/glioneuronal tumor
-    - Low-grade fibromyxoid sarcoma
-    - Low-grade Glial Neoplasm
-    - Low-grade glial neoplasm, favor pilomyxoid/pilocytic actrocytoma
-    - Low-grade glial neoplasm, with features most consistent with a pilocytic astrocytoma.
-    - Low-grade glial-glioneuronal tumor
-    - Low-grade glial/glioneuronal neoplasm
-    - Low-grade Glial/Glioneuronal tumor
-    - Low-grade glial/glioneuronal tumor with adjacent cortical dysplastic changes.
-    - Low-grade Glioma
-    - Low-grade glioma, favored to represent a pilocytic astrocytoma
-    - Low-grade Glioneuronal Neoplasm
-    - Low-grade glioneuronal tumor
-    - Low-grade glioneuronal tumor, favor Dysembryoplastic neuroepithelial tumor
-    - Low-grade spindle cell neoplasm
-    - Low-grade tumor
-    - Lymphoma, NOS
-    - Malignant embryonal tumor, favor medulloblastoma
-    - Malignant epithelioid neoplasm, Malignant epithelioid neoplasm with EWSR1::KLF5 fusion
-    - Malignant glioma
-    - Malignant Melanoma NOS
-    - Malignant melanoma, spitzoid type
-    - Malignant myoepithelial of pediatric type
-    - Malignant Neoplasm
-    - Malignant neoplasm most consistent with embryonal tumor
-    - Malignant neoplasm of prostate
-    - Malignant neuroepithelial tumor
-    - Malignant Pecoma
-    - Malignant peripheral nerve sheath tumor
-    - Malignant primary brain tumor
-    - Malignant Rhabdoid Tumor
-    - Malignant small blue cell neoplasm, consistent with rhabdomyosarcoma
-    - Malignant small round blue cell neoplasm, favor rhabdomyosarcoma
-    - Malignant small round blue cell tumor, most consistent with desmoplastic small round cell tumor
-    - Malignant Tumor
-    - Mast Cell Leukemia
-    - Medullary Carcinoma
-    - Medulloblastoma
-    - Medulloblastoma (CNS WHO grade 4)
-    - Medulloblastoma, anaplastic histology, WHO grade 4
-    - Medulloblastoma, anaplastic/large cell histology, Non-WNT NON-SHH (By IHC), WHO grade 4
-    - Medulloblastoma, classic
-    - Medulloblastoma, classic histologic type, non-WNT/non-SHH molecular group, CNS WHO grade 4
-    - Medulloblastoma, classical histology
-    - Medulloblastoma, CNS WHO Grade 4
-    - Medulloblastoma, desmoplastic/nodular histology, SHH-activated (WHO grade 4)
-    - Medulloblastoma, favored
-    - Medulloblastoma, non-WNT, non-SHH
-    - Medulloblastoma, SHH-activated and TP53-wild type
-    - Medulloblastoma, SHH-activated and TP53-wildtype, Medulloblastoma with extensive nodularity (MBEN)
-    - Medulloblastoma, WHO Grade 4
-    - Medulloblastoma, WHO Grade IV
-    - Melanoma
-    - Meningioma
-    - Merkel Cell Tumor
-    - Mesenchymal Chondrosarcoma
-    - Mesenchymal Neoplasm
-    - Metastatic Alveolar Rhabdomyosarcoma
-    - Metastatic Carcinoma
-    - Metastatic Embryonal Rhabdomyosarcoma
-    - Metastatic embryonal rhabdomyosarcoma in three nodules
-    - Metastatic nasopharyngeal carcinoma, nonkeratinizing squamous cell carcinoma subtype
-    - Metastatic Papillary Thyroid Carcinoma
-    - Metastatic Polyphenotypic Malignant Neoplasm
-    - Metastatic Rhabdomyosarcoma
-    - Mixed Germ Cell Tumor
-    - Mixed germ cell w/ matrue teratoma
-    - Mixed malignant germ cell tumor with components of embryonal carcinoma, choriocarcinoma, and mature teratoma
-    - Mixed malignant germ cell tumor with yolk sac tumor
-    - Mixed-Phenotype Acute Leukemia, B/Myeloid, Not Otherwise Specified
-    - Mixed-Phenotype Acute Leukemia, T/Myeloid, Not Otherwise Specified
-    - Monophasic Synovial Sarcoma, Intermediate-Grade (FNCLCC Grade 2 Of 3)
-    - Most consistent with atypical teratoid/rhabdoid tumor, most consistent with atypical teratoid/rhabdoid tumor
-    - Mucinous Carcinoma
-    - Mucoepidermoid carcinoma
-    - Myelodysplastic Syndrome With Multilineage Dysplasia
-    - Myelodysplastic Syndrome With Single Lineage Dysplasia
-    - Myeloid leukemia associated with Down Syndrome
-    - Myofibroblastic proliferation  suggestive of inflammatory myofibroblastic tumor
-    - Myofibroma
-    - Myxoid Glioneuronal Tumor
-    - Myxoid Liposarcoma
-    - Myxoid Neoplasm
-    - Myxopapillary Ependymoma
-    - Myxopapillary ependymoma, CNS WHO grade 2
-    - Nasopharyngeal Carcinoma Metastatic
-    - Nasopharyngeal carcinoma, non-keratinizing squamous cell carcinoma type
-    - Neoplasm
-    - Nephroblastoma (Wilms Tumor)
-    - Neuroblastoma
-    - Neurocytoma
-    - Neuroectodermal Tumor
-    - Neuroectodermal tumor, NTRK1 altered, with low-grade morphologic features
-    - Neuroendocrine Tumor
-    - Neuroepithelial Neoplasm
-    - Neuroepithelial neoplasm, Glioma
-    - Neuroepithelial Tumor
-    - Neurofibromatosis; Moderately cellular neoplasm
-    - Non-WNT/non-SHH medulloblastoma
-    - Not Reported
-    - Optic Pathway Glioma
-    - Osteosarcoma, NOS
-    - Ovarian Sclerosing Stromal Tumor
-    - Pancreatobiliary-Type Carcinoma
-    - Papillary Carcinoma
-    - Papillary carcinoma of thyroid
-    - Papillary Neoplasm, Favor Choroid Plexus Tumor
-    - Papillary Thyroid Carcinoma
-    - Papillary thyroid carcinoma, classic
-    - Papillary Tumor of The Pineal Region
-    - Paraganglioma
-    - Paratesticular Rhabdomyosarcoma
-    - Paratesticular rhabdomyosarcoma, favor embryonal
-    - Paratesticular Spindle Cell/Sclerosing Rhabdomyosarcoma
-    - Pediatric neuroepithelial tumor with ROS1 fusion
-    - Pediatric type diffuse low grad astrocytoma, consistent with methylation array finding suggestive of MYB/MYBL1-altered (CNS WHO grade 1)
-    - PFA Ependymoma
-    - Pheochromocytoma
-    - Pilocytic Astrocytoma
-    - Pilocytic astrocytoma (WHO Grade 1)
-    - Pilocytic astrocytoma, CNS WHO grade 1
-    - Pilocytic astrocytoma, CNS WHO GRADE 1, Pilocytic astrocytoma, CNS WHO grade 1
-    - Pilocytic Astrocytoma, CNS WHO Grade I
-    - Pilocytic astrocytoma, KIAA1549::BRAF fusion-positive (WHO grade 1)
-    - Pilocytic astrocytoma, WHO Grade 1
-    - Pilocytic astrocytoma, WHO grade I
-    - Piloid Glial Proliferation
-    - Pilomyxoid Astrocytoma
-    - Pineal Parenchymal Tumor
-    - Pineoblastoma
-    - Pineoblastoma, WHO grade 4
-    - Pituitary Adenoma
-    - Pituitary Tumor
-    - Pleomorphic Sarcoma
-    - Pleomorphic Xanthoastrocytoma
-    - Pleuropulmonary Blastoma
-    - Plexifrom Fibrohistiocytic Tumor
-    - Polymorphous Low Grade Neuroepithelial Tumor
-    - Poorly Differentiated Malignant Neoplasm with Sarcomatoid Features
-    - Poorly Differentiated Pulmonary Adenocarcinoma
-    - Poorly Differentiated Ring Cell Adenocarcinoma
-    - Poorly Differentiated Sarcoma
-    - Poorly Differentiated Sertoli-Leydig Cell Tumor
-    - Positive for lesional tissue, favor low-grade glioma, additional studies pending.
-    - Possible Synovial Sarcoma
-    - Posterior Fossa Ependymoma
-    - Posterior fossa ependymoma, group A
-    - Posterior fossa ependymoma, group A (CNS group grade III)
-    - Posterior fossa ependymoma, group B
-    - Posterior fossa ependymoma, WHO grade 2, with retained H3 K27 tri-methylation
-    - Posterior fossa group A (PFA) Ependymoma (WHO GRADE 3)
-    - Posterior fossa group A ependymoma
-    - Posterior Fossa Tumor
-    - Posterior Fossa, Forth Ventricular Tumor, Posterior Fossa, Fourth Ventricular Tumor
-    - Precursor B-Cell Acute Lymphoblastic Leukemia with Hyperdiploidy
-    - Primary central nervous system neoplasm consistent with high grade glioma
-    - Primary mediastinal (thymic) large B-cell lymphoma
-    - Primitive malignant neoplasm with mesenchymal features
-    - Primitive Neuroectoderma Tumor
-    - Primitive Sarcoma
-    - Primitive/embryonal tumor with high-grade features; compatible with medulloblastoma
-    - Psammomatous Meningioma
-    - Pure Germinoma
-    - PXA Vs Ganglioglioma
-    - Renal Cell Adenocarcinoma
-    - Renal cell carcinoma, NOS
-    - Renal medullary carcinoma
-    - Residual CIC-Rearranged Sarcoma
-    - Residual Dermatofibrosarcoma Protuberans
-    - Residual High Grade Astrocytoma With Piloid Features
-    - Residual High-Grade Sarcoma
-    - Residual Malignant Melanoma
-    - Residual Papillary Tumor of Pineal Region
-    - Residual Pineoblastoma
-    - Residual/Recurrent Extraventricular Neurocytoma
-    - Retinoblastoma
-    - Retinoblastoma, moderately differentiated
-    - Rhabdoid Tumor, Malignant
-    - Rhabdomyoma NOS
-    - Rhabdomyosarcoma
-    - Rhabdomyosarcoma strongly suspected
-    - Rhabdomyosarcoma, favor embryonal subtype pending molecular studies
-    - Right Thigh Mass
-    - Round Blue Cell Tumor
-    - Round Cell Sarcoma
-    - Round To Spindle Cell Sarcoma
-    - Sarcoma
-    - Schwannoma
-    - Sclerosing Stromal Tumor
-    - Seroli-leydig cell tumor
-    - Serous Adenocarcinoma, NOS
-    - Serous Cystadenocarcinoma NOS
-    - Serous Surface Papillary Carcinoma
-    - Sertoli Leydig Cell Tumor
-    - Sertoli-Leydig cell tumor, moderately differentiated
-    - Sertoli-Leydig cell tumor, poorly differentiated
-    - Sertolig Leydig Cell Tumor
-    - Signet Ring Cell Carcinoma
-    - Small Blue Cell Tumor
-    - Small Cell Neuroendocrine Carcinoma
-    - Small Round Blue Cell Sarcoma
-    - Small Round Blue Cell Tumor
-    - Small round blue cell tumor consistent with rhabdomyosarcoma
-    - 'Small round blue cell tumor: rhabdomyosarcoma'
-    - SMARCB1-deficient undifferentiated round cell sarcoma
-    - Spinal Ependymoma Myxopapillary
-    - Spinal Tumor
-    - Spindle Cell Lesion
-    - Spindle Cell Neoplasm
-    - Spindle Cell Rhabdomyosarcoma
-    - Spindle Cell Sarcoma
-    - Squamous Cell Carcinoma NOS
-    - Subependymal Giant Cell Astrocytoma
-    - Supertentorial Ependymoma
-    - Suprasellar Mass
-    - Supratentorial Choroid Plexus Papilloma
-    - Supratentorial Ependymoma
-    - Supratentorial ependymoma, WHO Grade 2
-    - Synovial Sarcoma
-    - T Lymphoblastic Leukemia/Lymphoma
-    - T-lymphoblastic Leukemia
-    - T-lymphoblastic Lymphoma
-    - Testicular mass
-    - Thalamic Brain Tumor
-    - Therapy Related Myeloid Neoplasm
-    - Therapy-related myeloid neoplasms
-    - Unclassified pleomorphic sarcoma
-    - Undifferential Small Round Blue Cell Tumor
-    - Undifferentiated leukaemia
-    - Undifferentiated Leukemia
-    - Undifferentiated Malignant Neoplasm with Rhabdoid Morphology And INI1 Loss
-    - Undifferentiated Round Cell Sarcoma
-    - Undifferentiated sarcoma
-    - Undifferentiated small round cell sarcoma
-    - Undifferentiated, high-grade neoplasm/sarcoma
+    - G1
+    - G2
+    - G3
+    - G4
+    - GX
+    - GB
+    - High Grade
+    - Intermediate Grade
+    - Low Grade
     - Unknown
-    - Well Differentiated Embryonal Rhabdomyosarcoma
-    - Well Differentiated Neuroendocrine Tumor
-    - Well To Moderately Differentiated Colonic Adenocarcinoma
-    - Yolk Sac Tumor
-    Req: true
-    Term:
-    - Code: 13606067
-      Origin: caDSR
-      Original Source: CDS
-      Value: ICD Label/Name
-      Version: '1.00'
-  primary_investigator_email:
-    Desc: Email of principal investigator
-    Req: Preferred
-    Type: string
-  primary_investigator_name:
-    Desc: Name of principal investigator
-    Req: Preferred
-    Type: string
-  primary_site:
-    Desc: Anatomical site of disease in primary diagnosis for this diagnosis
-    Enum:
-    - Adrenal Gland
-    - Base of the Tongue
-    - Bladder
-    - Brain
-    - Breast
-    - Cervix Uteri
-    - Colon
-    - Corpus Uteri
-    - Esophagus
-    - Floor of Mouth
-    - Gallbladder
-    - Gingiva
-    - Hypopharynx
-    - Kidney
-    - Larynx
-    - Limb Skeletal System
-    - Lip
-    - Lung/Bronchus
-    - Lymph Node
-    - Meninges
-    - Nasopharynx
     - Not Reported
-    - Oropharynx
-    - Other and Ill Defined Digestive Organs ICD-O-3
-    - Other and Ill-Defined Sites ICD-O-3
-    - Other and Ill-Defined Sites in Lip, Oral Cavity and Pharynx ICD-O-3
-    - Other and Ill-Defined Sites within Respiratory System and Intrathoracic Organs ICD-O-3
-    - Other and Unspecified Female Genital Organs ICD-O-3
-    - Other and Unspecified Major Salivary Glands ICD-O-3
-    - Other and Unspecified Male Genital Organs ICD-O-3
-    - Other and Unspecified Parts of Biliary Tract ICD-O-3
-    - Other and Unspecified Parts of Mouth ICD-O-3
-    - Other and Unspecified Parts of Tongue ICD-O-3
-    - Other and Unspecified Urinary Organs ICD-O-3
-    - Other Endocrine Glands and Related Structures ICD-O-3
-    - Ovary
-    - Palate
-    - Pancreas
-    - Paranasal Sinus
-    - Parotid Gland
-    - Penis
-    - Peritoneum and Retroperitoneum
-    - Placenta
-    - Prostate Gland
-    - Pyriform Sinus
-    - Rectosigmoid Region
-    - Rectum
-    - Renal Pelvis
-    - Skin
-    - Small Intestine
-    - Stomach
-    - Testis
-    - Thymus Gland
-    - Thyroid Gland
-    - Tonsil
-    - Trachea
-    - Unknown
-    - Ureter
-    - Uterus
-    - Vagina
-    - Vulva
     Term:
-    - Code: '13279286'
-      Origin: caDSR
-      Original Source: PCDC
-      Value: Diagnosis Primary Anatomic Site ICD-O-3 Name
-      Version: '1.00'
-  program_acronym:
-    Desc: The name of the program under which related studies will be grouped, expressed in the form of the acronym by which it will identified within the UI. <br>This property is used as the key via which study records can be associated with the appropriate program during data loading, and to identify the correct records during data updates.
-    Key: true
-    Req: 'Yes'
-    Src: Internally-curated
-    Type: string
-  program_external_url:
-    Desc: The external url to which users should be directed in order to learn more about the program.
-    Req: Preferred
-    Src: Internally-curated
-    Type: string
-  program_full_description:
-    Desc: A more detailed, multiple sentence description of the program.
-    Req: Preferred
-    Src: Internally-curated
-    Type: string
-  program_name:
-    Desc: The name of the program under which related studies will be grouped, in full text and unabbreviated form, exactly as it will be displayed within the UI.
-    Req: 'Yes'
-    Src: Internally-curated
-    Term:
-    - Code: '11444542'
-      Origin: caDSR
+    - Origin: caDSR
       Original Source: DSS
-      Value: Program Name Text
+      Code: '11325685'
+      Value: Diagnosis Tumor Grade
       Version: '1.00'
-    Type: string
-  program_short_description:
-    Desc: An abbreviated, single sentence description of the program.
-    Req: Preferred
-    Src: Internally-curated
-    Type: string
-  program_sort_order:
-    Desc: An arbitrarily-assigned value used to dictate the order in which programs are displayed within the application's UI.
-    Req: 'No'
-    Src: Internally-curated
-    Type: integer
+  tumor_stage_clinical_t:
+    Desc: Extent of the primary cancer based on evidence obtained from clinical assessment parameters determined prior to treatment.
+    Enum:
+    - T0
+    - T1
+    - T1a
+    - T1a1
+    - T1a2
+    - T1b
+    - T1b1
+    - T1b2
+    - T1c
+    - T1mi
+    - T2
+    - T2a
+    - T2a1
+    - T2a2
+    - T2b
+    - T2c
+    - T2d
+    - T3
+    - T3a
+    - T3b
+    - T3c
+    - T3d
+    - T4
+    - T4a
+    - T4b
+    - T4c
+    - T4d
+    - T4e
+    - TX
+    - Ta
+    - Tis
+    - Tis (DCIS)
+    - Tis (LCIS)
+    - Tis (Paget's)
+    - Unknown
+    - Not Reported
+    Term:
+    - Origin: caDSR
+      Original Source: TCGA
+      Code: '3440328'
+      Value: Neoplasm American Joint Committee on Cancer Clinical Primary Tumor T Stage
+      Version: '1.00'
+  tumor_stage_clinical_n:
+    Desc: Extent of the regional lymph node involvement for the cancer based on evidence obtained from clinical assessment parameters determined prior to treatment.
+    Enum:
+    - N0
+    - N0 (i+)
+    - N0 (i-)
+    - N0 (mol+)
+    - N0 (mol-)
+    - N1
+    - N1a
+    - N1b
+    - N1bI
+    - N1bII
+    - N1bIII
+    - N1bIV
+    - N1c
+    - N1mi
+    - N2
+    - N2a
+    - N2b
+    - N2c
+    - N3
+    - N3a
+    - N3b
+    - N3c
+    - N4
+    - NX
+    - Unknown
+    - Not Reported
+    Term:
+    - Origin: caDSR
+      Original Source: TCGA
+      Code: '3440330'
+      Value: Neoplasm American Joint Committee on Cancer Clinical Regional Lymph Node N Stage
+      Version: '1.00'
+  tumor_stage_clinical_m:
+    Desc: Extent of the distant metastasis for the cancer based on evidence obtained from clinical assessment parameters determined prior to treatment.
+    Enum:
+    - M0
+    - M1
+    - M1a
+    - M1b
+    - M1c
+    - MX
+    - cM0 (i+)
+    - Unknown
+    - Not Reported
+    Term:
+    - Origin: caDSR
+      Original Source: TCGA
+      Code: '3440331'
+      Value: Neoplasm American Joint Committee on Cancer Clinical Distant Metastasis M Stage
+      Version: '1.00'
   progression_or_recurrence:
     Desc: Yes/No/Unknown indicator to identify whether a patient has had a new tumor event after initial treatment.
     Enum:
@@ -3450,65 +3250,164 @@ PropDefinitions:
     - Not Reported
     - Not Allowed To Collect
     Term:
-    - Code: 13529783
-      Origin: caDSR
+    - Origin: caDSR
       Original Source: DSS
+      Code: 13529783
       Value: Disease Progression Or Recurrence Indicator
       Version: '1.00'
-  pyramid:
-    Desc: The data file contains an image pyramid
-    Term:
-    - Code: '7788945'
-      Origin: caDSR
-      Original Source: HTAN
-      Value: Image Processing Pyramid Representation True False Indicator
-      Version: '1.00'
-    Type: string
-  race:
-    Desc: OMB Race designator
+  # study
+  study_version:
+    Desc: The version of the phs accession
+    Type:
+      value_type: list
+      item_type: string
+    Req: true
+  bioproject_accession:
+    Desc: NCBI BioProject accession ID
+    Type:
+      pattern: ^PRJNA[0-9]+$
+    Req: Preferred
+  study_data_types:
+    Desc: Types of scientific data in the study
     Enum:
-    - White
-    - American Indian or Alaska Native
-    - Black or African American
-    - Asian
-    - Native Hawaiian or Other Pacific Islander
-    - Unknown
-    - Not Reported
-    - Not Allowed to Collect
+    - Genomic
+    - Proteomic
+    - Imaging
+    Req: 'Yes'
+    Term:
+    - Origin: caDSR
+      Code: '12571096'
+      Value: Data Collection Scientific Data Type Category
+      Version: '1.00'
+  data_access_level:
+    Desc: Is data open, controlled, or mixed?
+    Enum:
+    - open
+    - controlled
+    - mixed
+    Req: Preferred
+  index_date:
+    Desc: Index date (Day 0) to which all dates are relative, for this study
+    Enum:
+    - date_of_diagnosis
+    - date_of_enrollment
+    - date_of_collection
+    - date_of_birth
+  phs_accession:
+    Desc: PHS accession number (a.k.a dbGaP accession)
+    Req: true
+    Key: true
+    Type:
+      pattern: ^phs[0-9]+([.]v[0-9]+)*$
+    Term:
+    - Origin: caDSR
+      Original Source: DSS CDE
+      Code: '11524544'
+      Value: Research Activity dbGaP Accession Number Identifier
+      Version: '1.00'
+  study_acronym:
+    Desc: Short acronym or other study desginator
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: DSS
+      Code: '11459812'
+      Value: Study Short Name Text
+      Version: '1.00'
+  study_description:
+    Desc: Human-readable study description
+    Type: string
+    Req: Preferred
+  study_access:
+    Desc: Study access
+    Enum:
+    - Open
+    - Controlled
+    Req: true
+  short_description:
+    Desc: 'Short description that will identify the dataset on public pages
+
+      A clear and concise formula for the title would be like:
+
+      {methodology} of {organism}: {sample info}
+
+      '
+    Type: string
+    Req: Preferred
+  study_external_url:
+    Desc: Website or other url relevant to study
+    Type: url
+    Req: Preferred
+  study_name:
+    Desc: Official name of study
+    Type: string
+    Req: 'Yes'
+    Term:
+    - Origin: caDSR
+      Original Source: DSS
+      Code: '11459810'
+      Value: Study Name
+      Version: '1.00'
+  primary_investigator_name:
+    Desc: Name of principal investigator
+    Type: string
+    Req: Preferred
+  acl:
+    Desc: open or restricted access to data
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: DSS
+      Code: '11555664'
+      Value: Electronic Data File Access Level Text
+      Version: '1.00'
+  primary_investigator_email:
+    Desc: Email of principal investigator
+    Type: string
+    Req: Preferred
+  co_investigator_name:
+    Desc: Name of co-principal investigator
+    Type: string
+  co_investigator_email:
+    Desc: Email of co-principal investigator
+    Type: string
+  cds_primary_bucket:
+    Desc: The primary bucket for depositing data
+    Type: string
+    Req: Preferred
+  cds_secondary_bucket:
+    Desc: Secondary bucket for depositing data (non-sequence files)
+    Type: string
+  cds_tertiary_bucket:
+    Desc: Secondary bucket for depositing data (non-sequence files)
+    Type: string
+  authz:
+    Desc: multifactor authorization
+    Type: string
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: Pending
+      Version: '1.00'
+  # sample
+  biosample_accession:
+    Desc: NCBI BioSample accession ID (SAMN) for this sample
+    Type:
+      pattern: ^SAMN[0-9]+$
     Req: Preferred
     Term:
-    - Code: '2192199'
-      Origin: caDSR
-      Original Source: NCI Std
-      Value: Race Category Text
-      Version: '1.00'
-  reference_genome_assembly:
-    Desc: Accession or name of genome reference or assembly used for alignment
-    Enum:
-    - GRCh37
-    - GRCh37-lite
-    - GRCh38
-    Req: Preferred
-    Term:
-    - Code: '11529031'
-      Origin: caDSR
-      Value: Genome Assembly NCBI Genetic Reference Sequence Identifier
-      Version: '1.00'
-  rrid_identifier:
-    Desc: Research Resource Identifier
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
+    - Origin: caDSR
+      Code: '2230047'
+      Value: Specimen Accession Number
+      Version: '6.00'
   sample_age_at_collection:
     Desc: Number of days to collection, relative to index date
+    Type: integer
     Term:
-    - Code: '11253404'
-      Origin: caDSR
+    - Origin: caDSR
+      Code: '11253404'
       Value: Days from Specimen Collection To Initial Pathologic Diagnosis Day Count
       Version: '1.00'
-    Type: integer
   sample_anatomic_site:
     Desc: Anatomic site from which sample was collected
     Enum:
@@ -3853,20 +3752,20 @@ PropDefinitions:
     - Unknown
     - Not Reported
     Term:
-    - Code: '12083894'
-      Origin: caDSR
+    - Origin: caDSR
+      Code: '12083894'
       Value: Specimen Original Anatomic Site Uberon Identifier
       Version: '1.00'
   sample_id:
     Desc: Sample identifier as submitted by requestor
-    Key: true
+    Type: string
     Req: 'Yes'
+    Key: true
     Term:
-    - Code: '6921892'
-      Origin: caDSR
+    - Origin: caDSR
+      Code: '6921892'
       Value: Biospecimen Source Laboratory Identifier
       Version: '1.00'
-    Type: string
   sample_tumor_status:
     Desc: Tumor or normal status
     Enum:
@@ -3877,9 +3776,9 @@ PropDefinitions:
     - Unknown
     Req: 'Yes'
     Term:
-    - Code: '14688604'
-      Origin: caDSR
+    - Origin: caDSR
       Original Source: DSS
+      Code: '14688604'
       Value: Specimen Neoplasm Category
       Version: '1.00'
   sample_type:
@@ -3954,194 +3853,129 @@ PropDefinitions:
     - Not Reported
     Req: 'Yes'
     Term:
-    - Code: '13255982'
-      Origin: caDSR
+    - Origin: caDSR
+      Code: '13255982'
       Value: Specimen Material Type
       Version: '1.00'
-  sequence_alignment_software:
-    Desc: Name of software program used to align nucleotide sequence data
-    Req: Preferred
+  derived_from_specimen:
+    Desc: Identier of the parent specimen of this sample
+    Type: string
     Term:
-    - Code: '11529072'
-      Origin: caDSR
-      Value: Nucleotide Sequence Alignment Software Name Text
-      Version: '1.00'
-    Type: string
-  short_description:
-    Desc: 'Short description that will identify the dataset on public pages
-
-      A clear and concise formula for the title would be like:
-
-      {methodology} of {organism}: {sample info}
-
-      '
-    Req: Preferred
-    Type: string
-  size_c:
-    Desc: Number of channels. Integer >= 1
-    Term:
-    - Code: '7794859'
-      Origin: caDSR
-      Value: OME TIFF Channel Count
-      Version: '1.00'
-    Type: string
-  size_of_data_being_uploaded:
-    Desc: Size of the data being uploaded to CDS
-    Req: Preferred
-    Type:
-      units:
-      - GB
-      - TB
-      - PB
-      value_type: number
-  size_t:
-    Desc: Number of time points. Integer >= 1
-    Term:
-    - Code: '7794860'
-      Origin: caDSR
-      Value: OME TIFF Timepoint Count
-      Version: '1.00'
-    Type: string
-  size_x:
-    Desc: 'Size of image: X dimension (in pixels). Integer >= 1'
-    Term:
-    - Code: '7788567'
-      Origin: caDSR
-      Value: OME TIFF X-Dimension Pixel Measurement
-      Version: '1.00'
-    Type: string
-  size_y:
-    Desc: 'Size of image: Y dimension (in pixels). Integer >= 1'
-    Term:
-    - Code: '7788568'
-      Origin: caDSR
-      Value: OME TIFF Y-Dimension Pixel Measurement
-      Version: '1.00'
-    Type: string
-  size_z:
-    Desc: 'Size of image: Z dimension (in pixels). Integer >= 1'
-    Term:
-    - Code: '7788569'
-      Origin: caDSR
-      Value: OME TIFF Z-Dimension Pixel Measurement
-      Version: '1.00'
-    Type: string
-  species:
-    Desc: Use the NCBI Taxonomy ID to identify species. A label provided by NCBI Taxonomy Database (https://www.ncbi.nlm.nih.gov/taxonomy/),  which uniquely identifies group or category, at any level, in a system for classifying plants or animals (including humans) providing ranked categories for the classification of organisms according to their suspected evolutionary relationships.
-    Req: true
-    Term:
-    - Code: '10543100'
-      Origin: caDSR
-      Original Source: DSS
-      Value: NCBI Taxonomy ID
-      Version: '2.00'
-    Type: string
-  specimen_id:
-    Desc: Identifier for specimen (parent of sample) as provided by requestor
-    Key: true
-    Type: string
-  staining_method:
-    Desc: Any of the various methods that use a dye, reagent, or other material for producing coloration in tissues or microorganisms for microscopic examination.
-    Req: true
-    Term:
-    - Code: '7789196'
-      Origin: caDSR
+    - Origin: caDSR
       Original Source: HTAN
-      Value: Imaging Assay Technology Type
+      Code: '5581201'
+      Value: Parent Specimen Label Identifier
       Version: '1.00'
+  # treatment
+  treatment_id:
+    Desc: Internal identifier
     Type: string
-  study_access:
-    Desc: Study access
+    Key: true
+  days_to_treatment:
+    Desc: Days to start of treatment, relative to index date
+    Type: integer
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '12447194'
+      Value: Subject Initial Cancer Diagnosis To Treatment Day Count
+      Version: '1.00'
+  treatment_outcome:
+    Desc: Text term that describes the patient's final outcome after the treatment was administered
     Enum:
-    - Open
-    - Controlled
-    Req: true
-  study_acronym:
-    Desc: Short acronym or other study desginator
+    - Complete Response
+    - Mixed Response
+    - No Measurable Disease
+    - No Response
+    - Not Reported
+    - Partial Response
+    - Persistent Disease
+    - Progressive Disease
+    - Stable Disease
+    - Treatment Ongoing
+    - Treatment Stopped Due to Toxicity
+    - Unknown
+    - Very Good Partial Response
     Term:
-    - Code: '11459812'
-      Origin: caDSR
-      Original Source: DSS
-      Value: Study Short Name Text
+    - Origin: caDSR
+      Original Source: TCGA
+      Code: '5102383'
+      Value: Treatment Outcome Type
       Version: '1.00'
-    Type: string
-  study_data_types:
-    Desc: Types of scientific data in the study
+  treatment_type:
+    Desc: Text term that describes the kind of treatment administered
     Enum:
-    - Genomic
-    - Proteomic
-    - Imaging
-    Req: 'Yes'
+    - Ablation, Cryo
+    - Ablation, Ethanol Injection
+    - Ablation, Microwave
+    - Ablation, NOS
+    - Ablation, Radiofrequency
+    - Ablation, Radiosurgical
+    - Ancillary Treatment
+    - Antiseizure Treatment
+    - Bisphosphonate Therapy
+    - Blinded Study, Treatment Unknown
+    - Brachytherapy, High Dose
+    - Brachytherapy, Low Dose
+    - Brachytherapy, NOS
+    - Chemoembolization
+    - Chemoprotectant
+    - Chemotherapy
+    - Concurrent Chemoradiation
+    - Cryoablation
+    - Embolization
+    - Ethanol Injection Ablation
+    - External Beam Radiation
+    - Hormone Therapy
+    - I-131 Radiation Therapy
+    - Immunotherapy (Including Vaccines)
+    - Internal Radiation
+    - Isolated Limb Perfusion (ILP)
+    - Organ Transplantation
+    - Other
+    - Pharmaceutical Therapy, NOS
+    - Pleurodesis
+    - Pleurodesis, Talc
+    - Pleurodesis, NOS
+    - Radiation Therapy, NOS
+    - Radiation, 2D Conventional
+    - Radiation, 3D Conformal
+    - Radiation, Combination
+    - Radiation, Cyberknife
+    - Radiation, External Beam
+    - Radiation, Hypofractionated
+    - Radiation, Implants
+    - Radiation, Intensity-Modulated Radiotherapy
+    - Radiation, Internal
+    - Radiation, Mixed Photon Beam
+    - Radiation, Photon Beam
+    - Radiation, Proton Beam
+    - Radiation, Radioisotope
+    - Radiation, Stereotactic/Gamma Knife/SRS
+    - Radiation, Systemic
+    - Radioactive Iodine Therapy
+    - Radioembolization
+    - Radiosensitizing Agent
+    - Stem Cell Transplantation, Allogeneic
+    - Stem Cell Transplantation, Autologous
+    - Stem Cell Transplantation, Double Autologous
+    - Stem Cell Transplantation, Haploidentical
+    - Stem Cell Transplantation, Non-Myeloablative
+    - Stem Cell Transplantation, NOS
+    - Stem Cell Transplantation, Syngenic
+    - Stem Cell Treatment
+    - Stereotactic Radiosurgery
+    - Steroid Therapy
+    - Surgery
+    - Targeted Molecular Therapy
+    - Unknown
+    - Not Reported
     Term:
-    - Code: '12571096'
-      Origin: caDSR
-      Value: Data Collection Scientific Data Type Category
+    - Origin: caDSR
+      Original Source: TCGA
+      Code: '14737565'
+      Value: Therapeutic Procedure Performed Type
       Version: '1.00'
-  study_description:
-    Desc: Human-readable study description
-    Req: Preferred
-    Type: string
-  study_diagnosis_id:
-    Desc: 'The property study_diagnosis_id is a compound property, combining the property diagnosis_id and the parent property participant.study_participant_id. It is the ID property for the node diagnosis.'
-    Key: true
-    Req: true
-    Type: string
-  study_external_url:
-    Desc: Website or other url relevant to study
-    Req: Preferred
-    Type: url
-  study_link_id:
-    Desc: The study_link_id is a unique numerical identifier for each study listed on the collection information sheet. The sole purpose of the study_link_id is to indicate which participant described on worksheet 2 - Participant information belongs to what study/collection described on worksheet 1 - Collection information.
-    Key: true
-    Req: true
-    Term:
-    - Code: New CDE
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  study_name:
-    Desc: Official name of study
-    Req: 'Yes'
-    Term:
-    - Code: '11459810'
-      Origin: caDSR
-      Original Source: DSS
-      Value: Study Name
-      Version: '1.00'
-    Type: string
-  study_participant_id:
-    Desc: 'The property study_participant_id is a compound property, combining the property participant_id and the parent property study.phs_accession.
-
-      It is the ID property for the node participant. The reason why we are doing that is because is some cases, there are same participant id in different studies repersent different participants.
-
-      '
-    Key: true
-    Req: true
-    Type: string
-  study_version:
-    Desc: The version of the phs accession
-    Req: true
-    Type:
-      item_type: string
-      value_type: list
-  sub_cycle_number:
-    Desc: 'sub-cycle #'
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  submission_version:
-    Desc: Raw data file submission
-    Req: true
-    Type: string
-  target_name:
-    Desc: short descriptive name (abbreviation) for this target (antigen)
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
   therapeutic_agents:
     Desc: Text identification of the individual agent(s) used as part of a treatment regimen.
     Enum:
@@ -8621,296 +8455,476 @@ PropDefinitions:
     - Unknown
     - Not Reported
     Term:
-    - Code: '13579886'
-      Origin: caDSR
+    - Origin: caDSR
       Original Source: CDS
+      Code: '13579886'
       Value: Therapeutic Procedure Agent Name
       Version: '1.00'
-  tissue_fixative:
-    Desc: A compound that preserves tissues and cells for microscopic study.
-    Enum:
-    - Acetone
-    - Alcohol
-    - Formalin
-    - Glutaraldehyde
-    - OCT media
-    - RNAlater
-    - Saline
-    - 95% Ethanol
-    - Dimidoester
-    - Carbodiimide
-    - Dimethylacetamide
-    - Para-benzoquinone
-    - PAXgene tissue
-    - TCL lysis buffer
-    - NP40 lysis buffer
-    - Methacarn
-    - Cryo-store
-    - Carnoy's Fixative
-    - Polaxamer
-    - Other
-    - None
-    - unknown
+  genomic_info_id:
+    Desc: Genomic info identifier, the ID property for the ndoe genomic_info.
+    Type: string
     Req: true
-    Term:
-    - Code: '65078'
-      Origin: caDSR
-      Original Source: NCI Standard
-      Value: Specimen Fixative Type
-      Version: '4.00'
-  treatment_id:
-    Desc: Internal identifier
     Key: true
-    Type: string
-  treatment_outcome:
-    Desc: Text term that describes the patient's final outcome after the treatment was administered
+  reference_genome_assembly:
+    Desc: Accession or name of genome reference or assembly used for alignment
     Enum:
-    - Complete Response
-    - Mixed Response
-    - No Measurable Disease
-    - No Response
-    - Not Reported
-    - Partial Response
-    - Persistent Disease
-    - Progressive Disease
-    - Stable Disease
-    - Treatment Ongoing
-    - Treatment Stopped Due to Toxicity
-    - Unknown
-    - Very Good Partial Response
+    - GRCh37
+    - GRCh37-lite
+    - GRCh38
+    Req: Preferred
     Term:
-    - Code: '5102383'
-      Origin: caDSR
-      Original Source: TCGA
-      Value: Treatment Outcome Type
+    - Origin: caDSR
+      Code: '11529031'
+      Value: Genome Assembly NCBI Genetic Reference Sequence Identifier
       Version: '1.00'
-  treatment_type:
-    Desc: Text term that describes the kind of treatment administered
+  avg_read_length:
+    Desc: Average sequence read length
+    Type: number
+    Req: Preferred
+    Term:
+    - Origin: caDSR
+      Code: '12426615'
+      Value: Nucleotide Sequence Average Read Length Count
+      Version: '1.00'
+  coverage:
+    Desc: Average depth of coverage on reference used
+    Type: number
+    Req: Preferred
+    Term:
+    - Origin: caDSR
+      Code: '11556322'
+      Value: Genome Assembly Sequence Depth of Coverage Number
+      Version: '1.00'
+  bases:
+    Desc: Total number of unique bases read
+    Type: integer
+    Req: Preferred
+    Term:
+    - Origin: caDSR
+      Code: '12373573'
+      Value: Sequencing Library Unique Basecalling Count
+      Version: '1.00'
+  number_of_reads:
+    Desc: Total number of reads performed
+    Type: integer
+    Req: Preferred
+    Term:
+    - Origin: caDSR
+      Code: '11529035'
+      Value: Sequencing Library Sequence Read Count
+      Version: '1.00'
+  design_description:
+    Desc: Human-readable description of methods used to create sequencing library
+    Type: string
+    Req: Preferred
+    Term:
+    - Origin: caDSR
+      Code: '11529028'
+      Value: Sequencing Library Platform Model Name
+      Version: '1.00'
+  platform:
+    Desc: Instrument platform or manufacturer
+    Req: Preferred
     Enum:
-    - Ablation, Cryo
-    - Ablation, Ethanol Injection
-    - Ablation, Microwave
-    - Ablation, NOS
-    - Ablation, Radiofrequency
-    - Ablation, Radiosurgical
-    - Ancillary Treatment
-    - Antiseizure Treatment
-    - Bisphosphonate Therapy
-    - Blinded Study, Treatment Unknown
-    - Brachytherapy, High Dose
-    - Brachytherapy, Low Dose
-    - Brachytherapy, NOS
-    - Chemoembolization
-    - Chemoprotectant
-    - Chemotherapy
-    - Concurrent Chemoradiation
-    - Cryoablation
-    - Embolization
-    - Ethanol Injection Ablation
-    - External Beam Radiation
-    - Hormone Therapy
-    - I-131 Radiation Therapy
-    - Immunotherapy (Including Vaccines)
-    - Internal Radiation
-    - Isolated Limb Perfusion (ILP)
-    - Organ Transplantation
+    - LS454
+    - ILLUMINA
+    - HELICOS
+    - ABI_SOLID
+    - COMPLETE_GENOMICS
+    - PACBIO_SMRT
+    - ION_TORRENT
+    - CAPILLARY
+    - OXFORD_NANOPORE
+    - BGISEQ
+    - Illumina HiSeq 2500
+    - Illumina HiSeq X Ten
+    - Illumina Next Seq 500
+    - Illumina Next Seq 550
+    - Illumina NextSeq
+    - Illumina NovaSeq 6000
+    - NovaSeqS4
+    Term:
+    - Origin: caDSR
+      Code: '6347771'
+      Value: Sequencing Library Platform Name
+      Version: '1.00'
+  instrument_model:
+    Desc: Instrument model
+    Req: Preferred
+    Enum:
+    - 454 GS
+    - 454 GS 20
+    - 454 GS FLX
+    - 454 GS FLX+
+    - 454 GS FLX Titanium
+    - 454 GS Junior
+    - HiSeq X Five
+    - HiSeq X Ten
+    - Illumina Genome Analyzer
+    - Illumina Genome Analyzer II
+    - Illumina Genome Analyzer IIx
+    - Illumina HiScanSQ
+    - Illumina HiSeq
+    - Illumina HiSeq 1000
+    - Illumina HiSeq 1500
+    - Illumina HiSeq 2000
+    - Illumina HiSeq 2500
+    - Illumina HiSeq 3000
+    - Illumina HiSeq 4000
+    - Illumina iSeq 100
+    - Illumina NovaSeq 6000
+    - llumina NovaSeq
+    - Illumina MiniSeq
+    - Illumina MiSeq
+    - Illumina NextSeq
+    - NextSeq 500
+    - NextSeq 550
+    - Helicos HeliScope
+    - AB 5500 Genetic Analyzer
+    - AB 5500xl Genetic Analyzer
+    - AB 5500x-Wl Genetic Analyzer
+    - AB SOLiD 3 Plus System
+    - AB SOLiD 4 System
+    - AB SOLiD 4hq System
+    - AB SOLiD PI System
+    - AB SOLiD System
+    - AB SOLiD System 2.0
+    - AB SOLiD System 3.0
+    - Complete Genomics
+    - PacBio RS
+    - PacBio RS II
+    - PacBio Sequel
+    - PacBio Sequel II
+    - Ion Torrent PGM
+    - Ion Torrent Proton
+    - Ion Torrent S5 XL
+    - Ion Torrent S5
+    - AB 310 Genetic Analyzer
+    - AB 3130 Genetic Analyzer
+    - AB 3130xL Genetic Analyzer
+    - AB 3500 Genetic Analyzer
+    - AB 3500xL Genetic Analyzer
+    - AB 3730 Genetic Analyzer
+    - AB 3730xL Genetic Analyzer
+    - GridION
+    - MinION
+    - PromethION
+    - BGISEQ-500
+    - DNBSEQ-G400
+    - DNBSEQ-T7
+    - DNBSEQ-G50
+    - MGISEQ-2000RS
+    Term:
+    - Origin: caDSR
+      Code: '6352164'
+      Value: Sequencing Library Platform Model Name
+      Version: '1.00'
+  library_id:
+    Desc: Library identifier as submitted by requestor
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '11555660'
+      Value: Sequencing Library Unique Identifier Text
+      Version: '1.00'
+  library_layout:
+    Desc: Library layout as submitted by requestor
+    Req: Preferred
+    Enum:
+    - Paired-end
+    - Single-end
+    - Single-indexed
+    Term:
+    - Origin: caDSR
+      Code: '11527735'
+      Value: Sequencing Library Read Layout Type
+      Version: '1.00'
+  library_source:
+    Desc: Source material used to create library
+    Req: Preferred
+    Enum:
+    - Genomic
+    - Transcriptomic
+    - Metagenomic
+    - Metatranscriptomic
+    - Synthetic
+    - Viral RNA
+    - Genomic Single Cell
+    - Single Nucleus
+    - Transcriptomic Single Cell
     - Other
-    - Pharmaceutical Therapy, NOS
-    - Pleurodesis
-    - Pleurodesis, Talc
-    - Pleurodesis, NOS
-    - Radiation Therapy, NOS
-    - Radiation, 2D Conventional
-    - Radiation, 3D Conformal
-    - Radiation, Combination
-    - Radiation, Cyberknife
-    - Radiation, External Beam
-    - Radiation, Hypofractionated
-    - Radiation, Implants
-    - Radiation, Intensity-Modulated Radiotherapy
-    - Radiation, Internal
-    - Radiation, Mixed Photon Beam
-    - Radiation, Photon Beam
-    - Radiation, Proton Beam
-    - Radiation, Radioisotope
-    - Radiation, Stereotactic/Gamma Knife/SRS
-    - Radiation, Systemic
-    - Radioactive Iodine Therapy
-    - Radioembolization
-    - Radiosensitizing Agent
-    - Stem Cell Transplantation, Allogeneic
-    - Stem Cell Transplantation, Autologous
-    - Stem Cell Transplantation, Double Autologous
-    - Stem Cell Transplantation, Haploidentical
-    - Stem Cell Transplantation, Non-Myeloablative
-    - Stem Cell Transplantation, NOS
-    - Stem Cell Transplantation, Syngenic
-    - Stem Cell Treatment
-    - Stereotactic Radiosurgery
-    - Steroid Therapy
-    - Surgery
-    - Targeted Molecular Therapy
-    - Unknown
-    - Not Reported
+    - Bulk Whole Cell
+    - Single Cell
     Term:
-    - Code: '14737565'
-      Origin: caDSR
-      Original Source: TCGA
-      Value: Therapeutic Procedure Performed Type
+    - Origin: caDSR
+      Code: '6285979'
+      Value: Sequencing Library Specimen Source
       Version: '1.00'
-  tumor_grade:
-    Desc: Numeric value to express the degree of abnormality of cancer cells, a measure of differentiation and aggressiveness.
+  library_selection:
+    Desc: Library selection method
+    Req: Preferred
     Enum:
-    - G1
-    - G2
-    - G3
-    - G4
-    - GX
-    - GB
-    - High Grade
-    - Intermediate Grade
-    - Low Grade
-    - Unknown
-    - Not Reported
+    - Hybrid Selection
+    - other
+    - PCR
+    - Poly-T Enrichment
+    - PolyA
+    - Random
+    - 5-methylcytidine antibody
+    - CAGE
+    - cDNA
+    - cDNA_oligo_dT
+    - cDNA_randomPriming
+    - CF-H
+    - CF-M
+    - CF-S
+    - CF-T
+    - ChIP
+    - DNAse
+    - HMPR
+    - Inverse rRNA
+    - MBD2 protein methyl-CpG binding domain
+    - MDA
+    - MF
+    - MNase
+    - MSLL
+    - Oligo-dT
+    - Padlock probes capture method
+    - Race
+    - Random PCR
+    - Reduced Representation
+    - repeat fractionation
+    - Restriction Digest
+    - RT-PCR
+    - size fractionation
+    - unspecified
     Term:
-    - Code: '11325685'
-      Origin: caDSR
+    - Origin: caDSR
+      Code: '6347743'
+      Value: Sequencing Library Creation Method Type
+      Version: '1.00'
+  library_strategy:
+    Desc: Nucleic acid capture or processing strategy for this library
+    Req: Preferred
+    Enum:
+    - AMPLICON
+    - ATAC-seq
+    - Bisulfite-Seq
+    - ChIA-PET
+    - ChIP-Seq
+    - CLONE
+    - CLONEEND
+    - CTS
+    - DNase-Hypersensitivity
+    - EST
+    - FAIRE-seq
+    - FINISHING
+    - FL-cDNA
+    - Hi-C
+    - MBD-Seq
+    - MeDIP-Seq
+    - miRNA-Seq
+    - MNase-Seq
+    - MRE-Seq
+    - ncRNA-Seq
+    - OTHER
+    - POOLCLONE
+    - RAD-Seq
+    - RIP-Seq
+    - RNA-Seq
+    - SELEX
+    - ssRNA-seq
+    - Synthetic-Long-Read
+    - Targeted-Capture
+    - Tethered Chromatin Conformation Capture
+    - Tn-Seq
+    - WCS
+    - WGA
+    - WGS
+    - WXS
+    Term:
+    - Origin: caDSR
+      Code: '6273393'
+      Value: Sequencing Library Technique Type
+      Version: '1.00'
+  sequence_alignment_software:
+    Desc: Name of software program used to align nucleotide sequence data
+    Type: string
+    Req: Preferred
+    Term:
+    - Origin: caDSR
+      Code: '11529072'
+      Value: Nucleotide Sequence Alignment Software Name Text
+      Version: '1.00'
+  custom_assembly_fasta_file_for_alignment:
+    Desc: File name of any custom assembly fasta file used during alignment
+    Type: string
+    Req: Preferred
+    Term:
+    - Origin: caDSR
+      Code: '11636299'
+      Value: Genome Assembly Custom FASTA File Name
+      Version: '1.00'
+  # cds requestor
+  cds_requestor:
+    Desc: Identifies the user requesting storage in CDS
+    Type: string
+  data_types:
+    Desc: Data types for storage
+    Type:
+      value_type: list
+      item_type: string
+  file_types:
+    Desc: File types for storage
+    Type:
+      value_type: list
+      item_type: string
+  funding_agency:
+    Desc: Funding agency of the requestor study
+    Type: string
+    Req: Preferred
+    Term:
+    - Origin: caDSR
+      Code: '11524545'
+      Value: Funding Agency Organization Name Text
+      Version: '1.00'
+  funding_source_program_name:
+    Desc: The funding source organization/sponsor
+    Type: string
+    Req: Preferred
+    Term:
+    - Origin: caDSR
+      Code: '11524546'
+      Value: Funding Agency Program Name Text
+      Version: '1.00'
+  grant_id:
+    Desc: Grant or contract identifier
+    Type: string
+    Req: Preferred
+    Term:
+    - Origin: caDSR
+      Code: '3434057'
+      Value: Grant Funding Identifier Number
+      Version: '2.00'
+  clinical_trial_system:
+    Desc: 'Organization that provides clinical trial identifier (if study
+
+      is a clinical trial)
+
+      '
+    Type: string
+  clinical_trial_identifier:
+    Desc: 'Study identifier in the given clinical trial system
+
+      '
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '14673514'
+      Value: Clinical Trial Study Protocol Unique Identifier
+      Version: '1.00'
+  clinical_trial_arm:
+    Desc: Arm of clinical trial, if appropriate
+    Type: string
+    Term:
+    - Origin: caDSR
+      Code: '11524548'
+      Value: Clinical Trial Treatment Arm Text
+      Version: '1.00'
+  organism_species:
+    Desc: Species binomial of study participants
+    Type: string
+    Req: Preferred
+  adult_or_childhood_study:
+    Desc: Study participants are adult, pediatric, or other
+    Req: Preferred
+    Enum:
+    - Adult
+    - Pediatric
+    Term:
+    - Origin: caDSR
+      Code: '11524549'
+      Value: Study Subject Legal Adult Or Pediatric Participant Type
+      Version: '1.00'
+  specimen_id:
+    Desc: Identifier for specimen (parent of sample) as provided by requestor
+    Type: string
+    Key: true
+  number_of_participants:
+    Desc: How many participants in the study
+    Type: number
+    Req: 'Yes'
+    Term:
+    - Origin: caDSR
+      Original Source: CDS
+      Code: '11555662'
+      Value: Research Activity Unique Subjects Count
+      Version: '1.00'
+  number_of_samples:
+    Desc: How many total samples in the study
+    Type: number
+    Req: 'Yes'
+    Term:
+    - Origin: caDSR
+      Code: '11555663'
+      Value: Research Activity Sample Size Count
+      Version: '1.00'
+  file_types_and_format:
+    Desc: 'Specific kinds of files in the dataset that will be uploaded to CDS
+
+      '
+    Type:
+      value_type: list
+      item_type: string
+    Req: 'Yes'
+  size_of_data_being_uploaded:
+    Desc: Size of the data being uploaded to CDS
+    Type:
+      value_type: number
+      units:
+      - GB
+      - TB
+      - PB
+    Req: Preferred
+  # program
+  program_acronym:
+    Desc: The name of the program under which related studies will be grouped, expressed in the form of the acronym by which it will identified within the UI. <br>This property is used as the key via which study records can be associated with the appropriate program during data loading, and to identify the correct records during data updates.
+    Src: Internally-curated
+    Type: string
+    Req: 'Yes'
+    Key: true
+  program_external_url:
+    Desc: The external url to which users should be directed in order to learn more about the program.
+    Src: Internally-curated
+    Type: string
+    Req: Preferred
+  program_full_description:
+    Desc: A more detailed, multiple sentence description of the program.
+    Src: Internally-curated
+    Type: string
+    Req: Preferred
+  program_name:
+    Desc: The name of the program under which related studies will be grouped, in full text and unabbreviated form, exactly as it will be displayed within the UI.
+    Src: Internally-curated
+    Type: string
+    Req: 'Yes'
+    Term:
+    - Origin: caDSR
       Original Source: DSS
-      Value: Diagnosis Tumor Grade
+      Code: '11444542'
+      Value: Program Name Text
       Version: '1.00'
-  tumor_stage_clinical_m:
-    Desc: Extent of the distant metastasis for the cancer based on evidence obtained from clinical assessment parameters determined prior to treatment.
-    Enum:
-    - M0
-    - M1
-    - M1a
-    - M1b
-    - M1c
-    - MX
-    - cM0 (i+)
-    - Unknown
-    - Not Reported
-    Term:
-    - Code: '3440331'
-      Origin: caDSR
-      Original Source: TCGA
-      Value: Neoplasm American Joint Committee on Cancer Clinical Distant Metastasis M Stage
-      Version: '1.00'
-  tumor_stage_clinical_n:
-    Desc: Extent of the regional lymph node involvement for the cancer based on evidence obtained from clinical assessment parameters determined prior to treatment.
-    Enum:
-    - N0
-    - N0 (i+)
-    - N0 (i-)
-    - N0 (mol+)
-    - N0 (mol-)
-    - N1
-    - N1a
-    - N1b
-    - N1bI
-    - N1bII
-    - N1bIII
-    - N1bIV
-    - N1c
-    - N1mi
-    - N2
-    - N2a
-    - N2b
-    - N2c
-    - N3
-    - N3a
-    - N3b
-    - N3c
-    - N4
-    - NX
-    - Unknown
-    - Not Reported
-    Term:
-    - Code: '3440330'
-      Origin: caDSR
-      Original Source: TCGA
-      Value: Neoplasm American Joint Committee on Cancer Clinical Regional Lymph Node N Stage
-      Version: '1.00'
-  tumor_stage_clinical_t:
-    Desc: Extent of the primary cancer based on evidence obtained from clinical assessment parameters determined prior to treatment.
-    Enum:
-    - T0
-    - T1
-    - T1a
-    - T1a1
-    - T1a2
-    - T1b
-    - T1b1
-    - T1b2
-    - T1c
-    - T1mi
-    - T2
-    - T2a
-    - T2a1
-    - T2a2
-    - T2b
-    - T2c
-    - T2d
-    - T3
-    - T3a
-    - T3b
-    - T3c
-    - T3d
-    - T4
-    - T4a
-    - T4b
-    - T4c
-    - T4d
-    - T4e
-    - TX
-    - Ta
-    - Tis
-    - Tis (DCIS)
-    - Tis (LCIS)
-    - Tis (Paget's)
-    - Unknown
-    - Not Reported
-    Term:
-    - Code: '3440328'
-      Origin: caDSR
-      Original Source: TCGA
-      Value: Neoplasm American Joint Committee on Cancer Clinical Primary Tumor T Stage
-      Version: '1.00'
-  tumor_tissue_type:
-    Desc: Text that describes the kind of disease present in the tumor specimen as related to a specific timepoint (add rows to select multiple values along with timepoints)
-    Term:
-    - Code: '3288124'
-      Origin: caDSR
-      Original Source: HTAN
-      Value: Tumor Tissue Disease Description Type
-      Version: '1.00'
+  program_short_description:
+    Desc: An abbreviated, single sentence description of the program.
+    Src: Internally-curated
     Type: string
-  vendor:
-    Desc: Vendor name
-    Term:
-    - Code: Pending
-      Origin: caDSR
-      Version: '1.00'
-    Type: string
-  vital_status:
-    Desc: Vital status as of last known follow up
-    Enum:
-    - Alive
-    - Dead
-    - Unknown
-    - Not Reported
-    Term:
-    - Code: '2847330'
-      Origin: caDSR
-      Original Source: NCI Std
-      Value: Participant Vital Status Type
-      Version: '1.00'
-  working_distance:
-    Desc: The working distance of the lens, expressed as a floating point number. Floating point > 0. Size needs to be specified in microns (um)
-    Term:
-    - Code: '7788943'
-      Origin: caDSR
-      Original Source: HTAN
-      Value: Microscope Device Working Distance Float Value
-      Version: '1.00'
-    Type: string
+    Req: Preferred
+  program_sort_order:
+    Desc: An arbitrarily-assigned value used to dictate the order in which programs are displayed within the application's UI.
+    Src: Internally-curated
+    Type: integer
+    Req: 'No'
+  institution:
+    Desc: TBD
+    Type: String
+    Req: Preferred
