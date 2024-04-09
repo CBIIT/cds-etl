@@ -127,6 +127,7 @@ experimental_strategy_and_data_subtypes:
   Archer_Fusion: Archer Fusion
   RNA-seq, Targeted-Capture, WXS: RNA-Seq, Targeted-Capture, WXS
   WXS;Archer_Fusion;Methylation_Array: WXS;Archer Fusion;Methylation Array
+  Archer_Fusion;Methylation_Array;WXS: Archer Fusion;Methylation Array;WXS
   #Targeted-Capture: Targeted Sequencing
 sample_tumor_status:
   normal: Normal
