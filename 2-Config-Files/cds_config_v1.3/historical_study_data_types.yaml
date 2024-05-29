@@ -27,6 +27,8 @@ phs002371_image:
 phs002430:
 - Imaging
 - Genomic
+phs002431:
+- Genomic
 phs002432:
 - Genomic
 phs002479:
@@ -36,6 +38,8 @@ phs002504:
 phs002517:
 - Imaging
 - Genomic
+phs002518:
+- Genomic
 phs002529:
 - Genomic
 phs002599:
@@ -44,9 +48,13 @@ phs002620:
 - Genomic
 phs002637:
 - Genomic
+phs002677:
+- Genomic
 phs002790:
 - Genomic
 phs003111:
 - Genomic
 phs003155:
+- Genomic
+phs003164:
 - Genomic

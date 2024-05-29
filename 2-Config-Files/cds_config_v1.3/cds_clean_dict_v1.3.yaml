@@ -76,6 +76,10 @@ file_type:
   bed: BED
   idat: IDAT
   nifti: NIFTI
+  svg: SVG
+  cram_index: CRAI
+  dict: DICT
+  fasta: FASTA
   #nan_value: unknown
 gender:
   female: Female
@@ -83,7 +87,7 @@ gender:
   F: Female
   FEMALE: Female
   M: Male
-  MALE: male
+  MALE: Male
   #nan_value: Not Specified in Data
 progression_or_recurrence:
   Yes - Progression or Recurrence: "Yes"
