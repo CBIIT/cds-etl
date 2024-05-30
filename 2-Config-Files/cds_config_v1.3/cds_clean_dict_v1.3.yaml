@@ -148,7 +148,7 @@ library_source:
   Transcritomic Single Cell: Transcriptomic Single Cell
 library_selection:
   RANDOM: Random
-  other: Other
+  Other: other
 primary_diagnosis:
   "Adenocarcinoma+C31:C192 In Situ, NOS": Adenocarcinoma In Situ, NOS
   '8072/3 : Squamous cell carcinoma, large cell, nonkeratinizing, NOS': '8072/3 : Squamous Cell Carcinoma, Large Cell, Nonkeratinizing, NOS'

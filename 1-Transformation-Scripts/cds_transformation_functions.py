@@ -66,6 +66,7 @@ def clean_data(df_dict, config):
                                         value_list.append(value)
                                 except Exception as e:
                                     value_list.append(value)
+                                    print(key)
                                     print(e)             
                             else:
                                 value_list.append(value)
