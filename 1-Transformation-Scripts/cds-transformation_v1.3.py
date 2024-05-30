@@ -9,7 +9,8 @@ import dateutil.tz
 import datetime
 from cds_transformation_functions import clean_data, print_data, upload_files, combine_rows, remove_node, ui_validation, id_validation, download_from_s3, combine_columns, add_secondary_id, ssn_validation, add_historical_value, print_historical_value
 from bento.common.utils import get_logger
-
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 cds_log = get_logger('CDS V1.3 Transformation Script')
 

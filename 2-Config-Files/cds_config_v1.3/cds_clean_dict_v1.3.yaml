@@ -132,6 +132,7 @@ experimental_strategy_and_data_subtypes:
   RNA-seq, Targeted-Capture, WXS: RNA-Seq, Targeted-Capture, WXS
   WXS;Archer_Fusion;Methylation_Array: WXS;Archer Fusion;Methylation Array
   Archer_Fusion;Methylation_Array;WXS: Archer Fusion;Methylation Array;WXS
+  RNA-seq;DNA-seq: RNA-Seq;DNA-Seq
   #Targeted-Capture: Targeted Sequencing
 sample_tumor_status:
   normal: Normal
@@ -147,6 +148,7 @@ library_source:
   Transcritomic Single Cell: Transcriptomic Single Cell
 library_selection:
   RANDOM: Random
+  other: Other
 primary_diagnosis:
   "Adenocarcinoma+C31:C192 In Situ, NOS": Adenocarcinoma In Situ, NOS
   '8072/3 : Squamous cell carcinoma, large cell, nonkeratinizing, NOS': '8072/3 : Squamous Cell Carcinoma, Large Cell, Nonkeratinizing, NOS'

@@ -70,6 +70,51 @@ def clean_data(df_dict, config):
                             else:
                                 value_list.append(value)
                         df[key] = pd.Series(value_list, dtype=object)
+                    elif "value_type" in props[PROPDEFINITIONS][key]["Type"]:
+                        re_replace = r'[;,]\s*'
+                        if props[PROPDEFINITIONS][key]["Type"]["value_type"] == "list":
+                            value_list = []
+                            for value in df[key]:
+                                if "Enum" in props[PROPDEFINITIONS][key]["Type"]:
+                                    if value not in props[PROPDEFINITIONS][key]["Type"][ENUM]:
+                                        if key in clean_dict.keys():
+                                            str_value = str(value)
+                                            #print(len(list(clean_dict['primary_diagnosis'].keys())))
+                                            if str_value in clean_dict[key].keys() or value in clean_dict[key].keys():
+                                                try:
+                                                    replace_value = clean_dict[key][value]
+                                                    correct_value = re.sub(re_replace, '|', replace_value)
+                                                    value_list.append(correct_value)
+                                                except:
+                                                    replace_value = clean_dict[str(key)][str_value]
+                                                    correct_value = re.sub(re_replace, '|', replace_value)
+                                                    value_list.append(correct_value)
+                                            else:
+                                                if pd.isna(value):
+                                                    value_list.append(value)
+                                                else:
+                                                    updated_value = re.sub(re_replace, '|', value)
+                                                    value_list.append(updated_value)
+                                        else:
+                                            if pd.isna(value):
+                                                value_list.append(value)
+                                            else:
+                                                updated_value = re.sub(re_replace, '|', value)
+                                                value_list.append(updated_value)
+                                    else:
+                                        if pd.isna(value):
+                                            value_list.append(value)
+                                        else:
+                                            updated_value = re.sub(r'[,;]\s{01}', '|', value)
+                                            value_list.append(updated_value)
+                                else:
+                                    if pd.isna(value):
+                                        value_list.append(value)
+                                    else:
+                                        updated_value = re.sub(r'[,;]\s{01}', '|', value)
+                                        value_list.append(updated_value)
+                            df[key] = pd.Series(value_list, dtype=object)
+
         df_dict[node] = df
     return df_dict
 """
@@ -111,12 +156,16 @@ def print_data(df_dict, config, cds_log, prefix):
     # "prefix" is the prefix of transfomed files
     # "cds_log" is the log object
     sub_folder = os.path.join(config['OUTPUT_FOLDER'], config['DATA_BATCH_NAME'])
-    for file_name, df in df_dict.items():
-        file_name = prefix + '-' + file_name + '.tsv'
+    for node, df in df_dict.items():
+        file_name = prefix + '-' + node + '.tsv'
         file_name = os.path.join(sub_folder, file_name)
         if not os.path.exists(sub_folder):
             os.makedirs(sub_folder)
         df_nulllist = list(df.isnull().all(axis=1))
+        if node in ['study', 'program']:
+            if len(df) > 1:
+                cds_log.error(f'Data node {node} has more than 1 record, abort transforming')
+                sys.exit(1)
         if False in df_nulllist:
             df.to_csv(file_name, sep = "\t", index = False)
             cds_log.info(f'Data node {os.path.basename(file_name)} is created and stored in {sub_folder}')
@@ -310,6 +359,8 @@ def ui_validation(df_dict, config, data_file, cds_log, property_validation_df, m
     # "data_file" is the path of the raw data files
     # "config" is the config file
     # "cds_log" is the log object
+    with open(config['MODEL_FILE_PROPS']) as f:
+        model_props = yaml.safe_load(f)
     raw_data_name = os.path.basename(data_file)
     validation_df = pd.read_excel(io = config['VALIDATION_FILE'],
                                 sheet_name =  "Mapping",
@@ -333,7 +384,7 @@ def ui_validation(df_dict, config, data_file, cds_log, property_validation_df, m
                         property_validation_df_new_row['Raw_Data_File'] = [data_file_base]
                         property_validation_df = pd.concat([property_validation_df, property_validation_df_new_row], ignore_index=True)
 
-                        cds_log.warning('The data node {} does not have require UI property {} extracted from raw data file {}'.format(node, prop, raw_data_name))
+                        cds_log.warning('The data node {} does not have required UI property {} extracted from raw data file {}'.format(node, prop, raw_data_name))
                     elif prop in df_dict[node].keys() and prop in ui_properties and df_dict[node][prop].isnull().values.any():
                         if prop != "experimental_strategy_and_data_subtypes":
                             df_dict[node][prop] = df_dict[node][prop].replace(np.nan, 'Not specified in data')
@@ -346,6 +397,17 @@ def ui_validation(df_dict, config, data_file, cds_log, property_validation_df, m
                         property_validation_df_new_row['Raw_Data_File'] = [data_file_base]
                         property_validation_df = pd.concat([property_validation_df, property_validation_df_new_row], ignore_index=True)
                     '''
+        for prop in model['Nodes'][node]['Props']:
+            df_nulllist = list(df_dict[node].isnull().all(axis=1))
+            if prop not in df_dict[node].keys() and 'Req' in model_props['PropDefinitions'][prop] and len(df_dict[node]) > 0 and False in df_nulllist:
+                if model_props['PropDefinitions'][prop]['Req']=="Yes":
+                    cds_log.warning('The data node {} does not have required property {} extracted from raw data file {}'.format(node, prop, raw_data_name))
+                    df_dict[node][prop] = pd.Series()
+                    property_validation_df_new_row = pd.DataFrame()
+                    property_validation_df_new_row['Missing_Properties'] = [node + '.' +prop]
+                    property_validation_df_new_row['UI_Related'] = [False]
+                    property_validation_df_new_row['Raw_Data_File'] = [data_file_base]
+                    property_validation_df = pd.concat([property_validation_df, property_validation_df_new_row], ignore_index=True)
     return df_dict, property_validation_df
 
 def download_from_s3(config, cds_log):
@@ -430,7 +492,7 @@ def add_historical_value(df_dict, config, cds_log):
                 cds_log.error(f"{historical_property['property']} is None, abort transformation")
                 sys.exit(1)
             historical_property_key = list(df_dict[historical_property['node']][config['NODE_ID_FIELD'][historical_property['node']]])[0]
-            historical_property_value_list = historical_property_value.split(",")
+            historical_property_value_list = historical_property_value.split("|")
             historical_property_value_list = [i.strip() for i in historical_property_value_list]
             historical_property_file = historical_property['historical_property_file']
             with open(historical_property_file) as f:
@@ -466,6 +528,6 @@ def print_historical_value(config, cds_log):
                     if i == 0:
                         new_history_value = history_value[historical_property_key][i]
                     else:
-                        new_history_value = new_history_value + "," + history_value[historical_property_key][i]
+                        new_history_value = new_history_value + "|" + history_value[historical_property_key][i]
                 history_df[historical_property["property"]] = [new_history_value] * len(history_df)
                 history_df.to_csv(data_file, sep = "\t", index = False)
