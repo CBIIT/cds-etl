@@ -112,6 +112,80 @@ study_data_types:
   #nan_value: unknown
 sample_anatomic_site:
   #Blood: Peripheral bloodß
+  Adrenal gland, NOS: Adrenal Gland, NOS
+  Bones of skull and face and associated joints: Bones of Skull and Face and Associated Joints
+  'C02.9 : Tongue+C2:C127, NOS': Tongue, NOS
+  'C06.0 : Buccal mucosa': Buccal mucosa
+  'C06.9 : Mouth, NOS': Mouth, NOS
+  'C07.9 : Parotid gland': Parotid gland
+  'C14.0 : Pharynx, NOS': Pharynx, NOS
+  'C16.9 : Stomach, NOS': Stomach, NOS
+  'C17.9 : Small intestine, NOS': Small Intestine, NOS
+  'C18.9 : Colon, NOS': Colon, NOS
+  'C20.9 : Rectum, NOS': Rectum, NOS
+  'C22.0 : Liver': Liver
+  'C25.9 : Pancreas, NOS': Pancreas, NOS
+  'C34.9 : Lung, NOS': Lung, NOS
+  'C38.0 : Heart': Heart
+  'C38.3 : Mediastinum, NOS': Mediastinum, NOS
+  'C38.4 : Pleura, NOS': Pleura, NOS
+  'C41.1 : Mandible': Mandible
+  'C41.2 : Spine': Spine
+  'C41.3 : Rib, sternum, clavicle and associated joints': Rib, Sternum, Clavicle and Associated Joints
+  'C41.9 : Bone, NOS': Bone, NOS
+  'C42.0 : Blood': Blood
+  'C42.1 : Bone marrow': Bone Marrow
+  'C42.2 : Spleen': Spleen
+  'C44.4 : Skin of scalp and neck': Skin of scalp and neck
+  'C44.9 : Skin, NOS': Skin, NOS
+  'C48.2 : Peritoneum, NOS': Peritoneum, NOS
+  'C49.9 : Muscle, NOS': Muscle, NOS
+  'C56.9 : Ovary': Ovary
+  'C62.9 : Testis, NOS': Testis, NOS
+  'C64.9 : Kidney, NOS': Kidney, NOS
+  'C67.9 : Bladder, NOS': Bladder, NOS
+  'C69.9 : Eye, NOS': Eye, NOS
+  'C71.9 : Brain, NOS': Brain, NOS
+  'C74.9 : Adrenal gland, NOS': Adrenal Gland, NOS
+  'C76.0 : Head, face or neck, NOS': Head, Face or Neck, NOS
+  'C76.1 : Chest wall, NOS': Chest Wall, NOS
+  'C76.1 : Chest, NOS': Chest, NOS
+  'C76.2 : Abdomen, NOS': Abdomen, NOS
+  'C76.3 : Buttock, NOS': Buttock, NOS
+  'C76.3 : Pelvis, NOS': Pelvis, NOS
+  'C76.3 : Perineum, NOS': Perineum, NOS
+  'C76.4 : Arm, NOS': Arm, NOS
+  'C76.4 : Shoulder, NOS': Shoulder, NOS
+  'C76.5 : Thigh, NOS': Thigh, NOS
+  'C76.7 : Back, NOS': Back, NOS
+  'C77.9 : Lymph node, NOS': Lymph Node, NOS
+  'C80 : UNKNOWN PRIMARY SITE': Unknown
+  'C80.9 : Unknown primary site': Unknown
+  Connective, subcutaneous and other soft tissues of abdomen: Connective, Subcutaneous and Other Soft Tissues of Abdomen
+  Connective, subcutaneous and other soft tissues of lower limb and hip: Connective, Subcutaneous and Other Soft Tissues of Lower Limb and Hip
+  Connective, subcutaneous and other soft tissues of pelvis: Connective, Subcutaneous and Other Soft Tissues of Pelvis
+  Connective, subcutaneous and other soft tissues of thorax: Connective, Subcutaneous and Other Soft Tissues of Thorax
+  Connective, subcutaneous and other soft tissues of trunk, NOS: Connective, Subcutaneous and Other Soft Tissues of Trunk, NOS
+  Connective, subcutaneous and other soft tissues of upper limb and shoulder: Connective, Subcutaneous and Other Soft Tissues of Upper Limb and Shoulder
+  External ear: External Ear
+  Head, face or neck, NOS: Head, Face or Neck, NOS
+  Long bones of lower limb and associated joints: Long Bones of Lower Limb and Associated Joints
+  Long bones of upper limb, scapula and associated joints: Long Bones of Upper Limb, Scapula and Associated Joints
+  Lower limb, NOS: Lower Limb, NOS
+  Lower lobe, lung: Lower Lobe, lung
+  Lymph node, NOS: Lymph Node, NOS
+  Lymph nodes of head, face and neck: Lymph Nodes of Head, Face and Neck
+  Lymph nodes of inguinal region or leg: Lymph Nodes of Inguinal Region or Leg
+  Maxillary sinus: Maxillary Sinus
+  Middle lobe, lung: Middle Lobe, lung
+  Nasal cavity: Nasal Cavity
+  Occipital lobe: Occipital Lobe
+  Parotid gland: Parotid Gland
+  Pelvic bones, sacrum, coccyx and associated joints: Pelvic Bones, Sacrum, Coccyx and Associated Joints
+  Rib, sternum, clavicle and associated joints: Rib, Sternum, Clavicle and Associated Joints
+  Small intestine, NOS: Small Intestine, NOS
+  Upper limb, NOS: Upper Limb, NOS
+  Upper lobe, lung: Upper Lobe, Lung
   UNKNOWN PRIMARY SITE: Unknowm
   Invalid value: Not specified in data
   Rare Disease: Not specified in data
@@ -150,6 +224,238 @@ library_selection:
   RANDOM: Random
   Other: other
 primary_diagnosis:
+  '8000/0 : Neoplasm, benign': Neoplasm, Benign
+  '8000/1 : Neoplasm, uncertain whether benign or malignant': Neoplasm, uncertain whether benign or malignant
+  '8000/3 : Neoplasm, malignant': Neoplasm, Malignant
+  '8000/6 : Neoplasm, metastatic': Neoplasm, Metastatic
+  '8010/3 : Carcinoma, NOS': Carcinoma, NOS
+  '8020/3 : Carcinoma, undifferentiated, NOS': Carcinoma, NOS
+  '8023/3 : Nuclear protein in testis (NUT)-associated carcinoma': Nuclear Protein in Testis (NUT)-associated Carcinoma
+  '8041/3 : Small cell carcinoma, NOS': Small Cell Carcinoma, NOS
+  '8070/2 : Squamous cell carcinoma in situ, NOS': Squamous Cell Carcinoma in situ, NOS
+  '8072/3 : Squamous Cell Carcinoma, Large Cell, Nonkeratinizing, NOS': Squamous Cell Carcinoma, Large Cell, Nonkeratinizing, NOS
+  '8120/3 : Transitional cell carcinoma, NOS': Transitional Cell carcinoma, NOS
+  '8130/2 : Papillary urothelial carcinoma, non-invasive': Papillary Urothelial Carcinoma, Non-invasive
+  '8140/3 : Adenocarcinoma, NOS': Adenocarcinoma, NOS
+  '8140/3 : Adenocarcinoma, NOS, 9440/3 : Glioblastoma, NOS': Adenocarcinoma,NOS, Glioblastoma, NOS
+  '8140/6 : Adenocarcinoma, metastatic, NOS': Adenocarcinoma, Metastatic, NOS
+  '8150/3 : Pancreatic neuroendocrine tumor, nonfunctioning': Pancreatic Neuroendocrine Tumor, Nonfunctioning
+  '8160/3 : Cholangiocarcinoma': Cholangiocarcinoma
+  '8170/3 : Hepatocellular Carcinoma, NOS': Hepatocellular Carcinoma, NOS
+  '8170/3 : Hepatocellular carcinoma, NOS, 8960/3 : Nephroblastoma, NOS': Hepatocellular carcinoma, NOS, Nephroblastoma, NOS
+  '8171/3 : Hepatocellular Carcinoma, Fibrolamellar': Hepatocellular Carcinoma, Fibrolamellar
+  '8200/3 : Adenoid cystic carcinoma': Adenoid Cystic Carcinoma
+  '8210/2 : Adenocarcinoma in situ in adenomatous polyp': Adenocarcinoma in situ in Adenomatous Polyp
+  '8240/3 : Neuroendocrine tumor, NOS': Neuroendocrine Tumor, NOS
+  '8246/3 : Neuroendocrine carcinoma, NOS': Neuroendocrine Carcinoma, NOS
+  '8247/3 : Merkel cell carcinoma': Merkel Cell Carcinoma
+  '8255/3 : Adenoca+C14:C356rcinoma with mixed subtypes': 'Adenoca+C14: Carcinoma with mixed subtypes'
+  '8260/3 : Papillary adenocarcinoma, NOS': Papillary Adenocarcinoma, NOS
+  '8312/3 : Renal cell carcinoma, NOS': Renal Cell Carcinoma, NOS
+  '8331/3 : Follicular adenocarcinoma, well differentiated, 9500/3 : Neuroblastoma, NOS': Follicular adenocarcinoma, well differentiated, Neuroblastoma, NOS
+  '8370/3 : Adrenal Cortical Carcinoma': Adrenal Cortical Carcinoma
+  '8430/3 : Mucoepidermoid Carcinoma': Mucoepidermoid Carcinoma
+  '8441/3 : Serous carcinoma, NOS': Serous carcinoma, NOS
+  '8452/3 : Solid pseudopapillary neoplasm of pancreas': Solid Pseudopapillary Neoplasm of Pancreas
+  '8480/3 : Mucinous adenocarcinoma': Mucinous adenocarcinoma
+  '8490/3 : Signet ring cell carcinoma': Signet ring cell carcinoma
+  '8502/3 : Secretory carcinoma': Secretory Carcinoma
+  '8510/3 : Medullary carcinoma, NOS': Medullary Carcinoma, NOS
+  '8550/3 : Acinar Cell Carcinoma': Acinar Cell Carcinoma
+  '8574/3 : Adenocarcinoma with neuroendocrine differentiation': Adenocarcinoma with neuroendocrine differentiation
+  '8580/3 : Thymoma, NOS': Thymoma, NOS
+  '8622/1 : Granulosa cell tumor, juvenile': Granulosa Cell Tumor, Juvenile
+  '8631/1 : Sertoli-Leydig cell tumor of intermediate differentiation, NOS': Sertoli-Leydig Cell Tumor of intermediate differentiation, NOS
+  '8631/3 : Sertoli-Leydig cell tumor, poorly differentiated': Sertoli-Leydig Cell Tumor, poorly differentiated
+  '8634/3 : Sertoli-Leydig cell tumor, poorly differentiated, with heterologous elements': Sertoli-Leydig cell Tumor, poorly differentiated, with heterologous elements
+  '8680/3 : Paraganglioma, NOS': Paraganglioma, NOS
+  '8700/3 : Pheochromocytoma, NOS': Pheochromocytoma, NOS
+  '8711/3 : Glomus tumor, malignant': Glomus Tumor, Malignant
+  '8720/2 : Melanoma in situ': Melanoma In Situ
+  '8720/3 : Malignant Melanoma, NOS': Malignant Melanoma, NOS
+  '8721/3 : Nodular melanoma': Nodular Melanoma
+  '8728/3 : Meningeal melanomatosis': Meningeal Melanomatosis
+  '8742/0 : Lentiginous melanocytic nevus': Lentiginous Melanocytic nevus
+  '8743/3 : Low cumulative sun damage melanoma': Low Cumulative Sun Damage Melanoma
+  '8762/1 : Proliferative dermal lesion in congenital nevus': Proliferative Dermal Lesion in Congenital Nevus
+  '8780/3 : Blue nevus, malignant': Blue Nevus, Malignant
+  '8800/3 : Sarcoma, NOS': Sarcoma, NOS
+  '8801/3 : Spindle cell sarcoma': Spindle Cell Sarcoma
+  '8803/3 : Small cell sarcoma': Small Cell Sarcoma
+  '8804/3 : Epithelioid sarcoma, NOS': Epithelioid Sarcoma, NOS
+  '8805/3 : Undifferentiated Sarcoma': Undifferentiated Sarcoma
+  '8806/3 : Desmoplastic Small Round Cell Tumor': Desmoplastic Small Round Cell Tumor
+  '8814/3 : Infantile Fibrosarcoma': Infantile Fibrosarcoma
+  '8821/1 : Aggressive Fibromatosis': Aggressive Fibromatosis
+  '8822/1 : Abdominal fibromatosis': Abdominal Fibromatosis
+  '8824/0 : Myofibroma': Myofibroma
+  '8824/1 : Myofibromatosis': Myofibromatosis
+  '8825/1 : Myofibroblastic tumor, NOS': Myofibroblastic Tumor, NOS
+  '8826/0 : Angiomyofibroblastoma': Angiomyofibroblastoma
+  '8832/3 : Dermatofibrosarcoma protuberans, fibrosarcomatous': Dermatofibrosarcoma Protuberans, Fibrosarcomatous
+  '8836/1 : Angiomatoid fibrous histiocytoma': Angiomatoid Fibrous Histiocytoma
+  '8850/3 : Liposarcoma, NOS': Liposarcoma, NOS
+  '8852/3 : Myxoid liposarcoma': Myxoid Liposarcoma
+  '8881/0 : Lipoblastomatosis': Lipoblastomatosis
+  '8890/0 : Leiomyoma, NOS': Leiomyoma, NOS
+  '8890/3 : Leiomyosarcoma, NOS': Leiomyosarcoma, NOS
+  '8900/3 : Rhabdomyosarcoma, NOS': Rhabdomyosarcoma, NOS
+  '8910/3 : Embryonal Rhabdomyosarcoma, NOS': Embryonal Rhabdomyosarcoma, NOS
+  '8910/3 : Embryonal rhabdomyosarcoma, NOS, 9473/3 : CNS embryonal tumor, NOS': Embryonal rhabdomyosarcoma, NOS, CNS embryonal tumor, NOS
+  '8912/3 : Spindle Cell Rhabdomyosarcoma': Spindle Cell Rhabdomyosarcoma
+  '8920/3 : Alveolar Rhabdomyosarcoma': Alveolar Rhabdomyosarcoma
+  '8933/3 : Adenosarcoma': Adenosarcoma
+  '8936/3 : Gastrointestinal stromal tumor': Gastrointestinal Stromal Tumor
+  '8960/1 : Mesoblastic nephroma': Mesoblastic Nephroma
+  '8960/3 : Nephroblastoma, NOS': Nephroblastoma, NOS
+  '8963/3 : Rhabdoid tumor, NOS': Rhabdoid Tumor, NOS
+  '8964/3 : Clear cell sarcoma of kidney': Clear Cell Sarcoma of Kidney
+  '8970/3 : Hepatoblastoma, NOS': Hepatoblastoma, NOS
+  '8971/3 : Pancreatoblastoma': Pancreatoblastoma
+  '8973/3 : Pleuropulmonary blastoma': Pleuropulmonary Blastoma
+  '8982/3 : Myoepithelial carcinoma': Myoepithelial Carcinoma
+  '8991/3 : Embryonal Sarcoma': Embryonal Sarcoma
+  '9040/3 : Synovial Sarcoma, NOS': Synovial Sarcoma, NOS
+  '9041/3 : Synovial sarcoma, spindle cell': Synovial Sarcoma, Spindle Cell
+  '9043/3 : Synovial sarcoma, biphasic': Synovial Sarcoma, Biphasic
+  '9044/3 : Clear cell sarcoma, NOS': Clear cell Sarcoma, NOS
+  '9053/3 : Mesothelioma, biphasic, malignant, 9811/3 : B lymphoblastic leukemia/lymphoma, NOS': Mesothelioma, Biphasic, Malignant, B lymphoblastic Leukemia/lymphoma, NOS
+  '9061/3 : Seminoma, NOS': Seminoma, NOS
+  '9064/3 : Germinoma': Germinoma
+  '9065/3 : Germ cell tumor, nonseminomatous': Germ Cell Tumor, Nonseminomatous
+  '9070/3 : Embryonal carcinoma, NOS': Embryonal Carcinoma, NOS
+  '9071/3 : Yolk Sac Tumor, NOS': Yolk Sac Tumor, NOS
+  '9080/1 : Teratoma, NOS': Teratoma, NOS
+  '9080/3 : Teratoma, Malignant, NOS': Teratoma, Malignant, NOS
+  '9081/3 : Teratocarcinoma': Teratocarcinoma
+  '9085/3 : Mixed germ cell tumor': Mixed Germ Cell Tumor
+  '9085/3 : Mixed germ cell tumor, 9910/3 : Acute megakaryoblastic leukemia': Mixed Germ Cell Tumor, Acute Megakaryoblastic Leukemia
+  '9085/3 : Mixed germ cell tumor, 9983/3 : Myelodysplastic syndrome with excess blasts': Mixed Germ Cell Tumor, Myelodysplastic Syndrome with excess blasts
+  '9100/3 : Choriocarcinoma, NOS': Choriocarcinoma, NOS
+  '9101/3 : Choriocarcinoma combined with other germ cell elements': Choriocarcinoma combined with other germ cell elements
+  '9120/0 : Hemangioma, NOS': Hemangioma, NOS
+  '9120/3 : Hemangiosarcoma': Hemangiosarcoma
+  '9130/1 : Hemangioendothelioma, NOS': Hemangioendothelioma, NOS
+  '9133/3 : Epithelioid hemangioendothelioma, NOS': Epithelioid Hemangioendothelioma, NOS
+  '9161/1 : Hemangioblastoma': Hemangioblastoma
+  '9170/0 : Lymphangioma, NOS': Lymphangioma, NOS
+  '9180/3 : Osteosarcoma, NOS': Osteosarcoma, NOS
+  '9181/3 : Chondroblastic Osteosarcoma': Chondroblastic Osteosarcoma
+  '9183/3 : Telangiectatic Osteosarcoma': Telangiectatic Osteosarcoma
+  '9186/3 : Central osteosarcoma, NOS': Central Osteosarcoma, NOS
+  '9220/3 : Chondrosarcoma, NOS': Chondrosarcoma, NOS
+  '9240/3 : Mesenchymal chondrosarcoma': Mesenchymal Chondrosarcoma
+  '9250/3 : Giant cell tumor of bone, malignant': Giant Cell Tumor of Bone, Malignant
+  '9252/0 : Tenosynovial giant cell tumor, NOS': Tenosynovial Giant Cell Tumor, NOS
+  '9350/1 : Craniopharyngioma, NOS': Craniopharyngioma, NOS
+  '9351/1 : Craniopharyngioma, adamantinomatous': Craniopharyngioma, Adamantinomatous
+  '9360/1 : Pinealoma': Pinealoma
+  '9362/3 : Pineoblastoma': Pineoblastoma
+  '9363/0 : Melanotic neuroectodermal tumor': Melanotic Neuroectodermal Tumor
+  '9364/3 : Ewing Sarcoma': Ewing Sarcoma
+  '9370/3 : Chordoma, NOS': Chordoma, NOS
+  '9370/3 : Chordoma, NOS, 9490/3 : Ganglioneuroblastoma': Chordoma, NOS, Ganglioneuroblastoma
+  '9371/3 : Chondroid chordoma': Chondroid Chordoma
+  '9380/3 : Glioma, Malignant': Glioma, Malignant
+  '9380/3 : Glioma, malignant, 9540/3 : Malignant peripheral nerve sheath tumor, NOS': Glioma, malignant, Malignant peripheral nerve sheath tumor, NOS
+  '9383/1 : Subependymoma': Subependymoma
+  '9385/3 : Diffuse Midline Glioma, H3 K27M-Mutant': Diffuse Midline Glioma, H3 K27M-Mutant
+  '9390/1 : Atypical choroid plexus papilloma': Atypical Choroid Plexus Papilloma
+  '9390/3 : Choroid plexus carcinoma': Choroid Plexus Carcinoma
+  '9391/3 : Ependymoma, NOS': Ependymoma, NOS
+  '9391/3 : Ependymoma, NOS, 9539/1 : Atypical meningioma': Ependymoma, NOS, Atypical meningioma
+  '9392/3 : Ependymoma, Anaplastic': Ependymoma, Anaplastic
+  '9394/1 : Myxopapillary ependymoma': Myxopapillary Ependymoma
+  '9395/3 : Papillary tumor of pineal region': Papillary Tumor of Pineal Region
+  '9400/3 : Astrocytoma, NOS': Astrocytoma, NOS
+  '9401/3 : Astrocytoma, anaplastic, NOS': Astrocytoma, Anaplastic, NOS
+  '9421/1 : Pilocytic Astrocytoma': Pilocytic Astrocytoma
+  '9424/3 : Pleomorphic xanthoastrocytoma, NOS': Pleomorphic Xanthoastrocytoma, NOS
+  '9425/3 : Pilomyxoid astrocytoma': Pilomyxoid Astrocytoma
+  '9431/1 : Angiocentric glioma': Angiocentric Glioma
+  '9440/3 : Glioblastoma, NOS': Glioblastoma, NOS
+  '9440/3 : Glioblastoma, NOS, 9470/3 : Medulloblastoma, NOS': Glioblastoma, NOS, Medulloblastoma, NOS
+  '9441/3 : Giant cell glioblastoma': Giant Cell Glioblastoma
+  '9442/3 : Gliosarcoma': Gliosarcoma
+  '9450/3 : Oligodendroglioma, NOS': Oligodendroglioma, NOS
+  '9451/3 : Oligodendroglioma, anaplastic, NOS': Oligodendroglioma, Anaplastic, NOS
+  '9470/3 : Medulloblastoma, NOS': Medulloblastoma, NOS
+  '9471/3 : Desmoplastic nodular medulloblastoma': Desmoplastic Nodular Medulloblastoma
+  '9473/3 : CNS Embryonal Tumor, NOS': CNS Embryonal Tumor, NOS
+  '9473/3 : Central primitive neuroectodermal tumor': Central Primitive Neuroectodermal Tumor
+  '9474/3 : Large cell medulloblastoma': Large Cell Medulloblastoma
+  '9478/3 : Embryonal Tumor With Multilayered Rosettes With C19MC Alteration': Embryonal Tumor With Multilayered Rosettes With C19MC Alteration
+  '9490/3 : Ganglioneuroblastoma': Ganglioneuroblastoma
+  '9500/3 : Neuroblastoma, NOS': Neuroblastoma, NOS
+  '9503/3 : Neuroepithelioma, NOS': Neuroepithelioma, NOS
+  '9505/1 : Ganglioglioma, NOS': Ganglioglioma, NOS
+  '9505/1 : Ganglioglioma, NOS, 9540/3 : Malignant peripheral nerve sheath tumor, NOS': Ganglioglioma, NOS, Malignant peripheral nerve sheath tumor, NOS
+  '9505/3 : Ganglioglioma, anaplastic': Ganglioglioma, Anaplastic
+  '9506/1 : Central neurocytoma': Central Neurocytoma
+  '9508/3 : Atypical teratoid/rhabdoid tumor': Atypical Teratoid/Rhabdoid Tumor
+  '9509/1 : Papillary glioneuronal tumor': Papillary Glioneuronal Tumor
+  '9510/3 : Retinoblastoma, NOS': Retinoblastoma, NOS
+  '9522/3 : Olfactory neuroblastoma': Olfactory Neuroblastoma
+  '9530/0 : Meningioma, NOS': Meningioma, NOS
+  '9530/3 : Meningioma, malignant': Meningioma, Malignant
+  '9539/1 : Atypical meningioma': Atypical Meningioma
+  '9540/3 : Malignant Peripheral Nerve Sheath Tumor, NOS': Malignant Peripheral Nerve Sheath Tumor, NOS
+  '9560/0 : Schwannoma, NOS': Schwannoma, NOS
+  '9581/3 : Alveolar soft part sarcoma': Alveolar Soft Part Sarcoma
+  '9590/3 : Malignant lymphoma, NOS': Malignant Lymphoma, NOS
+  '9591/3 : Malignant lymphoma, non-Hodgkin, NOS': Malignant Lymphoma, Non-Hodgkin, NOS
+  '9596/3 : Composite Hodgkin and non-Hodgkin lymphoma': Composite Hodgkin and Non-Hodgkin Lymphoma
+  '9597/3 : Primary cutaneous follicle center lymphoma': Primary Cutaneous Follicle Center Lymphoma
+  '9650/3 : Hodgkin lymphoma, NOS': Hodgkin Lymphoma, NOS
+  '9663/3 : Hodgkin lymphoma, nodular sclerosis, NOS': Hodgkin Lymphoma, Nodular Sclerosis, NOS
+  '9680/3 : Diffuse large B-cell lymphoma, NOS': Diffuse Large B-cell Lymphoma, NOS
+  '9687/3 : Burkitt lymphoma, NOS': Burkitt Lymphoma, NOS
+  '9688/3 : T-cell/histiocyte rich large B-cell lymphoma': T-cell/Histiocyte Rich Large B-cell Lymphoma
+  '9699/3 : Marginal zone B-cell lymphoma, NOS': Marginal Zone B-cell Lymphoma, NOS
+  '9700/3 : Mycosis fungoides, 9751/1 : Langerhans cell histiocytosis, NOS': Mycosis Fungoides, Langerhans Cell Histiocytosis, NOS
+  '9708/3 : Subcutaneous panniculitis-like T-cell lymphoma': Subcutaneous Panniculitis-like T-cell Lymphoma
+  '9709/3 : Cutaneous T-cell lymphoma, NOS': Cutaneous T-cell Lymphoma, NOS
+  '9714/3 : Anaplastic large cell lymphoma, T-cell and Null-cell type': Anaplastic Large Cell Lymphoma, T-cell and Null-cell type
+  '9716/3 : Hepatosplenic T-cell lymphoma, 9835/3 : Precursor cell lymphoblastic leukemia, NOS': Hepatosplenic T-cell lymphoma, Precursor Cell Lymphoblastic Leukemia, NOS
+  '9727/3 : Precursor cell lymphoblastic lymphoma, NOS': Precursor Cell Lymphoblastic Lymphoma, NOS
+  '9738/3 : HHV8 positive diffuse large B-cell lymphoma': HHV8 Positive Diffuse Large B-cell Lymphoma
+  '9751/1 : Langerhans cell histiocytosis, NOS': Langerhans Cell Histiocytosis, NOS
+  '9751/3 : Langerhans cell histiocytosis, disseminated': Langerhans Cell Histiocytosis, disseminated
+  '9800/3 : Leukemia, NOS': Leukemia, NOS
+  '9801/3 : Acute leukemia, NOS': Acute leukemia, NOS
+  '9807/3 : Mixed phenotype acute leukemia with t(v;11q23); MLL rearranged': Mixed Phenotype Acute Leukemia with t(v;11q23); MLL rearranged
+  '9808/3 : Mixed phenotype acute leukemia, B/myeloid, NOS': Mixed Phenotype Acute Leukemia, B/Myeloid, NOS
+  '9809/3 : Mixed phenotype acute leukemia, T/myeloid, NOS': Mixed Phenotype Acute Leukemia, T/Myeloid, NOS
+  '9811/3 : B lymphoblastic leukemia/lymphoma, NOS': B Lymphoblastic Leukemia/Lymphoma, NOS
+  '9812/3 : B lymphoblastic leukemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1': B Lymphoblastic Leukemia/Lymphoma with t(9;22)(q34;q11.2); BCR-ABL1
+  '9813/3 : B lymphoblastic leukemia/lymphoma with t(v;11q23); MLL rearranged': B Lymphoblastic Leukemia/Lymphoma with t(v;11q23); MLL rearranged
+  '9814/3 : B lymphoblastic leukemia/lymphoma with t(12;21)(p13;q22); TEL-AML1 (ETV6-RUNX1)': B Lymphoblastic Leukemia/Lymphoma with t(12;21)(p13;q22); TEL-AML1 (ETV6-RUNX1)
+  '9815/3 : B lymphoblastic leukemia/lymphoma with hyperdiploidy': B lymphoblastic Leukemia/Lymphoma with Hyperdiploidy
+  '9820/3 : Lymphoid leukemia, NOS': Lymphoid leukemia, NOS
+  '9835/3 : Precursor cell lymphoblastic leukemia, NOS': Precursor Cell Lymphoblastic Leukemia, NOS
+  '9837/3 : Precursor T-cell lymphoblastic leukemia': Precursor T-cell Lymphoblastic Leukemia
+  '9837/3 : Precursor T-cell lymphoblastic leukemia, 9861/3 : Acute myeloid leukemia, NOS': Precursor T-cell Lymphoblastic Leukemia, Acute Myeloid Leukemia, NOS
+  '9840/3 : Acute erythroid leukemia': Acute Erythroid Leukemia
+  '9860/3 : Myeloid leukemia, NOS': Myeloid Leukemia, NOS
+  '9861/3 : Acute myeloid leukemia, NOS': Acute Myeloid Leukemia, NOS
+  '9861/3 : Acute myeloid leukemia, NOS, 9946/3 : Juvenile myelomonocytic leukemia, NOS': Acute Myeloid Leukemia, NOS, Juvenile myelomonocytic leukemia, NOS
+  '9861/3 : Acute myeloid leukemia, NOS, 9975/3 : Myeloproliferative neoplasm, unclassifiable': Acute myeloid leukemia, NOS, Myeloproliferative neoplasm, unclassifiable
+  '9863/3 : Chronic myeloid leukemia, NOS': Chronic Myeloid Leukemia, NOS
+  '9866/3 : Acute promyelocytic leukemia, t(15;17)(q22;q11-12)': Acute Promyelocytic Leukemia, t(15;17)(q22;q11-12)
+  '9871/3 : Acute myeloid leukemia with abnormal marrow eosinophils': Acute Myeloid Leukemia with abnormal marrow eosinophils
+  '9872/3 : Acute myeloid leukemia, minimal differentiation': 9Acute Myeloid Leukemia, minimal differentiation
+  '9875/3 : Chronic myelogenous leukemia, BCR/ABL positive': Chronic Myelogenous Leukemia, BCR/ABL positive
+  '9891/3 : Acute monocytic leukemia': Acute Monocytic Leukemia
+  '9895/3 : Acute myeloid leukemia with myelodysplasia-related changes': Myeloid Leukemia with Myelodysplasia-related changes
+  '9895/3 : Acute myeloid leukemia with myelodysplasia-related changes, 9946/3 : Juvenile myelomonocytic leukemia, NOS': Acute Myeloid Leukemia with Myelodysplasia-related changes, Juvenile Myelomonocytic Leukemia, NOS
+  '9896/3 : Acute myeloid leukemia, t(8;21)(q22;q22)': Acute Myeloid Leukemia, t(8;21)(q22;q22)
+  '9898/1 : Transient abnormal myelopoiesis': Transient Abnormal Myelopoiesis
+  '9930/3 : Myeloid sarcoma': Myeloid Sarcoma
+  '9946/3 : Juvenile myelomonocytic leukemia, NOS': Juvenile Myelomonocytic Leukemia, NOS
+  '9964/3 : Chronic eosinophilic leukemia': Chronic Eosinophilic Leukemia
+  '9970/1 : Lymphoproliferative disorder, NOS': Lymphoproliferative Disorder, NOS
+  '9989/3 : Myelodysplastic syndrome, NOS': Myelodysplastic Syndrome, NOS
+  '999 : Unknown, to be completed later': Unknown
   "Adenocarcinoma+C31:C192 In Situ, NOS": Adenocarcinoma In Situ, NOS
   '8072/3 : Squamous cell carcinoma, large cell, nonkeratinizing, NOS': '8072/3 : Squamous Cell Carcinoma, Large Cell, Nonkeratinizing, NOS'
   '8170/3 : Hepatocellular carcinoma, NOS': '8170/3 : Hepatocellular Carcinoma, NOS'
@@ -1393,6 +1699,53 @@ disease_type:
   Nevi and Melanomas: Melanoma
   Transitional Cell Papillomas and Carcinomas: Carcinoma NOS
 sample_type:
+  'C02.9 : Tongue, NOS': Tongue, NOS
+  'C06.0 : Buccal mucosa': Buccal Mucosa
+  'C06.9 : Mouth, NOS': Mouth, NOS
+  'C07.9 : Parotid gland': Parotid Gland
+  'C14.0 : Pharynx, NOS': Pharynx, NOS
+  'C16.9 : Stomach, NOS': Stomach, NOS
+  'C17.9 : Small intestine, NOS': Small Intestine, NOS
+  'C18.9 : Colon, NOS': Colon, NOS
+  'C20.9 : Rectum, NOS': Rectum, NOS
+  'C22.0 : Liver': Liver
+  'C25.9 : Pancreas, NOS': Pancreas, NOS
+  'C34.9 : Lung, NOS': Lung, NOS
+  'C38.0 : Heart': Heart
+  'C38.3 : Mediastinum, NOS': Mediastinum, NOS
+  'C38.4 : Pleura, NOS': Pleura, NOS
+  'C41.1 : Mandible': Mandible
+  'C41.2 : Spine': Spine
+  'C41.3 : Rib, sternum, clavicle and associated joints': Rib, Sternum, Clavicle and Associated Joints
+  'C41.9 : Bone, NOS': Bone, NOS
+  'C42.0 : Blood': Blood
+  'C42.1 : Bone marrow': Bone Marrow
+  'C42.2 : Spleen': Spleen
+  'C44.4 : Skin of scalp and neck': Skin of Scalp and Neck
+  'C44.9 : Skin, NOS': Skin, NOS
+  'C48.2 : Peritoneum, NOS': Peritoneum, NOS
+  'C49.9 : Muscle, NOS': Muscle, NOS
+  'C56.9 : Ovary': Ovary
+  'C62.9 : Testis, NOS': Testis, NOS
+  'C64.9 : Kidney, NOS': Kidney, NOS
+  'C67.9 : Bladder, NOS': Bladder, NOS
+  'C69.9 : Eye, NOS': Eye, NOS
+  'C71.9 : Brain, NOS': Brain, NOS
+  'C74.9 : Adrenal gland, NOS': Adrenal Gland, NOS
+  'C76.0 : Head, face or neck, NOS': Head, Face or Neck, NOS
+  'C76.1 : Chest wall, NOS': Chest Wall, NOS
+  'C76.1 : Chest, NOS': Chest, NOS
+  'C76.2 : Abdomen, NOS': Abdomen, NOS
+  'C76.3 : Buttock, NOS': Buttock, NOS
+  'C76.3 : Pelvis, NOS': Pelvis, NOS
+  'C76.3 : Perineum, NOS': Perineum, NOS
+  'C76.4 : Arm, NOS': Arm, NOS
+  'C76.4 : Shoulder, NOS': Shoulder, NOS
+  'C76.5 : Thigh, NOS': Thigh, NOS
+  'C76.7 : Back, NOS': Back, NOS
+  'C77.9 : Lymph node, NOS': Lymph Node, NOS
+  'C80 : UNKNOWN PRIMARY SITE': Unknown
+  'C80.9 : Unknown primary site': Unknown
   peripheral blood - Blood Derived Cancer: Blood
   Tissue Biospecimen Type: Tissue
   Invalid value: null
