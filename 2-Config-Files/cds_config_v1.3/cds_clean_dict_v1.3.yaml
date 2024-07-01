@@ -43,6 +43,10 @@ reference_genome_assembly:
   hg38 (GCA_000001405.15): GRCh38
   refdata-cellranger-arc-GRCh38-2020-A-2.0.0: GRCh38
   refdata-gex-GRCh38-2020-A: GRCh38
+  GCA_000001405.15_GRCh38_no_alt_analysis_set: GRCh38
+  GCF_000001405.39: GRCh38
+  hg38+EBV: GRCh38
+  refdata-cellranger-GRCh38-1.2.0: GRCh38
   "refdata-gex-GRCh38-2020-A'": GRCh38
   "Blood-derived genomic DNA (100ng - 1µg) was sheared using a Covaris S2 instrument.Ê Libraries were prepared using the NEBNext DNA Library Prep Reagent Set for Illumina (NEB # E6000) according to the manufacturerÕs instructions.Ê Library enrichment for a 34 gene custom panel was done with the Roche SeqCap EZ Choice Library (cat# 06266339001) and the SeqCap EZ Reagent Kit Plus v2 (NimbleGen #06-953-247-001) using the manufacturerÕs protocol. Individual libraries were combined into pools of 6-12 prior to hybridization.": Not specified in data
   "DNA samples (1 ug) were sheared using a Covaris S2 Focused-ultrasonicator and libraries were prepared using the Illumina TruSeq DNA PCR-Free Sample Preparation Kit (cat# FC-121-3001 and FC-121-3002) with an average insert size of 350 bp.Ê Adapter-ligated molecules were analyzed by quantitative PCR using the Kapa Biosystems Kapa Library Quant Kit (cat#KK4824) and the molarity of individual libraries were normalized to 10 nM in preparation for Illumina sequence analysis.": Not specified in data
@@ -112,6 +116,7 @@ study_data_types:
   #nan_value: unknown
 sample_anatomic_site:
   #Blood: Peripheral bloodß
+  'C37.9 : Thymus': Thymus
   Adrenal gland, NOS: Adrenal Gland, NOS
   Bones of skull and face and associated joints: Bones of Skull and Face and Associated Joints
   'C02.9 : Tongue+C2:C127, NOS': Tongue, NOS
@@ -224,6 +229,53 @@ library_selection:
   RANDOM: Random
   Other: other
 primary_diagnosis:
+  '8170/3 : Hepatocellular Carcinoma, NOS': Hepatocellular Carcinoma, Nos
+  '8171/3 : Hepatocellular carcinoma, fibrolamellar': Hepatocellular Carcinoma, Fibrolamellar
+  '8171/3 : Hepatocellular Carcinoma, Fibrolamellar': Hepatocellular Carcinoma, Fibrolamellar
+  '8370/3 : Adrenal Cortical Carcinoma': Adrenal Cortical Carcinoma
+  '8430/3 : Mucoepidermoid Carcinoma': Mucoepidermoid Carcinoma
+  '8550/3 : Acinar Cell Carcinoma': Acinar Cell Carcinoma
+  '8720/3 : Malignant Melanoma, NOS': Malignant Melanoma, Nos
+  '8806/3 : Desmoplastic Small Round Cell Tumor': Desmoplastic Small Round Cell Tumor
+  '8814/3 : Infantile Fibrosarcoma': Infantile Fibrosarcoma
+  '8821/1 : Aggressive Fibromatosis': Aggressive Fibromatosis
+  '8910/3 : Embryonal Rhabdomyosarcoma, NOS': Embryonal Rhabdomyosarcoma, Nos
+  '8912/3 : Spindle Cell Rhabdomyosarcoma': Spindle Cell Rhabdomyosarcoma
+  '8920/3 : Alveolar Rhabdomyosarcoma': Alveolar Rhabdomyosarcoma
+  '8991/3 : Embryonal Sarcoma': Embryonal Sarcoma
+  '9040/3 : Synovial Sarcoma, NOS': Synovial Sarcoma, Nos
+  '9071/3 : Yolk Sac Tumor, NOS': Yolk Sac Tumor, Nos
+  '9080/3 : Teratoma, Malignant, NOS': Teratoma, Malignant, Nos
+  '9183/3 : Telangiectatic Osteosarcoma': Telangiectatic Osteosarcoma
+  '9364/3 : Ewing Sarcoma': Ewing Sarcoma
+  '9364/3 : Ewing sarcoma': Ewing Sarcoma
+  '9380/3 : Glioma, Malignant': Glioma, Malignant
+  '9385/3 : Diffuse Midline Glioma, H3 K27M-Mutant': Diffuse Midline Glioma, H3 K27m-Mutant
+  '9392/3 : Ependymoma, Anaplastic': Ependymoma, Anaplastic
+  '9421/1 : Pilocytic Astrocytoma': Pilocytic Astrocytoma
+  '9478/3 : Embryonal Tumor With Multilayered Rosettes With C19MC Alteration': Embryonal Tumor With Multilayered Rosettes With C19mc Alteration
+  '9540/3 : Malignant Peripheral Nerve Sheath Tumor, NOS': '9540/3 : Malignant Peripheral Nerve Sheath Tumor, Nos'
+  '9837/3 : T lymphoblastic leukemia/lymphoma': T Lymphoblastic Leukemia/Lymphoma
+  Adenocarcinoma in situ in Adenomatous Polyp: Adenocarcinoma In Situ In Adenomatous Polyp
+  Anaplastic astrocytoma, IDH-wildtype, Glioblastoma, IDH wildtype: Anaplastic Astrocytoma, IDH-Wildtype, Glioblastoma, IDH Wildtype
+  Astrocytoma, Anaplastic, NOS: Astrocytoma, Anaplastic, Nos
+  Clear Cell Sarcoma of Kidney: Clear Cell Sarcoma Of Kidney
+  Embryonal Carcinoma, NOS: Embryonal Carcinoma, Nos
+  Epithelioid Sarcoma, NOS: Epithelioid Sarcoma, Nos
+  Giant Cell Tumor of Bone, Malignant: Giant Cell Tumor Of Bone, Malignant
+  Myofibroblastic Tumor, NOS: Myofibroblastic Tumor, Nos
+  Neuroendocrine Carcinoma, NOS: Neuroendocrine Carcinoma, Nos
+  Neuroendocrine Tumor, NOS: Neuroendocrine Tumor, Nos
+  Papillary Adenocarcinoma, NOS: Papillary Adenocarcinoma, Nos
+  Papillary Urothelial Carcinoma, Non-invasive: Papillary Urothelial Carcinoma, Non-Invasive
+  Pleomorphic Xanthoastrocytoma, NOS: Pleomorphic Xanthoastrocytoma, Nos
+  Proliferative Dermal Lesion in Congenital Nevus: Proliferative Dermal Lesion In Congenital Nevus
+  Renal Cell Carcinoma, NOS: Renal Cell Carcinoma, Nos
+  Sertoli-Leydig Cell Tumor of intermediate differentiation, NOS: Sertoli-Leydig Cell Tumor Of Intermediate Differentiation, NOS
+  Sertoli-Leydig cell Tumor, poorly differentiated, with heterologous elements: Sertoli-Leydig Cell Tumor, Poorly Differentiated, With Heterologous Elements
+  Solid Pseudopapillary Neoplasm of Pancreas: Solid Pseudopapillary Neoplasm Of Pancreas
+  Squamous Cell Carcinoma in situ, NOS: Squamous Cell Carcinoma In Situ, NOS
+  Transitional Cell carcinoma, NOS: Transitional Cell Carcinoma, NOS
   '8000/0 : Neoplasm, benign': Neoplasm, Benign
   '8000/1 : Neoplasm, uncertain whether benign or malignant': Neoplasm, uncertain whether benign or malignant
   '8000/3 : Neoplasm, malignant': Neoplasm, Malignant
@@ -457,40 +509,38 @@ primary_diagnosis:
   '9989/3 : Myelodysplastic syndrome, NOS': Myelodysplastic Syndrome, NOS
   '999 : Unknown, to be completed later': Unknown
   "Adenocarcinoma+C31:C192 In Situ, NOS": Adenocarcinoma In Situ, NOS
-  '8072/3 : Squamous cell carcinoma, large cell, nonkeratinizing, NOS': '8072/3 : Squamous Cell Carcinoma, Large Cell, Nonkeratinizing, NOS'
-  '8170/3 : Hepatocellular carcinoma, NOS': '8170/3 : Hepatocellular Carcinoma, NOS'
-  '8171/3 : Hepatocellular carcinoma, fibrolamellar': '8171/3 : Hepatocellular Carcinoma, Fibrolamellar'
-  '8370/3 : Adrenal cortical carcinoma': '8370/3 : Adrenal Cortical Carcinoma'
-  '8430/3 : Mucoepidermoid carcinoma': '8430/3 : Mucoepidermoid Carcinoma'
-  '8550/3 : Acinar cell carcinoma': '8550/3 : Acinar Cell Carcinoma'
-  '8720/3 : Malignant melanoma, NOS': '8720/3 : Malignant Melanoma, NOS'
-  '8805/3 : Undifferentiated sarcoma': '8805/3 : Undifferentiated Sarcoma'
-  '8806/3 : Desmoplastic small round cell tumor': '8806/3 : Desmoplastic Small Round Cell Tumor'
-  '8814/3 : Infantile fibrosarcoma': '8814/3 : Infantile Fibrosarcoma'
-  '8821/1 : Aggressive fibromatosis': '8821/1 : Aggressive Fibromatosis'
-  '8910/3 : Embryonal rhabdomyosarcoma, NOS': '8910/3 : Embryonal Rhabdomyosarcoma, NOS'
-  '8912/3 : Spindle cell rhabdomyosarcoma': '8912/3 : Spindle Cell Rhabdomyosarcoma'
-  '8920/3 : Alveolar rhabdomyosarcoma': '8920/3 : Alveolar Rhabdomyosarcoma'
-  '8991/3 : Embryonal sarcoma': '8991/3 : Embryonal Sarcoma'
-  '9040/3 : Synovial sarcoma, NOS': '9040/3 : Synovial Sarcoma, NOS'
-  '9071/3 : Yolk sac tumor, NOS': '9071/3 : Yolk Sac Tumor, NOS'
-  '9080/3 : Teratoma, malignant, NOS': '9080/3 : Teratoma, Malignant, NOS'
-  '9181/3 : Chondroblastic osteosarcoma': '9181/3 : Chondroblastic Osteosarcoma'
-  '9183/3 : Telangiectatic osteosarcoma': '9183/3 : Telangiectatic Osteosarcoma'
-  '9192/3 : Parosteal osteosarcoma': '9192/3 : Parosteal Osteosarcoma'
-  '9193/3 : Periosteal osteosarcoma': '9193/3 : Periosteal Osteosarcoma'
-  '9364/3 : Ewing sarcoma': '9364/3 : Ewing Sarcoma'
-  '9380/3 : Glioma, malignant': '9380/3 : Glioma, Malignant'
-  '9384/1 : Subependymal giant cell astrocytoma': '9384/1 : Subependymal Giant Cell Astrocytoma'
-  '9385/3 : Diffuse midline glioma, H3 K27M-mutant': '9385/3 : Diffuse Midline Glioma, H3 K27M-Mutant'
-  '9392/3 : Ependymoma, anaplastic': '9392/3 : Ependymoma, Anaplastic'
-  '9400/0 : Astrocytoma, benign': '9400/0 : Astrocytoma, Benign'
-  '9400/3 : Astrocytoma, NOS, 9478/3 : Embryonal tumor with multilayered rosettes with C19MC alteration': '9400/3 : Astrocytoma, NOS'
-  '9413/0 : Dysembryoplastic neuroepithelial tumor': '9413/0 : Dysembryoplastic Neuroepithelial Tumor'
-  '9421/1 : Pilocytic astrocytoma': '9421/1 : Pilocytic Astrocytoma'
-  '9473/3 : CNS embryonal tumor, NOS': '9473/3 : CNS Embryonal Tumor, NOS'
-  '9478/3 : Embryonal tumor with multilayered rosettes with C19MC alteration': '9478/3 : Embryonal Tumor With Multilayered Rosettes With C19MC Alteration'
-  '9540/3 : Malignant peripheral nerve sheath tumor, NOS': '9540/3 : Malignant Peripheral Nerve Sheath Tumor, NOS'
+  '8072/3 : Squamous cell carcinoma, large cell, nonkeratinizing, NOS': 'Squamous Cell Carcinoma, Large Cell, Nonkeratinizing, NOS'
+  '8170/3 : Hepatocellular carcinoma, NOS': 'Hepatocellular Carcinoma, NOS'
+  '8370/3 : Adrenal cortical carcinoma': 'Adrenal Cortical Carcinoma'
+  '8430/3 : Mucoepidermoid carcinoma': 'Mucoepidermoid Carcinoma'
+  '8550/3 : Acinar cell carcinoma': 'Acinar Cell Carcinoma'
+  '8720/3 : Malignant melanoma, NOS': 'Malignant Melanoma, NOS'
+  '8805/3 : Undifferentiated sarcoma': 'Undifferentiated Sarcoma'
+  '8806/3 : Desmoplastic small round cell tumor': 'Desmoplastic Small Round Cell Tumor'
+  '8814/3 : Infantile fibrosarcoma': 'Infantile Fibrosarcoma'
+  '8821/1 : Aggressive fibromatosis': 'Aggressive Fibromatosis'
+  '8910/3 : Embryonal rhabdomyosarcoma, NOS': 'Embryonal Rhabdomyosarcoma, NOS'
+  '8912/3 : Spindle cell rhabdomyosarcoma': 'Spindle Cell Rhabdomyosarcoma'
+  '8920/3 : Alveolar rhabdomyosarcoma': 'Alveolar Rhabdomyosarcoma'
+  '8991/3 : Embryonal sarcoma': 'Embryonal Sarcoma'
+  '9040/3 : Synovial sarcoma, NOS': 'Synovial Sarcoma, NOS'
+  '9071/3 : Yolk sac tumor, NOS': 'Yolk Sac Tumor, NOS'
+  '9080/3 : Teratoma, malignant, NOS': 'Teratoma, Malignant, NOS'
+  '9181/3 : Chondroblastic osteosarcoma': 'Chondroblastic Osteosarcoma'
+  '9183/3 : Telangiectatic osteosarcoma': 'Telangiectatic Osteosarcoma'
+  '9192/3 : Parosteal osteosarcoma': 'Parosteal Osteosarcoma'
+  '9193/3 : Periosteal osteosarcoma': 'Periosteal Osteosarcoma'
+  '9380/3 : Glioma, malignant': 'Glioma, Malignant'
+  '9384/1 : Subependymal giant cell astrocytoma': 'Subependymal Giant Cell Astrocytoma'
+  '9385/3 : Diffuse midline glioma, H3 K27M-mutant': 'Diffuse Midline Glioma, H3 K27M-Mutant'
+  '9392/3 : Ependymoma, anaplastic': 'Ependymoma, Anaplastic'
+  '9400/0 : Astrocytoma, benign': 'Astrocytoma, Benign'
+  '9400/3 : Astrocytoma, NOS, 9478/3 : Embryonal tumor with multilayered rosettes with C19MC alteration': 'Astrocytoma, NOS'
+  '9413/0 : Dysembryoplastic neuroepithelial tumor': 'Dysembryoplastic Neuroepithelial Tumor'
+  '9421/1 : Pilocytic astrocytoma': 'Pilocytic Astrocytoma'
+  '9473/3 : CNS embryonal tumor, NOS': 'CNS Embryonal Tumor, NOS'
+  '9478/3 : Embryonal tumor with multilayered rosettes with C19MC alteration': 'Embryonal Tumor With Multilayered Rosettes With C19MC Alteration'
+  '9540/3 : Malignant peripheral nerve sheath tumor, NOS': 'Malignant Peripheral Nerve Sheath Tumor, NOS'
   Adenocarcinoma in situ, NOS: Adenocarcinoma In Situ, NOS
   Adenocarcinoma in situ, non-mucinous: Adenocarcinoma In Situ, Non-Mucinous
   Adenocarcinoma in villous adenoma: Adenocarcinoma In Villous Adenoma
@@ -1699,6 +1749,7 @@ disease_type:
   Nevi and Melanomas: Melanoma
   Transitional Cell Papillomas and Carcinomas: Carcinoma NOS
 sample_type:
+  'C37.9 : Thymus': Thymus
   'C02.9 : Tongue, NOS': Tongue, NOS
   'C06.0 : Buccal mucosa': Buccal Mucosa
   'C06.9 : Mouth, NOS': Mouth, NOS
