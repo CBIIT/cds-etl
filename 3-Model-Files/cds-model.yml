@@ -15,6 +15,7 @@ Nodes:
       - program_full_description
       - program_external_url
       - program_sort_order
+      - program_short_name
       - institution
       - crdc_id
 
@@ -87,6 +88,7 @@ Nodes:
       - ethnicity
       #  - vital_status
       - dbGaP_subject_id
+      - sex
       - crdc_id
 
   diagnosis: # may have multiple dxs for multiple timepoints?
@@ -133,6 +135,7 @@ Nodes:
       - treatment_outcome
       - days_to_treatment
       - therapeutic_agents
+      - response
       - crdc_id
 
   sample: # aka subspecimen (CMB)
@@ -203,6 +206,8 @@ Nodes:
       - sequence_alignment_software
       - reporter_label
       - methylation_platform
+      - library_source_material
+      - library_source_molecule
       - crdc_id
 
   image:
@@ -233,7 +238,6 @@ Nodes:
       - performed_imaging_study_summary
       - performed_imaging_study_primaryAnatomicSiteCode
       - performed_imaging_study_acquisitionTypeCode
-      - performed_imaging_study_imageTypeCode
       - performed_imaging_study_cardiacSynchronizationTechniqueCode
       - performed_imaging_study_dataCollectionDiameter
       - performed_imaging_study_respiratoryMotionTechniqueCode
@@ -250,7 +254,6 @@ Nodes:
       - CTAquisitionProtocolElement_singleCollimationWidth
       - CTAquisitionProtocolElement_totalCollimationWidth
       - CTAquisitionProtocolElement_gantryDetectorTilt
-      - CTAquisitionProtocolElement_tableSpeed
       - CTAquisitionProtocolElement_spiralPitchFactor
       - CTAquisitionProtocolElement_ctdiVol
       - CTAquisitionProtocolElement_ctdiPhantomTypeCode
@@ -309,18 +312,17 @@ Nodes:
       - fluorophore
       - clone
       - lot
-      - vendor
       - catalog_number
       - excitation_wavelength
       - emission_wavelength
       - excitation_bandwidth
       - emission_bandwidth
-      - metal_isotope_element
+      - metal_isotope_element_abbreviation
+      - metal_isotope_element_mass
       - oligo_barcode_upper_strand
       - oligo_barcode_lower_strand
-      - diluation
+      - dilution
       - concentration
-      - passes_qc
       - crdc_id
 
 Relationships:
@@ -366,3 +368,9 @@ Relationships:
       - Src: image
         Dst: file
         Mul: one_to_one
+  associated_with:
+    Props: null
+    Mul: many_to_one
+    Ends:
+      - Src: file 
+        Dst: file

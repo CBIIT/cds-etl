@@ -149,7 +149,7 @@ def upload_files(config, timestamp, cds_log):
     cds_log.info(f'Transformed data files for {local_sub_folder_name} uploaded to {transformed_subfolder}')
     cds_log.info(f'Raw data files for {local_sub_folder_name} uploaded to {raw_subfolder}')
 
-def print_data(df_dict, config, cds_log, prefix):
+def print_data(df_dict, config, cds_log, prefix, split):
     # The function to store the transformed data to local file
     # The function will create a set of raw folders based on the name of the raw datafiles
     # "data_file" is the path of the raw data files
@@ -157,6 +157,8 @@ def print_data(df_dict, config, cds_log, prefix):
     # "prefix" is the prefix of transfomed files
     # "cds_log" is the log object
     sub_folder = os.path.join(config['OUTPUT_FOLDER'], config['DATA_BATCH_NAME'])
+    if split:
+        sub_folder = os.path.join(sub_folder, df_dict['study']['phs_accession'][0])
     for node, df in df_dict.items():
         file_name = prefix + '-' + node + '.tsv'
         file_name = os.path.join(sub_folder, file_name)
@@ -515,7 +517,8 @@ def add_historical_value(df_dict, config, cds_log):
 #Update the study version for all study files
 def print_historical_value(config, cds_log):
     output_folder = os.path.join(config['OUTPUT_FOLDER'], config['DATA_BATCH_NAME'])
-    for data_file in glob.glob('{}/*.tsv'.format(output_folder)):
+    for data_file in glob.glob('{}/**/*.tsv'.format(output_folder), recursive=True):
+        print(data_file)
         for historical_property in config['HISTORICAL_PROPERTIES']:
             with open(historical_property['historical_property_file']) as f:
                 history_value = yaml.safe_load(f)

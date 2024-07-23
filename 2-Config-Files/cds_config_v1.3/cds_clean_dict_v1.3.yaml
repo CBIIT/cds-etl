@@ -3,25 +3,31 @@ adult_or_childhood_study:
   adult: Adult
   Pediatric, pediatric: Pediatric
 library_layout:
-  paired: Paired-end
-  Single: Single-end
-  Paired End: Paired-end
-  Paired-end: Paired-end
-  Paired end: Paired-end
-  paired-end: Paired-end
-  paired_end: Paired-end
-  single-end: Single-end
-  single: Single-end
-  Not specified in data: Not Reported
+  paired: Paired-End
+  Paired-end: Paired-End
+  Single-end: Single-indexed
+  Single: Single-indexed
+  Paired End: Paired-End
+  Paired-end: Paired-End
+  Paired end: Paired-End
+  paired-end: Paired-End
+  paired_end: Paired-End
+  single-end: Single-indexed
+  single: Single-indexed
 instrument_model:
   HiSeq 3000: Illumina HiSeq 3000
   HiSeq 2500: Illumina HiSeq 2500
   HiSeq 2000: Illumina HiSeq 2000
-  Illumina Next Seq 500: NextSeq 500
+  Illumina Next Seq 500: Illumina NextSeq 500
   Illumina HiSeq X Five: HiSeq X Five
   Illumina HiSeq X Ten: HiSeq X Ten
   Illumina NextSeq: Illumina NextSeq
   HiSeq: Illumina HiSeq
+  #Not Applicable: Not Reported
+  Illumina Next Seq 550: Illumina NextSeq 550
+  NextSeq 500 Illumina: Illumina NextSeq 5000
+  unknown: Unknown
+  NextSeq 500: Illumina NextSeq 500
 reference_genome_assembly:
   hg19 / GRCh37: GRCh37
   hs37d5: GRCh37
@@ -195,11 +201,12 @@ sample_anatomic_site:
   Invalid value: Not specified in data
   Rare Disease: Not specified in data
   Soft Tissue Sarcoma: Not specified in data
+  'C72.9 : Central nervous system': Central Nervous System
 library_strategy:
   wxs: WXS
   RNA-seq: RNA-Seq
   Archer_Fusion: Archer Fusion
-  AMPLICON: Amplicon
+  OTHER: Other
 experimental_strategy_and_data_subtypes:
   wxs: WXS
   RNA-seq: RNA-Seq
@@ -212,6 +219,7 @@ experimental_strategy_and_data_subtypes:
   WXS;Archer_Fusion;Methylation_Array: WXS;Archer Fusion;Methylation Array
   Archer_Fusion;Methylation_Array;WXS: Archer Fusion;Methylation Array;WXS
   RNA-seq;DNA-seq: RNA-Seq;DNA-Seq
+  Sequencing: RNA-Seq
   #Targeted-Capture: Targeted Sequencing
 sample_tumor_status:
   normal: Normal
@@ -227,8 +235,680 @@ library_source:
   Transcritomic Single Cell: Transcriptomic Single Cell
 library_selection:
   RANDOM: Random
-  Other: other
+  Other: Other
+  Poly-T Enrichment: Poly-A Enriched Genomic Library
 primary_diagnosis:
+  4th Ventricle Posterior fossa group A (PFA) ependymoma, histologically CNS WHO grade 3: 4th Ventricle Posterior Fossa Group A (PFA) Ependymoma, Histologically CNS WHO Grade 3
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, ATRT, NOS or NEC, Atypical teratoid/rhabdoid tumor': Neoplasm, Uncertain Whether Benign Or Malignant, ATRT, NOS Or NEC, Atypical Teratoid/Rhabdoid Tumor
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, ATRT-SHH, Atypical teratoid/rhabdoid tumor': Neoplasm, Uncertain Whether Benign Or Malignant, ATRT-SHH, Atypical Teratoid/Rhabdoid Tumor
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, Adamantinomatous craniopharyngioma, Craniopharyngioma': Neoplasm, Uncertain Whether Benign Or Malignant, Adamantinomatous Craniopharyngioma, Craniopharyngioma
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, Astrocytoma, IDH-mutant, Low-Grade Glioma': Neoplasm, Uncertain Whether Benign Or Malignant, Astrocytoma, IDH-Mutant, Low-Grade Glioma
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, CNS Germ Cell Tumors, CNS Germinoma': Neoplasm, Uncertain Whether Benign Or Malignant, CNS Germ Cell Tumors, CNS Germinoma
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, CNS Sarcoma, Ewing sarcoma': Neoplasm, Uncertain Whether Benign Or Malignant, CNS Sarcoma, Ewing Sarcoma
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, Choroid Plexus tumors, Choroid plexus papilloma': Neoplasm, Uncertain Whether Benign Or Malignant, Choroid Plexus Tumors, Choroid Plexus Papilloma
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, Diffuse midline glioma, H3 K27-altered, High-Grade Glioma': Neoplasm, Uncertain Whether Benign Or Malignant, Diffuse Midline Glioma, H3 K27-Altered, High-Grade Glioma
+  ? '8000/1 : Neoplasm, uncertain whether benign or malignant, Diffuse pediatric-type high-grade glioma, H3-wildtype and IDH-wildtype, High-Grade Glioma'
+  : Neoplasm, Uncertain Whether Benign Or Malignant, Diffuse Pediatric-Type High-Grade Glioma, H3-Wildtype And IDH-Wildtype, High-Grade Glioma
+  ? '8000/1 : Neoplasm, uncertain whether benign or malignant, Dysembryoplastic neuroepithelial tumor, Glioneuronal and neuronal tumors'
+  : Neoplasm, Uncertain Whether Benign Or Malignant, Dysembryoplastic Neuroepithelial Tumor, Glioneuronal And Neuronal Tumors
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, Ependymoma, Posterior fossa ependymoma, group PFA': Neoplasm, Uncertain Whether Benign Or Malignant, Ependymoma, Posterior Fossa Ependymoma, Group PFA
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, Ependymoma, Supratentorial ependymoma, NOS or NEC': Neoplasm, Uncertain Whether Benign Or Malignant, Ependymoma, Supratentorial Ependymoma, NOS Or NEC
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, High-Grade Glioma, High-grade glioma, NOS or NEC': Neoplasm, Uncertain Whether Benign Or Malignant, High-Grade Glioma, High-Grade Glioma, NOS Or NEC
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, Low-Grade Glioma, Low-grade glioma, NOS or NEC': Neoplasm, Uncertain Whether Benign Or Malignant, Low-Grade Glioma, Low-Grade Glioma, NOS Or NEC
+  ? '8000/1 : Neoplasm, uncertain whether benign or malignant, Low-Grade Glioma, Oligodendroglioma, IDH-mutant, and 1p/19q-codeleted'
+  : Neoplasm, Uncertain Whether Benign Or Malignant, Low-Grade Glioma, Oligodendroglioma, IDH-Mutant, And 1p/19q-Codeleted
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, Low-Grade Glioma, Pilocytic astrocytoma': Neoplasm, Uncertain Whether Benign Or Malignant, Low-Grade Glioma, Pilocytic Astrocytoma
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, Low-Grade Glioma, Subependymal giant cell astrocytoma': Neoplasm, Uncertain Whether Benign Or Malignant, Low-Grade Glioma, Subependymal Giant Cell Astrocytoma
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, Medulloblastoma, Medulloblastoma, Group 4': Neoplasm, Uncertain Whether Benign Or Malignant, Medulloblastoma, Medulloblastoma, Group 4
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, Medulloblastoma, Medulloblastoma, NOS or NEC': Neoplasm, Uncertain Whether Benign Or Malignant, Medulloblastoma, Medulloblastoma, NOS Or NEC
+  ? "8000/1 : Neoplasm, uncertain whether benign or malignant, Medulloblastoma, Medulloblastoma, SHH-activated and\_TP53-wildtype"
+  : "Neoplasm, Uncertain Whether Benign Or Malignant, Medulloblastoma, Medulloblastoma, SHH-Activated And\_TP53-Wildtype"
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, Medulloblastoma, Medulloblastoma, non-WNT/non-SHH': Neoplasm, Uncertain Whether Benign Or Malignant, Medulloblastoma, Medulloblastoma, Non-WNT/Non-SHH
+  '8000/1 : Neoplasm, uncertain whether benign or malignant, Meningioma, Other': Neoplasm, Uncertain Whether Benign Or Malignant, Meningioma, Other
+  '8000/3 : Neoplasm, malignant, ATRT, NOS or NEC, Atypical teratoid/rhabdoid tumor': Neoplasm, Malignant, ATRT, NOS Or NEC, Atypical Teratoid/Rhabdoid Tumor
+  '8000/3 : Neoplasm, malignant, ATRT-SHH, Atypical teratoid/rhabdoid tumor': Neoplasm, Malignant, ATRT-SHH, Atypical Teratoid/Rhabdoid Tumor
+  '8000/3 : Neoplasm, malignant, Astrocytoma, IDH-mutant, Low-Grade Glioma': Neoplasm, Malignant, Astrocytoma, IDH-Mutant, Low-Grade Glioma
+  '8000/3 : Neoplasm, malignant, CNS Germ Cell Tumors, CNS Non-Germinomatous Germ Cell Tumor': Neoplasm, Malignant, CNS Germ Cell Tumors, CNS Non-Germinomatous Germ Cell Tumor
+  '8000/3 : Neoplasm, malignant, CNS embryonal tumor, NOS or NEC, Other CNS Embryonal tumors': Neoplasm, Malignant, CNS Embryonal Tumor, NOS Or NEC, Other CNS Embryonal Tumors
+  "8000/3 : Neoplasm, malignant, CNS neuroblastoma,\_FOXR2-activated, Other CNS Embryonal tumors": "Neoplasm, Malignant, CNS Neuroblastoma,\_FOXR2-Activated, Other CNS Embryonal Tumors"
+  '8000/3 : Neoplasm, malignant, Diffuse midline glioma, H3 K27-altered, High-Grade Glioma': Neoplasm, Malignant, Diffuse Midline Glioma, H3 K27-Altered, High-Grade Glioma
+  '8000/3 : Neoplasm, malignant, Diffuse pediatric-type high-grade glioma, H3-wildtype and IDH-wildtype, High-Grade Glioma': Neoplasm, Malignant, Diffuse Pediatric-Type High-Grade Glioma, H3-Wildtype And IDH-Wildtype, High-Grade Glioma
+  '8000/3 : Neoplasm, malignant, Glioneuronal and neuronal tumors, Glioneuronal and neuronal tumors, NOS or NEC': Neoplasm, Malignant, Glioneuronal And Neuronal Tumors, Glioneuronal And Neuronal Tumors, NOS Or NEC
+  '8000/3 : Neoplasm, malignant, High-Grade Glioma, High-grade glioma, NOS or NEC': Neoplasm, Malignant, High-Grade Glioma, High-Grade Glioma, NOS Or NEC
+  '8000/3 : Neoplasm, malignant, Low-Grade Glioma, Low-grade glioma, NOS or NEC': Neoplasm, Malignant, Low-Grade Glioma, Low-Grade Glioma, NOS Or NEC
+  '8000/3 : Neoplasm, malignant, Low-Grade Glioma, Pilocytic astrocytoma': Neoplasm, Malignant, Low-Grade Glioma, Pilocytic Astrocytoma
+  '8000/3 : Neoplasm, malignant, Medulloblastoma, Medulloblastoma, NOS or NEC': Neoplasm, Malignant, Medulloblastoma, Medulloblastoma, NOS Or NEC
+  '8000/3 : Neoplasm, malignant, Medulloblastoma, Medulloblastoma, WNT-activated': Neoplasm, Malignant, Medulloblastoma, Medulloblastoma, WNT-Activated
+  '8000/3 : Neoplasm, malignant, Medulloblastoma, Medulloblastoma, non-WNT/non-SHH': Neoplasm, Malignant, Medulloblastoma, Medulloblastoma, Non-WNT/Non-SHH
+  '8000/9 : Neoplasm, malignant, uncertain whether primary or metastatic': Neoplasm, Malignant, Uncertain Whether Primary Or Metastatic
+  '8001/0 : Tumor cells, benign': Tumor Cells, Benign
+  '8001/1 : Tumor cells, uncertain whether benign or malignant': Tumor Cells, Uncertain Whether Benign Or Malignant
+  '8001/1 : Tumor cells, uncertain whether benign or malignant, Other CNS Embryonal tumors, Pineoblastoma': Tumor Cells, Uncertain Whether Benign Or Malignant, Other CNS Embryonal Tumors, Pineoblastoma
+  '8001/3 : Tumor cells, malignant': Tumor Cells, Malignant
+  '8001/3 : Tumor cells, malignant, Diffuse leptomeningeal glioneuronal tumor, Glioneuronal and neuronal tumors': Tumor Cells, Malignant, Diffuse Leptomeningeal Glioneuronal Tumor, Glioneuronal And Neuronal Tumors
+  '8001/3 : Tumor cells, malignant, Medulloblastoma, Medulloblastoma, NOS or NEC': Tumor Cells, Malignant, Medulloblastoma, Medulloblastoma, NOS Or NEC
+  '8001/3 : Tumor cells, malignant, Other, Pineal parenchymal tumor of intermediate differentiation': Tumor Cells, Malignant, Other, Pineal Parenchymal Tumor Of Intermediate Differentiation
+  '8002/3 : Malignant tumor, small cell type': Malignant Tumor, Small Cell Type
+  '8004/3 : Malignant tumor, spindle cell type': Malignant Tumor, Spindle Cell Type
+  '8004/3 : Malignant tumor, spindle cell type, CNS Sarcoma, CNS Sarcoma, NOS or NEC': Malignant Tumor, Spindle Cell Type, CNS Sarcoma, CNS Sarcoma, NOS Or NEC
+  '8010/0 : Epithelial tumor, benign': Epithelial Tumor, Benign
+  '8010/2 : Carcinoma in situ, NOS': Carcinoma In Situ, NOS
+  '8010/3 : Carcinoma, NOS, Medulloblastoma, Medulloblastoma, NOS or NEC': Carcinoma, NOS, Medulloblastoma, Medulloblastoma, NOS Or NEC
+  '8010/6 : Carcinoma, metastatic, NOS': Carcinoma, Metastatic, NOS
+  '8032/3 : Spindle cell carcinoma, NOS': Spindle Cell Carcinoma, NOS
+  '8050/3 : Papillary carcinoma, NOS': Papillary Carcinoma, NOS
+  '8070/3 : Squamous cell carcinoma, NOS': Squamous Cell Carcinoma, NOS
+  '8070/6 : Squamous cell carcinoma, metastatic, NOS': Squamous Cell Carcinoma, Metastatic, NOS
+  '8073/3 : Squamous cell carcinoma, small cell, nonkeratinizing': Squamous Cell Carcinoma, Small Cell, Nonkeratinizing
+  '8201/3 : Cribriform carcinoma, NOS': Cribriform Carcinoma, NOS
+  '8220/3 : Adenocarcinoma in adenomatous polyposis coli': Adenocarcinoma In Adenomatous Polyposis Coli
+  '8240/1 : Carcinoid tumor of uncertain malignant potential': Carcinoid Tumor Of Uncertain Malignant Potential
+  '8271/0 : Lactotroph adenoma': Lactotroph Adenoma
+  '8272/0 : Pituitary adenoma, NOS': Pituitary Adenoma, NOS
+  '8310/3 : Clear cell adenocarcinoma, NOS': Clear Cell Adenocarcinoma, NOS
+  '8335/3 : Follicular carcinoma, minimally invasive': Follicular Carcinoma, Minimally Invasive
+  '8340/3 : Papillary carcinoma, follicular variant': Papillary Carcinoma, Follicular Variant
+  '8341/3 : Papillary microcarcinoma': Papillary Microcarcinoma
+  '8370/0 : Adrenal cortical adenoma, NOS': Adrenal Cortical Adenoma, NOS
+  '8380/3 : Endometrioid adenocarcinoma, NOS': Endometrioid Adenocarcinoma, NOS
+  '8452/1 : Solid pseudopapillary tumor of ovary': Solid Pseudopapillary Tumor Of Ovary
+  '8453/3 : Intraductal papillary mucinous neoplasm with an associated invasive carcinoma': Intraductal Papillary Mucinous Neoplasm With An Associated Invasive Carcinoma
+  '8490/6 : Metastatic signet ring cell carcinoma': Metastatic Signet Ring Cell Carcinoma
+  '8562/3 : Epithelial-myoepithelial carcinoma': Epithelial-Myoepithelial Carcinoma
+  '8586/3 : Thymic carcinoma, NOS': Thymic Carcinoma, NOS
+  '8590/1 : Sex cord-gonadal stromal tumor, NOS': Sex Cord-Gonadal Stromal Tumor, NOS
+  '8591/1 : Sex cord-gonadal stromal tumor, incompletely differentiated': Sex Cord-Gonadal Stromal Tumor, Incompletely Differentiated
+  '8592/1 : Sex cord-gonadal stromal tumor, mixed forms': Sex Cord-Gonadal Stromal Tumor, Mixed Forms
+  '8602/0 : Sclerosing stromal tumor': Sclerosing Stromal Tumor
+  '8620/1 : Adult granulosa cell tumor of testis': Adult Granulosa Cell Tumor Of Testis
+  '8620/3 : Granulosa cell tumor, malignant': Granulosa Cell Tumor, Malignant
+  '8634/1 : Sertoli-Leydig cell tumor, intermediate differentiation, with heterologous elements': Sertoli-Leydig Cell Tumor, Intermediate Differentiation, With Heterologous Elements
+  '8640/1 : Sertoli cell tumor, NOS': Sertoli Cell Tumor, NOS
+  '8650/0 : Leydig cell tumor, benign': Leydig Cell Tumor, Benign
+  '8650/1 : Leydig cell tumor, NOS': Leydig Cell Tumor, NOS
+  '8680/3 : Paraganglioma, malignant': Paraganglioma, Malignant
+  '8720/3 : Malignant melanoma, NOS, Meningeal melanocytic neoplasms (includes melanoma), Other': Malignant Melanoma, NOS, Meningeal Melanocytic Neoplasms (Includes Melanoma), Other
+  '8728/1 : Meningeal melanocytoma': Meningeal Melanocytoma
+  '8745/3 : Desmoplastic melanoma, NOS': Desmoplastic Melanoma, NOS
+  '8800/0 : Soft tissue tumor, benign': Soft Tissue Tumor, Benign
+  '8815/1 : Solitary fibrous tumor, NOS': Solitary Fibrous Tumor, NOS
+  '8815/1 : Solitary fibrous tumor, NOS, Other': Solitary Fibrous Tumor, NOS, Other
+  '8823/1 : Desmoplastic fibroma': Desmoplastic Fibroma
+  '8832/1 : Dermatofibrosarcoma protuberans, NOS': Dermatofibrosarcoma Protuberans, NOS
+  '8833/3 : Pigmented dermatofibrosarcoma protuberans': Pigmented Dermatofibrosarcoma Protuberans
+  '8835/1 : Plexiform fibrohistiocytic tumor': Plexiform Fibrohistiocytic Tumor
+  '8842/0 : Ossifying fibromyxoid tumor, NOS': Ossifying Fibromyxoid Tumor, NOS
+  '8854/3 : Pleomorphic liposarcoma': Pleomorphic Liposarcoma
+  '8897/1 : Smooth muscle tumor of uncertain malignant potential': Smooth Muscle Tumor Of Uncertain Malignant Potential
+  '8901/3 : Pleomorphic rhabdomyosarcoma, adult type': Pleomorphic Rhabdomyosarcoma, Adult Type
+  '8902/3 : Mixed type rhabdomyosarcoma': Mixed Type Rhabdomyosarcoma
+  '8905/0 : Genital rhabdomyoma': Genital Rhabdomyoma
+  '8936/0 : Gastrointestinal stromal tumor, benign': Gastrointestinal Stromal Tumor, Benign
+  '8936/1 : Gastrointestinal stromal tumor, NOS': Gastrointestinal Stromal Tumor, NOS
+  '8959/0 : Benign cystic nephroma': Benign Cystic Nephroma
+  '9052/3 : Epithelioid mesothelioma, malignant': Epithelioid Mesothelioma, Malignant
+  '9065/3 : Germ cell tumor, nonseminomatous, CNS Germ Cell Tumors, CNS Non-Germinomatous Germ Cell Tumor': Germ Cell Tumor, Nonseminomatous, CNS Germ Cell Tumors, CNS Non-Germinomatous Germ Cell Tumor
+  '9070/3 : Embryonal carcinoma, NOS, Embryonal tumor with multilayered rosettes, C19MC altered, Other CNS Embryonal tumors': Embryonal Carcinoma, NOS, Embryonal Tumor With Multilayered Rosettes, C19MC Altered, Other CNS Embryonal Tumors
+  '9070/3 : Embryonal carcinoma, NOS, Ependymoma, Supratentorial ependymoma, NOS or NEC': Embryonal Carcinoma, NOS, Ependymoma, Supratentorial Ependymoma, NOS Or NEC
+  '9071/3 : Yolk sac tumor, NOS, CNS Germ Cell Tumors, CNS Non-Germinomatous Germ Cell Tumor': Yolk Sac Tumor, NOS, CNS Germ Cell Tumors, CNS Non-Germinomatous Germ Cell Tumor
+  '9085/3 : Mixed germ cell tumor, CNS Germ Cell Tumors, CNS Germinoma': Mixed Germ Cell Tumor, CNS Germ Cell Tumors, CNS Germinoma
+  '9085/3 : Mixed germ cell tumor, CNS Germ Cell Tumors, CNS Non-Germinomatous Germ Cell Tumor': Mixed Germ Cell Tumor, CNS Germ Cell Tumors, CNS Non-Germinomatous Germ Cell Tumor
+  '9130/3 : Hemangioendothelioma, malignant': Hemangioendothelioma, Malignant
+  '9133/1 : Epithelioid hemangioendothelioma, NOS': Epithelioid Hemangioendothelioma, NOS
+  '9135/1 : Papillary intralymphatic angioendothelioma': Papillary Intralymphatic Angioendothelioma
+  '9240/3 : Mesenchymal chondrosarcoma, Low-Grade Glioma, Low-grade glioma, NOS or NEC': Mesenchymal Chondrosarcoma, Low-Grade Glioma, Low-Grade Glioma, NOS Or NEC
+  '9250/1 : Giant cell tumor of bone, NOS': Giant Cell Tumor Of Bone, NOS
+  '9251/1 : Giant cell tumor of soft parts, NOS': Giant Cell Tumor Of Soft Parts, NOS
+  '9260/3 : Ewing sarcoma': Ewing Sarcoma
+  '9350/1 : Craniopharyngioma, NOS, Adamantinomatous craniopharyngioma': Craniopharyngioma, NOS, Adamantinomatous Craniopharyngioma
+  '9351/1 : Craniopharyngioma, adamantinomatous, Adamantinomatous craniopharyngioma': Craniopharyngioma, Adamantinomatous, Adamantinomatous Craniopharyngioma
+  '9362/3 : Pineoblastoma, Other CNS Embryonal tumors': Pineoblastoma, Other CNS Embryonal Tumors
+  '9362/3 : Pineoblastoma, Other, Other CNS tumor, NOS or NEC': Pineoblastoma, Other, Other CNS Tumor, NOS Or NEC
+  '9370/3 : Chordoma, NOS, Chordoma (including poorly differentiated chordoma), Other': Chordoma, NOS, Chordoma (Including Poorly Differentiated Chordoma), Other
+  '9380/3 : Glioma, malignant, Angiocentric glioma, Low-Grade Glioma': Glioma, Malignant, Angiocentric Glioma, Low-Grade Glioma
+  '9380/3 : Glioma, malignant, Astrocytoma, IDH-mutant, High-Grade Glioma': Glioma, Malignant, Astrocytoma, IDH-Mutant, High-Grade Glioma
+  '9380/3 : Glioma, malignant, Astrocytoma, IDH-mutant, Low-Grade Glioma': Glioma, Malignant, Astrocytoma, IDH-Mutant, Low-Grade Glioma
+  '9380/3 : Glioma, malignant, Diffuse hemispheric glioma, H3 G34-mutant, High-Grade Glioma': Glioma, Malignant, Diffuse Hemispheric Glioma, H3 G34-Mutant, High-Grade Glioma
+  '9380/3 : Glioma, malignant, Diffuse midline glioma, H3 K27-altered, High-Grade Glioma': Glioma, Malignant, Diffuse Midline Glioma, H3 K27-Altered, High-Grade Glioma
+  '9380/3 : Glioma, malignant, Diffuse pediatric-type high-grade glioma, H3-wildtype and IDH-wildtype, High-Grade Glioma': Glioma, Malignant, Diffuse Pediatric-Type High-Grade Glioma, H3-Wildtype And IDH-Wildtype, High-Grade Glioma
+  '9380/3 : Glioma, malignant, Dysembryoplastic neuroepithelial tumor, Glioneuronal and neuronal tumors': Glioma, Malignant, Dysembryoplastic Neuroepithelial Tumor, Glioneuronal And Neuronal Tumors
+  '9380/3 : Glioma, malignant, Embryonal tumor with multilayered rosettes, C19MC altered, Other CNS Embryonal tumors': Glioma, Malignant, Embryonal Tumor With Multilayered Rosettes, C19MC Altered, Other CNS Embryonal Tumors
+  '9380/3 : Glioma, malignant, Ganglioglioma, Glioneuronal and neuronal tumors': Glioma, Malignant, Ganglioglioma, Glioneuronal And Neuronal Tumors
+  '9380/3 : Glioma, malignant, Glioneuronal and neuronal tumors, Glioneuronal and neuronal tumors, NOS or NEC': Glioma, Malignant, Glioneuronal And Neuronal Tumors, Glioneuronal And Neuronal Tumors, NOS Or NEC
+  '9380/3 : Glioma, malignant, High-Grade Glioma, High-grade glioma, NOS or NEC': Glioma, Malignant, High-Grade Glioma, High-Grade Glioma, NOS Or NEC
+  '9380/3 : Glioma, malignant, High-Grade Glioma, Infant-type hemispheric glioma': Glioma, Malignant, High-Grade Glioma, Infant-Type Hemispheric Glioma
+  '9380/3 : Glioma, malignant, High-Grade Glioma, Pleomorphic xanthoastrocytoma': Glioma, Malignant, High-Grade Glioma, Pleomorphic Xanthoastrocytoma
+  '9380/3 : Glioma, malignant, Low-Grade Glioma, Low-grade glioma, NOS or NEC': Glioma, Malignant, Low-Grade Glioma, Low-Grade Glioma, NOS Or NEC
+  '9380/3 : Glioma, malignant, Low-Grade Glioma, Pilocytic astrocytoma': Glioma, Malignant, Low-Grade Glioma, Pilocytic Astrocytoma
+  '9380/3 : Glioma, malignant, Low-Grade Glioma, Polymorphous low-grade neuroepithelial tumor of the young': Glioma, Malignant, Low-Grade Glioma, Polymorphous Low-Grade Neuroepithelial Tumor Of The Young
+  '9380/3 : Glioma, malignant, Medulloblastoma, Medulloblastoma, non-WNT/non-SHH': Glioma, Malignant, Medulloblastoma, Medulloblastoma, Non-WNT/Non-SHH
+  '9380/3 : Glioma, malignant, Other, Other CNS tumor, NOS or NEC': Glioma, Malignant, Other, Other CNS Tumor, NOS Or NEC
+  '9380/3 : Glioma, malignant, Other, Other low-grade B-cell lymphomas of the CNS': Glioma, Malignant, Other, Other Low-Grade B-Cell Lymphomas Of The CNS
+  '9381/3 : Gliomatosis cerebri': Gliomatosis Cerebri
+  '9382/3 : Oligoastrocytoma, NOS, Glioneuronal and neuronal tumors, Glioneuronal and neuronal tumors, NOS or NEC': Oligoastrocytoma, NOS, Glioneuronal And Neuronal Tumors, Glioneuronal And Neuronal Tumors, NOS Or NEC
+  '9382/3 : Oligoastrocytoma, NOS, Glioneuronal and neuronal tumors, Papillary glioneuronal tumor': Oligoastrocytoma, NOS, Glioneuronal And Neuronal Tumors, Papillary Glioneuronal Tumor
+  '9382/3 : Oligoastrocytoma, NOS, Other, Other CNS tumor, NOS or NEC': Oligoastrocytoma, NOS, Other, Other CNS Tumor, NOS Or NEC
+  '9383/1 : Subependymoma, Ependymoma, Supratentorial ependymoma, NOS or NEC': Subependymoma, Ependymoma, Supratentorial Ependymoma, NOS Or NEC
+  ? '9384/1 : Subependymal giant cell astrocytoma, Glioneuronal and neuronal tumors, Glioneuronal and neuronal tumors, NOS or NEC'
+  : Subependymal Giant Cell Astrocytoma, Glioneuronal And Neuronal Tumors, Glioneuronal And Neuronal Tumors, NOS Or NEC
+  '9390/0 : Choroid plexus papilloma, NOS': Choroid Plexus Papilloma, NOS
+  '9390/0 : Choroid plexus papilloma, NOS, Choroid Plexus tumors': Choroid Plexus Papilloma, NOS, Choroid Plexus Tumors
+  '9390/0 : Choroid plexus papilloma, NOS, Other CNS Embryonal tumors, Pineoblastoma': Choroid Plexus Papilloma, NOS, Other CNS Embryonal Tumors, Pineoblastoma
+  '9390/1 : Atypical choroid plexus papilloma, Choroid Plexus tumors': Atypical Choroid Plexus Papilloma, Choroid Plexus Tumors
+  '9390/3 : Choroid plexus carcinoma, Choroid Plexus tumors': Choroid Plexus Carcinoma, Choroid Plexus Tumors
+  '9391/3 : Ependymoma, NOS, Choroid Plexus tumors, Choroid plexus papilloma': Ependymoma, NOS, Choroid Plexus Tumors, Choroid Plexus Papilloma
+  '9391/3 : Ependymoma, NOS, Medulloblastoma, Medulloblastoma, NOS or NEC': Ependymoma, NOS, Medulloblastoma, Medulloblastoma, NOS Or NEC
+  '9391/3 : Ependymoma, NOS, Medulloblastoma, Medulloblastoma, non-WNT/non-SHH': Ependymoma, NOS, Medulloblastoma, Medulloblastoma, Non-WNT/Non-SHH
+  '9391/3 : Ependymoma, NOS, Posterior fossa ependymoma, NOS or NEC': Ependymoma, NOS, Posterior Fossa Ependymoma, NOS Or NEC
+  '9391/3 : Ependymoma, NOS, Posterior fossa ependymoma, group PFA': Ependymoma, NOS, Posterior Fossa Ependymoma, Group PFA
+  '9391/3 : Ependymoma, NOS, Posterior fossa ependymoma, group PFB': Ependymoma, NOS, Posterior Fossa Ependymoma, Group PFB
+  '9391/3 : Ependymoma, NOS, Supratentorial ependymoma, NOS or NEC': Ependymoma, NOS, Supratentorial Ependymoma, NOS Or NEC
+  "9391/3 : Ependymoma, NOS, Supratentorial ependymoma,\_ZFTA\_fusion-positive": "Ependymoma, NOS, Supratentorial Ependymoma,\_ZFTA\_Fusion-Positive"
+  '9392/3 : Ependymoma, anaplastic, Supratentorial ependymoma, NOS or NEC': Ependymoma, Anaplastic, Supratentorial Ependymoma, NOS Or NEC
+  '9394/1 : Myxopapillary ependymoma, Ependymoma': Myxopapillary Ependymoma, Ependymoma
+  '9400/3 : Astrocytoma, NOS, Angiocentric glioma, Low-Grade Glioma': Astrocytoma, NOS, Angiocentric Glioma, Low-Grade Glioma
+  '9400/3 : Astrocytoma, NOS, Astrocytoma, IDH-mutant, Low-Grade Glioma': Astrocytoma, NOS, Astrocytoma, IDH-Mutant, Low-Grade Glioma
+  '9400/3 : Astrocytoma, NOS, Diffuse pediatric-type high-grade glioma, H3-wildtype and IDH-wildtype, High-Grade Glioma': Astrocytoma, NOS, Diffuse Pediatric-Type High-Grade Glioma, H3-Wildtype And IDH-Wildtype, High-Grade Glioma
+  '9400/3 : Astrocytoma, NOS, High-Grade Glioma, High-grade glioma, NOS or NEC': Astrocytoma, NOS, High-Grade Glioma, High-Grade Glioma, NOS Or NEC
+  '9400/3 : Astrocytoma, NOS, High-Grade Glioma, Infant-type hemispheric glioma': Astrocytoma, NOS, High-Grade Glioma, Infant-Type Hemispheric Glioma
+  '9400/3 : Astrocytoma, NOS, Low-Grade Glioma, Low-grade glioma, NOS or NEC': Astrocytoma, NOS, Low-Grade Glioma, Low-Grade Glioma, NOS Or NEC
+  '9400/3 : Astrocytoma, NOS, Low-Grade Glioma, Pilocytic astrocytoma': Astrocytoma, NOS, Low-Grade Glioma, Pilocytic Astrocytoma
+  '9400/3 : Astrocytoma, NOS, Low-Grade Glioma, Pleomorphic xanthoastrocytoma': Astrocytoma, NOS, Low-Grade Glioma, Pleomorphic Xanthoastrocytoma
+  '9400/3 : Astrocytoma, NOS, Low-Grade Glioma, Subependymal giant cell astrocytoma': Astrocytoma, NOS, Low-Grade Glioma, Subependymal Giant Cell Astrocytoma
+  '9400/3 : Astrocytoma, NOS, Other, Other CNS tumor, NOS or NEC': Astrocytoma, NOS, Other, Other CNS Tumor, NOS Or NEC
+  '9412/1 : Desmoplastic infantile astrocytoma': Desmoplastic Infantile Astrocytoma
+  '9413/0 : Dysembryoplastic neuroepithelial tumor, Angiocentric glioma, Low-Grade Glioma': Dysembryoplastic Neuroepithelial Tumor, Angiocentric Glioma, Low-Grade Glioma
+  '9413/0 : Dysembryoplastic neuroepithelial tumor, Glioneuronal and neuronal tumors': Dysembryoplastic Neuroepithelial Tumor, Glioneuronal And Neuronal Tumors
+  '9413/0 : Dysembryoplastic neuroepithelial tumor, Low-Grade Glioma, Low-grade glioma, NOS or NEC': Dysembryoplastic Neuroepithelial Tumor, Low-Grade Glioma, Low-Grade Glioma, NOS Or NEC
+  ? '9413/0 : Dysembryoplastic neuroepithelial tumor, Low-Grade Glioma, Polymorphous low-grade neuroepithelial tumor of the young'
+  : Dysembryoplastic Neuroepithelial Tumor, Low-Grade Glioma, Polymorphous Low-Grade Neuroepithelial Tumor Of The Young
+  '9420/3 : Fibrillary astrocytoma': Fibrillary Astrocytoma
+  '9421/1 : Pilocytic astrocytoma, Diffuse leptomeningeal glioneuronal tumor, Glioneuronal and neuronal tumors': Pilocytic Astrocytoma, Diffuse Leptomeningeal Glioneuronal Tumor, Glioneuronal And Neuronal Tumors
+  '9421/1 : Pilocytic astrocytoma, Glioneuronal and neuronal tumors, Glioneuronal and neuronal tumors, NOS or NEC': Pilocytic Astrocytoma, Glioneuronal And Neuronal Tumors, Glioneuronal And Neuronal Tumors, NOS Or NEC
+  '9421/1 : Pilocytic astrocytoma, Low-Grade Glioma': Pilocytic Astrocytoma, Low-Grade Glioma
+  '9421/1 : Pilocytic astrocytoma, Low-Grade Glioma, Low-grade glioma, NOS or NEC': Pilocytic Astrocytoma, Low-Grade Glioma, Low-Grade Glioma, NOS Or NEC
+  '9421/1 : Pilocytic astrocytoma, Low-Grade Glioma, Pleomorphic xanthoastrocytoma': Pilocytic Astrocytoma, Low-Grade Glioma, Pleomorphic Xanthoastrocytoma
+  '9424/3 : Pleomorphic xanthoastrocytoma, NOS, High-Grade Glioma': Pleomorphic Xanthoastrocytoma, NOS, High-Grade Glioma
+  '9424/3 : Pleomorphic xanthoastrocytoma, NOS, Low-Grade Glioma': Pleomorphic Xanthoastrocytoma, NOS, Low-Grade Glioma
+  "9430/3 : Astroblastoma, Astroblastoma,\_MN1-altered, High-Grade Glioma": "Astroblastoma, Astroblastoma,\_MN1-Altered, High-Grade Glioma"
+  '9430/3 : Astroblastoma, Other, Other CNS tumor, NOS or NEC': Astroblastoma, Other, Other CNS Tumor, NOS Or NEC
+  '9440/3 : Glioblastoma, NOS, High-Grade Glioma, High-grade glioma, NOS or NEC': Glioblastoma, NOS, High-Grade Glioma, High-Grade Glioma, NOS Or NEC
+  '9441/3 : Giant cell glioblastoma, Glioblastoma, IDH-wildtype, High-Grade Glioma': Giant Cell Glioblastoma, Glioblastoma, IDH-Wildtype, High-Grade Glioma
+  '9450/3 : Oligodendroglioma, NOS, High-Grade Glioma, Oligodendroglioma, IDH-mutant, and 1p/19q-codeleted': Oligodendroglioma, NOS, High-Grade Glioma, Oligodendroglioma, IDH-Mutant, And 1p/19q-Codeleted
+  '9450/3 : Oligodendroglioma, NOS, Low-Grade Glioma, Low-grade glioma, NOS or NEC': Oligodendroglioma, NOS, Low-Grade Glioma, Low-Grade Glioma, NOS Or NEC
+  '9450/3 : Oligodendroglioma, NOS, Low-Grade Glioma, Oligodendroglioma, IDH-mutant, and 1p/19q-codeleted': Oligodendroglioma, NOS, Low-Grade Glioma, Oligodendroglioma, IDH-Mutant, And 1p/19q-Codeleted
+  '9450/3 : Oligodendroglioma, NOS, Other, Other CNS tumor, NOS or NEC': Oligodendroglioma, NOS, Other, Other CNS Tumor, NOS Or NEC
+  '9470/3 : Medulloblastoma, NOS, Diffuse hemispheric glioma, H3 G34-mutant, High-Grade Glioma': Medulloblastoma, NOS, Diffuse Hemispheric Glioma, H3 G34-Mutant, High-Grade Glioma
+  '9470/3 : Medulloblastoma, NOS, Medulloblastoma, NOS or NEC': Medulloblastoma, NOS, Medulloblastoma, NOS Or NEC
+  "9470/3 : Medulloblastoma, NOS, Medulloblastoma, SHH-activated and\_TP53-mutant": "Medulloblastoma, NOS, Medulloblastoma, SHH-Activated And\_TP53-Mutant"
+  "9470/3 : Medulloblastoma, NOS, Medulloblastoma, SHH-activated and\_TP53-wildtype": "Medulloblastoma, NOS, Medulloblastoma, SHH-Activated And\_TP53-Wildtype"
+  '9470/3 : Medulloblastoma, NOS, Medulloblastoma, WNT-activated': Medulloblastoma, NOS, Medulloblastoma, WNT-Activated
+  '9470/3 : Medulloblastoma, NOS, Medulloblastoma, non-WNT/non-SHH': Medulloblastoma, NOS, Medulloblastoma, Non-WNT/Non-SHH
+  '9471/3 : Desmoplastic nodular medulloblastoma, Medulloblastoma, Medulloblastoma, Group 4': Desmoplastic Nodular Medulloblastoma, Medulloblastoma, Medulloblastoma, Group 4
+  "9471/3 : Desmoplastic nodular medulloblastoma, Medulloblastoma, Medulloblastoma, SHH-activated and\_TP53-wildtype": "Desmoplastic Nodular Medulloblastoma, Medulloblastoma, Medulloblastoma, SHH-Activated And\_TP53-Wildtype"
+  '9473/3 : CNS embryonal tumor, NOS, CNS embryonal tumor, NOS or NEC, Other CNS Embryonal tumors': CNS Embryonal Tumor, NOS, CNS Embryonal Tumor, NOS Or NEC, Other CNS Embryonal Tumors
+  '9474/3 : Large cell medulloblastoma, Embryonal tumor with multilayered rosettes, NOS, Other CNS Embryonal tumors': Large Cell Medulloblastoma, Embryonal Tumor With Multilayered Rosettes, NOS, Other CNS Embryonal Tumors
+  '9474/3 : Large cell medulloblastoma, Medulloblastoma, Medulloblastoma, non-WNT/non-SHH': Large Cell Medulloblastoma, Medulloblastoma, Medulloblastoma, Non-WNT/Non-SHH
+  '9490/0 : Ganglioneuroma, High-Grade Glioma, High-grade glioma, NOS or NEC': Ganglioneuroma, High-Grade Glioma, High-Grade Glioma, NOS Or NEC
+  "9505/1 : Ganglioglioma, NOS, Diffuse astrocytoma,\_MYB- or\_MYBL1-altered, Low-Grade Glioma": "Ganglioglioma, NOS, Diffuse Astrocytoma,\_MYB- Or\_MYBL1-Altered, Low-Grade Glioma"
+  '9505/1 : Ganglioglioma, NOS, Ependymoma, Supratentorial ependymoma, NOS or NEC': Ganglioglioma, NOS, Ependymoma, Supratentorial Ependymoma, NOS Or NEC
+  '9505/1 : Ganglioglioma, NOS, Glioneuronal and neuronal tumors': Ganglioglioma, NOS, Glioneuronal And Neuronal Tumors
+  '9505/1 : Ganglioglioma, NOS, Low-Grade Glioma, Low-grade glioma, NOS or NEC': Ganglioglioma, NOS, Low-Grade Glioma, Low-Grade Glioma, NOS Or NEC
+  '9505/1 : Ganglioglioma, NOS, Other, Other CNS tumor, NOS or NEC': Ganglioglioma, NOS, Other, Other CNS Tumor, NOS Or NEC
+  '9506/1 : Central neurocytoma, Glioneuronal and neuronal tumors': Central Neurocytoma, Glioneuronal And Neuronal Tumors
+  '9506/1 : Central neurocytoma, Low-Grade Glioma, Subependymal giant cell astrocytoma': Central Neurocytoma, Low-Grade Glioma, Subependymal Giant Cell Astrocytoma
+  '9508/3 : Atypical teratoid/rhabdoid tumor, ATRT, NOS or NEC': Atypical Teratoid/Rhabdoid Tumor, ATRT, NOS Or NEC
+  '9508/3 : Atypical teratoid/rhabdoid tumor, ATRT-MYC': Atypical Teratoid/Rhabdoid Tumor, ATRT-MYC
+  '9508/3 : Atypical teratoid/rhabdoid tumor, ATRT-TYR': Atypical Teratoid/Rhabdoid Tumor, ATRT-TYR
+  '9521/3 : Olfactory neurocytoma': Olfactory Neurocytoma
+  '9530/0 : Meningioma, NOS, Embryonal tumor with multilayered rosettes, NOS, Other CNS Embryonal tumors': Meningioma, NOS, Embryonal Tumor With Multilayered Rosettes, NOS, Other CNS Embryonal Tumors
+  '9531/0 : Meningothelial meningioma, Meningioma, Other': Meningothelial Meningioma, Meningioma, Other
+  '9538/1 : Clear cell meningioma': Clear Cell Meningioma
+  '9538/1 : Clear cell meningioma, Meningioma, Other': Clear Cell Meningioma, Meningioma, Other
+  '9540/0 : Neurofibroma, NOS, Other, Solitary fibrous tumor': Neurofibroma, NOS, Other, Solitary Fibrous Tumor
+  '9540/3 : Malignant peripheral nerve sheath tumor, NOS, CNS Sarcoma, CNS Sarcoma, NOS or NEC': Malignant Peripheral Nerve Sheath Tumor, NOS, CNS Sarcoma, CNS Sarcoma, NOS Or NEC
+  '9560/0 : Schwannoma, NOS, Low-Grade Glioma, Low-grade glioma, NOS or NEC': Schwannoma, NOS, Low-Grade Glioma, Low-Grade Glioma, NOS Or NEC
+  '9560/1 : Melanotic schwannoma, Other': Melanotic Schwannoma, Other
+  '9561/3 : Malignant peripheral nerve sheath tumor with rhabdomyoblastic differentiation': Malignant Peripheral Nerve Sheath Tumor With Rhabdomyoblastic Differentiation
+  '9718/1 : Primary cutaneous CD30 positive T-cell lymphoproliferative disorder': Primary Cutaneous CD30 Positive T-Cell Lymphoproliferative Disorder
+  '9734/3 : Plasmacytoma, extramedullary': Plasmacytoma, Extramedullary
+  '9750/3 : Malignant histiocytosis': Malignant Histiocytosis
+  '9836/3 : Precursor B-cell lymphoblastic leukemia': Precursor B-Cell Lymphoblastic Leukemia
+  '9867/3 : Acute myelomonocytic leukemia, NOS': Acute Myelomonocytic Leukemia, NOS
+  '999 : Unknown, to be completed later, Diffuse midline glioma, H3 K27-altered, High-Grade Glioma': Unknown, To Be Completed Later, Diffuse Midline Glioma, H3 K27-Altered, High-Grade Glioma
+  '999 : Unknown, to be completed later, Glioneuronal and neuronal tumors, Papillary glioneuronal tumor': Unknown, To Be Completed Later, Glioneuronal And Neuronal Tumors, Papillary Glioneuronal Tumor
+  '999 : Unknown, to be completed later, Medulloblastoma, Medulloblastoma, non-WNT/non-SHH': Unknown, To Be Completed Later, Medulloblastoma, Medulloblastoma, Non-WNT/Non-SHH
+  A diffuse midline glioma, H3 K27-altered CNS WHO grade 4: A Diffuse Midline Glioma, H3 K27-Altered CNS WHO Grade 4
+  A typical teratoid/rhabdoid tumor, WHO grave IV: A Typical Teratoid/Rhabdoid Tumor, WHO Grave IV
+  Adamantinomatous Craniopharyngioma, CNS WHO grade 1: Adamantinomatous Craniopharyngioma, CNS WHO Grade 1
+  Adamantinomatous craniopharyngioma (CNS WHO grade 1): Adamantinomatous Craniopharyngioma (CNS WHO Grade 1)
+  Adamantinomatous craniopharyngioma, CNS WHO grade 1: Adamantinomatous Craniopharyngioma, CNS WHO Grade 1
+  Adamantinomatous craniopharyngioma, WHO Grade 1: Adamantinomatous Craniopharyngioma, WHO Grade 1
+  Adenoid cystic carcinoma, high grade: Adenoid Cystic Carcinoma, High Grade
+  Adrenal cortical neoplasm of uncertain malignant potential: Adrenal Cortical Neoplasm Of Uncertain Malignant Potential
+  Adrenal corticol carcinoma: Adrenal Corticol Carcinoma
+  Adrenal corticol tumor: Adrenal Corticol Tumor
+  Alveolar rhabdomyosarcoma, metastatic: Alveolar Rhabdomyosarcoma, Metastatic
+  Alveolar rhabdomyosarcoma, metastatic;: Alveolar Rhabdomyosarcoma, Metastatic;
+  Alveolar rhabdomyosarcoma, with FOXO-1 rearrangement by FISH: Alveolar Rhabdomyosarcoma, With FOXO-1 Rearrangement By FISH
+  Ameloblastic carcinosarcoma: Ameloblastic Carcinosarcoma
+  Anaplastic ependymoma, WHO grade 3: Anaplastic Ependymoma, WHO Grade 3
+  Anaplastic medulloblastoma, WHO grade IV: Anaplastic Medulloblastoma, WHO Grade IV
+  Angiocentric glioma, CNS WHO grade 1: Angiocentric Glioma, CNS WHO Grade 1
+  Angiomatoid fibrous hisiocytoma: Angiomatoid Fibrous Hisiocytoma
+  Appearances consistent with alveolar soft part sarcoma: Appearances Consistent With Alveolar Soft Part Sarcoma
+  Astroblastoma, MN1-altered. Histologically high-grade: Astroblastoma, MN1-Altered. Histologically High-Grade
+  Astrocytic glioma, histologically low-grade, most compatible with pilocytic astrocytoma: Astrocytic Glioma, Histologically Low-Grade, Most Compatible With Pilocytic Astrocytoma
+  Astrocytoma, IDH-mutant, CNS WHO grade 3: Astrocytoma, IDH-Mutant, CNS WHO Grade 3
+  Astrocytoma, IDH-mutant, CNS WHO grade 4: Astrocytoma, IDH-Mutant, CNS WHO Grade 4
+  Atrocytoma IDH-mutant: Atrocytoma IDH-Mutant
+  Atypical Teratoid Rhabdoid tumor: Atypical Teratoid Rhabdoid Tumor
+  Atypical choroid plexus papilloma vs carcinoma: Atypical Choroid Plexus Papilloma Vs Carcinoma
+  Atypical lymphoid hyperplasia with a clonal B-cell population identified: Atypical Lymphoid Hyperplasia With A Clonal B-Cell Population Identified
+  Atypical smooth muscle neoplasm: Atypical Smooth Muscle Neoplasm
+  Atypical teratoid rhabdoid tumor WHO grade 4: Atypical Teratoid Rhabdoid Tumor WHO Grade 4
+  Atypical teratoid rhabdoid tumor, CNS WHO grade 4: Atypical Teratoid Rhabdoid Tumor, CNS WHO Grade 4
+  Atypical teratoid-rhabdoid tumor, CNS WHO Grade 4: Atypical Teratoid-Rhabdoid Tumor, CNS WHO Grade 4
+  Atypical teratoid-rhabdoid tumor, CNS WHO grade 4: Atypical Teratoid-Rhabdoid Tumor, CNS WHO Grade 4
+  Atypical teratoid-rhabdoid tumor, WHO grade 4: Atypical Teratoid-Rhabdoid Tumor, WHO Grade 4
+  Atypical teratoid/ rhabdoid tumor (WHO grade 4): Atypical Teratoid/ Rhabdoid Tumor (WHO Grade 4)
+  Atypical teratoid/ rhabdoid tumor, WHO grade 4: Atypical Teratoid/ Rhabdoid Tumor, WHO Grade 4
+  Atypical teratoid/Rhabdoid tumor: Atypical Teratoid/Rhabdoid Tumor
+  Atypical teratoid/rhabdoid tumor CNS WHO grade 4: Atypical Teratoid/Rhabdoid Tumor CNS WHO Grade 4
+  Atypical teratoid/rhabdoid tumor, INI1/SMARCB1-altered, WHO grade 4: Atypical Teratoid/Rhabdoid Tumor, INI1/SMARCB1-Altered, WHO Grade 4
+  Atypicsl teratoid/rhabdoid tumor; CNS WHO grade 4: Atypicsl Teratoid/Rhabdoid Tumor; CNS WHO Grade 4
+  BCOR rearranged sarcoma: BCOR Rearranged Sarcoma
+  Bland myofibroblastic proliferation with associated florid lymphoplasmacytic inflammation: Bland Myofibroblastic Proliferation With Associated Florid Lymphoplasmacytic Inflammation
+  Brain tumor, Low grade glioma: Brain Tumor, Low Grade Glioma
+  Brain tumor, favor Ependymoma: Brain Tumor, Favor Ependymoma
+  Brain, posterior fossa: Brain, Posterior Fossa
+  CIC-DUX4 fusion positive round cell sarcoma: CIC-DUX4 Fusion Positive Round Cell Sarcoma
+  CNS Embryonal tumor (primitive neuroectodermal tumor), CNS WHO grade 4: CNS Embryonal Tumor (Primitive Neuroectodermal Tumor), CNS WHO Grade 4
+  CNS Embryonal tumor NOS: CNS Embryonal Tumor NOS
+  CNS embryonal neoplasm, favor embryonal tumor with multilayered rosettes (ETMR): CNS Embryonal Neoplasm, Favor Embryonal Tumor With Multilayered Rosettes (ETMR)
+  CNS embryonal tumor: CNS Embryonal Tumor
+  CNS embryonal tumor NOS CNS WHO grade IV: CNS Embryonal Tumor NOS CNS WHO Grade IV
+  CNS embryonal tumor, NOS; WHO Grade IV: CNS Embryonal Tumor, NOS; WHO Grade IV
+  CNS embryonal tumor, morphologically aligning best with pineoblastoma, CNS WHO Grade 4: CNS Embryonal Tumor, Morphologically Aligning Best With Pineoblastoma, CNS WHO Grade 4
+  Carcinoid tumor: Carcinoid Tumor
+  Cellular tumor, favor ependymoma: Cellular Tumor, Favor Ependymoma
+  Cellular, pleomorphic neoplasm, favor glial: Cellular, Pleomorphic Neoplasm, Favor Glial
+  Central nervous system tumor with high grade histiological features: Central Nervous System Tumor With High Grade Histiological Features
+  Cerebellopontine angle tumor; Atypical teratoid/rhabdoid tumor: Cerebellopontine Angle Tumor; Atypical Teratoid/Rhabdoid Tumor
+  Choroid plexus carcinoma (WHO Grade 3): Choroid Plexus Carcinoma (WHO Grade 3)
+  Choroid plexus carcinoma WHO grade 3: Choroid Plexus Carcinoma WHO Grade 3
+  Choroid plexus carcinoma, WHO grade 3: Choroid Plexus Carcinoma, WHO Grade 3
+  Choroid plexus papilloma, CNS WHO grade 1: Choroid Plexus Papilloma, CNS WHO Grade 1
+  Choroid plexus papilloma, WHO Grade 1: Choroid Plexus Papilloma, WHO Grade 1
+  Choroidal tissue consistent with choroid plexus papilloma: Choroidal Tissue Consistent With Choroid Plexus Papilloma
+  Circumscribed glioneuronal neoplasm with high grade features: Circumscribed Glioneuronal Neoplasm With High Grade Features
+  Classic medulloblastoma, CNS WHO grade 4: Classic Medulloblastoma, CNS WHO Grade 4
+  Clear Cell Sarcoma of Kidney: Clear Cell Sarcoma Of Kidney
+  Clear cell Sarcoma, NOS: Clear Cell Sarcoma, NOS
+  Colorectal adenocarcinoma: Colorectal Adenocarcinoma
+  Composite pheochromocytoma and neuroblastoma tumor: Composite Pheochromocytoma And Neuroblastoma Tumor
+  Consistent with high grade astrocytoma, IDH wild type: Consistent With High Grade Astrocytoma, IDH Wild Type
+  Desmoplastic infantile ganglioglioma, WHO Grade 1: Desmoplastic Infantile Ganglioglioma, WHO Grade 1
+  Desmoplastic/nodular medulloblastoma (histologically defined), CNS WHO grade 4: Desmoplastic/Nodular Medulloblastoma (Histologically Defined), CNS WHO Grade 4
+  Desmoplastic/nodular medulloblastoma, histologically defined, CNS WHO Grade 4: Desmoplastic/Nodular Medulloblastoma, Histologically Defined, CNS WHO Grade 4
+  Differentiating neuroblastoma: Differentiating Neuroblastoma
+  Diffuse Large B-cell Lymphoma, NOS: Diffuse Large B-Cell Lymphoma, NOS
+  Diffuse glioma, favor high grade: Diffuse Glioma, Favor High Grade
+  Diffuse hemispheric glioma, H3 G34-mutant, CNS WHO grade 4: Diffuse Hemispheric Glioma, H3 G34-Mutant, CNS WHO Grade 4
+  Diffuse infiltrating astrocytoma, H3-wildtype and IDH-wildtype, CNS WHO Grade 3: Diffuse Infiltrating Astrocytoma, H3-Wildtype And IDH-Wildtype, CNS WHO Grade 3
+  Diffuse low grade glioma: Diffuse Low Grade Glioma
+  Diffuse midline Glioma H3 K27M-Mutant(by IHC) WHO grade 4: Diffuse Midline Glioma H3 K27M-Mutant(By IHC) WHO Grade 4
+  Diffuse midline glioma (DMG), H3 K27-altered: Diffuse Midline Glioma (DMG), H3 K27-Altered
+  Diffuse midline glioma, H3 K27 altered, WHO Grade 4: Diffuse Midline Glioma, H3 K27 Altered, WHO Grade 4
+  Diffuse midline glioma, H3 K27-altered, CNS WHO grade 4: Diffuse Midline Glioma, H3 K27-Altered, CNS WHO Grade 4
+  Diffuse midline glioma, H3 K27-altered, WHO grade 4: Diffuse Midline Glioma, H3 K27-Altered, WHO Grade 4
+  Diffuse midline glioma, H3K27M-mutant, CNS WHO grade 4: Diffuse Midline Glioma, H3K27M-Mutant, CNS WHO Grade 4
+  Diffuse pediatric type high grade glioma: Diffuse Pediatric Type High Grade Glioma
+  Dural Tumor" Pediatric-type high grade glioma: Dural Tumor" Pediatric-Type High Grade Glioma
+  Dysembryonic Neuroepithelial Tumor (DNT), CNS WHO grade 1: Dysembryonic Neuroepithelial Tumor (DNT), CNS WHO Grade 1
+  Dysembryoplastic neuroepithelial tumor with adjacent cortical dysplasia, WHO grade 1: Dysembryoplastic Neuroepithelial Tumor With Adjacent Cortical Dysplasia, WHO Grade 1
+  EBV-negative undifferentiated carcinoma, favour sinonasal undifferentiated carcinoma (SNUC);: EBV-Negative Undifferentiated Carcinoma, Favour Sinonasal Undifferentiated Carcinoma (SNUC);
+  Embryoanl rhabdomyosarcoma: Embryoanl Rhabdomyosarcoma
+  Embryonal Rhabdomyosarcoma with anaplastic features: Embryonal Rhabdomyosarcoma With Anaplastic Features
+  Embryonal malignancy, favor medulloblastoma: Embryonal Malignancy, Favor Medulloblastoma
+  Embryonal neoplasm consistent with medulloblastoma,NOS, CNS WHO grade 4: Embryonal Neoplasm Consistent With Medulloblastoma,NOS, CNS WHO Grade 4
+  Embryonal neoplasm with INI-1 loss by immunohistochemistry: Embryonal Neoplasm With INI-1 Loss By Immunohistochemistry
+  Embryonal rhabdomyosarcoma FOXO1 fusion negative: Embryonal Rhabdomyosarcoma FOXO1 Fusion Negative
+  Embryonal rhabdomyosarcoma with anaplastic features: Embryonal Rhabdomyosarcoma With Anaplastic Features
+  Embryonal rhabdomyosarcoma, botryoid pattern: Embryonal Rhabdomyosarcoma, Botryoid Pattern
+  Embryonal rhabdomyosarcoma, high grade, FNCLCC grade 3: Embryonal Rhabdomyosarcoma, High Grade, FNCLCC Grade 3
+  Embryonal rhabdomyosarcoma, high-grade: Embryonal Rhabdomyosarcoma, High-Grade
+  Embryonal tumor w/ multilayered rosettes: Embryonal Tumor W/ Multilayered Rosettes
+  Embryonal tumor with features most consistent with medulloblastoma: Embryonal Tumor With Features Most Consistent With Medulloblastoma
+  Embryonal tumor with multi-layered rosettes: Embryonal Tumor With Multi-Layered Rosettes
+  Embryonal tumor, favor medulloblastoma with classic histology, CNS WHO grade 4: Embryonal Tumor, Favor Medulloblastoma With Classic Histology, CNS WHO Grade 4
+  Embryonal tumor, morphologically most consistent with medulloblastoma, CNS WHO Grade 4: Embryonal Tumor, Morphologically Most Consistent With Medulloblastoma, CNS WHO Grade 4
+  Embyonal tumor: Embyonal Tumor
+  Ependymoma (CNS WHO grade 3): Ependymoma (CNS WHO Grade 3)
+  Ependymoma (WHO grade 2): Ependymoma (WHO Grade 2)
+  Ependymoma CNS WHO grade 3: Ependymoma CNS WHO Grade 3
+  Ependymoma WHO grade 2: Ependymoma WHO Grade 2
+  Ependymoma WHO grade 3: Ependymoma WHO Grade 3
+  Ependymoma, CNS WHO Grade 3 Group A, Methylation subclass 2A: Ependymoma, CNS WHO Grade 3 Group A, Methylation Subclass 2A
+  Ependymoma, CNS WHO grade 3: Ependymoma, CNS WHO Grade 3
+  Ependymoma, WHO grade III: Ependymoma, WHO Grade III
+  Epithelial neoplasm, compatible with choroid plexus carcinoma: Epithelial Neoplasm, Compatible With Choroid Plexus Carcinoma
+  Ewing Sarcoma involving Lung: Ewing Sarcoma Involving Lung
+  Extensively infiltrating, high-grade astrocytic glioma: Extensively Infiltrating, High-Grade Astrocytic Glioma
+  Extra adrenal paraganglioma: Extra Adrenal Paraganglioma
+  Favor Glioma,such as ependymoma versus other glial neoplasm: Favor Glioma,Such As Ependymoma Versus Other Glial Neoplasm
+  Favor anaplastic ependymoma: Favor Anaplastic Ependymoma
+  Favor ganglioglioma: Favor Ganglioglioma
+  Favor low grade glial neoplasm: Favor Low Grade Glial Neoplasm
+  Favor low grade glioneuronal tumor: Favor Low Grade Glioneuronal Tumor
+  Favor pilocytic astrocytoma with increased proliferation indices: Favor Pilocytic Astrocytoma With Increased Proliferation Indices
+  Favor pilocytic astrocytoma, CNS WHO grade 1: Favor Pilocytic Astrocytoma, CNS WHO Grade 1
+  Favor posterior fossa ependymoma, WHO GRADE 3: Favor Posterior Fossa Ependymoma, WHO GRADE 3
+  Favor teratoma: Favor Teratoma
+  Features consistent with high grade glioma: Features Consistent With High Grade Glioma
+  Fibrous lesion with focal nuclear beta-catenin statining: Fibrous Lesion With Focal Nuclear Beta-Catenin Statining
+  Fusion-positive rhabdomyosarcoma: Fusion-Positive Rhabdomyosarcoma
+  Ganglioma WHO grade 1: Ganglioma WHO Grade 1
+  Ganglioma with BRAF V600E immunoreactivity CNS grade 1: Ganglioma With BRAF V600E Immunoreactivity CNS Grade 1
+  Ganglioneuroblastoma, nodular type: Ganglioneuroblastoma, Nodular Type
+  Ganglioneuroblastoma, nodular, poorly differentiated subtype with low mitotic-karyorrhectic index: Ganglioneuroblastoma, Nodular, Poorly Differentiated Subtype With Low Mitotic-Karyorrhectic Index
+  Ganglioneuroma, maturing type, favorable histology: Ganglioneuroma, Maturing Type, Favorable Histology
+  Gastrointestinal stomach tumor, spindle cell type: Gastrointestinal Stomach Tumor, Spindle Cell Type
+  Glial neoplasm showing high-grade features: Glial Neoplasm Showing High-Grade Features
+  Glial neoplasm with ependymal features: Glial Neoplasm With Ependymal Features
+  Glial neoplasm, IDH wildtype: Glial Neoplasm, IDH Wildtype
+  Glial neoplasm, astrocytoma: Glial Neoplasm, Astrocytoma
+  Glial neoplasm, favor pilocytic astrocytoma: Glial Neoplasm, Favor Pilocytic Astrocytoma
+  Glial versus glioneuronal tumor, favor ganglioglioma, CNS WHO grade 1: Glial Versus Glioneuronal Tumor, Favor Ganglioglioma, CNS WHO Grade 1
+  Glial/glioneruonal neoplasm, histologically low-grade: Glial/Glioneruonal Neoplasm, Histologically Low-Grade
+  Glial/glioneuronal tumor; favor Ganglioglioma: Glial/Glioneuronal Tumor; Favor Ganglioglioma
+  Glioma favor subependymoma: Glioma Favor Subependymoma
+  Glioma with abundant calcifications, pilocytic astrocytoma: Glioma With Abundant Calcifications, Pilocytic Astrocytoma
+  Glioma with evidence of proliferation: Glioma With Evidence Of Proliferation
+  Glioma, Favor ependymoma: Glioma, Favor Ependymoma
+  Glioma, at least CNS-WHO Grade 1: Glioma, At Least CNS-WHO Grade 1
+  Glioma, histologically low grade: Glioma, Histologically Low Grade
+  Glioma, histologically low-grade: Glioma, Histologically Low-Grade
+  Glioma, no high-grade features seen, favor pleomorphic xanthoastrocytoma versus pilocytic astrocytoma: Glioma, No High-Grade Features Seen, Favor Pleomorphic Xanthoastrocytoma Versus Pilocytic Astrocytoma
+  Glioma/glioneuronal tumor with some piloid features and rare mitoses: Glioma/Glioneuronal Tumor With Some Piloid Features And Rare Mitoses
+  Glioneuronal tumor with focal increased atypia: Glioneuronal Tumor With Focal Increased Atypia
+  Grade II cellular ependymoma: Grade II Cellular Ependymoma
+  Hemangioblastoma CNS WHO grade 1: Hemangioblastoma CNS WHO Grade 1
+  Hemangioblastoma, CNS WHO grade 1: Hemangioblastoma, CNS WHO Grade 1
+  Hemangioblastoma, WHO grade 1: Hemangioblastoma, WHO Grade 1
+  High grade Glioma, NEC, favor anaplastic ganglioglioma: High Grade Glioma, NEC, Favor Anaplastic Ganglioglioma
+  High grade follicular derived thyroid carcinoma: High Grade Follicular Derived Thyroid Carcinoma
+  High grade glial cell tumor: High Grade Glial Cell Tumor
+  High grade glial neoplasm, favor embryonal: High Grade Glial Neoplasm, Favor Embryonal
+  High grade glioma with necrosis, WHO Grade 4: High Grade Glioma With Necrosis, WHO Grade 4
+  High grade glioma, WHO Grade 4: High Grade Glioma, WHO Grade 4
+  High grade glioma, astrocytoma: High Grade Glioma, Astrocytoma
+  High grade glioma, favor pleomorphic xanthoastrocytoma, CNS WHO Grade 3: High Grade Glioma, Favor Pleomorphic Xanthoastrocytoma, CNS WHO Grade 3
+  High grade lesion: High Grade Lesion
+  High grade malignant epithelioid neoplasm: High Grade Malignant Epithelioid Neoplasm
+  ? High grade malignant peripheral nerve sheath tumor with heterologous rhabdomyoblastic differentiation (malignant Triton tumor)
+  : High Grade Malignant Peripheral Nerve Sheath Tumor With Heterologous Rhabdomyoblastic Differentiation (Malignant Triton Tumor)
+  High grade neoplasm with neuronal phenotype: High Grade Neoplasm With Neuronal Phenotype
+  High grade neoplasm with primitive/ebryonal features: High Grade Neoplasm With Primitive/Ebryonal Features
+  High grade neoplasm, CNS WHO grade 4: High Grade Neoplasm, CNS WHO Grade 4
+  High grade tumor with embryonal features: High Grade Tumor With Embryonal Features
+  High-grade CNS embryonal tumor; favor medulloblastoma: High-Grade CNS Embryonal Tumor; Favor Medulloblastoma
+  High-grade carcinoma, consistent with clear cell endometrial carcinoma: High-Grade Carcinoma, Consistent With Clear Cell Endometrial Carcinoma
+  High-grade diffuse glioma, subtype indeterminate: High-Grade Diffuse Glioma, Subtype Indeterminate
+  High-grade diffuse midline glioma, histone H3 K27M altered, WHO grade IV: High-Grade Diffuse Midline Glioma, Histone H3 K27M Altered, WHO Grade IV
+  High-grade ependymoma tumor: High-Grade Ependymoma Tumor
+  High-grade favor choroid plexus carcinoma: High-Grade Favor Choroid Plexus Carcinoma
+  ? High-grade gioma, favored to be ""diffuse pediatric-type high-grade glioma, H3 wild type and IDH wild type"" with possible hypermutation (pHGG, H3 wild type in IDH wild type).
+  : High-Grade Gioma, Favored To Be ""Diffuse Pediatric-Type High-Grade Glioma, H3 Wild Type And IDH Wild Type"" With Possible Hypermutation (Phgg, H3 Wild Type In IDH Wild Type).
+  High-grade glial neoplasm, CNS WHO grade 4: High-Grade Glial Neoplasm, CNS WHO Grade 4
+  High-grade glial tumor: High-Grade Glial Tumor
+  High-grade glioma demonstrating morphologic features suggestive of high-grade astrocytoma with piloid features: High-Grade Glioma Demonstrating Morphologic Features Suggestive Of High-Grade Astrocytoma With Piloid Features
+  High-grade glioma/glioblastoma: High-Grade Glioma/Glioblastoma
+  High-grade malignancy consistent with high-grade glioma: High-Grade Malignancy Consistent With High-Grade Glioma
+  High-grade malignant tumor with divergent differentiation: High-Grade Malignant Tumor With Divergent Differentiation
+  High-grade neoplasm consistent with metastatic pleuropulmonary blastoma: High-Grade Neoplasm Consistent With Metastatic Pleuropulmonary Blastoma
+  High-grade neoplasm with sarcoma features: High-Grade Neoplasm With Sarcoma Features
+  High-grade neuroepithelial neoplasm, ATRX expression lost: High-Grade Neuroepithelial Neoplasm, ATRX Expression Lost
+  High-grade neuroepithelial tumor most c/w ependymoma: High-Grade Neuroepithelial Tumor Most C/W Ependymoma
+  High-grade primitive neoplasm: High-Grade Primitive Neoplasm
+  High-grade spindle cell neoplasm: High-Grade Spindle Cell Neoplasm
+  High-grade spindle cell sarcoma: High-Grade Spindle Cell Sarcoma
+  High-grade synovial sarcoma: High-Grade Synovial Sarcoma
+  Higher grade neuroepithelial tumor with ependymal features: Higher Grade Neuroepithelial Tumor With Ependymal Features
+  Histologically low-grade glioma: Histologically Low-Grade Glioma
+  Hypercellular lesion with atypia: Hypercellular Lesion With Atypia
+  Hypercellular neuroepithelial tumor with some features of glioma, possibly high grade: Hypercellular Neuroepithelial Tumor With Some Features Of Glioma, Possibly High Grade
+  Hypocellular low grade lesion: Hypocellular Low Grade Lesion
+  INI-1 deficient malignant neoplasm: INI-1 Deficient Malignant Neoplasm
+  Inflammatory myofibroblastic tumor with an associated odontogenic keratocyst: Inflammatory Myofibroblastic Tumor With An Associated Odontogenic Keratocyst
+  Intracranial mesenchymal tumor with FET:CREB fusion: Intracranial Mesenchymal Tumor With FET:CREB Fusion
+  Left middle cranial fossa; Schwannoma: Left Middle Cranial Fossa; Schwannoma
+  Leiomyosarcoma FNCLCC grade 2: Leiomyosarcoma FNCLCC Grade 2
+  Leiomyosarcoma, low grade: Leiomyosarcoma, Low Grade
+  Lesional tissue present; favor glial versus glioneuronal tumor: Lesional Tissue Present; Favor Glial Versus Glioneuronal Tumor
+  Leydig cell tumor: Leydig Cell Tumor
+  Low grade Glial neoplasm, Favor pylocytic astrocytoma: Low Grade Glial Neoplasm, Favor Pylocytic Astrocytoma
+  Low grade astrocytoma with histologic features of pilocytic astrocytoma, CNS WHO Grade 1: Low Grade Astrocytoma With Histologic Features Of Pilocytic Astrocytoma, CNS WHO Grade 1
+  Low grade astrocytoma, favor pilocytic astrocytoma: Low Grade Astrocytoma, Favor Pilocytic Astrocytoma
+  Low grade glial/ glioneuronal neoplasm: Low Grade Glial/ Glioneuronal Neoplasm
+  Low grade glial/ glioneuronal tumor: Low Grade Glial/ Glioneuronal Tumor
+  Low grade glial/glioneuroal neoplasm: Low Grade Glial/Glioneuroal Neoplasm
+  Low grade glial/glioneuronal tumor morphologically consistent with dysembryoplastic neuroepithelial tumor CNS WHO grade 1: Low Grade Glial/Glioneuronal Tumor Morphologically Consistent With Dysembryoplastic Neuroepithelial Tumor CNS WHO Grade 1
+  Low grade glioma with features of pilocytic astrocytoma: Low Grade Glioma With Features Of Pilocytic Astrocytoma
+  Low grade glioma, Align well with subependymal giant cell astrocytoma: Low Grade Glioma, Align Well With Subependymal Giant Cell Astrocytoma
+  Low grade glioma/Pilocytic astrocytoma: Low Grade Glioma/Pilocytic Astrocytoma
+  Low grade glioneuronal versus glial neoplasm: Low Grade Glioneuronal Versus Glial Neoplasm
+  Low grade neoplasm. Features suggestive of pilocytic astrocytoma.: Low Grade Neoplasm. Features Suggestive Of Pilocytic Astrocytoma.
+  Low grade neuroepithelial tumor most consistent with dysembyoplastic neuroepithelial tumor: Low Grade Neuroepithelial Tumor Most Consistent With Dysembyoplastic Neuroepithelial Tumor
+  Low-cellularity Glioma: Low-Cellularity Glioma
+  Low-grad astrocytoma: Low-Grad Astrocytoma
+  Low-grade Neuroepithelial tumor, favor Ganglioglioma: Low-Grade Neuroepithelial Tumor, Favor Ganglioglioma
+  Low-grade circumscribed astrocytic glioma, BRAF-V600E mutant: Low-Grade Circumscribed Astrocytic Glioma, BRAF-V600E Mutant
+  Low-grade glioma most consistent with pilocytic astrocytoma, WHO grade 1: Low-Grade Glioma Most Consistent With Pilocytic Astrocytoma, WHO Grade 1
+  Low-grade glioma, BRAF V600E expressing: Low-Grade Glioma, BRAF V600E Expressing
+  Low-grade glioma, compatible with pilocytic astrocytoma: Low-Grade Glioma, Compatible With Pilocytic Astrocytoma
+  Low-grade glioma, favor Pilocytic astrocytoma, CNS WHO grade 1: Low-Grade Glioma, Favor Pilocytic Astrocytoma, CNS WHO Grade 1
+  Low-grade glioma, with histologic features of pilocytic astrocytoma, WHO grade 1: Low-Grade Glioma, With Histologic Features Of Pilocytic Astrocytoma, WHO Grade 1
+  Low-grade glioneuronal, neuronal tumor: Low-Grade Glioneuronal, Neuronal Tumor
+  Low-grade glioneuronal. Favor DNET or ganglioglioma.: Low-Grade Glioneuronal. Favor DNET Or Ganglioglioma.
+  Lower grade glioma, morphologically aligns with a piloid/pilocytic asatrocytoma: Lower Grade Glioma, Morphologically Aligns With A Piloid/Pilocytic Asatrocytoma
+  Malignant embryonal tumor most consistent with medulloblastoma: Malignant Embryonal Tumor Most Consistent With Medulloblastoma
+  Malignant epithelioid and myxoid neoplasm: Malignant Epithelioid And Myxoid Neoplasm
+  Malignant epithelioid neoplasm: Malignant Epithelioid Neoplasm
+  Malignant neoplasm with myxoid and rhabdoid features and loss of INI-1 by immunohistochemistry: Malignant Neoplasm With Myxoid And Rhabdoid Features And Loss Of INI-1 By Immunohistochemistry
+  Malignant neoplasm with rhabdomyoblastic differentiation, high grade: Malignant Neoplasm With Rhabdomyoblastic Differentiation, High Grade
+  Malignant neoplasm, likely embryonal: Malignant Neoplasm, Likely Embryonal
+  Malignant neuroectodermal neoplasm: Malignant Neuroectodermal Neoplasm
+  Malignant neuroepithelial neoplasm most suggestive of high grade astrocytoma: Malignant Neuroepithelial Neoplasm Most Suggestive Of High Grade Astrocytoma
+  Malignant peripheral nerve sheath tumor with rhabdomyoblastic differentiation (malignant Triton tumor): Malignant Peripheral Nerve Sheath Tumor With Rhabdomyoblastic Differentiation (Malignant Triton Tumor)
+  Malignant round cell sarcoma: Malignant Round Cell Sarcoma
+  Malignant sarcoma with DICER1 mutation, favor primary intracranial sarcoma, DICER1 mutant: Malignant Sarcoma With DICER1 Mutation, Favor Primary Intracranial Sarcoma, DICER1 Mutant
+  Malignant small blue cell tumor: Malignant Small Blue Cell Tumor
+  Malignant spindle cell neoplasm, most compatible with Pleuropulmonary blastoma type 2 or 3: Malignant Spindle Cell Neoplasm, Most Compatible With Pleuropulmonary Blastoma Type 2 Or 3
+  Malignant spindle cell tumor expressing muscle differentiation. Tumor appears most consistent with an embryonal: Malignant Spindle Cell Tumor Expressing Muscle Differentiation. Tumor Appears Most Consistent With An Embryonal
+  Marked atypia c/w malignant lesion: Marked Atypia C/W Malignant Lesion
+  Medulloblastoma WHO grade 4: Medulloblastoma WHO Grade 4
+  Medulloblastoma WHO grade IV: Medulloblastoma WHO Grade IV
+  Medulloblastoma by morphology, NON-WNT by immunohistochemistry: Medulloblastoma By Morphology, NON-WNT By Immunohistochemistry
+  Medulloblastoma, ""classic"" histopathological subtype (NOS): Medulloblastoma, ""Classic"" Histopathological Subtype (NOS)
+  Medulloblastoma, Classic type (CNS WHO grade 4): Medulloblastoma, Classic Type (CNS WHO Grade 4)
+  Medulloblastoma, Desmoplastic/Nodular histology CNS WHO Grade 4: Medulloblastoma, Desmoplastic/Nodular Histology CNS WHO Grade 4
+  Medulloblastoma, Group 3 subtype (WHO grade 4): Medulloblastoma, Group 3 Subtype (WHO Grade 4)
+  Medulloblastoma, Nodular/desmoplastic with anaplastic/large cell features, Non-WNT/Non-SHH; WHO Grade 4: Medulloblastoma, Nodular/Desmoplastic With Anaplastic/Large Cell Features, Non-WNT/Non-SHH; WHO Grade 4
+  Medulloblastoma, SHH activated and TP 53 wild-type, CNS WHO grade 4: Medulloblastoma, SHH Activated And TP 53 Wild-Type, CNS WHO Grade 4
+  Medulloblastoma, WNT-activated, WHO Grade 4: Medulloblastoma, WNT-Activated, WHO Grade 4
+  Medulloblastoma, classic (Biphasic) histologic type, Non-SHH/Non-WNT molecular group, CNS WHO Grade 4: Medulloblastoma, Classic (Biphasic) Histologic Type, Non-SHH/Non-WNT Molecular Group, CNS WHO Grade 4
+  Medulloblastoma, classic histologic type (CNS WHO grade 4): Medulloblastoma, Classic Histologic Type (CNS WHO Grade 4)
+  Medulloblastoma, classic histologic type, CNS WHO grade 4: Medulloblastoma, Classic Histologic Type, CNS WHO Grade 4
+  Medulloblastoma, classic histologic type. non-WNT/non-SHH. CNS WHO grade 4: Medulloblastoma, Classic Histologic Type. Non-WNT/Non-SHH. CNS WHO Grade 4
+  Medulloblastoma, classic histology: Medulloblastoma, Classic Histology
+  Medulloblastoma, classic morphology, CNS WHO grade 4, NON-WNT/NON-SHH, Group 4 subtype by methylation: Medulloblastoma, Classic Morphology, CNS WHO Grade 4, NON-WNT/NON-SHH, Group 4 Subtype By Methylation
+  Medulloblastoma, classic pattern, WHO grade IV: Medulloblastoma, Classic Pattern, WHO Grade IV
+  Medulloblastoma, classic variant, WHO grade 4: Medulloblastoma, Classic Variant, WHO Grade 4
+  Medulloblastoma, classic, non-WNT, WHO Grade 4: Medulloblastoma, Classic, Non-WNT, WHO Grade 4
+  ? Medulloblastoma, desmoplastic/nodular histologic subtype, with immunoprofile supporting SHH-activated, TP-53 mutant molecular subclass
+  : Medulloblastoma, Desmoplastic/Nodular Histologic Subtype, With Immunoprofile Supporting SHH-Activated, TP-53 Mutant Molecular Subclass
+  Medulloblastoma,classical type with areas of anapalia CNS WHO grade 4: Medulloblastoma,Classical Type With Areas Of Anapalia CNS WHO Grade 4
+  Medulloblastoma; Hypercellular lesion with marked atypia: Medulloblastoma; Hypercellular Lesion With Marked Atypia
+  Meningeal TumorvMeningioma, transitional subtype. CNS WHO Grade 1.: Meningeal Tumorvmeningioma, Transitional Subtype. CNS WHO Grade 1.
+  Meningioma, CNS WHO grade 1, with elevated proliferative index: Meningioma, CNS WHO Grade 1, With Elevated Proliferative Index
+  Meningioma, CNS-WHO grade 1 with high proliferation: Meningioma, CNS-WHO Grade 1 With High Proliferation
+  Meningioma, WHO grade 1: Meningioma, WHO Grade 1
+  Meningioma, atypical, CNS WHO Grade 2: Meningioma, Atypical, CNS WHO Grade 2
+  'Meningioma: Clear cell CNS WHO grade 2': Clear Cell CNS WHO Grade 2
+  Meningothelial meningioma, grade 1: Meningothelial Meningioma, Grade 1
+  Mesenchymal chondosarcoma: Mesenchymal Chondosarcoma
+  Mesenchymal lesion: Mesenchymal Lesion
+  Metastatic high grade sarcomatous neoplasm: Metastatic High Grade Sarcomatous Neoplasm
+  Metastatic leiomyosarcoma FNCLCC grade 2: Metastatic Leiomyosarcoma FNCLCC Grade 2
+  Metastatic malignant undifferentiated neoplasm consistent with rhabdoid tumor: Metastatic Malignant Undifferentiated Neoplasm Consistent With Rhabdoid Tumor
+  Metastatic neuroblastoma: Metastatic Neuroblastoma
+  ? Metastatic neuroendocrine neoplasm, best regarded as high grade neuroendocrine carcinoma, small cell type (small cell carcinoma), consistent with lung origin.
+  : Metastatic Neuroendocrine Neoplasm, Best Regarded As High Grade Neuroendocrine Carcinoma, Small Cell Type (Small Cell Carcinoma), Consistent With Lung Origin.
+  Metastatic papillary thyroid carcinoma in three of four lymph nodes: Metastatic Papillary Thyroid Carcinoma In Three Of Four Lymph Nodes
+  Mitotically active glial/ glioneuronal neoplasm: Mitotically Active Glial/ Glioneuronal Neoplasm
+  Moderately differentiated adenocarcinoma, consistent with colon primary: Moderately Differentiated Adenocarcinoma, Consistent With Colon Primary
+  ? Moderately differentiated invasive adenocarcinoma of the sigmoid colon  arising on the background of severe adenomatous polyposis
+  : Moderately Differentiated Invasive Adenocarcinoma Of The Sigmoid Colon  Arising On The Background Of Severe Adenomatous Polyposis
+  Moderately to poorly differentiated adenocarcinoma: Moderately To Poorly Differentiated Adenocarcinoma
+  Morphologically consistent with pilocytic astrocytoma, WHO grade 1: Morphologically Consistent With Pilocytic Astrocytoma, WHO Grade 1
+  Morphologicaly features suggestive of glioneuronal myxoid neoplasm: Morphologicaly Features Suggestive Of Glioneuronal Myxoid Neoplasm
+  Mucoepidermoid carcinoma (low grade): Mucoepidermoid Carcinoma (Low Grade)
+  Mullerian malignancy with rhabdomyosarcomatous differentiation: Mullerian Malignancy With Rhabdomyosarcomatous Differentiation
+  Myxopapillary ependymoma (CNS WHO grade II): Myxopapillary Ependymoma (CNS WHO Grade II)
+  Myxopapillary ependymoma, CNS WHO Grade 2: Myxopapillary Ependymoma, CNS WHO Grade 2
+  Myxopapillary ependymoma, WHO Grade 2: Myxopapillary Ependymoma, WHO Grade 2
+  Myxopapillary ependymoma, anaplastic: Myxopapillary Ependymoma, Anaplastic
+  Nasopharyngeal carcinoma, nonkeratinizing squamous cell carcinoma, eber positive: Nasopharyngeal Carcinoma, Nonkeratinizing Squamous Cell Carcinoma, Eber Positive
+  Neoplasm, high-grade: Neoplasm, High-Grade
+  Neoplasm, malignant embyonal: Neoplasm, Malignant Embyonal
+  Neuroblastoma, Schwannian stroma poor, poorly differentiated, low MKI, favorable histology: Neuroblastoma, Schwannian Stroma Poor, Poorly Differentiated, Low MKI, Favorable Histology
+  Neuroblastoma, poorly differentiated, low MKI, favorable histology: Neuroblastoma, Poorly Differentiated, Low MKI, Favorable Histology
+  Neuroblastoma, undifferentiated type: Neuroblastoma, Undifferentiated Type
+  Neuroepithelial tumor favor high grade: Neuroepithelial Tumor Favor High Grade
+  Neuroepithelial tumor with glioneuronal-like features: Neuroepithelial Tumor With Glioneuronal-Like Features
+  Not specified in data: Not Specified In Data
+  Papillary glioneural tumor: Papillary Glioneural Tumor
+  Papillary glioneuronal tumor, WHO Grade 1: Papillary Glioneuronal Tumor, WHO Grade 1
+  Papillary lesion with atypical/high grade features: Papillary Lesion With Atypical/High Grade Features
+  Papillary thyriod carcinoma: Papillary Thyriod Carcinoma
+  Papillary thyroid carcinoma with histopathological features compatible with Hashimoto's thyroiditis.: Papillary Thyroid Carcinoma With Histopathological Features Compatible With Hashimoto's Thyroiditis.
+  Papillary thyroid carcinoma, classic type: Papillary Thyroid Carcinoma, Classic Type
+  Papillary thyroid carcinoma, diffuse sclerosing variant: Papillary Thyroid Carcinoma, Diffuse Sclerosing Variant
+  Paratesticular rhabdomyosarcoma with diffuse anaplasia: Paratesticular Rhabdomyosarcoma With Diffuse Anaplasia
+  Paratesticular rhabdomyosarcoma, favor embryonal type: Paratesticular Rhabdomyosarcoma, Favor Embryonal Type
+  Paratesticular spindle cell/sclerosing rhabdomyosarcoma: Paratesticular Spindle Cell/Sclerosing Rhabdomyosarcoma
+  Pediatric high-grade glioma: Pediatric High-Grade Glioma
+  Pediatric-type diffuse high-grade glioma, CNS WHO grade 4: Pediatric-Type Diffuse High-Grade Glioma, CNS WHO Grade 4
+  Pilocytic Astrocytoma, BRAF-rearranged CNS WHO grade 1: Pilocytic Astrocytoma, BRAF-Rearranged CNS WHO Grade 1
+  Pilocytic astrocytoma CNS WHO Grade 1: Pilocytic Astrocytoma CNS WHO Grade 1
+  Pilocytic astrocytoma WHO 1: Pilocytic Astrocytoma WHO 1
+  Pilocytic astrocytoma WHO Grade 1: Pilocytic Astrocytoma WHO Grade 1
+  Pilocytic astrocytoma, CNS WHO GRADE 1: Pilocytic Astrocytoma, CNS WHO GRADE 1
+  Pilocytic astrocytoma, CNS WHO grade 1, BRAF-KIAA1549 fusion positive: Pilocytic Astrocytoma, CNS WHO Grade 1, BRAF-KIAA1549 Fusion Positive
+  Pilocytic astrocytoma, WHO grade 1, KIAA1549-BRAF fusion: Pilocytic Astrocytoma, WHO Grade 1, KIAA1549-BRAF Fusion
+  Pilocytic astrocytoma, optic (WHO grade 1): Pilocytic Astrocytoma, Optic (WHO Grade 1)
+  Pilomyxoid astrocytoma subtype of pilocytic astrocytoma, CNS WHO Grade 1: Pilomyxoid Astrocytoma Subtype Of Pilocytic Astrocytoma, CNS WHO Grade 1
+  Pineal anlage tumor, WHO grade 4: Pineal Anlage Tumor, WHO Grade 4
+  Pinealoblastoma, WHO grade 4: Pinealoblastoma, WHO Grade 4
+  Pleomorphic xanthoastrocytoma, WHO Grade 2: Pleomorphic Xanthoastrocytoma, WHO Grade 2
+  Pleomorphic xanthroastrocytoma: Pleomorphic Xanthroastrocytoma
+  Pleuropulmonary blastoma type II/III DICER1-Associated: Pleuropulmonary Blastoma Type II/III DICER1-Associated
+  Polymorphous low-grade neuroepithelial tumor of the young: Polymorphous Low-Grade Neuroepithelial Tumor Of The Young
+  Poorly differentiated Sertoli-Leydig cell tumor with heterologous rhabdomyosarcomatous differentiation: Poorly Differentiated Sertoli-Leydig Cell Tumor With Heterologous Rhabdomyosarcomatous Differentiation
+  Poorly differentiated chordoma: Poorly Differentiated Chordoma
+  Poorly differentiated malignant neoplasm: Poorly Differentiated Malignant Neoplasm
+  Poorly differentiated neuroblastoma: Poorly Differentiated Neuroblastoma
+  Poorly differentiated, intermediate mitotic-karyorrhectic index: Poorly Differentiated, Intermediate Mitotic-Karyorrhectic Index
+  Poorly-differentiated neuroblastoma: Poorly-Differentiated Neuroblastoma
+  Posterior fossa ependymoma (NOS) with high grade features: Posterior Fossa Ependymoma (NOS) With High Grade Features
+  Posterior fossa ependymoma, CNS WHO grade 2: Posterior Fossa Ependymoma, CNS WHO Grade 2
+  Posterior fossa ependymoma, NOS, with increased proliferative index: Posterior Fossa Ependymoma, NOS, With Increased Proliferative Index
+  Posterior fossa ependymoma, WHO Grade 3: Posterior Fossa Ependymoma, WHO Grade 3
+  Primary CNS Neoplasm, consistent with high grade malignant glioma: Primary CNS Neoplasm, Consistent With High Grade Malignant Glioma
+  Primitive neuroectodermal tumor: Primitive Neuroectodermal Tumor
+  Probable glial neoplasm with prominent microcalcifications: Probable Glial Neoplasm With Prominent Microcalcifications
+  Renal cell carcinoma: Renal Cell Carcinoma
+  Residual Craniopharyngioma, CNS WHO grade 1: Residual Craniopharyngioma, CNS WHO Grade 1
+  Residual astrocytoma: Residual Astrocytoma
+  Residual low grade neuroendocrine tumor (typical carcinoid): Residual Low Grade Neuroendocrine Tumor (Typical Carcinoid)
+  Residual posterior fossa anaplastic apendymoma, WHO Grade 3, molecular group A (PFA): Residual Posterior Fossa Anaplastic Apendymoma, WHO Grade 3, Molecular Group A (PFA)
+  Retinoblastoma, grade 3: Retinoblastoma, Grade 3
+  Retinoblastoma, moderately differentiated to focally well-differentiated, with endophytic growth pattern: Retinoblastoma, Moderately Differentiated To Focally Well-Differentiated, With Endophytic Growth Pattern
+  Rhabdomyosarcoma embryonal: Rhabdomyosarcoma Embryonal
+  Rhabdomyosarcoma embryonic: Rhabdomyosarcoma Embryonic
+  Rhabdomyosarcoma with alveolar features: Rhabdomyosarcoma With Alveolar Features
+  Rhabdomyosarcoma with anaplasia, favor embryonal type: Rhabdomyosarcoma With Anaplasia, Favor Embryonal Type
+  Rhabdomyosarcoma with spindle features: Rhabdomyosarcoma With Spindle Features
+  Rhabdomyosarcoma, consistent with alveolar subtype: Rhabdomyosarcoma, Consistent With Alveolar Subtype
+  Rhabdomyosarcoma, embryonal subtype: Rhabdomyosarcoma, Embryonal Subtype
+  Rhabdomyosarcoma, embryonal subtype is favored: Rhabdomyosarcoma, Embryonal Subtype Is Favored
+  Rhabdomyosarcoma, favor alveolar type: Rhabdomyosarcoma, Favor Alveolar Type
+  Rhabdomyosarcoma, most likely an embryonal carcinoma: Rhabdomyosarcoma, Most Likely An Embryonal Carcinoma
+  Rhabdomyosarcoma, spindle cell/sclerosing type: Rhabdomyosarcoma, Spindle Cell/Sclerosing Type
+  Round blue cell tumor favor primary brain neoplasm such as medulloblastoma or atypical rhabdoid teratoid tumor: Round Blue Cell Tumor Favor Primary Brain Neoplasm Such As Medulloblastoma Or Atypical Rhabdoid Teratoid Tumor
+  Rubbery to gelatinous cellular glioma: Rubbery To Gelatinous Cellular Glioma
+  SMARCB1 deficient malignancy consistent with malignant extrarenal rhabdoid tumor: SMARCB1 Deficient Malignancy Consistent With Malignant Extrarenal Rhabdoid Tumor
+  Sarcoma with BCOR internal tandem duplication: Sarcoma With BCOR Internal Tandem Duplication
+  Schwannian stroma poor peripheral neuroblastic tumor, consistent with Neuroblastoma: Schwannian Stroma Poor Peripheral Neuroblastic Tumor, Consistent With Neuroblastoma
+  Schwannoma with extensive degenerative changes: Schwannoma With Extensive Degenerative Changes
+  Sertoli-Leydig Cell Tumor, poorly differentiated: Sertoli-Leydig Cell Tumor, Poorly Differentiated
+  Sertoli-Leydig cell Tumor, poorly differentiated, with heterologous elements: Sertoli-Leydig Cell Tumor, Poorly Differentiated, With Heterologous Elements
+  Sertolig-leydig cell tumor: Sertolig-Leydig Cell Tumor
+  Sertori cell tumor: Sertori Cell Tumor
+  Sex cord stromal tumor NOS: Sex Cord Stromal Tumor NOS
+  Sex cord stromal tumor consistent with cystic granulosa cell tumor: Sex Cord Stromal Tumor Consistent With Cystic Granulosa Cell Tumor
+  Sheets of squamous epithelium: Sheets Of Squamous Epithelium
+  Skull Base Poorly differentiated chordoma, residual: Skull Base Poorly Differentiated Chordoma, Residual
+  Small blue cell embryonal neoplasm: Small Blue Cell Embryonal Neoplasm
+  Small blue cell tumor. Favor medulloblastoma: Small Blue Cell Tumor. Favor Medulloblastoma
+  Small cell carcinoma or ovary, Hypercalcemic type (SMARCA4 Deficient malignant rhabdoid tumor of ovary: Small Cell Carcinoma Or Ovary, Hypercalcemic Type (SMARCA4 Deficient Malignant Rhabdoid Tumor Of Ovary
+  Small round blue cell tumor - ewing sarcoma: Small Round Blue Cell Tumor - Ewing Sarcoma
+  Small round blue cell tumor, suspicious for medulloblastoma: Small Round Blue Cell Tumor, Suspicious For Medulloblastoma
+  Small round cell tumor, compatible with medulloblastoma: Small Round Cell Tumor, Compatible With Medulloblastoma
+  Spinal ependymoma, CNS WHO grade 2: Spinal Ependymoma, CNS WHO Grade 2
+  Spinal ependymoma, WHO grade 2: Spinal Ependymoma, WHO Grade 2
+  Spinal ependymoma, histologically low grade (CNS WHO grade 2): Spinal Ependymoma, Histologically Low Grade (CNS WHO Grade 2)
+  Spindle cell neoplasm with features suggestive of schwannoma: Spindle Cell Neoplasm With Features Suggestive Of Schwannoma
+  Spindle cell proliferation, beta-catenin positive: Spindle Cell Proliferation, Beta-Catenin Positive
+  Spindle cell rhabdomyosaroma: Spindle Cell Rhabdomyosaroma
+  Spindle cell sarcoma, at least intermediate grade: Spindle Cell Sarcoma, At Least Intermediate Grade
+  Spindled and epithelioid tumor with features of intracranial mesenchymal tumor: Spindled And Epithelioid Tumor With Features Of Intracranial Mesenchymal Tumor
+  Stroma poor, poorly differentiated neuroblastoma with low MKI, favorable histology: Stroma Poor, Poorly Differentiated Neuroblastoma With Low MKI, Favorable Histology
+  Supratentorial Ependymoma CNS WHO grade 3: Supratentorial Ependymoma CNS WHO Grade 3
+  Supratentorial ependymoma CNS WHO grade 3: Supratentorial Ependymoma CNS WHO Grade 3
+  Supratentorial ependymoma with L1CAM positivity: Supratentorial Ependymoma With L1CAM Positivity
+  Supratentorial ependymoma, NOS: Supratentorial Ependymoma, NOS
+  Supratentorial ependymoma, WHO Grade 3, NOS: Supratentorial Ependymoma, WHO Grade 3, NOS
+  Supratentorial ependymoma, favor ZFTA fusion-positive type, WHO Grade 3: Supratentorial Ependymoma, Favor ZFTA Fusion-Positive Type, WHO Grade 3
+  Synovial sarcoma, monophasic: Synovial Sarcoma, Monophasic
+  Thyroid papillary carcinoma, classic type: Thyroid Papillary Carcinoma, Classic Type
+  Unclassified sarcoma with round cell morphology: Unclassified Sarcoma With Round Cell Morphology
+  Undifferentiated embryonal sarcoma of the liver (UESL): Undifferentiated Embryonal Sarcoma Of The Liver (UESL)
+  Undifferentiated nasopharyngeal carcinoma: Undifferentiated Nasopharyngeal Carcinoma
+  Undifferentiated round and spindle cell sarcoma: Undifferentiated Round And Spindle Cell Sarcoma
+  Undifferentiated round cell sarcoma with EWSR1::ETV1 translocation: Undifferentiated Round Cell Sarcoma With EWSR1::ETV1 Translocation
+  Undifferentiated round cell sarcoma, favor BCOR sarcoma: Undifferentiated Round Cell Sarcoma, Favor BCOR Sarcoma
+  Vascular lesion, consistent with hemangioma: Vascular Lesion, Consistent With Hemangioma
+  Well differentiated neuroendocrince tumor, grade 1: Well Differentiated Neuroendocrince Tumor, Grade 1
+  ? Well-circumscribed, nodular lesion with prominent blood vessels, diffuse smooth muscle actin positivity, and prominent plasmacytic and histiocytic infiltrate
+  : Well-Circumscribed, Nodular Lesion With Prominent Blood Vessels, Diffuse Smooth Muscle Actin Positivity, And Prominent Plasmacytic And Histiocytic Infiltrate
+  diffuse midline glioma, H3 K27-altered: Diffuse Midline Glioma, H3 K27-Altered
+  glial/glioneuronal tumor: Glial/Glioneuronal Tumor
+  high grade CNS embryonal neoplasm, favor Medulloblastoma: High Grade CNS Embryonal Neoplasm, Favor Medulloblastoma
+  high grade carcinosarcoma: High Grade Carcinosarcoma
+  high grade glial neoplasm: High Grade Glial Neoplasm
+  high grade glioma: High Grade Glioma
+  intradural extra medullary tumor Suggestive of ependymoma: Intradural Extra Medullary Tumor Suggestive Of Ependymoma
+  low grade glial neoplasm: Low Grade Glial Neoplasm
+  low grade neuroglial tumor: Low Grade Neuroglial Tumor
+  malignant small round blue tumor consistent with rhabdomyosarcoma: Malignant Small Round Blue Tumor Consistent With Rhabdomyosarcoma
+  medulloblastoma, WNT activated with classic histology WHO grade4: Medulloblastoma, WNT Activated With Classic Histology WHO Grade4
+  meningioma, CNS WHO grade 1: Meningioma, CNS WHO Grade 1
+  most consistent with atypical teratoid/rhabdoid tumor: Most Consistent With Atypical Teratoid/Rhabdoid Tumor
+  supracellular Germinoma: Supracellular Germinoma
+  undiagnosed spindle cell tumor: Undiagnosed Spindle Cell Tumor
+  well-differentiated thyroid carcinoma: Well-Differentiated Thyroid Carcinoma
   '8170/3 : Hepatocellular Carcinoma, NOS': Hepatocellular Carcinoma, Nos
   '8171/3 : Hepatocellular carcinoma, fibrolamellar': Hepatocellular Carcinoma, Fibrolamellar
   '8171/3 : Hepatocellular Carcinoma, Fibrolamellar': Hepatocellular Carcinoma, Fibrolamellar
@@ -1724,7 +2404,7 @@ primary_diagnosis:
   Biphasic synovial sarcoma: Biphasic Synovial Sarcoma
   Choroid plexus carcinoma, CNS Who grade 3: Choroid plexus carcinoma, CNS WHO grade 3
 platform:
-  Illumina: ILLUMINA
+  ILLUMINA: Illumina
   unknown: Unknown
 tumor_grade:
   unknown: Unknown
@@ -1797,9 +2477,16 @@ sample_type:
   'C77.9 : Lymph node, NOS': Lymph Node, NOS
   'C80 : UNKNOWN PRIMARY SITE': Unknown
   'C80.9 : Unknown primary site': Unknown
+  'C72.9 : Central nervous system': Central Nervous System
   peripheral blood - Blood Derived Cancer: Blood
   Tissue Biospecimen Type: Tissue
   Invalid value: null
+  Blood Biospecimen Type: Blood
+  Bone Marrow Biospecimen Type: Bone Marrow
+  Fluids Biospecimen Type: Fluids
+  Invalid values: null
+  #'C72.9 : Central nervous system': Central Nervous System
+
 days_to_last_followup:
   Not Reported: null
   unknown: null
@@ -1837,6 +2524,13 @@ morphology:
   Superficial spreading melanoma: null
   Tonsils: null
   unknown: null
+  cribiform, comedo, micropapillary: Cribiform, Comedo, Micropapillary
+  cribiform, micropapillary: Cribiform, Micropapillary
+  papillary: Papillary
+  solid: Solid
+  solid, comedo, micropapillary: Solid, Comedo, Micropapillary
+  solid, cribiform: Solid, Cribiform
+  solid, cribiform, comedo: Solid, Cribiform, Comedo
 de_identification_method_type:
   manual: Manual
 extra_long_values:

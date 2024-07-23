@@ -101,6 +101,7 @@ parser.add_argument('--config_file', type=str, help='The path of the config file
 parser.add_argument('--upload_s3', help='Decide whether or not upload the transformed data to s3', action='store_true') #Argument to decide whether or not to upload the transformed data to the s3 bucket
 parser.add_argument('--extract_raw_data_dictionary', help='Decide whether or not extract raw data dictionary instead of transformed raw data', action='store_true')
 parser.add_argument('--download_s3', help="Decide whether or not download datafiles from s3 bucket.", action='store_true')
+parser.add_argument('--split_phs_accession', help="whether or not to split the output csv files with phs_accession", action='store_true')
 args = parser.parse_args()
 config = args.config_file
 property_validation_df_columns = ['Missing_Properties', 'UI_Related', 'Raw_Data_File']
@@ -165,7 +166,7 @@ if args.extract_raw_data_dictionary == False:
         df_dict = id_validation(df_dict, config, data_file, cds_log, model)
         add_historical_value(df_dict, config, cds_log)
         prefix = os.path.splitext(data_file_base)[0]
-        print_data(df_dict, config, cds_log, prefix)
+        print_data(df_dict, config, cds_log, prefix, args.split_phs_accession)
     
 
     sub_folder = os.path.join(config['ID_VALIDATION_RESULT_FOLDER'], config['DATA_BATCH_NAME'])
