@@ -158,7 +158,8 @@ def print_data(df_dict, config, cds_log, prefix, split):
     # "cds_log" is the log object
     sub_folder = os.path.join(config['OUTPUT_FOLDER'], config['DATA_BATCH_NAME'])
     if split:
-        sub_folder = os.path.join(sub_folder, df_dict['study']['phs_accession'][0])
+        phs_list = list(df_dict['study']['phs_accession'])
+        sub_folder = os.path.join(sub_folder, phs_list[0])
     for node, df in df_dict.items():
         file_name = prefix + '-' + node + '.tsv'
         file_name = os.path.join(sub_folder, file_name)

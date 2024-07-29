@@ -236,7 +236,8 @@ library_source:
 library_selection:
   RANDOM: Random
   Other: Other
-  Poly-T Enrichment: Poly-A Enriched Genomic Library
+  Poly-T Enrichment: Poly-A Enriched Genomic Librar
+  PolyA: Poly-A Enriched Genomic Library
 primary_diagnosis:
   4th Ventricle Posterior fossa group A (PFA) ependymoma, histologically CNS WHO grade 3: 4th Ventricle Posterior Fossa Group A (PFA) Ependymoma, Histologically CNS WHO Grade 3
   '8000/1 : Neoplasm, uncertain whether benign or malignant, ATRT, NOS or NEC, Atypical teratoid/rhabdoid tumor': Neoplasm, Uncertain Whether Benign Or Malignant, ATRT, NOS Or NEC, Atypical Teratoid/Rhabdoid Tumor
