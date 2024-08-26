@@ -1,0 +1,686 @@
+adult_or_childhood_study:
+  pediatric: Pediatric
+  adult: Adult
+  Pediatric, pediatric: Pediatric
+library_layout:
+  paired: Paired-End
+  Paired-end: Paired-End
+  Single-end: Single-indexed
+  Single: Single-indexed
+  Paired End: Paired-End
+  Paired-end: Paired-End
+  Paired end: Paired-End
+  paired-end: Paired-End
+  paired_end: Paired-End
+  single-end: Single-indexed
+  single: Single-indexed
+instrument_model:
+  HiSeq 3000: Illumina HiSeq 3000
+  HiSeq 2500: Illumina HiSeq 2500
+  HiSeq 2000: Illumina HiSeq 2000
+  Illumina Next Seq 500: Illumina NextSeq 500
+  Illumina HiSeq X Five: HiSeq X Five
+  Illumina HiSeq X Ten: HiSeq X Ten
+  Illumina NextSeq: Illumina NextSeq
+  HiSeq: Illumina HiSeq
+  #Not Applicable: Not Reported
+  Illumina Next Seq 550: Illumina NextSeq 550
+  NextSeq 500 Illumina: Illumina NextSeq 5000
+  unknown: Unknown
+  NextSeq 500: Illumina NextSeq 500
+reference_genome_assembly:
+  hg19 / GRCh37: GRCh37
+  hs37d5: GRCh37
+  GRCh38.p12: GRCh38
+  GRCh38.p13: GRCh38
+  GRCh38_ens93filt: GRCh38
+  GRCh38_long_polya: GRCh38
+  GRCh38_premrna_v3.0.0: GRCh38
+  refdata-cellranger-arc-GRCh38-2020-A: GRCh38
+  refdata-cellranger-GRCh38-3.0.0: GRCh38
+  RefSeq_Build_73: GRCh37 
+  hg19: GRCh37 
+  hg19_with_GenBank_Viral_Genomes: GRCh37
+  hg19-mm10: GRCh37
+  CellRanger reference GRCh38-3.0.0: GRCh38
+  GRCh38-2020-A: GRCh38
+  Gencode Release 38 (GRCh38.p13): GRCh38
+  Hg19: GRCh37
+  hg38 (GCA_000001405.15): GRCh38
+  refdata-cellranger-arc-GRCh38-2020-A-2.0.0: GRCh38
+  refdata-gex-GRCh38-2020-A: GRCh38
+  GCA_000001405.15_GRCh38_no_alt_analysis_set: GRCh38
+  GCF_000001405.39: GRCh38
+  hg38+EBV: GRCh38
+  refdata-cellranger-GRCh38-1.2.0: GRCh38
+  "refdata-gex-GRCh38-2020-A'": GRCh38
+  "Blood-derived genomic DNA (100ng - 1µg) was sheared using a Covaris S2 instrument.Ê Libraries were prepared using the NEBNext DNA Library Prep Reagent Set for Illumina (NEB # E6000) according to the manufacturerÕs instructions.Ê Library enrichment for a 34 gene custom panel was done with the Roche SeqCap EZ Choice Library (cat# 06266339001) and the SeqCap EZ Reagent Kit Plus v2 (NimbleGen #06-953-247-001) using the manufacturerÕs protocol. Individual libraries were combined into pools of 6-12 prior to hybridization.": Not specified in data
+  "DNA samples (1 ug) were sheared using a Covaris S2 Focused-ultrasonicator and libraries were prepared using the Illumina TruSeq DNA PCR-Free Sample Preparation Kit (cat# FC-121-3001 and FC-121-3002) with an average insert size of 350 bp.Ê Adapter-ligated molecules were analyzed by quantitative PCR using the Kapa Biosystems Kapa Library Quant Kit (cat#KK4824) and the molarity of individual libraries were normalized to 10 nM in preparation for Illumina sequence analysis.": Not specified in data
+file_type:
+  tiff: TIFF
+  fastq: FASTQ
+  fastq.gz: FASTQ
+  bai: BAI
+  bam: BAM
+  bw: BW
+  tbi: VCF
+  tsv: TSV
+  vcf: VCF
+  json: JSON
+  txt: TXT
+  xlsx: XLSX
+  vcf_index : VCF
+  bam_index: BAI
+  cns: CNS
+  crai: CRAI
+  cram: CRAM
+  csv: CSV
+  gvcf: GVCF
+  html: HTML
+  maf: MAF
+  pdf: PDF
+  ped: PED
+  png: PNG
+  seg: SEG
+  tar: TAR
+  bed: BED
+  idat: IDAT
+  nifti: NIFTI
+  svg: SVG
+  cram_index: CRAI
+  dict: DICT
+  fasta: FASTA
+  #nan_value: unknown
+gender:
+  female: Female
+  male: Male
+  F: Female
+  FEMALE: Female
+  M: Male
+  MALE: Male
+  #nan_value: Not Specified in Data
+progression_or_recurrence:
+  Yes - Progression or Recurrence: "Yes"
+  "True": "Yes"
+  Not Reported: Unknown
+  "no": "No"
+  not reported: Unknown
+  unknown: Unknown
+  "TRUE": "Yes"
+primary_site:
+  Bronchus and lung: Bronchus and Lung
+sample_tumor_status:
+  primary CRC tumor FFPE tissue: tumor
+  normal blood: normal
+  normal buccal tissue: normal
+  adjacent normal colonic FFPE tissue: normal
+  normal saliva: normal
+study_data_types:
+  Genomics: Genomic
+  GENOMIC: Genomic
+  genomic: Genomic
+  #nan_value: unknown
+sample_anatomic_site:
+  #Blood: Peripheral bloodß
+  'C37.9 : Thymus': Thymus
+  Adrenal gland, NOS: Adrenal Gland, NOS
+  Bones of skull and face and associated joints: Bones of Skull and Face and Associated Joints
+  'C02.9 : Tongue+C2:C127, NOS': Tongue, NOS
+  'C06.0 : Buccal mucosa': Buccal mucosa
+  'C06.9 : Mouth, NOS': Mouth, NOS
+  'C07.9 : Parotid gland': Parotid gland
+  'C14.0 : Pharynx, NOS': Pharynx, NOS
+  'C16.9 : Stomach, NOS': Stomach, NOS
+  'C17.9 : Small intestine, NOS': Small Intestine, NOS
+  'C18.9 : Colon, NOS': Colon, NOS
+  'C20.9 : Rectum, NOS': Rectum, NOS
+  'C22.0 : Liver': Liver
+  'C25.9 : Pancreas, NOS': Pancreas, NOS
+  'C34.9 : Lung, NOS': Lung, NOS
+  'C38.0 : Heart': Heart
+  'C38.3 : Mediastinum, NOS': Mediastinum, NOS
+  'C38.4 : Pleura, NOS': Pleura, NOS
+  'C41.1 : Mandible': Mandible
+  'C41.2 : Spine': Spine
+  'C41.3 : Rib, sternum, clavicle and associated joints': Rib, Sternum, Clavicle and Associated Joints
+  'C41.9 : Bone, NOS': Bone, NOS
+  'C42.0 : Blood': Blood
+  'C42.1 : Bone marrow': Bone Marrow
+  'C42.2 : Spleen': Spleen
+  'C44.4 : Skin of scalp and neck': Skin of scalp and neck
+  'C44.9 : Skin, NOS': Skin, NOS
+  'C48.2 : Peritoneum, NOS': Peritoneum, NOS
+  'C49.9 : Muscle, NOS': Muscle, NOS
+  'C56.9 : Ovary': Ovary
+  'C62.9 : Testis, NOS': Testis, NOS
+  'C64.9 : Kidney, NOS': Kidney, NOS
+  'C67.9 : Bladder, NOS': Bladder, NOS
+  'C69.9 : Eye, NOS': Eye, NOS
+  'C71.9 : Brain, NOS': Brain, NOS
+  'C74.9 : Adrenal gland, NOS': Adrenal Gland, NOS
+  'C76.0 : Head, face or neck, NOS': Head, Face or Neck, NOS
+  'C76.1 : Chest wall, NOS': Chest Wall, NOS
+  'C76.1 : Chest, NOS': Chest, NOS
+  'C76.2 : Abdomen, NOS': Abdomen, NOS
+  'C76.3 : Buttock, NOS': Buttock, NOS
+  'C76.3 : Pelvis, NOS': Pelvis, NOS
+  'C76.3 : Perineum, NOS': Perineum, NOS
+  'C76.4 : Arm, NOS': Arm, NOS
+  'C76.4 : Shoulder, NOS': Shoulder, NOS
+  'C76.5 : Thigh, NOS': Thigh, NOS
+  'C76.7 : Back, NOS': Back, NOS
+  'C77.9 : Lymph node, NOS': Lymph Node, NOS
+  'C80 : UNKNOWN PRIMARY SITE': Unknown
+  'C80.9 : Unknown primary site': Unknown
+  Connective, subcutaneous and other soft tissues of abdomen: Connective, Subcutaneous and Other Soft Tissues of Abdomen
+  Connective, subcutaneous and other soft tissues of lower limb and hip: Connective, Subcutaneous and Other Soft Tissues of Lower Limb and Hip
+  Connective, subcutaneous and other soft tissues of pelvis: Connective, Subcutaneous and Other Soft Tissues of Pelvis
+  Connective, subcutaneous and other soft tissues of thorax: Connective, Subcutaneous and Other Soft Tissues of Thorax
+  Connective, subcutaneous and other soft tissues of trunk, NOS: Connective, Subcutaneous and Other Soft Tissues of Trunk, NOS
+  Connective, subcutaneous and other soft tissues of upper limb and shoulder: Connective, Subcutaneous and Other Soft Tissues of Upper Limb and Shoulder
+  External ear: External Ear
+  Head, face or neck, NOS: Head, Face or Neck, NOS
+  Long bones of lower limb and associated joints: Long Bones of Lower Limb and Associated Joints
+  Long bones of upper limb, scapula and associated joints: Long Bones of Upper Limb, Scapula and Associated Joints
+  Lower limb, NOS: Lower Limb, NOS
+  Lower lobe, lung: Lower Lobe, lung
+  Lymph node, NOS: Lymph Node, NOS
+  Lymph nodes of head, face and neck: Lymph Nodes of Head, Face and Neck
+  Lymph nodes of inguinal region or leg: Lymph Nodes of Inguinal Region or Leg
+  Maxillary sinus: Maxillary Sinus
+  Middle lobe, lung: Middle Lobe, lung
+  Nasal cavity: Nasal Cavity
+  Occipital lobe: Occipital Lobe
+  Parotid gland: Parotid Gland
+  Pelvic bones, sacrum, coccyx and associated joints: Pelvic Bones, Sacrum, Coccyx and Associated Joints
+  Rib, sternum, clavicle and associated joints: Rib, Sternum, Clavicle and Associated Joints
+  Small intestine, NOS: Small Intestine, NOS
+  Upper limb, NOS: Upper Limb, NOS
+  Upper lobe, lung: Upper Lobe, Lung
+  UNKNOWN PRIMARY SITE: Unknowm
+  Invalid value: Not specified in data
+  Rare Disease: Not specified in data
+  Soft Tissue Sarcoma: Not specified in data
+  'C72.9 : Central nervous system': Central Nervous System
+library_strategy:
+  wxs: WXS
+  RNA-seq: RNA-Seq
+  Archer_Fusion: Archer Fusion
+  OTHER: Other
+experimental_strategy_and_data_subtypes:
+  wxs: WXS
+  RNA-seq: RNA-Seq
+  WXS, Amplicon, Bisulfite-Seq, RNA-seq, WGA: WXS, Amplicon, Bisulfite-Seq, RNA-Seq, WGA
+  WXS, RNA-seq: WXS, RNA-Seq
+  Methylation: Methylation Array
+  Methylation_Array: Methylation Array
+  Archer_Fusion: Archer Fusion
+  RNA-seq, Targeted-Capture, WXS: RNA-Seq, Targeted-Capture, WXS
+  WXS;Archer_Fusion;Methylation_Array: WXS;Archer Fusion;Methylation Array
+  Archer_Fusion;Methylation_Array;WXS: Archer Fusion;Methylation Array;WXS
+  RNA-seq;DNA-seq: RNA-Seq;DNA-Seq
+  Sequencing: RNA-Seq
+  #Targeted-Capture: Targeted Sequencing
+sample_tumor_status:
+  normal: Normal
+  tumor: Tumor
+library_source:
+  GENOMIC: Genomic
+  TRANSCRIPTOMIC: Transcriptomic
+  Single-nuclei: Single Nucleus
+  GENOMIC SINGLE CELL: Genomic Single Cell
+  TRANSCRIPTOMIC SINGLE CELL: Transcriptomic Single Cell
+  VIRAL RNA: Viral RNA
+  Transcritomic Single Cell: Transcriptomic Single Cell
+  Transcritomic Single Cell: Transcriptomic Single Cell
+library_selection:
+  RANDOM: Random
+  Other: Other
+  Poly-T Enrichment: Poly-A Enriched Genomic Librar
+  PolyA: Poly-A Enriched Genomic Library
+primary_diagnosis:
+  Malignant neoplasm of prostate: Malignant Neoplasm of Prostate
+  '8072/3 : Squamous Cell Carcinoma, Large Cell, Nonkeratinizing, NOS': Squamous Cell Carcinoma, Large Cell, Nonkeratinizing, NOS
+  '8140/0 : Adenoma, NOS': Adenoma, NOS
+  '8170/3 : Hepatocellular Carcinoma, NOS': Hepatocellular Carcinoma, NOS
+  '8171/3 : Hepatocellular Carcinoma, Fibrolamellar': Hepatocellular Carcinoma, Fibrolamellar
+  '8255/3 : Adenocarcinoma with mixed subtypes': Adenocarcinoma With Mixed Subtypes
+  '8370/3 : Adrenal Cortical Carcinoma': Adrenal Cortical Carcinoma
+  '8550/3 : Acinar Cell Carcinoma': Acinar Cell Carcinoma
+  '8680/1 : Paraganglioma, NOS': Paraganglioma, NOS
+  '8700/0 : Pheochromocytoma, NOS': Pheochromocytoma, NOS
+  '8720/3 : Malignant Melanoma, NOS': Malignant Melanoma, NOS
+  '8805/3 : Undifferentiated Sarcoma': Undifferentiated Sarcoma
+  '8806/3 : Desmoplastic Small Round Cell Tumor': Desmoplastic Small Round Cell Tumor
+  '8810/3 : Fibrosarcoma, NOS': Fibrosarcoma, NOS
+  '8811/3 : Myxofibrosarcoma': Myxofibrosarcoma
+  '8814/3 : Infantile Fibrosarcoma': Infantile Fibrosarcoma
+  '8821/1 : Aggressive Fibromatosis': Aggressive Fibromatosis
+  '8894/3 : Angiomyosarcoma': Angiomyosarcoma
+  '8900/0 : Rhabdomyoma, NOS': Rhabdomyoma, NOS
+  '8910/3 : Embryonal Rhabdomyosarcoma, NOS': Embryonal Rhabdomyosarcoma, NOS
+  '8912/3 : Spindle Cell Rhabdomyosarcoma': Spindle Cell Rhabdomyosarcoma
+  '8920/3 : Alveolar Rhabdomyosarcoma': Alveolar Rhabdomyosarcoma
+  '8991/3 : Embryonal Sarcoma': Embryonal Sarcoma
+  '9040/3 : Synovial Sarcoma, NOS': Synovial Sarcoma, NOS
+  '9064/3 : Germinoma, CNS Germ Cell Tumors, CNS Germinoma': Germinoma, CNS Germ Cell Tumors, CNS Germinoma
+  '9064/3 : Germinoma, CNS Germ Cell Tumors, CNS Non-Germinomatous Germ Cell Tumor': Germinoma, CNS Germ Cell Tumors, CNS Non-Germinomatous Germ Cell Tumor
+  '9071/3 : Yolk Sac Tumor, NOS': Yolk Sac Tumor, NOS
+  '9080/3 : Teratoma, Malignant, NOS': Teratoma, Malignant, NOS
+  '9161/1 : Hemangioblastoma, Other': Hemangioblastoma, Other
+  '9181/3 : Chondroblastic Osteosarcoma': Chondroblastic Osteosarcoma
+  '9183/3 : Telangiectatic Osteosarcoma': Telangiectatic Osteosarcoma
+  '9362/3 : Pineoblastoma, CNS Germ Cell Tumors, CNS Germinoma': Pineoblastoma, CNS Germ Cell Tumors, CNS Germinoma
+  '9364/3 : Ewing Sarcoma': Ewing Sarcoma
+  '9380/3 : Glioma, Malignant': Glioma, Malignant
+  '9382/3 : Oligoastrocytoma, NOS': Oligoastrocytoma, NOS
+  '9384/1 : Subependymal Giant Cell Astrocytoma': Subependymal Giant Cell Astrocytoma
+  '9385/3 : Diffuse Midline Glioma, H3 K27M-Mutant': Diffuse Midline Glioma, H3 K27M-Mutant
+  '9391/3 : Ependymoma, NOS': Ependymoma, NOS
+  '9392/3 : Ependymoma, Anaplastic': Ependymoma, Anaplastic
+  '9400/0 : Astrocytoma, Benign': Astrocytoma, Benign
+  '9400/3 : Astrocytoma, NOS': Astrocytoma, NOS
+  '9421/1 : Pilocytic Astrocytoma': Pilocytic Astrocytoma
+  '9430/3 : Astroblastoma': Astroblastoma
+  '9470/3 : Medulloblastoma, NOS': Medulloblastoma, NOS
+  '9470/3 : Medulloblastoma, NOS, Medulloblastoma, Group 3': Medulloblastoma, NOS, Medulloblastoma, Group 3
+  '9470/3 : Medulloblastoma, NOS, Medulloblastoma, Group 4': Medulloblastoma, NOS, Medulloblastoma, Group 4
+  '9473/3 : CNS Embryonal Tumor, NOS': CNS Embryonal Tumor, NOS
+  '9478/3 : Embryonal Tumor With Multilayered Rosettes With C19MC Alteration': Embryonal Tumor With Multilayered Rosettes With C19MC Alteration
+  '9490/0 : Ganglioneuroma': Ganglioneuroma
+  '9490/0 : Ganglioneuroma, Other, Schwannoma': Ganglioneuroma, Other, Schwannoma
+  '9492/0 : Gangliocytoma, NOS': Gangliocytoma, NOS
+  '9501/3 : Medulloepithelioma, NOS': Medulloepithelioma, NOS
+  '9530/0 : Meningioma, NOS': Meningioma, NOS
+  '9530/0 : Meningioma, NOS, Other': Meningioma, NOS, Other
+  '9530/1 : Meningiomatosis, NOS': Meningiomatosis, NOS
+  '9540/0 : Neurofibroma, NOS': Neurofibroma, NOS
+  '9540/1 : Neurofibromatosis, NOS': Neurofibromatosis, NOS
+  '9540/3 : Malignant Peripheral Nerve Sheath Tumor, NOS': Malignant Peripheral Nerve Sheath Tumor, NOS
+  '9560/0 : Schwannoma, NOS, Other': Schwannoma, NOS, Other
+  '9570/0 : Neuroma, NOS': Neuroma, NOS
+  9Acute Myeloid Leukemia, minimal differentiation: Acute Myeloid Leukemia, Minimal Differentiation
+  Acinar cell carcinoma: Acinar Cell Carcinoma
+  Acral lentiginous melanoma, malignant: Acral Lentiginous Melanoma, Malignant
+  Acute Myeloid Leukemia with Myelodysplasia-related changes, Juvenile Myelomonocytic Leukemia, NOS: Acute Myeloid Leukemia With Myelodysplasia-Related Changes, Juvenile Myelomonocytic Leukemia, NOS
+  Acute Myeloid Leukemia with abnormal marrow eosinophils: Acute Myeloid Leukemia With Abnormal Marrow Eosinophils
+  Acute Myeloid Leukemia, NOS, Juvenile myelomonocytic leukemia, NOS: Acute Myeloid Leukemia, NOS, Juvenile Myelomonocytic Leukemia, NOS
+  Acute Myeloid Leukemia, t(8;21)(q22;q22): Acute Myeloid Leukemia, T(8;21)(Q22;Q22)
+  Acute Promyelocytic Leukemia, t(15;17)(q22;q11-12): Acute Promyelocytic Leukemia, T(15;17)(Q22;Q11-12)
+  Acute leukemia, NOS: Acute Leukemia, NOS
+  Acute megakaryoblastic leukaemia: Acute Megakaryoblastic Leukemia
+  Acute monoblastic and monocytic leukemia: Acute Monoblastic And Monocytic Leukemia
+  Acute monoblastic leukemia: Acute Monoblastic Leukemia
+  Acute myeloid leukemia (megakaryoblastic) with t(1;22)(p13;q13); RBM15-MKL1: Acute Myeloid Leukemia (Megakaryoblastic) With T(1;22)(P13;Q13); RBM15-MKL1
+  Acute myeloid leukemia with mutated CEBPA: Acute Myeloid Leukemia With Mutated CEBPA
+  Acute myeloid leukemia with mutated NPM1: Acute Myeloid Leukemia With Mutated NPM1
+  Acute myeloid leukemia with myelodysplasia-related changes: Acute Myeloid Leukemia With Myelodysplasia-Related Changes
+  Acute myeloid leukemia with t(9;11)(p22;q23); MLLT3-MLL: Acute Myeloid Leukemia With T(9;11)(P22;Q23); MLLT3-MLL
+  Acute myeloid leukemia without maturation: Acute Myeloid Leukemia Without Maturation
+  Acute myeloid leukemia, NOS: Acute Myeloid Leukemia, NOS
+  Acute myeloid leukemia, NOS, Myeloproliferative neoplasm, unclassifiable: Acute Myeloid Leukemia, NOS, Myeloproliferative Neoplasm, Unclassifiable
+  Acute myeloid leukemia, inv(16)(p13;q22): Acute Myeloid Leukemia, Inv(16)(P13;Q22)
+  Acute myeloid leukemia, minimal differentiation: Acute Myeloid Leukemia, Minimal Differentiation
+  Acute myeloid leukemia, t(16;16)(p 13;q 11): Acute Myeloid Leukemia, T(16;16)(P 13;Q 11)
+  Acute myelomonocytic leukemia: Acute Myelomonocytic Leukemia
+  Acute promyelocytic leukaemia, t(15;17)(q22;q11-12): Acute Promyelocytic Leukaemia, T(15;17)(Q22;Q11-12)
+  Adamantinomatous craniopharyngioma, WHO grade 1: Adamantinomatous Craniopharyngioma, WHO Grade 1
+  Adenocarcinoma combined with other types of carcinoma: Adenocarcinoma Combined With Other Types Of Carcinoma
+  Adenocarcinoma in situ in Adenomatous Polyp: Adenocarcinoma In Situ In Adenomatous Polyp
+  Adenocarcinoma in situ, NOS: Adenocarcinoma In Situ, NOS
+  Adenocarcinoma in situ, non-mucinous: Adenocarcinoma In Situ, Non-Mucinous
+  Adenocarcinoma in villous adenoma: Adenocarcinoma In Villous Adenoma
+  Adenocarcinoma metastatic NOS: Adenocarcinoma, Metastatic NOS
+  Adenocarcinoma with mixed subtypes: Adenocarcinoma With Mixed Subtypes
+  Adenocarcinoma with neuroendocrine differentiation: Adenocarcinoma With Neuroendocrine Differentiation
+  Adenocarcinoma, Metastatic, NOS: Adenocarcinoma, Metastatic NOS
+  Adenocarcinoma, endocervical type: Adenocarcinoma, Endocervical Type
+  Adenocarcinoma, intestinal type: Adenocarcinoma, Intestinal Type
+  Adenocarcinoma, pancreatobiliary type: Adenocarcinoma, Pancreatobiliary Type
+  Adenocarcinoma, pancreatobiliary type, Pancreatobiliary-type carcinoma: Adenocarcinoma, Pancreatobiliary Type, Pancreatobiliary-Type Carcinoma
+  Adenoid cystic carcinoma: Adenoid Cystic Carcinoma
+  Adenosquamous carcinoma: Adenosquamous Carcinoma
+  Adrenal cortical carcinoma: Adrenal Cortical Carcinoma
+  Adrenal cortical tumor, NOS: Adrenal Cortical Tumor, NOS
+  Aggressive fibromatosis: Aggressive Fibromatosis
+  Alveolar rhabdomyosarcoma: Alveolar Rhabdomyosarcoma
+  Alveolar soft part sarcoma: Alveolar Soft Part Sarcoma
+  Amelanotic melanoma: Amelanotic Melanoma
+  Anaplastic Large Cell Lymphoma, T-cell and Null-cell type: Anaplastic Large Cell Lymphoma, T-Cell And Null-Cell Type
+  Anaplastic large cell lymphoma, ALK positive: Anaplastic Large Cell Lymphoma, ALK Positive
+  "Astroblastoma, Astroblastoma,\xAC\u2020MN1-Altered, High-Grade Glioma": Astroblastoma, Astroblastoma, MN1-Altered, High-Grade Glioma
+  Astrocytoma, anaplastic: Astrocytoma, Anaplastic
+  Atypical Choroid Plexus Papilloma Vs Carcinoma: Atypical Choroid Plexus Papilloma
+  Atypical teratoid/rhabdoid tumor: Atypical Teratoid/Rhabdoid Tumor
+  B lymphoblastic leukemia/lymphoma with hyperdiploidy: B Lymphoblastic Leukemia/Lymphoma With Hyperdiploidy
+  B lymphoblastic leukemia/lymphoma with hypodiploidy (Hypodiploid ALL): 'B Lymphoblastic Leukemia/Lymphoma With Hypodiploidy '
+  B lymphoblastic leukemia/lymphoma with t(12;21)(p13;q22); TEL-AML1 (ETV6-RUNX1): B Lymphoblastic Leukemia/Lymphoma With T(12;21)(P13;Q22); TEL-AML1 (ETV6-RUNX1)
+  B lymphoblastic leukemia/lymphoma with t(1;19)(q23;p13.3); E2A-PBX1 (TCF3-PBX1): B Lymphoblastic Leukemia/Lymphoma With T(1;19)(Q23;P13.3); E2A-PBX1 (TCF3-PBX1)
+  B lymphoblastic leukemia/lymphoma with t(9;22)(q34;q11.2); BCR-ABL1: B Lymphoblastic Leukemia/Lymphoma With T(9;22)(Q34;Q11.2); BCR-ABL1
+  B lymphoblastic leukemia/lymphoma with t(v;11q23); MLL rearranged: B Lymphoblastic Leukemia/Lymphoma With T(V;11q23); MLL Rearranged
+  B lymphoblastic leukemia/lymphoma, NOS: B Lymphoblastic Leukemia/Lymphoma, NOS
+  B-lymphoblastic leukemia/lymphoma, NOS: B-Lymphoblastic Leukemia/Lymphoma, NOS
+  Basal cell adenocarcinoma: Basal Cell Adenocarcinoma
+  Basaloid squamous cell carcinoma: Basaloid Squamous Cell Carcinoma
+  Bronchio-alveolar carcinoma, mucinous: Bronchio-Alveolar Carcinoma, Mucinous
+  Bronchiolo-alveolar carcinoma, non-mucinous: Bronchiolo-Alveolar Carcinoma, Non-Mucinous
+  CNS Embryonal tumor with rhabdoid features: CNS Embryonal Tumor With Rhabdoid Features
+  CNS primative neuroectodermal tumor (PNET): CNS Primative Neuroectodermal Tumor (PNET)
+  Carcinoma, NOS: Carcinoma NOS
+  Carcinoma, diffuse type: Carcinoma, Diffuse Type
+  Carcinoma, metastatic, NOS: Carcinoma, Metastatic, NOS
+  Carcinoma, undifferentiated, NOS: Carcinoma, Undifferentiated, NOS
+  Central neuroblastoma: Central Neuroblastoma
+  Chondroblastic osteosarcoma: Chondroblastic Osteosarcoma
+  Choriocarcinoma combined with other germ cell elements: Choriocarcinoma Combined With Other Germ Cell Elements
+  Choroid plexus carcinoma: Choroid Plexus Carcinoma
+  Chronic Myelogenous Leukemia, BCR/ABL positive: Chronic Myelogenous Leukemia, BCR/ABL Positive
+  Chronic myelogenous leukemia, BCR-ABL positive: Chronic Myelogenous Leukemia, BCR-ABL Positive
+  Clear Cell Sarcoma of Kidney: Clear Cell Sarcoma Of Kidney
+  Clear cell Sarcoma, NOS: Clear Cell Sarcoma, NOS
+  Clear cell adenocarcinoma, NOS: Clear Cell Adenocarcinoma, NOS
+  Clear cell meningioma: Clear Cell Meningioma
+  Combined small cell-adenocarcinoma: Combined Small Cell-Adenocarcinoma
+  Combined small cell-large carcinoma: Combined Small Cell-Large Carcinoma
+  Combined small cell-squamous cell carcinoma: Combined Small Cell-Squamous Cell Carcinoma
+  Composite Hodgkin and Non-Hodgkin Lymphoma: Composite Hodgkin And Non-Hodgkin Lymphoma
+  Cutaneous T-cell Lymphoma, NOS: Cutaneous T-Cell Lymphoma, NOS
+  Cystosarcoma phyllodes, NOS: Cystosarcoma Phyllodes, NOS
+  Dedifferentiated liposarcoma: Dedifferentiated Liposarcoma
+  "Desmoplastic Nodular Medulloblastoma, Medulloblastoma, Medulloblastoma, SHH-Activated And\xAC\u2020TP53-Wildtype": Desmoplastic Nodular Medulloblastoma, Medulloblastoma, Medulloblastoma, SHH-Activated And TP53-Wildtype
+  Desmoplastic small round cell tumor: Desmoplastic Small Round Cell Tumor
+  Diffuse Large B-cell Lymphoma, NOS: Diffuse Large B-Cell Lymphoma, NOS
+  Diffuse midline glioma, H3 K27-altered: Diffuse Midline Glioma, H3 K27-Altered
+  Ductal carcinoma in situ, NOS: Ductal Carcinoma In Situ, NOS
+  Ductal carcinoma, NOS: Ductal Carcinoma NOS
+  Dysembryoplastic neuroepithelial tumor: Dysembryoplastic Neuroepithelial Tumor
+  Embryonal rhabdomyosarcoma, NOS: Embryonal Rhabdomyosarcoma, NOS
+  Embryonal rhabdomyosarcoma, NOS, CNS embryonal tumor, NOS: Embryonal Rhabdomyosarcoma, NOS, CNS Embryonal Tumor, NOS
+  Embryonal sarcoma: Embryonal Sarcoma
+  Embryonal tumor with multilayered rosettes C19MC-altered: Embryonal Tumor With Multilayered Rosettes C19MC-Altered
+  Endometrioid adenocarcinoma, NOS: Endometrioid Adenocarcinoma, NOS
+  Endometrioid carcinoma, NOS: Endometrioid Carcinoma, NOS
+  Ependymoma, NOS, Atypical meningioma: Ependymoma, NOS, Atypical Meningioma
+  "Ependymoma, NOS, Supratentorial Ependymoma,\xAC\u2020ZFTA\xAC\u2020Fusion-Positive": Ependymoma, NOS, Supratentorial Ependymoma, ZFTA Fusion-Positive
+  Ependymoma, anaplastic: Ependymoma, Anaplastic
+  Epithelioid cell melanoma: Epithelioid Cell Melanoma
+  Epithelioid hemangioendothelioma, NOS: Epithelioid Hemangioendothelioma, NOS
+  Ewing sarcoma: Ewing Sarcoma
+  Follicular adenocarcinoma, NOS: Follicular Adenocarcinoma, NOS
+  Follicular adenocarcinoma, well differentiated, Neuroblastoma, NOS: Follicular Adenocarcinoma, Well Differentiated, Neuroblastoma, NOS
+  Follicular carcinoma, minimally invasive: Follicular Carcinoma, Minimally Invasive
+  "Ganglioglioma, NOS, Diffuse Astrocytoma,\xAC\u2020MYB- Or\xAC\u2020MYBL1-Altered, Low-Grade Glioma": Ganglioglioma, NOS, Diffuse Astrocytoma, MYB- Or MYBL1-Altered, Low-Grade Glioma
+  Ganglioglioma, NOS, Malignant peripheral nerve sheath tumor, NOS: Ganglioglioma, NOS, Malignant Peripheral Nerve Sheath Tumor, NOS
+  Giant Cell Tumor of Bone, Malignant: Giant Cell Tumor Of Bone, Malignant
+  Glioblastoma, IDH wildtype: Glioblastoma, IDH Wildtype
+  Glioma, malignant: Glioma, Malignant
+  Glioma, malignant, Malignant peripheral nerve sheath tumor, NOS: Glioma, Malignant, Malignant Peripheral Nerve Sheath Tumor, NOS
+  Gliomatosis cerebri: Gliomatosis Cerebri
+  HHV8 Positive Diffuse Large B-cell Lymphoma: HHV8 Positive Diffuse Large B-Cell Lymphoma
+  Hepatocellular carcinoma, NOS: Hepatocellular Carcinoma, NOS
+  Hepatocellular carcinoma, NOS, Nephroblastoma, NOS: Hepatocellular Carcinoma, NOS, Nephroblastoma, NOS
+  Hepatocellular carcinoma, fibrolamellar: Hepatocellular Carcinoma, Fibrolamellar
+  Hepatosplenic T-cell lymphoma, Precursor Cell Lymphoblastic Leukemia, NOS: Hepatosplenic T-Cell Lymphoma, Precursor Cell Lymphoblastic Leukemia, NOS
+  High grade spindle cell sarcoma: High Grade Spindle Cell Sarcoma
+  High-grade neuroepithelial tumor: High-Grade Neuroepithelial Tumor
+  High-grade serous carcinoma: High-Grade Serous Carcinoma
+  Hodgkin lymphoma, NOS: Hodgkin Lymphoma, NOS
+  Infantile fibrosarcoma: Infantile Fibrosarcoma
+  Infiltrating duct and lobular carcinoma: Infiltrating Duct And Lobular Carcinoma
+  Infiltrating duct and mucinous carcinoma: Infiltrating Duct And Mucinous Carcinoma
+  Infiltrating duct carcinoma NOS: Infiltrating Duct Carcinoma NOS
+  Infiltrating duct carcinoma, NOS: Infiltrating Duct Carcinoma NOS
+  Infiltrating duct mixed with other types of carcinoma: Infiltrating Duct Mixed With Other Types Of Carcinoma
+  Infiltrating lobular carcinoma, NOS: Infiltrating Lobular Carcinoma, NOS
+  Inflammatory carcinoma: Inflammatory Carcinoma
+  Intraductal papillary carcinoma: Intraductal Papillary Carcinoma
+  Invasive lobular carcinoma: Invasive Lobular Carcinoma
+  Invasive mammary carcinoma: Invasive Mammary Carcinoma
+  Juvenile myelomonocytic leukemia: Juvenile Myelomonocytic Leukemia
+  Langerhans Cell Histiocytosis, disseminated: Langerhans Cell Histiocytosis, Disseminated
+  Lentiginous Melanocytic nevus: Lentiginous Melanocytic Nevus
+  Lobular adenocarcinoma: Lobular Adenocarcinoma
+  Lobular and ductal carcinoma: Lobular And Ductal Carcinoma
+  Lobular carcinoma NOS: Lobular Carcinoma, NOS
+  Lobular carcinoma, NOS: Lobular Carcinoma, NOS
+  Lymphoepithelial carcinoma: Lymphoepithelial Carcinoma
+  Lymphoid leukemia, NOS: Lymphoid Leukemia, NOS
+  Malignant Melanoma NOS: Malignant Melanoma, NOS
+  Malignant glioma: Malignant Glioma
+  Malignant melanoma, NOS: Malignant Melanoma, NOS
+  Malignant neoplasm of prostate: Malignant Neoplasm Of Prostate
+  Malignant peripheral nerve sheath tumor: Malignant Peripheral Nerve Sheath Tumor
+  Malignant rhabdoid tumor: Malignant Rhabdoid Tumor
+  Marginal Zone B-cell Lymphoma, NOS: Marginal Zone B-Cell Lymphoma, NOS
+  Mast cell leukaemia: Mast Cell Leukaemia
+  Medullary carcinoma, NOS: Medullary Carcinoma, NOS
+  "Medulloblastoma, NOS, Medulloblastoma, SHH-Activated And\xAC\u2020TP53-Mutant": Medulloblastoma, NOS, Medulloblastoma, SHH-Activated And TP53-Mutant
+  "Medulloblastoma, NOS, Medulloblastoma, SHH-Activated And\xAC\u2020TP53-Wildtype": Medulloblastoma, NOS, Medulloblastoma, SHH-Activated And TP53-Wildtype
+  Medulloblastoma, SHH-activated and TP53-mutant: Medulloblastoma, SHH-Activated And TP53-Mutant
+  Medulloblastoma, SHH-activated and TP53-wildtype: Medulloblastoma, SHH-Activated And TP53-Wildtype
+  Meningothelial meningioma: Meningothelial Meningioma
+  Merkel cell tumor: Merkel Cell Tumor
+  Mesothelioma, Biphasic, Malignant, B lymphoblastic Leukemia/lymphoma, NOS: Mesothelioma, Biphasic, Malignant, B Lymphoblastic Leukemia/Lymphoma, NOS
+  Metaplastic carcinoma, NOS: Metaplastic Carcinoma, NOS
+  Micropapillary carcinoma, NOS: Micropapillary Carcinoma, NOS
+  Mixed Germ Cell Tumor, Myelodysplastic Syndrome with excess blasts: Mixed Germ Cell Tumor, Myelodysplastic Syndrome With Excess Blasts
+  Mixed Phenotype Acute Leukemia with t(v;11q23); MLL rearranged: Mixed Phenotype Acute Leukemia With T(V;11q23); MLL Rearranged
+  Mixed adenocarcinoma and squamous cell carcinoma, Pancreatobiliary-type carcinoma: Mixed Adenocarcinoma And Squamous Cell Carcinoma, Pancreatobiliary-Type Carcinoma
+  Mixed epithelioid and spindle cell melanoma: Mixed Epithelioid And Spindle Cell Melanoma
+  Mixed germ cell tumor: Mixed Germ Cell Tumor
+  Mixed glioma: Mixed Glioma
+  Mixed phenotype acute leukemia, B/myeloid, NOS: Mixed Phenotype Acute Leukemia, B/Myeloid, NOS
+  Mixed phenotype acute leukemia, T/myeloid, NOS: Mixed Phenotype Acute Leukemia, T/Myeloid, NOS
+  Mucinous adenocarcinoma: Mucinous Adenocarcinoma
+  Mucinous adenocarcinoma, endocervical type: Mucinous Adenocarcinoma, Endocervical Type
+  Mucinous carcinoma: Mucinous Carcinoma
+  Mucoepidermoid carcinoma: Mucoepidermoid Carcinoma
+  Mucous adenocarcinoma: Mucous Adenocarcinoma
+  Multiple myeloma: Multiple Myeloma
+  Myeloid Leukemia with Myelodysplasia-related changes: Myeloid Leukemia With Myelodysplasia-Related Changes
+  Myeloid leukemia associated with Down Syndrome: Myeloid Leukemia Associated With Down Syndrome
+  Myoepithelial carcinoma: Myoepithelial Carcinoma
+  Myxoid liposarcoma: Myxoid Liposarcoma
+  Myxopapillary ependymoma: Myxopapillary Ependymoma
+  "Neoplasm, Malignant, CNS Neuroblastoma,\xAC\u2020FOXR2-Activated, Other CNS Embryonal Tumors": Neoplasm, Malignant, CNS Neuroblastoma, FOXR2-Activated, Other CNS Embryonal Tumors
+  Neoplasm, Nos: Neoplasm, NOS
+  "Neoplasm, Uncertain Whether Benign Or Malignant, Medulloblastoma, Medulloblastoma, SHH-Activated And\xAC\u2020TP53-Wildtype": Neoplasm, Uncertain Whether Benign Or Malignant, Medulloblastoma, Medulloblastoma, SHH-Activated And TP53-Wildtype
+  Neoplasm, uncertain whether benign or malignant: Neoplasm, Uncertain Whether Benign Or Malignant
+  Nodular melanoma: Nodular Melanoma
+  Nuclear Protein in Testis (NUT)-associated Carcinoma: Nuclear Protein In Testis (NUT)-Associated Carcinoma
+  Oligodendroglioma, anaplastic: Oligodendroglioma, Anaplastic
+  Ossifying fibroma: Ossifying Fibroma
+  Oxyphilic adenocarcinoma: Oxyphilic Adenocarcinoma
+  Pancreatobiliary-type carcinoma: Pancreatobiliary-Type Carcinoma
+  Papillary Tumor of Pineal Region: Papillary Tumor Of Pineal Region
+  Papillary Urothelial Carcinoma, Non-invasive: Papillary Urothelial Carcinoma, Non-Invasive
+  Papillary adenocarcinoma, NOS: Papillary Adenocarcinoma, NOS
+  Papillary carcinoma, columnar cell: Papillary Carcinoma, Columnar Cell
+  Papillary carcinoma, follicular variant: Papillary Carcinoma, Follicular Variant
+  Papillary serous adenocarcinoma: Papillary Serous Adenocarcinoma
+  Papillary transitional cell carcinoma: Papillary Transitional Cell Carcinoma
+  Parosteal osteosarcoma: Parosteal Osteosarcoma
+  Periosteal osteosarcoma: Periosteal Osteosarcoma
+  Pilocytic astrocytoma: Pilocytic Astrocytoma
+  Pilocytic astrocytoma, CNS WHO grade 1: Pilocytic Astrocytoma, CNS WHO Grade 1
+  Pilocytic astrocytoma, WHO Grade 1: Pilocytic Astrocytoma, WHO Grade 1
+  Pilomyxoid astrocytoma: Pilomyxoid Astrocytoma
+  Pleuropulmonary blastoma: Pleuropulmonary Blastoma
+  Plexiform fibrohistiocytic tumor: Plexiform Fibrohistiocytic Tumor
+  Precursor B-Cell Acute Lymphoblastic Leukemia with Hyperdiploidy: Precursor B-Cell Acute Lymphoblastic Leukemia With Hyperdiploidy
+  Precursor T-cell Lymphoblastic Leukemia, Acute Myeloid Leukemia, NOS: Precursor T-Cell Lymphoblastic Leukemia, Acute Myeloid Leukemia, NOS
+  Precursor T-cell lymphoblastic leukemia: Precursor T-Cell Lymphoblastic Leukemia
+  Primary mediastinal (thymic) large B-cell lymphoma: Primary Mediastinal (Thymic) Large B-Cell Lymphoma
+  Proliferative Dermal Lesion in Congenital Nevus: Proliferative Dermal Lesion In Congenital Nevus
+  Renal cell adenocarcinoma: Renal Cell Adenocarcinoma
+  Renal cell carcinoma, NOS: Renal Cell Carcinoma, NOS
+  Rhabdoid tumor, NOS: Rhabdoid Tumor, NOS
+  Serous adenocarcinoma, NOS: Serous Adenocarcinoma, NOS
+  Serous carcinoma, NOS: Serous Carcinoma, NOS
+  Serous cystadenocarcinoma, NOS: Serous Cystadenocarcinoma, NOS
+  Serous surface papillary carcinoma: Serous Surface Papillary Carcinoma
+  Sertoli-Leydig Cell Tumor of intermediate differentiation, NOS: Sertoli-Leydig Cell Tumor Of Intermediate Differentiation, NOS
+  Sertoli-Leydig Cell Tumor, poorly differentiated: Sertoli-Leydig Cell Tumor, Poorly Differentiated
+  Sertoli-Leydig cell Tumor, poorly differentiated, with heterologous elements: Sertoli-Leydig Cell Tumor, Poorly Differentiated, With Heterologous Elements
+  Signet ring cell carcinoma: Signet Ring Cell Carcinoma
+  Small cell carcinoma, NOS: Small Cell Carcinoma, NOS
+  Small cell neuroendocrine carcinoma: Small Cell Neuroendocrine Carcinoma
+  Soft tissue sarcoma: Soft Tissue Sarcoma
+  Solid Pseudopapillary Neoplasm of Pancreas: Solid Pseudopapillary Neoplasm Of Pancreas
+  Spindle cell carcinoma, NOS: Spindle Cell Carcinoma, NOS
+  Spindle cell melanoma, NOS: Spindle Cell Melanoma, NOS
+  Spindle cell melanoma, type B: Spindle Cell Melanoma, Type B
+  Spindle cell rhabdomyosarcoma: Spindle Cell Rhabdomyosarcoma
+  Squamous Cell Carcinoma in situ, NOS: Squamous Cell Carcinoma In Situ, NOS
+  Squamous cell carcinoma, NOS: Squamous Cell Carcinoma, NOS
+  Squamous cell carcinoma, keratinizing, NOS: Squamous Cell Carcinoma, Keratinizing, NOS
+  Squamous cell carcinoma, large cell, nonkeratinizing, NOS: Squamous Cell Carcinoma, Large Cell, Nonkeratinizing, NOS
+  Subcutaneous Panniculitis-like T-cell Lymphoma: Subcutaneous Panniculitis-Like T-Cell Lymphoma
+  Synovial sarcoma, NOS: Synovial Sarcoma, NOS
+  T lymphoblastic leukemia/lymphoma: T Lymphoblastic Leukemia/Lymphoma
+  T-cell/Histiocyte Rich Large B-cell Lymphoma: T-Cell/Histiocyte Rich Large B-Cell Lymphoma
+  T-lymphoblastic Leukemia: T-Lymphoblastic Leukemia
+  T-lymphoblastic Lymphoma: T-Lymphoblastic Lymphoma
+  Telangiectatic osteosarcoma: Telangiectatic Osteosarcoma
+  Teratoma, malignant, NOS: Teratoma, Malignant, NOS
+  Therapy related myeloid neoplasm: Therapy Related Myeloid Neoplasm
+  Therapy-related myeloid neoplasms: Therapy-Related Myeloid Neoplasms
+  Transitional Cell carcinoma, NOS: Transitional Cell Carcinoma, NOS
+  Transitional cell carcinoma: Transitional Cell Carcinoma
+  Tubular adenocarcinoma: Tubular Adenocarcinoma
+  Undifferentiated leukaemia: Undifferentiated Leukaemia
+  Undifferentiated sarcoma: Undifferentiated Sarcoma
+  Undifferentiated small round cell sarcoma: Undifferentiated Small Round Cell Sarcoma
+  Yolk sac tumor: Yolk Sac Tumor
+platform:
+  ILLUMINA: Illumina
+  unknown: Unknown
+tumor_grade:
+  unknown: Unknown
+vital_status:
+  unknown: Unknown
+ethnicity:
+  not hispanic or latino: Not Hispanic or Latino
+  hispanic or latino: Hispanic or Latino
+  unknown: Unknown
+  Unkown: Unknown
+last_known_disease_status:
+  With tumor: With Tumor
+  unknown tumor status: Unknown Tumor Status
+race:
+  Unkown: Unknown
+  Not Reported;Unknown: Not Reported
+  Other: Not Reported
+disease_type:
+  Adenomas and Adenocarcinomas: Adenocarcinoma
+  Cystic, Mucinous and Serous Neoplasms: Neoplasm
+  Ductal and Lobular Neoplasm: Neoplasm
+  Nevi and Melanomas: Melanoma
+  Transitional Cell Papillomas and Carcinomas: Carcinoma NOS
+sample_type:
+  'C37.9 : Thymus': Thymus
+  'C02.9 : Tongue, NOS': Tongue, NOS
+  'C06.0 : Buccal mucosa': Buccal Mucosa
+  'C06.9 : Mouth, NOS': Mouth, NOS
+  'C07.9 : Parotid gland': Parotid Gland
+  'C14.0 : Pharynx, NOS': Pharynx, NOS
+  'C16.9 : Stomach, NOS': Stomach, NOS
+  'C17.9 : Small intestine, NOS': Small Intestine, NOS
+  'C18.9 : Colon, NOS': Colon, NOS
+  'C20.9 : Rectum, NOS': Rectum, NOS
+  'C22.0 : Liver': Liver
+  'C25.9 : Pancreas, NOS': Pancreas, NOS
+  'C34.9 : Lung, NOS': Lung, NOS
+  'C38.0 : Heart': Heart
+  'C38.3 : Mediastinum, NOS': Mediastinum, NOS
+  'C38.4 : Pleura, NOS': Pleura, NOS
+  'C41.1 : Mandible': Mandible
+  'C41.2 : Spine': Spine
+  'C41.3 : Rib, sternum, clavicle and associated joints': Rib, Sternum, Clavicle and Associated Joints
+  'C41.9 : Bone, NOS': Bone, NOS
+  'C42.0 : Blood': Blood
+  'C42.1 : Bone marrow': Bone Marrow
+  'C42.2 : Spleen': Spleen
+  'C44.4 : Skin of scalp and neck': Skin of Scalp and Neck
+  'C44.9 : Skin, NOS': Skin, NOS
+  'C48.2 : Peritoneum, NOS': Peritoneum, NOS
+  'C49.9 : Muscle, NOS': Muscle, NOS
+  'C56.9 : Ovary': Ovary
+  'C62.9 : Testis, NOS': Testis, NOS
+  'C64.9 : Kidney, NOS': Kidney, NOS
+  'C67.9 : Bladder, NOS': Bladder, NOS
+  'C69.9 : Eye, NOS': Eye, NOS
+  'C71.9 : Brain, NOS': Brain, NOS
+  'C74.9 : Adrenal gland, NOS': Adrenal Gland, NOS
+  'C76.0 : Head, face or neck, NOS': Head, Face or Neck, NOS
+  'C76.1 : Chest wall, NOS': Chest Wall, NOS
+  'C76.1 : Chest, NOS': Chest, NOS
+  'C76.2 : Abdomen, NOS': Abdomen, NOS
+  'C76.3 : Buttock, NOS': Buttock, NOS
+  'C76.3 : Pelvis, NOS': Pelvis, NOS
+  'C76.3 : Perineum, NOS': Perineum, NOS
+  'C76.4 : Arm, NOS': Arm, NOS
+  'C76.4 : Shoulder, NOS': Shoulder, NOS
+  'C76.5 : Thigh, NOS': Thigh, NOS
+  'C76.7 : Back, NOS': Back, NOS
+  'C77.9 : Lymph node, NOS': Lymph Node, NOS
+  'C80 : UNKNOWN PRIMARY SITE': Unknown
+  'C80.9 : Unknown primary site': Unknown
+  'C72.9 : Central nervous system': Central Nervous System
+  peripheral blood - Blood Derived Cancer: Blood
+  Tissue Biospecimen Type: Tissue
+  Invalid value: null
+  Blood Biospecimen Type: Blood
+  Bone Marrow Biospecimen Type: Bone Marrow
+  Fluids Biospecimen Type: Fluids
+  Invalid values: null
+  #'C72.9 : Central nervous system': Central Nervous System
+
+days_to_last_followup:
+  Not Reported: null
+  unknown: null
+days_to_last_known_status:
+  Not Reported: null
+  unknown: null
+days_to_recurrence:
+  Not Reported: null
+  unknown: null
+  Unknown: null
+last_known_disease_status:
+  With Tumor: null
+morphology:
+  "8041-03-01 00:00:00": null
+  "8045-03-01 00:00:00": null
+  "8140-03-01 00:00:00": null
+  "8500-03-01 00:00:00": null
+  "85003": null
+  "8520-03-01 00:00:00": null
+  "8522-03-01 00:00:00": null
+  "8523-03-01 00:00:00": null
+  "9500-03-01 00:00:00": null
+  Adenocarcinoma: null
+  Adenocarcinoma, Ex-Goblet Cell Carcinoid, with Solid, Signet Ring, and Mucinous Features: null
+  Adenocarcinoma, with Mucinous Features: null
+  Adenocarcinoma, with Mucinous and Signet Ring Features: null
+  Malignant melanoma, NOS: null
+  Melanoma in situ: null
+  Metastatic Adenocarcinoma, with Neuroendocrine Features: null
+  Metastatic melanoma: null
+  Metastatic/Recurrent Adenocarcinoma: null
+  Mixed mucinous and signet ring cell: null
+  Nodular melanoma: null
+  Recurrent/Residual Adenocarcinoma: null
+  Superficial spreading melanoma: null
+  Tonsils: null
+  unknown: null
+  cribiform, comedo, micropapillary: Cribiform, Comedo, Micropapillary
+  cribiform, micropapillary: Cribiform, Micropapillary
+  papillary: Papillary
+  solid: Solid
+  solid, comedo, micropapillary: Solid, Comedo, Micropapillary
+  solid, cribiform: Solid, Cribiform
+  solid, cribiform, comedo: Solid, Cribiform, Comedo
+de_identification_method_type:
+  manual: Manual
+extra_long_values:
+  - "Library construction is performed using the Illumina TruSeqÊ DNA Sample Preparation Kit (cat# FC-121-2001, FC-121-2002) using the following methods.Ê Genomic DNA (approximatelyÊ 10 ng to 2 ug) is sheared in a volume of 52.5 ul using a Covaris S2 Focused-ultrasocinicator with the following settings: Intensity 5.0; Duty cycle 10%25; Cycles per Burst 200; Treatment Time 120 seconds.Ê Sheared DNA is converted to blunt-ended fragments with 5'-phosphates and 3'-hydroxyl groups using a combination of enzymes that perform fill-in reactions and exhibit exonuclease activity.Ê Size selection of the blunt-ended DNA (200-450 bp average) is accomplished using bead-based methodologies.Ê An A-base is added to the blunt ends as a means to prepare the fragments for adapter ligation and block concatamer formation during the ligation step.Ê Adapters containing a T-base overhangÊ are ligated to the A-tailed DNA fragments.Ê Ligated fragments are PCR-amplified (2-10 cycles depending on quantity of input template) and the amplified library is purified by bead based methodologies.Ê The concentration of the lamplified ibrary is measured using the Invitrogen Qubit dsDNA HS Assay (Q32851) and an aliquot of the library is resolved on an Agilent 2200 Tape Station using a D1K (cat# 5067-5361 and 5067-5362) or a High Sensitivity D1K (cat# 5067-5363 and 5067-5364) assay to define the size distribution of the sequencing library.Ê Libraries are adjusted to a concentration of approximately 10 nM and quantitative PCR is performed using the KapaBiosystems Kapa Library Quant Kit (cat# KK4824) to calculate the molarity of adapter ligated library molecules.Ê The concentration is further adjusted following qPCR to prepare the library for Illumina sequence analysis."

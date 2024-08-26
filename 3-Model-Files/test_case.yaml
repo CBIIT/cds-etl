@@ -1,0 +1,30 @@
+#Case differs  like input ABC, except abc
+Paired-end: Paired-End
+html: HTML
+cns: CNS
+crai: CRAI
+Adrenal gland, NOS: Adrenal Gland, NOS
+#Sub words, like inputs ABC , expected ABCD
+single: Single-indexed
+'C37.9 : Thymus': Thymus
+'C06.0 : Buccal mucosa': Buccal mucosa
+'C38.0 : Heart': Heart
+'C69.9 : Eye, NOS': Eye, NOS
+#Different words but same meaning like sex, gender
+F: Female
+M: Male
+Not Reported: Unknown
+Poly-T Enrichment: Poly-A Enriched Genomic Librar
+"True": "Yes"
+#Different word, but not in the training set
+hs37d5: GRCh37
+RefSeq_Build_73: GRCh37 
+Hg19: GRCh37
+GRCh38-2020-A: GRCh38
+hg38+EBV: GRCh38
+#Same word
+Paired-End: Paired-End
+Adult: Adult
+Bronchus and Lung: Bronchus and Lung
+Manual: Manual
+Semiautomatic: Semiautomatic
