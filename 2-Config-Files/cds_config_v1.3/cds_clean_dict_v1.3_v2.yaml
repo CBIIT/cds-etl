@@ -239,7 +239,6 @@ library_selection:
   Poly-T Enrichment: Poly-A Enriched Genomic Librar
   PolyA: Poly-A Enriched Genomic Library
 primary_diagnosis:
-  Malignant neoplasm of prostate: Malignant Neoplasm of Prostate
   '8072/3 : Squamous Cell Carcinoma, Large Cell, Nonkeratinizing, NOS': Squamous Cell Carcinoma, Large Cell, Nonkeratinizing, NOS
   '8140/0 : Adenoma, NOS': Adenoma, NOS
   '8170/3 : Hepatocellular Carcinoma, NOS': Hepatocellular Carcinoma, NOS
