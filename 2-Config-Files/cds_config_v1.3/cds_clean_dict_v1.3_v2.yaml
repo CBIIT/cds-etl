@@ -19,10 +19,9 @@ instrument_model:
   HiSeq 2500: Illumina HiSeq 2500
   HiSeq 2000: Illumina HiSeq 2000
   Illumina Next Seq 500: Illumina NextSeq 500
-  Illumina HiSeq X Five: HiSeq X Five
-  Illumina HiSeq X Ten: HiSeq X Ten
   Illumina NextSeq: Illumina NextSeq
   HiSeq: Illumina HiSeq
+  HiSeq X Ten: Illumina HiSeq X Ten
   #Not Applicable: Not Reported
   Illumina Next Seq 550: Illumina NextSeq 550
   NextSeq 500 Illumina: Illumina NextSeq 5000
@@ -110,11 +109,13 @@ progression_or_recurrence:
 primary_site:
   Bronchus and lung: Bronchus and Lung
 sample_tumor_status:
-  primary CRC tumor FFPE tissue: tumor
-  normal blood: normal
-  normal buccal tissue: normal
-  adjacent normal colonic FFPE tissue: normal
-  normal saliva: normal
+  primary CRC tumor FFPE tissue: Tumor
+  normal blood: Normal
+  normal buccal tissue: Normal
+  adjacent normal colonic FFPE tissue: Normal
+  normal saliva: Normal
+  normal: Normal
+  tumor: Tumor
 study_data_types:
   Genomics: Genomic
   GENOMIC: Genomic
@@ -221,9 +222,6 @@ experimental_strategy_and_data_subtypes:
   RNA-seq;DNA-seq: RNA-Seq;DNA-Seq
   Sequencing: RNA-Seq
   #Targeted-Capture: Targeted Sequencing
-sample_tumor_status:
-  normal: Normal
-  tumor: Tumor
 library_source:
   GENOMIC: Genomic
   TRANSCRIPTOMIC: Transcriptomic
@@ -258,18 +256,18 @@ primary_diagnosis:
   '8894/3 : Angiomyosarcoma': Angiomyosarcoma
   '8900/0 : Rhabdomyoma, NOS': Rhabdomyoma, NOS
   '8910/3 : Embryonal Rhabdomyosarcoma, NOS': Embryonal Rhabdomyosarcoma, NOS
-  '8912/3 : Spindle Cell Rhabdomyosarcoma': Spindle Cell Rhabdomyosarcoma
+  '8912/3 : Spindle Cell Rhabdomyosarcoma': Spindle Cell Rhabdomyosaroma
   '8920/3 : Alveolar Rhabdomyosarcoma': Alveolar Rhabdomyosarcoma
   '8991/3 : Embryonal Sarcoma': Embryonal Sarcoma
   '9040/3 : Synovial Sarcoma, NOS': Synovial Sarcoma, NOS
   '9064/3 : Germinoma, CNS Germ Cell Tumors, CNS Germinoma': Germinoma, CNS Germ Cell Tumors, CNS Germinoma
   '9064/3 : Germinoma, CNS Germ Cell Tumors, CNS Non-Germinomatous Germ Cell Tumor': Germinoma, CNS Germ Cell Tumors, CNS Non-Germinomatous Germ Cell Tumor
   '9071/3 : Yolk Sac Tumor, NOS': Yolk Sac Tumor, NOS
-  '9080/3 : Teratoma, Malignant, NOS': Teratoma, Malignant, NOS
+  '9080/3 : Teratoma, Malignant, NOS': Teratoma, NOS
   '9161/1 : Hemangioblastoma, Other': Hemangioblastoma, Other
   '9181/3 : Chondroblastic Osteosarcoma': Chondroblastic Osteosarcoma
   '9183/3 : Telangiectatic Osteosarcoma': Telangiectatic Osteosarcoma
-  '9362/3 : Pineoblastoma, CNS Germ Cell Tumors, CNS Germinoma': Pineoblastoma, CNS Germ Cell Tumors, CNS Germinoma
+  '9362/3 : Pineoblastoma, CNS Germ Cell Tumors, CNS Germinoma': Pineoblastoma
   '9364/3 : Ewing Sarcoma': Ewing Sarcoma
   '9380/3 : Glioma, Malignant': Glioma, Malignant
   '9382/3 : Oligoastrocytoma, NOS': Oligoastrocytoma, NOS
@@ -278,25 +276,25 @@ primary_diagnosis:
   '9391/3 : Ependymoma, NOS': Ependymoma, NOS
   '9392/3 : Ependymoma, Anaplastic': Ependymoma, Anaplastic
   '9400/0 : Astrocytoma, Benign': Astrocytoma, Benign
-  '9400/3 : Astrocytoma, NOS': Astrocytoma, NOS
+  '9400/3 : Astrocytoma, NOS': Astrocytoma
   '9421/1 : Pilocytic Astrocytoma': Pilocytic Astrocytoma
   '9430/3 : Astroblastoma': Astroblastoma
   '9470/3 : Medulloblastoma, NOS': Medulloblastoma, NOS
   '9470/3 : Medulloblastoma, NOS, Medulloblastoma, Group 3': Medulloblastoma, NOS, Medulloblastoma, Group 3
   '9470/3 : Medulloblastoma, NOS, Medulloblastoma, Group 4': Medulloblastoma, NOS, Medulloblastoma, Group 4
   '9473/3 : CNS Embryonal Tumor, NOS': CNS Embryonal Tumor, NOS
-  '9478/3 : Embryonal Tumor With Multilayered Rosettes With C19MC Alteration': Embryonal Tumor With Multilayered Rosettes With C19MC Alteration
+  '9478/3 : Embryonal Tumor With Multilayered Rosettes With C19MC Alteration': Embryonal Tumor With Multilayered Rosettes C19MC-Altered
   '9490/0 : Ganglioneuroma': Ganglioneuroma
   '9490/0 : Ganglioneuroma, Other, Schwannoma': Ganglioneuroma, Other, Schwannoma
   '9492/0 : Gangliocytoma, NOS': Gangliocytoma, NOS
   '9501/3 : Medulloepithelioma, NOS': Medulloepithelioma, NOS
   '9530/0 : Meningioma, NOS': Meningioma, NOS
-  '9530/0 : Meningioma, NOS, Other': Meningioma, NOS, Other
+  '9530/0 : Meningioma, NOS, Other': Meningioma, NOS
   '9530/1 : Meningiomatosis, NOS': Meningiomatosis, NOS
   '9540/0 : Neurofibroma, NOS': Neurofibroma, NOS
-  '9540/1 : Neurofibromatosis, NOS': Neurofibromatosis, NOS
+  '9540/1 : Neurofibromatosis, NOS': Neurofibroma, NOS
   '9540/3 : Malignant Peripheral Nerve Sheath Tumor, NOS': Malignant Peripheral Nerve Sheath Tumor, NOS
-  '9560/0 : Schwannoma, NOS, Other': Schwannoma, NOS, Other
+  '9560/0 : Schwannoma, NOS, Other': Schwannoma, NOS
   '9570/0 : Neuroma, NOS': Neuroma, NOS
   9Acute Myeloid Leukemia, minimal differentiation: Acute Myeloid Leukemia, Minimal Differentiation
   Acinar cell carcinoma: Acinar Cell Carcinoma
@@ -322,8 +320,8 @@ primary_diagnosis:
   Acute myeloid leukemia, minimal differentiation: Acute Myeloid Leukemia, Minimal Differentiation
   Acute myeloid leukemia, t(16;16)(p 13;q 11): Acute Myeloid Leukemia, T(16;16)(P 13;Q 11)
   Acute myelomonocytic leukemia: Acute Myelomonocytic Leukemia
-  Acute promyelocytic leukaemia, t(15;17)(q22;q11-12): Acute Promyelocytic Leukaemia, T(15;17)(Q22;Q11-12)
-  Adamantinomatous craniopharyngioma, WHO grade 1: Adamantinomatous Craniopharyngioma, WHO Grade 1
+  Acute promyelocytic leukaemia, t(15;17)(q22;q11-12): Acute Promyelocytic Leukemia, T(15;17)(Q22;Q11-12)
+  Adamantinomatous craniopharyngioma, WHO grade 1: Adamantinomatous Craniopharyngioma (CNS WHO Grade 1)
   Adenocarcinoma combined with other types of carcinoma: Adenocarcinoma Combined With Other Types Of Carcinoma
   Adenocarcinoma in situ in Adenomatous Polyp: Adenocarcinoma In Situ In Adenomatous Polyp
   Adenocarcinoma in situ, NOS: Adenocarcinoma In Situ, NOS
@@ -348,7 +346,7 @@ primary_diagnosis:
   Anaplastic Large Cell Lymphoma, T-cell and Null-cell type: Anaplastic Large Cell Lymphoma, T-Cell And Null-Cell Type
   Anaplastic large cell lymphoma, ALK positive: Anaplastic Large Cell Lymphoma, ALK Positive
   "Astroblastoma, Astroblastoma,\xAC\u2020MN1-Altered, High-Grade Glioma": Astroblastoma, Astroblastoma, MN1-Altered, High-Grade Glioma
-  Astrocytoma, anaplastic: Astrocytoma, Anaplastic
+  Astrocytoma, anaplastic: Astrocytoma
   Atypical Choroid Plexus Papilloma Vs Carcinoma: Atypical Choroid Plexus Papilloma
   Atypical teratoid/rhabdoid tumor: Atypical Teratoid/Rhabdoid Tumor
   B lymphoblastic leukemia/lymphoma with hyperdiploidy: B Lymphoblastic Leukemia/Lymphoma With Hyperdiploidy
@@ -374,7 +372,7 @@ primary_diagnosis:
   Choriocarcinoma combined with other germ cell elements: Choriocarcinoma Combined With Other Germ Cell Elements
   Choroid plexus carcinoma: Choroid Plexus Carcinoma
   Chronic Myelogenous Leukemia, BCR/ABL positive: Chronic Myelogenous Leukemia, BCR/ABL Positive
-  Chronic myelogenous leukemia, BCR-ABL positive: Chronic Myelogenous Leukemia, BCR-ABL Positive
+  Chronic myelogenous leukemia, BCR-ABL positive: Chronic Myelogenous Leukemia, BCR/ABL Positive
   Clear Cell Sarcoma of Kidney: Clear Cell Sarcoma Of Kidney
   Clear cell Sarcoma, NOS: Clear Cell Sarcoma, NOS
   Clear cell adenocarcinoma, NOS: Clear Cell Adenocarcinoma, NOS
@@ -444,6 +442,7 @@ primary_diagnosis:
   Lobular carcinoma, NOS: Lobular Carcinoma, NOS
   Lymphoepithelial carcinoma: Lymphoepithelial Carcinoma
   Lymphoid leukemia, NOS: Lymphoid Leukemia, NOS
+  Lung cancer: Lung Cancer
   Malignant Melanoma NOS: Malignant Melanoma, NOS
   Malignant glioma: Malignant Glioma
   Malignant melanoma, NOS: Malignant Melanoma, NOS
@@ -451,7 +450,7 @@ primary_diagnosis:
   Malignant peripheral nerve sheath tumor: Malignant Peripheral Nerve Sheath Tumor
   Malignant rhabdoid tumor: Malignant Rhabdoid Tumor
   Marginal Zone B-cell Lymphoma, NOS: Marginal Zone B-Cell Lymphoma, NOS
-  Mast cell leukaemia: Mast Cell Leukaemia
+  Mast cell leukaemia: Mast Cell Leukemia
   Medullary carcinoma, NOS: Medullary Carcinoma, NOS
   "Medulloblastoma, NOS, Medulloblastoma, SHH-Activated And\xAC\u2020TP53-Mutant": Medulloblastoma, NOS, Medulloblastoma, SHH-Activated And TP53-Mutant
   "Medulloblastoma, NOS, Medulloblastoma, SHH-Activated And\xAC\u2020TP53-Wildtype": Medulloblastoma, NOS, Medulloblastoma, SHH-Activated And TP53-Wildtype
@@ -487,7 +486,7 @@ primary_diagnosis:
   Neoplasm, uncertain whether benign or malignant: Neoplasm, Uncertain Whether Benign Or Malignant
   Nodular melanoma: Nodular Melanoma
   Nuclear Protein in Testis (NUT)-associated Carcinoma: Nuclear Protein In Testis (NUT)-Associated Carcinoma
-  Oligodendroglioma, anaplastic: Oligodendroglioma, Anaplastic
+  Oligodendroglioma, anaplastic: Oligodendroglioma, Anaplastic, NOS
   Ossifying fibroma: Ossifying Fibroma
   Oxyphilic adenocarcinoma: Oxyphilic Adenocarcinoma
   Pancreatobiliary-type carcinoma: Pancreatobiliary-Type Carcinoma
@@ -501,13 +500,13 @@ primary_diagnosis:
   Parosteal osteosarcoma: Parosteal Osteosarcoma
   Periosteal osteosarcoma: Periosteal Osteosarcoma
   Pilocytic astrocytoma: Pilocytic Astrocytoma
-  Pilocytic astrocytoma, CNS WHO grade 1: Pilocytic Astrocytoma, CNS WHO Grade 1
+  Pilocytic astrocytoma, CNS WHO grade 1: Pilocytic Astrocytoma, WHO Grade 1
   Pilocytic astrocytoma, WHO Grade 1: Pilocytic Astrocytoma, WHO Grade 1
   Pilomyxoid astrocytoma: Pilomyxoid Astrocytoma
   Pleuropulmonary blastoma: Pleuropulmonary Blastoma
   Plexiform fibrohistiocytic tumor: Plexiform Fibrohistiocytic Tumor
   Precursor B-Cell Acute Lymphoblastic Leukemia with Hyperdiploidy: Precursor B-Cell Acute Lymphoblastic Leukemia With Hyperdiploidy
-  Precursor T-cell Lymphoblastic Leukemia, Acute Myeloid Leukemia, NOS: Precursor T-Cell Lymphoblastic Leukemia, Acute Myeloid Leukemia, NOS
+  Precursor T-cell Lymphoblastic Leukemia, Acute Myeloid Leukemia, NOS: Precursor T-Cell Lymphoblastic Leukemia
   Precursor T-cell lymphoblastic leukemia: Precursor T-Cell Lymphoblastic Leukemia
   Primary mediastinal (thymic) large B-cell lymphoma: Primary Mediastinal (Thymic) Large B-Cell Lymphoma
   Proliferative Dermal Lesion in Congenital Nevus: Proliferative Dermal Lesion In Congenital Nevus
@@ -529,7 +528,7 @@ primary_diagnosis:
   Spindle cell carcinoma, NOS: Spindle Cell Carcinoma, NOS
   Spindle cell melanoma, NOS: Spindle Cell Melanoma, NOS
   Spindle cell melanoma, type B: Spindle Cell Melanoma, Type B
-  Spindle cell rhabdomyosarcoma: Spindle Cell Rhabdomyosarcoma
+  Spindle cell rhabdomyosarcoma: Spindle Cell Rhabdomyosaroma
   Squamous Cell Carcinoma in situ, NOS: Squamous Cell Carcinoma In Situ, NOS
   Squamous cell carcinoma, NOS: Squamous Cell Carcinoma, NOS
   Squamous cell carcinoma, keratinizing, NOS: Squamous Cell Carcinoma, Keratinizing, NOS
@@ -541,13 +540,13 @@ primary_diagnosis:
   T-lymphoblastic Leukemia: T-Lymphoblastic Leukemia
   T-lymphoblastic Lymphoma: T-Lymphoblastic Lymphoma
   Telangiectatic osteosarcoma: Telangiectatic Osteosarcoma
-  Teratoma, malignant, NOS: Teratoma, Malignant, NOS
+  Teratoma, malignant, NOS: Teratoma, NOS
   Therapy related myeloid neoplasm: Therapy Related Myeloid Neoplasm
-  Therapy-related myeloid neoplasms: Therapy-Related Myeloid Neoplasms
+  Therapy-related myeloid neoplasms: Therapy Related Myeloid Neoplasm
   Transitional Cell carcinoma, NOS: Transitional Cell Carcinoma, NOS
-  Transitional cell carcinoma: Transitional Cell Carcinoma
+  Transitional cell carcinoma: Transitional Cell Carcinoma, NOS
   Tubular adenocarcinoma: Tubular Adenocarcinoma
-  Undifferentiated leukaemia: Undifferentiated Leukaemia
+  Undifferentiated leukaemia: Undifferentiated Leukemia
   Undifferentiated sarcoma: Undifferentiated Sarcoma
   Undifferentiated small round cell sarcoma: Undifferentiated Small Round Cell Sarcoma
   Yolk sac tumor: Yolk Sac Tumor
