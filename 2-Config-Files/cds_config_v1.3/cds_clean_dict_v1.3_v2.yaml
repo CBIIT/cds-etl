@@ -22,7 +22,6 @@ instrument_model:
   Illumina NextSeq: Illumina NextSeq
   HiSeq: Illumina HiSeq
   HiSeq X Ten: Illumina HiSeq X Ten
-  #Not Applicable: Not Reported
   Illumina Next Seq 550: Illumina NextSeq 550
   NextSeq 500 Illumina: Illumina NextSeq 5000
   unknown: Unknown
